@@ -226,7 +226,7 @@ footer.band > *{position:relative;z-index:2}
 }
 @media (max-width:420px){
   .hdcta{display:none}
-  header .signin{display:block;font-size:12px!important}
+  header .signin{display:block;font-size:12px!important;white-space:nowrap}
 }
 
 /* ---- light gradient hero (homepage) ---- */
@@ -297,8 +297,9 @@ footer.dark a:hover,footer.band a:hover,footer .nav-a:hover,footer .nl:hover{col
 footer .lbl-d{color:rgba(31,36,80,.68)!important}
 footer [style*="border-top:1px solid"]{border-color:rgba(31,36,80,.12)!important}
 header.band,header:has(.nav){background:rgba(251,252,255,.92)!important;border-bottom:1px solid rgba(31,36,80,.12)!important}
-header .nl,header .nav-a{color:rgba(31,36,80,.72)!important}
-header .nl:hover,header .nl.on,header .nav-a:hover,header .nav-a.on{color:#1f2450!important}
+header .nl,header .nav-a{color:rgba(31,36,80,.92)!important;font-weight:400!important}
+header .nl:hover,header .nl.on,header .nav-a:hover,header .nav-a.on{color:#5558dd!important}
+header .chitem{font-weight:400!important}
 header a[style*="color:#f4f3fd"],header a[style*="color:#eef3ff"]{color:#1f2450!important}
 header .btn-l,header .sm{background:#5558dd!important;border-color:#5558dd!important;color:#fff!important}
 .burger{border-color:rgba(31,36,80,.28)!important}
@@ -583,3 +584,14 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
 .hero > .heropill{animation:fadeIn .9s var(--ease) .2s both}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @media (max-width:1100px){.hero > .heropill{display:none}}
+
+/* section eyebrow pills: calmer sibling of the hero pill (static border, no sheen) */
+.eyebrow,.hero-in .eyebrow,.hero-in > .eyebrow{position:relative;display:inline-flex;align-items:center;gap:10px;width:auto;padding:8px 18px 8px 14px!important;border:0!important;border-radius:999px!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(244,243,253,.55))!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 8px 22px -12px rgba(85,88,221,.32),0 2px 5px -2px rgba(31,36,80,.07);
+  font:500 11.5px var(--mono,"JetBrains Mono",monospace)!important;letter-spacing:.18em!important;text-transform:uppercase!important;color:#1f2450!important;white-space:nowrap}
+.eyebrow:before,.hero-in .eyebrow:before,.hero-in > .eyebrow:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(100deg,rgba(85,88,221,.7),rgba(196,198,251,.45) 50%,rgba(85,88,221,.7));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.eyebrow:after,.hero-in .eyebrow:after,.hero-in > .eyebrow:after{content:"";order:-1;flex:none;width:6px;height:6px;border-radius:50%;background:#5558dd;box-shadow:0 0 0 3px rgba(85,88,221,.14)}
+@media (max-width:480px){.eyebrow,.hero-in .eyebrow,.hero-in > .eyebrow{font-size:10.5px!important;letter-spacing:.14em!important;padding:7px 15px 7px 12px!important}}

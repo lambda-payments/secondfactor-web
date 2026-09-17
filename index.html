@@ -50,6 +50,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(43,47,120,.9);backdrop-f
 .brand-mk img{width:30px;height:30px}
 .brand-tx{font-size:21px;line-height:1}
 @media (max-width:480px){.brand-mk{width:28px;height:28px}.brand-mk img{width:26px;height:26px}.brand-tx{font-size:18px}}
+@media (max-width:360px){.brand{gap:8px!important}.brand-mk{width:24px;height:24px}.brand-mk img{width:22px;height:22px}.brand-tx{font-size:16px}}
 .nl{font:400 12.5px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(244,243,253,.82);transition:color .25s}
 .nl:hover,.nl.on{color:#fff}
 .chdd{position:relative}
@@ -182,13 +183,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .navlinks .chmenu{position:static!important;display:flex!important;flex-direction:column;opacity:1!important;visibility:visible!important;transform:none!important;border:0!important;background:none!important;box-shadow:none!important;min-width:0;padding:0 0 8px 14px!important}
   .navlinks .chitem{padding:11px 0!important;border-bottom:0!important;font-size:13px!important}
   header .signin{display:none}
-  .hdcta{padding:10px 16px!important;font-size:11px!important;white-space:nowrap}
+  .hdcta{padding:10px 16px!important;font-size:11px!important;white-space:nowrap;width:auto!important;flex:none}
+  .burger{flex:none}
   header{position:relative}
   header.band,header:has(.nav){position:sticky}
 }
 @media (max-width:420px){
   .hdcta{display:none}
-  header .signin{display:block;font-size:12px!important}
+  header .signin{display:block;font-size:12px!important;white-space:nowrap}
 }
 
 /* ---- light gradient hero (homepage) ---- */
@@ -259,8 +261,9 @@ footer.dark a:hover,footer.band a:hover,footer .nav-a:hover,footer .nl:hover{col
 footer .lbl-d{color:rgba(31,36,80,.68)!important}
 footer [style*="border-top:1px solid"]{border-color:rgba(31,36,80,.12)!important}
 header.band,header:has(.nav){background:rgba(251,252,255,.92)!important;border-bottom:1px solid rgba(31,36,80,.12)!important}
-header .nl,header .nav-a{color:rgba(31,36,80,.72)!important}
-header .nl:hover,header .nl.on,header .nav-a:hover,header .nav-a.on{color:#1f2450!important}
+header .nl,header .nav-a{color:rgba(31,36,80,.92)!important;font-weight:400!important}
+header .nl:hover,header .nl.on,header .nav-a:hover,header .nav-a.on{color:#5558dd!important}
+header .chitem{font-weight:400!important}
 header a[style*="color:#f4f3fd"],header a[style*="color:#eef3ff"]{color:#1f2450!important}
 header .btn-l,header .sm{background:#5558dd!important;border-color:#5558dd!important;color:#fff!important}
 .burger{border-color:rgba(31,36,80,.28)!important}
@@ -556,20 +559,40 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
 
 .crd > span.sm,.cell > span.sm,span.sm{align-self:flex-start;width:auto}
 
-/* hero eyebrow as a pill badge */
-.heropill{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border:1px solid rgba(85,88,221,.3);background:rgba(255,255,255,.55);
-  font:400 11.5px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(31,36,80,.76)}
-.heropill i{width:6px;height:6px;border-radius:50%;background:#5558dd;animation:dotPulse 1.8s ease-in-out infinite}
-@keyframes dotPulse{0%,100%{opacity:.5}50%{opacity:1}}
+/* section eyebrow pills: calmer sibling of the hero pill (static border, no sheen) */
+.secpill{position:relative;display:inline-flex;align-items:center;gap:10px;width:auto;padding:8px 18px 8px 14px;border:0;border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(244,243,253,.55));
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 8px 22px -12px rgba(85,88,221,.32),0 2px 5px -2px rgba(31,36,80,.07);
+  font:500 11.5px var(--mono,"JetBrains Mono",monospace);letter-spacing:.18em;text-transform:uppercase;color:#1f2450;white-space:nowrap}
+.secpill:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(100deg,rgba(85,88,221,.7),rgba(196,198,251,.45) 50%,rgba(85,88,221,.7));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.secpill:after{content:"";order:-1;flex:none;width:6px;height:6px;border-radius:50%;background:#5558dd;box-shadow:0 0 0 3px rgba(85,88,221,.14)}
+.cell > .secpill{align-self:flex-start}
+@media (max-width:480px){.secpill{font-size:10.5px;letter-spacing:.14em;padding:7px 15px 7px 12px}}
 
-/* hero badge anchored top-left of the band */
-.hero > .heropill{position:absolute;left:clamp(10px,2vw,34px);top:34%;transform-origin:left center;transform:rotate(-90deg) translate(-50%,-50%);z-index:3;border:0!important;background:none!important;padding:0!important;gap:12px;font-size:10.5px!important;letter-spacing:.3em!important;color:rgba(31,36,80,.55)!important;white-space:nowrap}
-.hero > .heropill:after{content:"";width:clamp(30px,5vw,70px);height:1px;background:linear-gradient(90deg,rgba(85,88,221,.5),transparent)}
-@media (max-width:900px){.hero > .heropill{display:none}}
-
-.hero > .heropill{animation:fadeIn .9s var(--ease) .2s both}
+/* hero eyebrow: glass capsule with a slow-moving gradient hairline border */
+.heropill{position:relative;display:inline-flex;align-items:center;gap:11px;padding:9px 20px 9px 16px;border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(244,243,253,.6));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 10px 30px -12px rgba(85,88,221,.38),0 2px 6px -2px rgba(31,36,80,.08);
+  font:500 clamp(11.5px,.9vw,13px) var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#1f2450;white-space:nowrap;
+  animation:fadeIn .9s var(--ease) .2s both}
+.heropill:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(100deg,rgba(85,88,221,.22),rgba(85,88,221,.85) 30%,rgba(196,198,251,.5) 50%,rgba(85,88,221,.85) 70%,rgba(85,88,221,.22)) 0 0/220% 100%;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  animation:hpSheen 7s linear infinite}
+.heropill .hp-t{display:inline-flex;align-items:center;gap:11px}
+.heropill .hp-t b{font-weight:500;color:#5558dd;margin-right:-.2em}
+.heropill i{position:relative;flex:none;width:7px;height:7px;border-radius:50%;background:#5558dd;box-shadow:0 0 0 3px rgba(85,88,221,.14)}
+.heropill i:after{content:"";position:absolute;inset:0;border-radius:50%;background:#5558dd;animation:hpPing 2.4s cubic-bezier(0,0,.2,1) infinite}
+@keyframes hpSheen{to{background-position:-220% 0}}
+@keyframes hpPing{0%{transform:scale(1);opacity:.55}70%,100%{transform:scale(3.2);opacity:0}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@media (max-width:1100px){.hero > .heropill{display:none}}
+@media (max-width:480px){.heropill{font-size:10.5px;letter-spacing:.14em;padding:8px 16px 8px 13px;gap:9px}.heropill .hp-t{gap:9px}.heropill .hp-t b{margin-right:-.14em}}
+@media (max-width:360px){.heropill{font-size:10px;letter-spacing:.08em;padding:7px 13px 7px 11px}.heropill .hp-t b{margin-right:-.08em}}
+
+/* hero lead paragraph: heavier + darker so it holds up over the ring artwork */
+.hero .copy .p-d{font-weight:400!important;font-size:clamp(16.5px,1.25vw,19.5px)!important;line-height:1.65!important;color:rgba(31,36,80,.92)!important}
 </style>
 </head>
 <body>
@@ -603,7 +626,6 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
 <main>
   <!-- HERO -->
   <section class="hero">
-    <span class="heropill"><i></i>OTP delivery &amp; verification API</span>
     <div class="glow"></div>
     <div class="arc"></div>
       <div class="arc2"></div>
@@ -616,6 +638,7 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
     <div class="grain"></div>
 
     <div class="copy" style="position:relative;z-index:2;max-width:min(1200px,90vw)">
+      <span class="heropill"><span class="hp-t"><i></i>OTP delivery &amp; verification <b>API</b></span></span>
       <h1 class="h1" style="margin:clamp(22px,2.6vw,38px) 0 0">
         <span class="wordline"><span style="animation-delay:.12s">Stronger Authentication</span></span>
         <span class="wordline"><span style="animation-delay:.24s">for <span style="color:#5558dd">a Safer World</span></span></span>
@@ -640,7 +663,7 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
   <!-- ENGINE -->
   <section class="sec">
     <div class="rv" style="max-width:66ch">
-      <span class="lbl">Price intelligence engine</span>
+      <span class="secpill">Price intelligence engine</span>
       <h2 class="h2" style="margin:18px 0 16px">Lower your OTP delivery costs with automatic routing</h2>
       <p class="p">SecondFactor selects the lowest-cost eligible route for each request and handles fallback as your app reaches users across different markets.</p>
     </div>
@@ -657,7 +680,7 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
   <!-- TWO API CALLS -->
   <section class="dark" style="border-top:1px solid rgba(31,36,80,.1)">
     <div class="sec">
-      <span class="lbl-d rv">Integration</span>
+      <span class="secpill rv">Integration</span>
       <h2 class="h2 rv rv2" style="margin:18px 0 16px;max-width:22ch">Two API calls. Every channel.</h2>
       <p class="p-d rv rv2" style="margin:0 0 clamp(34px,4vw,54px);max-width:56ch">Let SecondFactor generate, send and verify your codes while your application handles the signup or login experience.</p>
       <div class="rv rv3 steps" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(18px,2vw,28px);max-width:900px;position:relative">
@@ -691,7 +714,7 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
 
   <!-- CHANNELS -->
   <section class="sec">
-    <div class="rv" style="max-width:62ch;margin:0 auto;text-align:center"><span class="lbl">Channels</span>
+    <div class="rv" style="max-width:62ch;margin:0 auto;text-align:center"><span class="secpill">Channels</span>
       <h2 class="h2" style="margin:18px 0 16px">Connect your OTP channels through one API</h2>
       <p class="p">Enable the channels you need and let SecondFactor manage delivery without separate integrations in your application.</p>
     </div>
@@ -743,7 +766,7 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
   <section class="sec" style="padding-top:0">
     <div class="grid g2 rv" style="grid-template-columns:repeat(2,minmax(0,1fr))">
       <div class="cell" style="padding:clamp(28px,3vw,44px)">
-        <span class="lbl">PIE Playground</span>
+        <span class="secpill">PIE Playground</span>
         <h3 class="h2" style="font-size:clamp(24px,2.4vw,34px);margin:16px 0 14px;max-width:20ch">Test OTP delivery before you integrate</h3>
         <p class="s" style="margin-bottom:28px;max-width:44ch">Use your free credits in the PIE Playground to send a real OTP, inspect the selected route and verify the code you receive.</p>
         <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="btn">Open the playground <span class="ar">&rarr;</span></a>
@@ -772,7 +795,7 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
   <!-- TESTIMONIALS -->
   <section class="sec" style="text-align:center">
     <div class="rv">
-      <span class="lbl">Clients</span>
+      <span class="secpill">Clients</span>
       <h2 class="h2" style="margin:18px auto 12px">Testimonials</h2>
       <p class="p" style="margin:0 auto">See what teams building with SecondFactor say.</p>
     </div>
@@ -808,7 +831,7 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
 
   <!-- FAQ -->
   <section class="sec" style="padding-top:0">
-    <div class="rv" style="text-align:left"><span class="lbl">FAQ</span>
+    <div class="rv" style="text-align:left"><span class="secpill">FAQ</span>
       <h2 class="h2" style="margin:18px 0 12px">Frequently asked questions</h2>
       <p class="s" style="margin:0 0 30px">Something not covered? Write to <a href="mailto:support@secondfactor.ai">support@secondfactor.ai</a>.</p>
     </div>
@@ -832,7 +855,7 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
     <div class="halo" style="top:108%"><i></i><i></i><i></i></div>
     <div class="motes"><i></i><i></i><i></i><i></i></div>
     <div class="sec" style="position:relative">
-      <span class="lbl-d rv">Get started</span>
+      <span class="secpill rv">Get started</span>
       <h2 class="h1 rv rv2" style="font-size:clamp(32px,4.6vw,66px);margin:20px auto 18px;max-width:22ch">Send your first OTP with SecondFactor</h2>
       <p class="p-d rv rv3" style="margin:0 auto 34px;max-width:54ch">Start testing with free credits, or talk to our team about pricing for your destination markets and expected volume.</p>
       <div class="rv rv4" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
@@ -852,7 +875,7 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
     </div>
     <div><div style="display:flex;flex-direction:column;gap:11px"><a href="index.html" class="nl">Home</a><a href="channels.html" class="nl">Channels</a><a href="pricing.html" class="nl">Pricing</a></div></div>
     <div><div style="display:flex;flex-direction:column;gap:11px"><a href="sms.html" class="nl">SMS</a><a href="whatsapp.html" class="nl">WhatsApp</a><a href="viber.html" class="nl">Viber</a><a href="rcs.html" class="nl">RCS</a></div></div>
-    <div><div style="display:flex;flex-direction:column;gap:11px"><a href="support.html" class="nl">Support</a><a href="docs/privacy-policy.pdf" target="_blank" rel="noopener" class="nl">Privacy policy</a><a href="docs/terms-and-conditions.pdf" target="_blank" rel="noopener" class="nl">Terms and Conditions</a>
+    <div><div style="display:flex;flex-direction:column;gap:11px"><a href="support.html" class="nl">Support</a><a href="privacy.html" class="nl">Privacy policy</a><a href="terms.html" class="nl">Terms and Conditions</a>
 <a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nl" aria-label="SecondFactor.ai on LinkedIn" style="display:inline-flex;width:17px"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor" style="display:block"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z"></path></svg></a></div></div>
   </div>
   <div class="lbl-d" style="max-width:min(1640px,94vw);margin:0 auto;padding:18px clamp(20px,4vw,80px) clamp(34px,3vw,46px);border-top:1px solid rgba(244,243,253,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between">
