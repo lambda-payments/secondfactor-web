@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SecondFactor.ai — OTP delivery &amp; verification API</title>
+<meta name="description" content="Send and verify OTPs through the lowest-cost eligible channel across SMS, WhatsApp, Viber and RCS with one API.">
+<link rel="icon" href="assets/mark-v4.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pap:#f7f6fd;--pap2:#eae9fa;--ink:#2b2f78;--fg:#1f2450;
+  --mut:rgba(31,36,80,.76);--mut2:rgba(31,36,80,.72);
+  --ac:#5558dd;--ac2:#8285f2;--ac3:#c4c6fb;--brd:rgba(31,36,80,.14);
+  --disp:Sora,system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--pap);color:var(--fg);font-family:var(--disp);-webkit-font-smoothing:antialiased}
+a{color:var(--ac);text-decoration:none}a:hover{color:#2a2d6b}
+img{max-width:100%}
+.mono{font-family:var(--mono)}
+.lbl{font:400 11.5px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mut2)}
+.lbl-d{font:400 11.5px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:rgba(244,243,253,.84)}
+.h1{font:200 clamp(40px,6vw,92px)/1.02 var(--disp);letter-spacing:-.03em;margin:0}
+.h2{font:300 clamp(28px,3.5vw,48px)/1.1 var(--disp);letter-spacing:-.025em;margin:0}
+.h3{font:400 19px var(--disp);letter-spacing:-.01em;margin:0 0 10px}
+.p{font:300 clamp(15.5px,1.1vw,18px)/1.7 var(--disp);color:var(--mut);margin:0}
+.p-d{font:300 clamp(15.5px,1.1vw,18px)/1.7 var(--disp);color:rgba(244,243,253,.85);margin:0}
+.s{font:300 14.5px/1.7 var(--disp);color:var(--mut);margin:0}
+.s-d{font:300 14.5px/1.7 var(--disp);color:rgba(244,243,253,.8);margin:0}
+.sec{padding:clamp(64px,7vw,116px) clamp(20px,4vw,80px);max-width:min(1640px,94vw);margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:10px;font:400 13px var(--mono);letter-spacing:.16em;text-transform:uppercase;padding:16px 28px;border:1px solid var(--ac);background:var(--ac);color:#fff;cursor:pointer;transition:background .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)}
+.btn:hover{background:#2a2d6b;border-color:#2a2d6b;color:#fff;transform:translateY(-2px)}
+.btn-g{background:transparent;color:var(--fg);border-color:var(--brd)}
+.btn-g:hover{background:transparent;color:var(--ac);border-color:var(--ac);transform:translateY(-2px)}
+.btn-l{background:#fff;border-color:#fff;color:var(--ink)}
+.btn-l:hover{background:var(--ac3);border-color:var(--ac3);color:var(--ink)}
+.btn-o{background:transparent;border-color:rgba(244,243,253,.3);color:#f4f3fd}
+.btn-o:hover{background:transparent;border-color:#f4f3fd;color:#fff}
+.btn span.ar{transition:transform .3s var(--ease)}
+.btn:hover span.ar{transform:translateX(4px)}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:60;background:rgba(43,47,120,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(244,243,253,.12);color:#f4f3fd}
+.nav{display:flex;align-items:center;gap:30px;flex-wrap:wrap;max-width:min(1640px,94vw);margin:0 auto;padding:16px clamp(20px,4vw,80px)}
+.nl{font:400 12.5px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(244,243,253,.82);transition:color .25s}
+.nl:hover,.nl.on{color:#fff}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--ink);color:#f4f3fd;min-height:clamp(620px,88svh,980px);display:grid;place-items:center;text-align:center;padding:clamp(70px,9vw,130px) clamp(20px,5vw,56px)}
+.hero > .glow,.hero > .arc,.hero > .arc2,.hero > .arc3,.hero > .orbit,.hero > .motes,.hero > .halo,.hero > .grain{z-index:0}
+.hero > div.sec,.hero > div.copy{position:relative;z-index:2}
+section.dark > .glow,section.dark > .arc,section.dark > .arc3,section.dark > .orbit,section.dark > .halo,section.dark > .motes{z-index:0}
+section.dark > .sec{position:relative;z-index:2}
+.halo{position:absolute;left:50%;top:50%;width:clamp(360px,72vmin,900px);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none}
+.halo i{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(196,198,251,.16)}
+.halo i:nth-child(1){animation:breathe 7s ease-in-out infinite,drift 19s ease-in-out infinite}
+.halo i:nth-child(2){inset:14%;border-color:rgba(196,198,251,.2);animation:breathe 7s ease-in-out infinite .9s,drift 23s ease-in-out infinite reverse}
+.halo i:nth-child(3){inset:28%;border-color:rgba(196,198,251,.14);animation:breathe 7s ease-in-out infinite 1.8s,drift 29s ease-in-out infinite 1.2s}
+.arc2{position:absolute;left:50%;top:50%;width:clamp(300px,58vmin,760px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  background:conic-gradient(from 20deg,transparent 0deg,rgba(130,133,242,.34) 40deg,transparent 120deg);
+  mask:radial-gradient(circle,transparent 62%,#000 63%,#000 64.5%,transparent 65.5%);
+  -webkit-mask:radial-gradient(circle,transparent 62%,#000 63%,#000 64.5%,transparent 65.5%);
+  animation:spin 34s linear infinite reverse;opacity:.75}
+.orbit{position:absolute;left:50%;top:50%;width:clamp(720px,78vmax,1180px);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;animation:spin 18s linear infinite}
+.orbit b{position:absolute;left:50%;top:0;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:rgba(196,198,251,.95);box-shadow:0 0 16px 4px rgba(196,198,251,.45)}
+.orbit.slow{width:clamp(880px,92vmax,1420px);animation-duration:27s;animation-direction:reverse}
+.orbit.slow b{width:5px;height:5px;margin-left:-2.5px;background:rgba(244,243,253,.8);box-shadow:0 0 12px 3px rgba(130,133,242,.4)}
+.arc3{position:absolute;left:50%;top:50%;width:clamp(500px,100vmin,1280px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  background:conic-gradient(from 300deg,transparent 0deg,rgba(196,198,251,.22) 30deg,transparent 90deg);
+  mask:radial-gradient(circle,transparent 63%,#000 64%,#000 65%,transparent 66%);
+  -webkit-mask:radial-gradient(circle,transparent 63%,#000 64%,#000 65%,transparent 66%);
+  animation:spin 46s linear infinite;opacity:.6}
+.orbit.wide{width:clamp(1040px,108vmax,1660px);animation-duration:38s}
+.orbit.wide b{width:4px;height:4px;margin-left:-2px;background:rgba(196,198,251,.75);box-shadow:0 0 10px 3px rgba(196,198,251,.3)}
+.motes{position:absolute;inset:0;pointer-events:none}
+.motes i{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(196,198,251,.6);animation:moteRise 14s linear infinite}
+.motes i:nth-child(1){left:18%;top:78%;animation-duration:15s}
+.motes i:nth-child(2){left:31%;top:88%;animation-duration:19s;animation-delay:2s;width:2px;height:2px}
+.motes i:nth-child(3){left:52%;top:92%;animation-duration:17s;animation-delay:5s}
+.motes i:nth-child(4){left:68%;top:82%;animation-duration:21s;animation-delay:1s;width:2px;height:2px}
+.motes i:nth-child(5){left:81%;top:90%;animation-duration:16s;animation-delay:7s}
+.motes i:nth-child(6){left:44%;top:74%;animation-duration:23s;animation-delay:9s;width:2px;height:2px}
+.grain{animation:grainDrift 30s ease-in-out infinite}
+.arc{position:absolute;left:50%;top:50%;width:clamp(400px,80vmin,1000px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  background:conic-gradient(from 200deg,transparent 0deg,rgba(196,198,251,.42) 55deg,rgba(130,133,242,.16) 110deg,transparent 170deg);
+  mask:radial-gradient(circle,transparent 60%,#000 61%,#000 63%,transparent 64%);
+  -webkit-mask:radial-gradient(circle,transparent 60%,#000 61%,#000 63%,transparent 64%);
+  animation:spin 26s linear infinite;opacity:.9}
+.glow{position:absolute;left:50%;top:50%;width:clamp(380px,78vmin,1000px);height:clamp(300px,64vmin,820px);transform:translate(-50%,-50%);pointer-events:none;
+  background:radial-gradient(50% 50% at 50% 50%,rgba(130,133,242,.26),transparent 70%);filter:blur(10px);animation:pulseG 6s ease-in-out infinite}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(244,243,253,.10) 1px,transparent 1px);background-size:24px 24px;
+  mask:radial-gradient(circle at 50% 50%,#000,transparent 75%);-webkit-mask:radial-gradient(circle at 50% 50%,#000,transparent 75%)}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.045);opacity:1}}
+@keyframes pulseG{0%,100%{opacity:.55;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.06)}}
+@keyframes drift{0%,100%{margin-left:0;margin-top:0}33%{margin-left:2.2%;margin-top:-1.6%}66%{margin-left:-1.8%;margin-top:1.9%}}
+@keyframes moteRise{0%{transform:translateY(0);opacity:0}12%{opacity:.75}88%{opacity:.4}100%{transform:translateY(-58vh);opacity:0}}
+@keyframes grainDrift{0%,100%{background-position:0 0}50%{background-position:14px 10px}}
+.wordline{display:block;overflow:hidden}
+.wordline > span{display:inline-block;transform:translateY(105%);animation:rise .95s var(--ease) forwards}
+@keyframes rise{to{transform:none}}
+.up{opacity:0;transform:translateY(14px);animation:up .8s var(--ease) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:9px}
+.cue b{width:1px;height:44px;background:linear-gradient(to bottom,rgba(196,198,251,.9),transparent);animation:drop 2.4s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(.2);transform-origin:top;opacity:.2}50%{transform:scaleY(1);opacity:1}100%{transform:scaleY(.2);opacity:.2}}
+.otpb{width:34px;height:44px;border:1px solid rgba(244,243,253,.28);display:grid;place-items:center;font:400 18px var(--mono);color:#fff!important;background:rgba(244,243,253,.06)}
+.nl,.nav > a{font-family:var(--disp)!important;font-weight:300!important;font-size:14.5px!important;letter-spacing:.01em!important;text-transform:none!important}
+
+/* ---------- marquee ---------- */
+.mq{border-top:1px solid rgba(244,243,253,.12);border-bottom:1px solid rgba(244,243,253,.12);background:var(--ink);overflow:hidden;padding:15px 0}
+.mq div{display:flex;gap:46px;width:max-content;animation:slide 26s linear infinite}
+.mq span{font:400 12.5px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:rgba(244,243,253,.8);display:flex;align-items:center;gap:46px}
+.mq span:after{content:"";width:5px;height:5px;background:var(--ac3);border-radius:50%;opacity:.7}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv2{transition-delay:.1s}.rv3{transition-delay:.2s}.rv4{transition-delay:.3s}
+
+/* ---------- cards ---------- */
+.grid{display:grid;gap:1px;background:var(--brd);border:1px solid var(--brd)}
+.cell{background:#fff;padding:clamp(24px,2.3vw,36px);position:relative;overflow:hidden;display:flex;flex-direction:column}
+.cell > .lbl:last-child{margin-top:auto}
+.cell .btn{align-self:flex-start}
+.cell > .btn:last-child,.cell > a:last-child{margin-top:auto}
+.cell p{margin-bottom:22px}
+.cell:before{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.cell:hover:before{transform:scaleX(1)}
+.panel{background:#fff;border:1px solid var(--brd);padding:clamp(24px,2.3vw,36px)}
+.prow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--brd)}
+.st{font:400 11px var(--mono);letter-spacing:.14em;color:var(--ac);border:1px solid rgba(85,88,221,.3);padding:5px 10px}
+.num{font:200 clamp(34px,4vw,54px) var(--disp);letter-spacing:-.03em;color:var(--fg)}
+.q{border-top:1px solid var(--brd);padding:22px 0}
+.q summary{list-style:none;cursor:pointer;font:400 17px var(--disp);display:flex;justify-content:space-between;gap:24px;align-items:baseline}
+.q summary::-webkit-details-marker{display:none}
+.q summary i{font-family:var(--mono);color:var(--ac);font-style:normal;transition:transform .3s var(--ease)}
+.q[open] summary i{transform:rotate(45deg)}
+.q p{font:300 15px/1.75 var(--disp);color:var(--mut);margin:14px 0 0;max-width:74ch}
+.flow{stroke-dasharray:12 9;animation:dash 2.6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-210}}
+.dark{background:var(--ink);color:#f4f3fd}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--ac2);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.wordline > span{transform:none}}
+@media (max-width:1040px){.nav{gap:16px;row-gap:10px}.nav nav{order:3;width:100%;gap:18px!important}.nav > a.btn{order:2}}
+@media (max-width:900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:560px){.g4,.g2{grid-template-columns:minmax(0,1fr)!important}}
+@media (max-width:720px){.sec{padding:52px 20px!important}.btn{width:100%;justify-content:center}.hero{min-height:auto;padding-top:72px;padding-bottom:72px}.prow{flex-wrap:wrap;gap:6px}}
+
+/* ---- mobile header / drawer ---- */
+.burger{display:none;width:44px;height:44px;background:none;border:1px solid rgba(244,243,253,.28);padding:0;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{display:block;width:18px;height:1px;background:#f4f3fd;transition:transform .3s ease,opacity .2s ease}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:860px){
+  header .hd,header .nav{flex-wrap:nowrap!important;gap:12px!important;padding:12px 20px!important}
+  header .hd > a:first-child,header .nav > a:first-child{margin-right:auto!important}
+  .burger{display:flex;order:9}
+  .navlinks{display:none!important;position:absolute;left:0;right:0;top:100%;flex-direction:column!important;gap:0!important;background:var(--ink);border-top:1px solid rgba(244,243,253,.14);padding:8px 20px 18px}
+  .navlinks.open{display:flex!important}
+  .navlinks > a,.navlinks .chdd > a{display:block;padding:14px 0;border-bottom:1px solid rgba(244,243,253,.1);font-size:15px!important}
+  .navlinks .chdd{display:block;position:static}
+  .navlinks .chmenu{position:static!important;display:flex!important;flex-direction:column;opacity:1!important;visibility:visible!important;transform:none!important;border:0!important;background:none!important;padding:0 0 8px 14px!important}
+  .navlinks .chitem{padding:11px 0!important;border-bottom:0!important;font-size:13px!important}
+  header .signin{display:none}
+  .hdcta{padding:10px 16px!important;font-size:11px!important;white-space:nowrap}
+  header{position:relative}
+  header.band,header:has(.nav){position:sticky}
+}
+@media (max-width:420px){
+  .hdcta{display:none}
+  header .signin{display:block;font-size:12px!important}
+}
+
+/* ---- light gradient hero (homepage) ---- */
+.hero{background:linear-gradient(165deg,#fbfbfd 0%,#eef1f7 48%,#e4e9f3 100%)!important;color:#1d2230!important}
+.hero .h1{color:#1d2230!important}
+.hero .p-d,.hero p{color:rgba(29,34,48,.74)!important}
+.hero .lbl-d{color:rgba(29,34,48,.7)!important}
+.hero .up.mono,.hero .up.mono span,.hero .up[style*="var(--disp)"],.hero .up[style*="var(--disp)"] span{color:rgba(31,36,80,.7)!important}
+.hero .otpb{border-color:rgba(29,34,48,.2)!important;background:rgba(255,255,255,.7)!important;color:#1d2230!important}
+.hero .btn-l{background:#5558dd!important;border-color:#5558dd!important;color:#fff!important}
+.hero .btn-l:hover{background:#4143c4!important;border-color:#4143c4!important}
+.hero .btn-o{border-color:rgba(29,34,48,.28)!important;color:#1d2230!important;background:transparent!important}
+.hero .btn-o:hover{border-color:#5558dd!important;color:#5558dd!important}
+.hero .wordline span span{color:#5558dd!important}
+.hero .halo i{border-color:rgba(85,88,221,.16)!important}
+.hero .arc,.hero .arc2,.hero .arc3{background:conic-gradient(from 200deg,transparent 0deg,rgba(85,88,221,.22) 55deg,rgba(85,88,221,.08) 110deg,transparent 170deg)!important;opacity:.7!important}
+.hero .glow{background:radial-gradient(50% 50% at 50% 50%,rgba(85,88,221,.14),transparent 70%)!important}
+.hero .orbit b{background:#5558dd!important;box-shadow:0 0 14px 4px rgba(85,88,221,.28)!important}
+.hero .motes i{background:rgba(85,88,221,.45)!important}
+.hero .grain{background-image:radial-gradient(rgba(29,34,48,.08) 1px,transparent 1px)!important}
+.hero .cue b{background:linear-gradient(to bottom,rgba(85,88,221,.6),transparent)!important}
+
+/* ---- light gradient hero bands (inner pages) ---- */
+.hero-in{background:linear-gradient(165deg,#fbfbfd 0%,#eef1f7 48%,#e4e9f3 100%)!important;color:#1d2230!important}
+.hero-in h1,.hero-in h2{color:#1d2230!important}
+.hero-in p{color:rgba(29,34,48,.74)!important}
+.hero-in .lbl-d,.hero-in .eyebrow{color:rgba(29,34,48,.66)!important;border-color:rgba(29,34,48,.2)!important;background:rgba(255,255,255,.5)!important}
+.hero-in a{color:rgba(29,34,48,.78)}
+.hero-in .pill-p{background:#5558dd!important;border-color:#5558dd!important;color:#fff!important}
+.hero-in .pill-p:hover{background:#4143c4!important;border-color:#4143c4!important;color:#fff!important}
+.hero-in .pill-s,.hero-in a[href*="pricing"]{background:transparent!important;border-color:rgba(29,34,48,.28)!important;color:#1d2230!important}
+.hero-in .pill-s:hover{border-color:#5558dd!important;color:#5558dd!important}
+.hero-in:before{background:conic-gradient(from 200deg,transparent 0deg,rgba(85,88,221,.2) 55deg,rgba(85,88,221,.07) 110deg,transparent 170deg)!important}
+.hero-in:after{background:radial-gradient(50% 50% at 50% 50%,rgba(85,88,221,.12),transparent 70%)!important}
+.hero-in > .arcb,.hero-in > .arcw{background:conic-gradient(from 20deg,transparent 0deg,rgba(85,88,221,.18) 40deg,transparent 120deg)!important}
+.hero-in > .orb b{background:#5558dd!important;box-shadow:0 0 14px 4px rgba(85,88,221,.26)!important}
+.hero-in > .motes i{background:rgba(85,88,221,.4)!important}
+
+/* ---- blue gradient grounds ---- */
+body{background:linear-gradient(180deg,#fbfcff 0%,#f4f7fd 40%,#efeefc 100%)!important;background-attachment:fixed!important}
+section.dark,section.band,footer.dark,footer.band{background:linear-gradient(160deg,#28376d 0%,#2b2f78 55%,#1b2650 100%)!important}
+header.band,header:has(.nav){background:rgba(43,47,120,.9)!important}
+.cell,.panel,.crd,.sfd{background:rgba(255,255,255,.92)!important}
+.pill-p,.btn-l{background:#5558dd!important;border-color:#5558dd!important;color:#fff!important}
+.pill-p:hover,.btn-l:hover{background:#4143c4!important;border-color:#4143c4!important;color:#fff!important}
+.hero-in .pill-p,.hero .btn-l{background:#5558dd!important;border-color:#5558dd!important;color:#fff!important}
+
+/* ---- light gradient everywhere (dark bands converted) ---- */
+section.dark,section.band,footer.dark,footer.band{background:linear-gradient(165deg,#fbfcff 0%,#f0effa 50%,#e4eaf6 100%)!important;color:#1f2450!important;border-color:rgba(31,36,80,.12)!important}
+section.dark h1,section.dark h2,section.dark h3,section.band h1,section.band h2,section.band h3,footer.dark span,footer.band span{color:#1f2450!important}
+section.dark .num,section.band .num{color:#1f2450!important}
+section.dark p,section.band p,footer.dark p,footer.band p,.p-d,.s-d{color:rgba(31,36,80,.76)!important}
+.lbl-d{color:rgba(31,36,80,.68)!important}
+section.dark .btn-l,section.band .pill-p,footer .btn-l{background:#5558dd!important;border-color:#5558dd!important;color:#fff!important}
+section.dark .btn-o,section.band .pill-s{border-color:rgba(31,36,80,.28)!important;color:#1f2450!important;background:transparent!important}
+section.dark .btn-o:hover,section.band .pill-s:hover{border-color:#5558dd!important;color:#5558dd!important}
+section.dark [style*="border:1px solid rgba(242,246,253"],section.band [style*="border:1px solid rgba(242,246,253"]{border-color:rgba(31,36,80,.14)!important;background:rgba(255,255,255,.75)!important}
+section.dark .mono,section.band .mono{color:rgba(31,36,80,.76)!important}
+section.dark:before,section.band:before,footer.dark:before,footer.band:before{background:conic-gradient(from 210deg,transparent 0deg,rgba(85,88,221,.2) 48deg,rgba(85,88,221,.07) 105deg,transparent 165deg)!important}
+section.dark:after,section.band:after,footer.dark:after,footer.band:after{background:radial-gradient(50% 50% at 50% 50%,rgba(85,88,221,.12),transparent 70%)!important}
+section.dark .glow,section.band .glow{background:radial-gradient(50% 50% at 50% 50%,rgba(85,88,221,.14),transparent 70%)!important}
+section.dark .arc,section.dark .arc3,section.band .arc{background:conic-gradient(from 200deg,transparent 0deg,rgba(85,88,221,.2) 55deg,rgba(85,88,221,.07) 110deg,transparent 170deg)!important}
+section.dark .halo i{border-color:rgba(85,88,221,.16)!important}
+section.dark .orbit b,section.band .ringdot b{background:#5558dd!important;box-shadow:0 0 14px 4px rgba(85,88,221,.26)!important}
+section.dark .motes i{background:rgba(85,88,221,.4)!important}
+footer.dark a,footer.band a,footer .nav-a,footer .nl{color:rgba(31,36,80,.78)!important}
+footer.dark a:hover,footer.band a:hover,footer .nav-a:hover,footer .nl:hover{color:#5558dd!important}
+footer .lbl-d{color:rgba(31,36,80,.68)!important}
+footer [style*="border-top:1px solid"]{border-color:rgba(31,36,80,.12)!important}
+header.band,header:has(.nav){background:rgba(251,252,255,.92)!important;border-bottom:1px solid rgba(31,36,80,.12)!important}
+header .nl,header .nav-a{color:rgba(31,36,80,.72)!important}
+header .nl:hover,header .nl.on,header .nav-a:hover,header .nav-a.on{color:#1f2450!important}
+header a[style*="color:#f4f3fd"],header a[style*="color:#eef3ff"]{color:#1f2450!important}
+header .btn-l,header .sm{background:#5558dd!important;border-color:#5558dd!important;color:#fff!important}
+.burger{border-color:rgba(31,36,80,.28)!important}
+.burger span{background:#1f2450!important}
+.navlinks.open{background:#f8f7ff!important;border-color:rgba(31,36,80,.12)!important}
+.navlinks.open > a,.navlinks.open .chdd > a{border-color:rgba(31,36,80,.1)!important}
+
+/* remaining dark-band button variants on light grounds */
+section.dark .pill-o,section.band .pill-o,.hero-in .pill-o,footer .pill-o{background:transparent!important;border-color:rgba(31,36,80,.28)!important;color:#1f2450!important}
+section.dark .pill-o:hover,section.band .pill-o:hover,.hero-in .pill-o:hover{border-color:#5558dd!important;color:#5558dd!important}
+section.dark .pill-d,section.band .pill-d,.hero-in .pill-d{background:#5558dd!important;border-color:#5558dd!important;color:#fff!important}
+section.dark .st,section.band .st{color:#5558dd!important;border-color:rgba(85,88,221,.3)!important}
+
+/* ---- stronger blue gradient ground (whole site) ---- */
+body{background:linear-gradient(170deg,#ffffff 0%,#eeedfd 26%,#dfdefa 52%,#eae9fb 74%,#f6f5fe 100%)!important;background-attachment:fixed!important}
+section.dark,section.band,footer.dark,footer.band{background:linear-gradient(165deg,#f6f5fe 0%,#e3e2fb 48%,#d5d4f8 100%)!important}
+.hero{background:linear-gradient(160deg,#ffffff 0%,#edecfe 34%,#dcdbfa 68%,#ecebfc 100%)!important}
+.hero-in{background:linear-gradient(160deg,#f8f7ff 0%,#e8e7fc 55%,#dad9f8 100%)!important}
+main > section:not(.dark):not(.band):not(.hero):not(.hero-in){background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(229,228,251,.45))!important}
+.cell,.panel,.crd,.sfd{background:rgba(255,255,255,.96)!important}
+header.band,header:has(.nav){background:rgba(247,250,255,.92)!important}
+
+/* diagram panel blends into the gradient ground */
+.panel.diagram{background:transparent!important;border:0!important;padding:0!important}
+.panel.diagram rect[fill="#fff"],.panel.diagram rect[fill="#ffffff"]{fill:rgba(255,255,255,.45)}
+.panel.diagram rect[fill="#f7f6fd"],.panel.diagram rect[fill="#eae9fa"],.panel.diagram rect[fill="#efeefc"]{fill:rgba(255,255,255,.5)}
+
+
+/* only the status values animate, in sequence */
+.stseq .st{opacity:1!important;transform:none!important;animation:none!important}
+.stseq .st b{font-weight:400;display:inline-block;opacity:0;transform:translateY(6px);animation:stVal 4.5s var(--ease) infinite}
+.stseq .st:nth-child(1) b{animation-delay:0s}
+.stseq .st:nth-child(2) b{animation-delay:.6s}
+.stseq .st:nth-child(3) b{animation-delay:1.2s}
+@keyframes stVal{0%{opacity:0;transform:translateY(6px)}10%{opacity:1;transform:none}80%{opacity:1;transform:none}94%{opacity:0;transform:translateY(-5px)}100%{opacity:0;transform:translateY(6px)}}
+@media (prefers-reduced-motion:reduce){.stseq .st b{opacity:1;transform:none;animation:none}}
+
+/* channels dropdown (light header) */
+.chmenu{background:#fbfbff!important;border-color:rgba(31,36,80,.12)!important;box-shadow:0 18px 38px rgba(31,36,80,.12)!important}
+.chitem{color:#1f2450!important;font-family:var(--disp,Sora,system-ui,sans-serif)!important;font-weight:300!important;text-transform:none!important;letter-spacing:.01em!important}
+.chitem:hover{background:#eae9fa!important;color:#5558dd!important}
+
+/* descenders not clipped by the wordline mask */
+.wordline{overflow:visible!important}
+.h1{padding-bottom:.08em}
+
+/* buttons + section labels in the display face */
+.btn,.pill,.sm,.lbl,.lbl-d,.eyebrow,.nav-a,.nl,.chitem{font-family:var(--disp,Sora,system-ui,sans-serif)!important}
+.btn,.pill,.sm{font-weight:400!important;letter-spacing:.06em!important;text-transform:none!important;font-size:14.5px!important}
+.lbl,.lbl-d,.eyebrow{font-weight:400!important;letter-spacing:.14em!important;font-size:12px!important}
+.st{font-family:var(--mono)!important;font-weight:400!important;letter-spacing:.1em!important;text-transform:uppercase!important;font-size:11.5px!important}
+
+/* cards blend into the gradient instead of white boxes */
+.cell,.panel,.crd,.sfd{background:transparent!important;box-shadow:none!important}
+.grid{background:transparent!important;border:0!important;gap:clamp(20px,2.4vw,40px)!important}
+.grid > .cell,.grid > a.cell{border:0!important;padding:0!important}
+.grid > .cell:before{display:none!important}
+.panel{border:0!important;padding:0!important}
+.cell,.crd{border-color:rgba(31,36,80,.12)}
+.crd{background:transparent!important}
+.prow{border-color:rgba(31,36,80,.12)!important}
+/* keep a soft divider rhythm where columns sat side by side */
+.grid.g4,.grid.g2{position:relative}
+@media (min-width:900px){
+}
+
+/* visible separation without white boxes */
+.grid{border:1px solid rgba(31,36,80,.14)!important;gap:0!important;background:transparent!important}
+.grid > .cell,.grid > a.cell{border:0!important;padding:clamp(24px,2.3vw,36px)!important}
+.grid > .cell:not(:last-child){box-shadow:inset -1px 0 0 rgba(31,36,80,.14)!important}
+@media (max-width:900px){
+  .grid > .cell:not(:last-child){box-shadow:inset 0 -1px 0 rgba(31,36,80,.14)!important}
+}
+.panel{border:1px solid rgba(31,36,80,.14)!important;padding:clamp(24px,2.3vw,36px)!important}
+.panel.diagram{border:0!important;padding:0!important}
+
+/* numbered steps with dotted connector */
+.stepnum{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(85,88,221,.4);color:#5558dd;font:400 17px var(--disp,Sora,system-ui,sans-serif);border-radius:50%}
+.steps > div{position:relative}
+@media (min-width:640px){
+  .steps > div:first-child{overflow:visible}
+  .steps > div:first-child:after{content:"";position:absolute;top:50%;left:100%;width:calc(clamp(18px,2vw,28px) - 14px);height:1px;
+    background:repeating-linear-gradient(90deg,rgba(85,88,221,.7) 0 8px,transparent 8px 15px);background-size:15px 1px;animation:dash 2.4s linear infinite}
+  .steps > div:first-child:before{content:"";position:absolute;top:calc(50% - 4.5px);left:calc(100% + clamp(18px,2vw,28px) - 13px);width:0;height:0;
+    border-left:7px solid rgba(85,88,221,.8);border-top:4.5px solid transparent;border-bottom:4.5px solid transparent;z-index:1}
+}
+
+/* alternating section tints so blocks read as separate bands */
+.hero .up[style*="var(--disp)"]{letter-spacing:.06em;text-transform:none}
+
+/* 2-up blocks: no frame, just space */
+.grid.g2{border:0!important;gap:clamp(28px,4vw,72px)!important}
+.grid.g2 > .cell{padding:0!important;box-shadow:none!important}
+.grid.g2 > .cell:not(:last-child){box-shadow:none!important}
+.grid.g2 > .cell .prow{border-top:0!important;padding:10px 0!important}
+.grid.g2 > .cell > div[style*="border:1px solid"]{border:0!important}
+
+/* route inspector as a timeline, not a table */
+.tline{list-style:none;margin:22px 0 0;padding:0 0 0 22px;position:relative}
+.tline:before{content:"";position:absolute;left:4px;top:6px;bottom:10px;width:1px;background:linear-gradient(to bottom,rgba(85,88,221,.5),rgba(85,88,221,.12))}
+.tline li{position:relative;padding:0 0 22px}
+.tline li:last-child{padding-bottom:0}
+.tline li:before{content:"";position:absolute;left:-22px;top:5px;width:9px;height:9px;border-radius:50%;background:#f7f6fd;border:1px solid rgba(85,88,221,.55)}
+.tline li.done:before{background:#5558dd;border-color:#5558dd}
+.tl-k{display:block;font:400 11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(31,36,80,.78);margin-bottom:5px}
+.tl-v{display:block;font:300 15px/1.6 var(--disp);color:rgba(31,36,80,.82)}
+
+/* breathing room at section band edges */
+main section.sec{padding-top:clamp(56px,6vw,96px)!important;padding-bottom:clamp(56px,6vw,96px)!important}
+main section.sec[style*="padding-top:0"]{padding-top:clamp(56px,6vw,96px)!important}
+
+/* slight gradient inside the four feature cells */
+
+
+/* uniform blended surfaces across all pages */
+.crd,.sfd,.panel,.cell{background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(226,225,251,.38))!important;box-shadow:none!important}
+.crd{border:1px solid rgba(31,36,80,.14)!important}
+.crd:hover{border-color:rgba(85,88,221,.4)!important}
+main section.band .stepcard,main section .sfd{border:1px solid rgba(31,36,80,.14)!important}
+input.input,select.input,textarea.input{background:rgba(255,255,255,.62)!important;border:1px solid rgba(31,36,80,.16)!important;box-shadow:none!important}
+table,tbody,thead,tr,td,th{background:transparent!important}
+th,td{border-color:rgba(31,36,80,.12)!important}
+main section .grid{border:1px solid rgba(31,36,80,.14)!important}
+/* alternating tints also on inner pages (non-.sec sections) */
+
+/* 2-up columns: no card tint, they sit on the section gradient */
+.grid.g2 > .cell{background:transparent!important}
+/* secondary/ghost buttons get the blended fill, not white */
+a.pill-s,a.pill-o,a.btn-g,a.btn-o,button.btn-o,a.sm:not(.hdcta){background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(226,225,251,.42))!important;border:1px solid rgba(31,36,80,.18)!important;color:#1f2450!important}
+.pill-s:hover,.pill-o:hover,.btn-g:hover,.btn-o:hover{border-color:#5558dd!important;color:#5558dd!important}
+
+/* pricing switcher states */
+.mode-t{border:0!important;cursor:pointer;padding:11px 22px!important;background:transparent!important;color:rgba(31,36,80,.72)!important;transition:background .2s,color .2s}
+.mode-t:hover{background:rgba(85,88,221,.1)!important;color:#5558dd!important}
+.mode-t.on{background:#5558dd!important;color:#fff!important}
+.mode-t.on:hover{background:#4143c4!important;color:#fff!important}
+/* tooltip */
+.tip{position:relative}
+.tip .tipbody{position:absolute;left:0;top:calc(100% + 10px);width:min(360px,80vw);padding:14px 16px;background:#fbfbff;border:1px solid rgba(31,36,80,.16);box-shadow:0 18px 38px rgba(31,36,80,.14);
+  font:300 13.5px/1.65 var(--disp,Sora,system-ui,sans-serif);letter-spacing:normal;text-transform:none;color:rgba(31,36,80,.82);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .2s,transform .2s,visibility .2s;z-index:20}
+.tip:hover .tipbody,.tip:focus .tipbody,.tip:focus-within .tipbody{opacity:1;visibility:visible;transform:none}
+
+.crd:has(.tip),.cell:has(.tip),.panel:has(.tip){overflow:visible!important}
+.tip .tipbody{top:auto!important;bottom:calc(100% + 10px)!important;transform:translateY(4px)}
+.tip:hover .tipbody,.tip:focus .tipbody,.tip:focus-within .tipbody{transform:none}
+
+.hero-in > div,.hero-in > p,.hero-in > h1,.hero-in > h2{width:100%;margin-left:auto;margin-right:auto}
+.hero-in > .eyebrow{width:auto!important;align-self:center}
+.hero-in > .arcb,.hero-in > .arcw,.hero-in > .orb,.hero-in > .motes{width:auto;margin:0}
+
+/* testimonial quote cards */
+.grid.quotes > .cell{padding:clamp(24px,2.3vw,36px)!important;background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(226,225,251,.38))!important;display:flex;flex-direction:column}
+.grid.quotes > .cell > .lbl:last-child{margin-top:auto;line-height:1.7}
+.grid.quotes{border:1px solid rgba(31,36,80,.14)!important;gap:0!important}
+.grid.quotes > .cell:not(:last-child){box-shadow:inset -1px 0 0 rgba(31,36,80,.14)!important}
+@media (max-width:760px){.grid.quotes > .cell:not(:last-child){box-shadow:inset 0 -1px 0 rgba(31,36,80,.14)!important}}
+
+.grid.quotes{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media (max-width:760px){.grid.quotes{grid-template-columns:minmax(0,1fr)!important}.grid.quotes > .cell:not(:last-child){box-shadow:inset 0 -1px 0 rgba(31,36,80,.14)!important}}
+
+@media (min-width:761px){
+  .grid.quotes > .cell{box-shadow:none!important}
+  .grid.quotes > .cell:nth-child(odd){box-shadow:inset -1px 0 0 rgba(31,36,80,.14)!important}
+  .grid.quotes > .cell:nth-child(1),.grid.quotes > .cell:nth-child(2){box-shadow:inset 0 -1px 0 rgba(31,36,80,.14)!important}
+  .grid.quotes > .cell:nth-child(1){box-shadow:inset -1px 0 0 rgba(31,36,80,.14),inset 0 -1px 0 rgba(31,36,80,.14)!important}
+}
+
+
+/* testimonials: borderless quotes that sit on the gradient */
+.quotes{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:clamp(30px,3.6vw,64px)!important;background:transparent!important;border:0!important}
+.quotes > .cell{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;display:flex;flex-direction:column;position:relative}
+.quotes > .cell:before{display:block!important;content:"\201C";position:absolute;left:-2px;top:-26px;font:300 62px var(--disp);color:rgba(85,88,221,.28);line-height:1;transform:none!important;background:none!important;width:auto!important;height:auto!important}
+.quotes > .cell p{font:300 15.5px/1.7 var(--disp)!important;color:rgba(31,36,80,.82)!important;margin:0 0 16px!important;padding-top:14px}
+.quotes > .cell > .lbl:last-child{margin-top:auto;font-size:11px!important;letter-spacing:.14em!important;line-height:1.7;color:rgba(31,36,80,.7)!important;padding-top:12px;border-top:1px solid rgba(31,36,80,.12)}
+@media (max-width:760px){.quotes{grid-template-columns:minmax(0,1fr)!important}}
+
+/* testimonial pair rotation */
+.quotes > .cell{transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.quotes > .cell[hidden]{display:none!important}
+.quotes > .cell.fade{opacity:0;transform:translateY(10px)}
+.qdot{width:26px;height:3px;border:0;padding:0;background:rgba(31,36,80,.2);cursor:pointer;transition:background .3s}
+.qdot.on{background:#5558dd}
+
+.quotes > .cell p{font:300 15px/1.65 var(--disp)!important;max-width:46ch}
+
+.quotes > .cell{overflow:visible!important}
+
+/* testimonial carousel */
+.tcarousel{display:flex;align-items:center;justify-content:center;gap:clamp(12px,2vw,28px);margin-top:clamp(22px,2.4vw,34px)}
+.tstage{display:grid;flex:1;max-width:760px}
+.tquote{grid-area:1/1;margin:0;visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease),transform .6s var(--ease),visibility .6s;pointer-events:none}
+.tquote.on{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+.tquote blockquote{margin:0;font:300 clamp(15px,1.25vw,17px)/1.6 var(--disp);color:rgba(31,36,80,.86);max-width:52ch}
+.tquote figcaption{display:flex;flex-direction:column;gap:5px}
+.tname{font:400 15.5px var(--disp);color:#5558dd}
+.trole{font:300 13.5px var(--disp);letter-spacing:.01em;text-transform:none;color:rgba(31,36,80,.72)}
+.tnav{width:42px;height:42px;flex:none;border:1px solid rgba(31,36,80,.18);background:linear-gradient(160deg,rgba(255,255,255,.55),rgba(226,225,251,.4));color:#5558dd;font:400 20px var(--disp);line-height:1;cursor:pointer;transition:border-color .25s,color .25s,background .25s}
+.tnav:hover{border-color:#5558dd;background:rgba(85,88,221,.1)}
+.tdots{display:flex;gap:8px;justify-content:center;margin-top:clamp(14px,1.6vw,22px)}
+.tdot{width:26px;height:3px;border:0;padding:0;background:rgba(31,36,80,.2);cursor:pointer;transition:background .3s}
+.tdot.on{background:#5558dd}
+@media (max-width:620px){.tnav{display:none}}
+@media (prefers-reduced-motion:reduce){.tquote{transition:none}}
+
+/* testimonial band: full-width gradient, no white gaps */
+main section.sec:has(.tcarousel){background:linear-gradient(140deg,rgba(255,255,255,.55) 0%,rgba(226,225,251,.75) 38%,rgba(207,206,248,.7) 68%,rgba(238,237,253,.6) 100%)!important;
+  border-top:1px solid rgba(31,36,80,.1);border-bottom:1px solid rgba(31,36,80,.1);position:relative;overflow:hidden;
+  max-width:none!important;padding-left:clamp(20px,4vw,80px)!important;padding-right:clamp(20px,4vw,80px)!important}
+main section.sec:has(.tcarousel):before{content:"";position:absolute;left:50%;top:50%;width:clamp(620px,86vmax,1500px);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;
+  background:conic-gradient(from 210deg,transparent 0deg,rgba(85,88,221,.18) 48deg,rgba(85,88,221,.06) 105deg,transparent 165deg);
+  mask:radial-gradient(circle,transparent 63%,#000 64%,#000 65.5%,transparent 66.5%);
+  -webkit-mask:radial-gradient(circle,transparent 63%,#000 64%,#000 65.5%,transparent 66.5%);animation:mSpin 40s linear infinite}
+main section.sec:has(.tcarousel) > *{position:relative;z-index:2;max-width:min(1640px,94vw);margin-left:auto;margin-right:auto}
+
+main section.sec:has(.tcarousel){padding-top:clamp(40px,4vw,62px)!important;padding-bottom:clamp(40px,4vw,62px)!important}
+
+/* remove remaining frames/dividers so blocks sit on the gradient */
+main .grid{border:0!important;gap:clamp(26px,3vw,52px)!important;background:transparent!important}
+main .grid > .cell{box-shadow:none!important;padding:0!important;background:transparent!important}
+main .grid.g4 > .cell{background:transparent!important}
+main .panel{border:0!important;padding:0!important;background:transparent!important}
+main .crd{border:0!important;background:transparent!important;padding:0!important}
+main .crd:hover{border:0!important}
+main section.sec{border-top:0!important}
+main .grid.quotes{border:0!important}
+
+/* flatten grids: beat earlier divider/tint rules */
+main .grid,main .grid.g4,main .grid.g2,main .grid.quotes{border:0!important;background:transparent!important;gap:clamp(26px,3vw,52px)!important}
+main .grid.quotes > .cell{padding:0!important}
+
+/* seamless section grounds — no visible band edges */
+main section,main section.sec,main section.dark,main section.band,main > section:not(.hero):not(.hero-in){background:transparent!important;border-top:0!important;border-bottom:0!important}
+main section.sec:has(.tcarousel){background:linear-gradient(140deg,rgba(255,255,255,.35) 0%,rgba(226,225,251,.45) 40%,rgba(214,213,249,.4) 70%,rgba(240,239,253,.3) 100%)!important;border:0!important}
+main > div.view,main{background:transparent!important}
+
+/* soft divider between sections + inner cards back, no outer frame */
+main section.sec + section.sec,main section.sec + section.dark,main section.dark + section.sec{position:relative}
+main section.hero:before{background:none}
+
+/* inner cards: tinted blocks with hairline, but no outer grid frame */
+main .grid,main .grid.g4,main .grid.g2,main .grid.quotes{border:0!important;background:transparent!important;gap:clamp(16px,1.6vw,24px)!important}
+main .grid.g4 > .cell{background:linear-gradient(160deg,rgba(255,255,255,.55),rgba(226,225,251,.42))!important;border:1px solid rgba(31,36,80,.12)!important;padding:clamp(22px,2.1vw,32px)!important;box-shadow:none!important}
+main main .grid.quotes > .cell{background:transparent!important;border:0!important;padding:0!important}
+
+main .grid.g2 > .cell,main .grid.g2 > .cell + .cell{background:transparent!important;border:0!important;padding:0!important}
+main .grid.g2.quotes > .cell{padding:0!important}
+
+
+/* individual cards keep a box; nothing wraps around them */
+main .grid.g4 > .cell,main .steps > .stepcard{background:linear-gradient(160deg,rgba(255,255,255,.58),rgba(226,225,251,.42))!important;border:1px solid rgba(31,36,80,.12)!important;padding:clamp(22px,2.1vw,32px)!important;box-shadow:none!important}
+main .grid,main .grid.g4,main .grid.g2,main .grid.quotes,main section.sec,main section.dark{border:0!important}
+
+/* stats row matches the card treatment */
+main section.dark .sec > div > div:has(> .num){background:transparent;border:0;padding:0}
+main .steps > .stepcard{background:linear-gradient(160deg,rgba(255,255,255,.58),rgba(226,225,251,.42))!important;border:1px solid rgba(31,36,80,.12)!important;padding:clamp(22px,2.1vw,32px)!important}
+
+/* stats row: always four tracks */
+main section.dark .sec > div:has(.num){grid-template-columns:repeat(4,minmax(0,1fr))!important}
+@media (max-width:860px){main section.dark .sec > div:has(.num){grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:480px){main section.dark .sec > div:has(.num){grid-template-columns:minmax(0,1fr)!important}}
+
+/* step heading sits beside its number */
+.stephead{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.stephead .stepnum{flex:none;width:34px;height:34px;font-size:15px}
+
+/* subtle gradient rule between modules */
+main section.sec,main section.dark{position:relative}
+main section.hero:before{content:none}
+
+main section.sec:has(.tcarousel){border-top:1px solid rgba(85,88,221,.18)!important}
+
+/* module dividers via border, never pseudo-elements */
+main section.sec,main section.dark{border-top:1px solid rgba(85,88,221,.18)!important}
+main section.hero,main section.hero-in{border-top:0!important}
+
+/* feature/channel cards: wider, shorter */
+main .grid.g4{gap:clamp(14px,1.4vw,20px)!important;background:transparent!important}
+main .grid.g4 > .cell{padding:clamp(20px,1.8vw,28px)!important;border:1px solid rgba(31,36,80,.12)!important;background:linear-gradient(160deg,rgba(255,255,255,.62),rgba(226,225,251,.4))!important}
+main .grid.g4 > .cell .h3{font-size:17px!important;margin:0 0 8px!important}
+main .grid.g4 > .cell .s,main .grid.g4 > .cell p{font-size:13.5px!important;line-height:1.6!important;margin-bottom:14px!important}
+main .grid.g4 > .cell > .lbl:last-child{margin-top:auto;font-size:10.5px!important}
+
+/* same card treatment for inner-page grids */
+main section > div > div[style*="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))"],
+main section > div > div[style*="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))"],
+main section > div > div[style*="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"],
+main section > div[style*="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))"]{gap:clamp(14px,1.4vw,20px)!important;background:transparent!important}
+main section .crd,main section .stepcard,main section > div > div[style*="minmax(260px,1fr)"] > div,
+main section > div > div[style*="minmax(250px,1fr)"] > div,
+main section > div > div[style*="minmax(300px,1fr)"] > div{background:linear-gradient(160deg,rgba(255,255,255,.62),rgba(226,225,251,.4))!important;border:1px solid rgba(31,36,80,.12)!important;padding:clamp(20px,1.8vw,28px)!important;box-shadow:none!important}
+main section .crd h3,main section .crd > h3{font-size:17px!important;margin:0 0 8px!important}
+main section .crd p{font-size:13.5px!important;line-height:1.6!important}
+
+.crd > span.sm,.cell > span.sm,span.sm{align-self:flex-start;width:auto}
+
+/* hero eyebrow as a pill badge */
+.heropill{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border:1px solid rgba(85,88,221,.3);background:rgba(255,255,255,.55);
+  font:400 11.5px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(31,36,80,.76)}
+.heropill i{width:6px;height:6px;border-radius:50%;background:#5558dd;animation:dotPulse 1.8s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* hero badge anchored top-left of the band */
+.hero > .heropill{position:absolute;left:clamp(10px,2vw,34px);top:34%;transform-origin:left center;transform:rotate(-90deg) translate(-50%,-50%);z-index:3;border:0!important;background:none!important;padding:0!important;gap:12px;font-size:10.5px!important;letter-spacing:.3em!important;color:rgba(31,36,80,.55)!important;white-space:nowrap}
+.hero > .heropill:after{content:"";width:clamp(30px,5vw,70px);height:1px;background:linear-gradient(90deg,rgba(85,88,221,.5),transparent)}
+@media (max-width:900px){.hero > .heropill{display:none}}
+
+.hero > .heropill{animation:fadeIn .9s var(--ease) .2s both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media (max-width:1100px){.hero > .heropill{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" style="display:flex;align-items:center;gap:10px;margin-right:auto;color:#f4f3fd">
+      <span style="width:26px;height:26px;display:grid;place-items:center;flex:none"><img src="assets/mark-v4.png" alt="" style="width:22px;height:22px"></span>
+      <span style="font:300 17px var(--disp);letter-spacing:.06em">second<span style="color:#5558dd">factor</span><span style="opacity:.72">.ai</span></span>
+    </a>
+      <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="navlinks" style="display:flex;gap:clamp(18px,2.4vw,40px);flex-wrap:wrap">
+      <a href="index.html" class="nl on">Home</a>
+      <span class="chdd">
+        <a href="channels.html" class="nl" style="display:inline-flex;align-items:center;gap:6px">Channels<span style="font-size:14px;opacity:.85;line-height:1">&#9662;</span></a>
+        <span class="chmenu">
+          <a href="sms.html" class="chitem">SMS</a>
+          <a href="whatsapp.html" class="chitem">WhatsApp</a>
+          <a href="viber.html" class="chitem">Viber</a>
+          <a href="rcs.html" class="chitem">RCS</a>
+        </span>
+      </span>
+      <a href="pricing.html" class="nl">Pricing</a>
+      <a href="support.html" class="nl">Support</a>
+    </nav>
+    <a href="https://uat-app.secondfactor.ai/login" target="_blank" rel="noopener" class="nl signin">Sign in</a>
+    <a href="https://uat-app.secondfactor.ai/signup" target="_blank" rel="noopener" class="btn btn-l hdcta" style="padding:11px 20px">Get started</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <span class="heropill"><i></i>OTP delivery &amp; verification API</span>
+    <div class="glow"></div>
+    <div class="arc"></div>
+      <div class="arc2"></div>
+      <div class="orbit"><b></b></div>
+      <div class="orbit slow"><b></b></div>
+      <div class="arc3"></div>
+      <div class="orbit wide"><b></b></div>
+      <div class="motes"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="halo"><i></i><i></i><i></i></div>
+    <div class="grain"></div>
+
+    <div class="copy" style="position:relative;z-index:2;max-width:min(1200px,90vw)">
+      <h1 class="h1" style="margin:clamp(22px,2.6vw,38px) 0 0">
+        <span class="wordline"><span style="animation-delay:.12s">Stronger Authentication</span></span>
+        <span class="wordline"><span style="animation-delay:.24s">for <span style="color:#5558dd">a Safer World</span></span></span>
+      </h1>
+      <p class="p-d up" style="animation-delay:.5s;margin:clamp(20px,2vw,30px) auto 0;max-width:58ch">SecondFactor makes two-factor authentication simple, reliable and enterprise-ready. Protect your users, data and business with trusted OTP delivery across SMS, WhatsApp, Viber and RCS.</p>
+      <div class="up" style="animation-delay:.62s;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:clamp(28px,3vw,44px)">
+        <a href="https://uat-app.secondfactor.ai/signup" target="_blank" rel="noopener" class="btn btn-l">Get started <span class="ar">&rarr;</span></a>
+        <a href="support.html" class="btn btn-o">Talk to sales</a>
+      </div>
+      <div class="up" style="animation-delay:.74s;display:flex;gap:10px;justify-content:center;margin-top:clamp(34px,3.4vw,52px)">
+        <span class="otpb" data-i="0">&middot;</span><span class="otpb" data-i="1">&middot;</span><span class="otpb" data-i="2">&middot;</span><span class="otpb" data-i="3">&middot;</span><span class="otpb" data-i="4">&middot;</span><span class="otpb" data-i="5">&middot;</span>
+      </div>
+      <div class="up" style="font-family:var(--disp);animation-delay:.84s;margin-top:18px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,243,253,.84)">
+        <span id="heroRoute">whatsapp</span> &middot; <span id="heroStatus">delivered 1.6s</span>
+      </div>
+    </div>
+    <div class="cue"><b></b></div>
+  </section>
+
+  <!-- MARQUEE -->
+
+  <!-- ENGINE -->
+  <section class="sec">
+    <div class="rv" style="max-width:66ch">
+      <span class="lbl">Price intelligence engine</span>
+      <h2 class="h2" style="margin:18px 0 16px">Lower your OTP delivery costs with automatic routing</h2>
+      <p class="p">SecondFactor selects the lowest-cost eligible route for each request and handles fallback as your app reaches users across different markets.</p>
+    </div>
+
+    <div class="grid g4 rv rv2" style="grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(34px,4vw,56px)">
+      <div class="cell"><h3 class="h3" style="margin-top:0">Cost-based selection</h3><p class="s">Route each OTP on destination pricing and the channels available to your account and your recipient.</p></div>
+      <div class="cell"><h3 class="h3" style="margin-top:0">Automatic fallback</h3><p class="s">The next eligible channel is attempted when delivery isn't confirmed within eight seconds.</p></div>
+      <div class="cell"><h3 class="h3" style="margin-top:0">Delivery logs and costs</h3><p class="s">See channel, status and cost per request to monitor spend and investigate failures.</p></div>
+      <div class="cell"><h3 class="h3" style="margin-top:0">Authentication templates</h3><p class="s">Create OTP templates per connected channel and track approval status in one dashboard.</p></div>
+    </div>
+  </section>
+
+
+  <!-- TWO API CALLS -->
+  <section class="dark" style="border-top:1px solid rgba(31,36,80,.1)">
+    <div class="sec">
+      <span class="lbl-d rv">Integration</span>
+      <h2 class="h2 rv rv2" style="margin:18px 0 16px;max-width:22ch">Two API calls. Every channel.</h2>
+      <p class="p-d rv rv2" style="margin:0 0 clamp(34px,4vw,54px);max-width:56ch">Let SecondFactor generate, send and verify your codes while your application handles the signup or login experience.</p>
+      <div class="rv rv3 steps" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(18px,2vw,28px);max-width:900px;position:relative">
+        <div class="stepcard" style="border:1px solid rgba(31,36,80,.14);padding:clamp(24px,2.4vw,34px)">
+          <div class="stephead"><span class="stepnum">1</span><h3 class="h3" style="margin:0">Send an OTP</h3></div>
+          <p class="s-d">Call <span class="mono" style="font-size:13px">/otp/send</span> with the user's phone number to send a code through an eligible channel and receive a request ID.</p>
+        </div>
+        <div class="stepcard" style="border:1px solid rgba(31,36,80,.14);padding:clamp(24px,2.4vw,34px)">
+          <div class="stephead"><span class="stepnum">2</span><h3 class="h3" style="margin:0">Verify the code</h3></div>
+          <p class="s-d">Call <span class="mono" style="font-size:13px">/otp/verify</span> with the request ID and the code your user entered to receive the verification result.</p>
+        </div>
+      </div>
+      <div class="rv rv4" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:clamp(28px,3vw,42px)">
+        <a href="docs.html" class="btn btn-l">View documentation</a>
+        <a href="https://uat-app.secondfactor.ai/signup" target="_blank" rel="noopener" class="btn btn-o">Get started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="dark" style="border-top:1px solid rgba(244,243,253,.12);border-bottom:1px solid rgba(244,243,253,.12)">
+    <div class="sec" style="padding-top:clamp(48px,5vw,80px);padding-bottom:clamp(48px,5vw,80px)">
+      <div class="rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(24px,3vw,44px)">
+        <div><div class="num" data-count="2" style="color:#fff">2</div><div class="lbl-d" style="margin-top:10px">API calls to go live</div></div>
+        <div><div class="num" data-count="4" style="color:#fff">4</div><div class="lbl-d" style="margin-top:10px">Channels, one integration</div></div>
+        <div><div class="num" data-count="8" data-suffix="s" style="color:#fff">8s</div><div class="lbl-d" style="margin-top:10px">Fallback window</div></div>
+        <div><div class="num" style="color:#fff">0</div><div class="lbl-d" style="margin-top:10px">Codes stored in your app</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANNELS -->
+  <section class="sec">
+    <div class="rv" style="max-width:62ch;margin:0 auto;text-align:center"><span class="lbl">Channels</span>
+      <h2 class="h2" style="margin:18px 0 16px">Connect your OTP channels through one API</h2>
+      <p class="p">Enable the channels you need and let SecondFactor manage delivery without separate integrations in your application.</p>
+    </div>
+    <div class="rv rv2 stseq" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(30px,3.4vw,48px)">
+      <span class="st">Number check &middot; <b>PASSED</b></span><span class="st">Route selection &middot; <b>LOWEST COST</b></span><span class="st">Template &middot; <b>APPROVED</b></span>
+    </div>
+    <div class="panel diagram rv rv3" style="margin-top:clamp(16px,1.6vw,24px);padding:clamp(22px,2.2vw,34px)">
+      <svg viewBox="0 0 1040 250" width="100%" style="display:block" role="img" aria-label="Four channels route through one SecondFactor API into your app">
+        <g fill="none" stroke-linecap="round" stroke-width="2">
+          <path class="flow" d="M120 34 H250 C304 34 316 125 370 125 H440" stroke="#5558dd"></path>
+          <path class="flow" d="M120 95 H276 C318 95 328 125 370 125 H440" stroke="#8285f2" style="animation-duration:3.2s"></path>
+          <path class="flow" d="M120 155 H276 C318 155 328 125 370 125 H440" stroke="#c4c6fb" style="animation-duration:3.6s"></path>
+          <path class="flow" d="M120 216 H250 C304 216 316 125 370 125 H440" stroke="#2a2d6b" style="animation-duration:4s"></path>
+        </g>
+        <g font-family="JetBrains Mono,monospace" font-size="15" letter-spacing="1.2" fill="rgba(31,36,80,.72)">
+          <text x="0" y="39">SMS</text><text x="0" y="100">WHATSAPP</text><text x="0" y="160">VIBER</text><text x="0" y="221">RCS</text>
+        </g>
+        <rect x="440" y="85" width="86" height="80" fill="#5558dd"></rect>
+        <rect x="440" y="85" width="86" height="80" fill="none" stroke="#5558dd" stroke-width="1.5" opacity=".35"></rect>
+        <text x="483" y="120" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13.5" letter-spacing="1" fill="#f4f3fd">ONE</text>
+        <text x="483" y="138" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13.5" letter-spacing="1" fill="#e2e3ff">API</text>
+        <g fill="none" stroke-linecap="round" stroke-width="2">
+          <path class="flow" d="M526 112 H608" stroke="#5558dd"></path>
+          <path class="flow" d="M526 138 H608" stroke="#8285f2" style="animation-duration:3.4s"></path>
+          <path class="flow" d="M804 125 H900" stroke="#5558dd" style="animation-duration:3s"></path>
+        </g>
+        <rect x="608" y="60" width="196" height="130" fill="#f7f6fd" stroke="rgba(31,36,80,.12)"></rect>
+        <g font-family="JetBrains Mono,monospace" font-size="12.5" fill="rgba(31,36,80,.72)">
+          <text x="622" y="92">route</text><text x="790" y="92" text-anchor="end" fill="#2a2d6b">cheapest</text>
+          <text x="622" y="124">fallback</text><text x="790" y="124" text-anchor="end" fill="#2a2d6b">8s</text>
+          <text x="622" y="156">verify</text><text x="790" y="156" text-anchor="end" fill="#2a2d6b">managed</text>
+          <text x="622" y="182">setup</text><text x="790" y="182" text-anchor="end" fill="#2a2d6b">one time</text>
+        </g>
+        <rect x="900" y="85" width="86" height="80" fill="rgba(255,255,255,.5)" stroke="rgba(31,36,80,.16)"></rect>
+        <text x="943" y="120" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13.5" letter-spacing="1" fill="rgba(31,36,80,.78)">YOUR</text>
+        <text x="943" y="138" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13.5" letter-spacing="1" fill="#5558dd">APP</text>
+      </svg>
+    </div>
+    <div class="grid g4 rv rv2" style="grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(24px,2.6vw,36px)">
+      <a href="sms.html" class="cell" style="color:var(--fg)"><h3 class="h3">SMS OTP</h3><p class="s" style="margin-bottom:22px">Reach any mobile number without requiring a messaging app.</p><span class="lbl" style="color:var(--ac)">Explore &rarr;</span></a>
+      <a href="whatsapp.html" class="cell" style="color:var(--fg)"><h3 class="h3">WhatsApp OTP</h3><p class="s" style="margin-bottom:22px">Deliver codes through your connected WhatsApp Business Account.</p><span class="lbl" style="color:var(--ac)">Explore &rarr;</span></a>
+      <a href="viber.html" class="cell" style="color:var(--fg)"><h3 class="h3">Viber OTP</h3><p class="s" style="margin-bottom:22px">Reach Viber users in supported markets via an approved business sender.</p><span class="lbl" style="color:var(--ac)">Explore &rarr;</span></a>
+      <a href="rcs.html" class="cell" style="color:var(--fg)"><h3 class="h3">RCS OTP</h3><p class="s" style="margin-bottom:22px">Deliver codes to users whose devices and carriers support RCS.</p><span class="lbl" style="color:var(--ac)">Explore &rarr;</span></a>
+    </div>
+    <p class="s rv" style="margin-top:22px;max-width:70ch">Channel availability depends on the destination, recipient capabilities and completed sender approvals.</p>
+  </section>
+
+  <!-- PLAYGROUND -->
+  <section class="sec" style="padding-top:0">
+    <div class="grid g2 rv" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div class="cell" style="padding:clamp(28px,3vw,44px)">
+        <span class="lbl">PIE Playground</span>
+        <h3 class="h2" style="font-size:clamp(24px,2.4vw,34px);margin:16px 0 14px;max-width:20ch">Test OTP delivery before you integrate</h3>
+        <p class="s" style="margin-bottom:28px;max-width:44ch">Use your free credits in the PIE Playground to send a real OTP, inspect the selected route and verify the code you receive.</p>
+        <a href="https://uat-app.secondfactor.ai/signup" target="_blank" rel="noopener" class="btn">Open the playground <span class="ar">&rarr;</span></a>
+      </div>
+      <div class="cell" style="padding:0">
+        <span class="lbl">Route inspector</span>
+        <ol class="tline">
+          <li><span class="tl-k">Attempt 1</span><span class="tl-v">WhatsApp &mdash; no confirmation</span></li>
+          <li><span class="tl-k">+8.0s</span><span class="tl-v" style="color:var(--ac)">Fallback triggered automatically</span></li>
+          <li><span class="tl-k">Attempt 2</span><span class="tl-v">SMS &mdash; delivered 2.1s &middot; $0.0071</span></li>
+          <li class="done"><span class="tl-k">Verify</span><span class="tl-v mono" style="font-size:12.5px;color:var(--ac)">200 OK &middot; code matched</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILD / SAVE -->
+  <section class="sec" style="padding-top:0">
+    <div class="grid g2 rv" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div class="cell" style="padding:clamp(28px,3vw,44px)"><h3 class="h2" style="font-size:clamp(22px,2.2vw,30px);margin:0 0 14px">Add OTPs to your app</h3><p class="s" style="margin-bottom:28px">Build phone verification into signup or add a second authentication step with an API that handles code generation, delivery and verification.</p><a href="https://uat-app.secondfactor.ai/signup" target="_blank" rel="noopener" class="btn">Start building <span class="ar">&rarr;</span></a></div>
+      <div class="cell" style="padding:clamp(28px,3vw,44px)"><h3 class="h2" style="font-size:clamp(22px,2.2vw,30px);margin:0 0 14px">Reduce your delivery costs</h3><p class="s" style="margin-bottom:28px">Explore lower-cost channels for your destination markets and manage routing, fallback and spending through one platform.</p><a href="pricing.html" class="btn btn-g">View pricing</a></div>
+    </div>
+  </section>
+
+
+  <!-- TESTIMONIALS -->
+  <section class="sec" style="text-align:center">
+    <div class="rv">
+      <span class="lbl">Clients</span>
+      <h2 class="h2" style="margin:18px auto 12px">Testimonials</h2>
+      <p class="p" style="margin:0 auto">See what teams building with SecondFactor say.</p>
+    </div>
+    <div class="tcarousel rv rv2">
+      <button type="button" class="tnav prev" aria-label="Previous testimonial">&#8249;</button>
+      <div class="tstage">
+        <figure class="tquote on" data-i="0">
+          <blockquote>&ldquo;Across ASEAN, every market has its own SMS rules and carriers. SecondFactor put routing, delivery and monitoring in one place &mdash; we don&rsquo;t manage any of it separately anymore.&rdquo;</blockquote>
+          <figcaption><span class="tname">Asish Kumar Sharma</span><span class="trole">Co-founder, Rara Global Ventures &middot; Singapore</span></figcaption>
+        </figure>
+        <figure class="tquote" data-i="1">
+          <blockquote>&ldquo;Our banks and merchants won&rsquo;t tolerate a failed OTP at checkout. SecondFactor has been the verification layer behind our fintech integrations through every rollout.&rdquo;</blockquote>
+          <figcaption><span class="tname">Manish Modi</span><span class="trole">Co-founder, Lambda Payments &middot; United States</span></figcaption>
+        </figure>
+        <figure class="tquote" data-i="2">
+          <blockquote>&ldquo;Reaching our clients&rsquo; end users internationally is the hard part &mdash; carriers, delivery rates, compliance. SecondFactor handles that, and delivery stays solid.&rdquo;</blockquote>
+          <figcaption><span class="tname">Manoj Thapa</span><span class="trole">CEO, Janaki Technology &middot; Nepal</span></figcaption>
+        </figure>
+        <figure class="tquote" data-i="3">
+          <blockquote>&ldquo;I didn&rsquo;t want to burn a week wiring up OTP for a side project. Plugged in SecondFactor, tested it and shipped the same day.&rdquo;</blockquote>
+          <figcaption><span class="tname">Anjal Bam</span><span class="trole">Founder, Eventra</span></figcaption>
+        </figure>
+      </div>
+      <button type="button" class="tnav next" aria-label="Next testimonial">&#8250;</button>
+    </div>
+    <div class="tdots rv rv3">
+      <button type="button" class="tdot on" data-i="0" aria-label="Testimonial 1"></button>
+      <button type="button" class="tdot" data-i="1" aria-label="Testimonial 2"></button>
+      <button type="button" class="tdot" data-i="2" aria-label="Testimonial 3"></button>
+      <button type="button" class="tdot" data-i="3" aria-label="Testimonial 4"></button>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" style="padding-top:0">
+    <div class="rv" style="text-align:left"><span class="lbl">FAQ</span>
+      <h2 class="h2" style="margin:18px 0 12px">Frequently asked questions</h2>
+      <p class="s" style="margin:0 0 30px">Something not covered? Write to <a href="mailto:support@secondfactor.ai">support@secondfactor.ai</a>.</p>
+    </div>
+    <div class="rv rv2">
+      <details class="q"><summary><span>How does SecondFactor choose a delivery channel?</span><i>+</i></summary><p>The Price Intelligence Engine checks the destination and eligible channels, then attempts delivery through the lowest-cost option. If delivery isn't confirmed within eight seconds, it tries the next eligible channel.</p></details>
+      <details class="q"><summary><span>Do I need to connect every channel?</span><i>+</i></summary><p>You can start with the channels you need and add others later. SecondFactor routes requests through channels enabled for your account and available to the recipient.</p></details>
+      <details class="q"><summary><span>Do I need a WhatsApp Business Account to send WhatsApp OTPs?</span><i>+</i></summary><p>Yes. You need to connect a WhatsApp Business Account and complete the applicable setup and authentication template approvals before sending WhatsApp OTPs.</p></details>
+      <details class="q"><summary><span>Do I need to generate and store OTPs in my application?</span><i>+</i></summary><p>No. SecondFactor handles code generation and verification. Use /otp/send to request delivery and /otp/verify to check the code your user entered.</p></details>
+      <details class="q"><summary><span>Can I test SecondFactor before going live?</span><i>+</i></summary><p>New accounts receive free credits to test real OTP delivery in the PIE Playground, inspect the selected route and verify the code received.</p></details>
+      <details class="q" style="border-bottom:1px solid var(--brd)"><summary><span>Can I see whether an OTP was delivered?</span><i>+</i></summary><p>Your dashboard includes OTP logs showing the destination, delivery channel, status and cost of each request.</p></details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="dark" style="position:relative;overflow:hidden;text-align:center">
+    <div class="glow" style="top:100%"></div>
+    <div class="arc" style="top:108%"></div>
+    <div class="arc3" style="top:112%"></div>
+    <div class="orbit" style="top:108%"><b></b></div>
+    <div class="orbit wide" style="top:112%"><b></b></div>
+    <div class="halo" style="top:108%"><i></i><i></i><i></i></div>
+    <div class="motes"><i></i><i></i><i></i><i></i></div>
+    <div class="sec" style="position:relative">
+      <span class="lbl-d rv">Get started</span>
+      <h2 class="h1 rv rv2" style="font-size:clamp(32px,4.6vw,66px);margin:20px auto 18px;max-width:22ch">Send your first OTP with SecondFactor</h2>
+      <p class="p-d rv rv3" style="margin:0 auto 34px;max-width:54ch">Start testing with free credits, or talk to our team about pricing for your destination markets and expected volume.</p>
+      <div class="rv rv4" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="https://uat-app.secondfactor.ai/signup" target="_blank" rel="noopener" class="btn btn-l">Get started <span class="ar">&rarr;</span></a>
+        <a href="support.html" class="btn btn-o">Talk to sales</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="dark" data-decor="1" style="border-top:1px solid rgba(244,243,253,.12)">
+  <div style="max-width:min(1640px,94vw);margin:0 auto;padding:clamp(44px,4.5vw,68px) clamp(20px,4vw,80px) 26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:26px;height:26px;display:grid;place-items:center;flex:none"><img src="assets/mark-v4.png" alt="" style="width:22px;height:22px"></span><span style="font:300 17px var(--disp);letter-spacing:.06em">second<span style="color:#5558dd">factor</span><span style="opacity:.72">.ai</span></span></div>
+    <div></div>
+      <p class="s-d" style="max-width:32ch">One stop solution for your OTPs. Send and verify through the lowest-cost eligible channel.</p>
+    </div>
+    <div><div style="display:flex;flex-direction:column;gap:11px"><a href="index.html" class="nl">Home</a><a href="channels.html" class="nl">Channels</a><a href="pricing.html" class="nl">Pricing</a></div></div>
+    <div><div style="display:flex;flex-direction:column;gap:11px"><a href="sms.html" class="nl">SMS</a><a href="whatsapp.html" class="nl">WhatsApp</a><a href="viber.html" class="nl">Viber</a><a href="rcs.html" class="nl">RCS</a></div></div>
+    <div><div style="display:flex;flex-direction:column;gap:11px"><a href="support.html" class="nl">Support</a><a href="docs/privacy-policy.pdf" target="_blank" rel="noopener" class="nl">Privacy policy</a><a href="docs/terms-and-conditions.pdf" target="_blank" rel="noopener" class="nl">Terms and Conditions</a>
+<a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nl" aria-label="SecondFactor.ai on LinkedIn" style="display:inline-flex;width:17px"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor" style="display:block"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z"></path></svg></a></div></div>
+  </div>
+  <div class="lbl-d" style="max-width:min(1640px,94vw);margin:0 auto;padding:18px clamp(20px,4vw,80px) clamp(34px,3vw,46px);border-top:1px solid rgba(244,243,253,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between">
+    <span>&copy; 2026 SecondFactor.ai</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* scroll reveal */
+  var items = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin: '0px 0px -12% 0px', threshold: .12});
+    items.forEach(function (el) { io.observe(el); });
+    setTimeout(function () { items.forEach(function (el) { el.classList.add('in'); }); }, 5000);
+  }
+
+  /* hero OTP fill + route cycle */
+  var boxes = document.querySelectorAll('.otpb');
+  var route = document.getElementById('heroRoute');
+  var status = document.getElementById('heroStatus');
+  var routes = [
+    {code: '729415', r: 'whatsapp', s: 'delivered 1.6s'},
+    {code: '304882', r: 'sms', s: 'delivered 2.1s'},
+    {code: '918470', r: 'viber', s: 'delivered 1.9s'},
+    {code: '560237', r: 'rcs', s: 'delivered 1.4s'}
+  ];
+  var ri = 0;
+  function cycle() {
+    var cur = routes[ri % routes.length];
+    ri++;
+    if (route) { route.textContent = cur.r; }
+    if (status) { status.textContent = 'sending\u2026'; }
+    boxes.forEach(function (b) { b.textContent = '\u00b7'; b.style.borderColor = 'rgba(244,243,253,.2)'; });
+    cur.code.split('').forEach(function (ch, i) {
+      setTimeout(function () {
+        if (!boxes[i]) { return; }
+        boxes[i].textContent = ch;
+        boxes[i].style.borderColor = 'rgba(196,198,251,.75)';
+      }, 260 + i * 170);
+    });
+    setTimeout(function () { if (status) { status.textContent = cur.s; } }, 1500);
+  }
+  if (boxes.length && !reduce) { cycle(); setInterval(cycle, 5200); }
+
+  /* count-up */
+  var nums = document.querySelectorAll('.num[data-count]');
+  function runCount(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10),
+        sfx = el.getAttribute('data-suffix') || '',
+        dur = 1100, t0 = null;
+    function frame(ts) {
+      if (t0 === null) { t0 = ts; }
+      var p = Math.min((ts - t0) / dur, 1),
+          eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + sfx;
+      if (p < 1) { requestAnimationFrame(frame); }
+    }
+    el.textContent = '0' + sfx;
+    requestAnimationFrame(frame);
+  }
+  if (!reduce && 'IntersectionObserver' in window) {
+    nums.forEach(function (el) { el.textContent = '0' + (el.getAttribute('data-suffix') || ''); });
+    var io2 = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) { return; }
+        runCount(e.target);
+        io2.unobserve(e.target);
+      });
+    }, {threshold: .35});
+    nums.forEach(function (el) { io2.observe(el); });
+  }
+})();
+</script>
+<script>
+(function(){
+  var qs=[].slice.call(document.querySelectorAll('.tquote')),
+      dots=[].slice.call(document.querySelectorAll('.tdot')),
+      prev=document.querySelector('.tnav.prev'),
+      next=document.querySelector('.tnav.next');
+  if(!qs.length){return;}
+  var i=0,timer;
+  function show(n){
+    i=(n+qs.length)%qs.length;
+    qs.forEach(function(q,k){q.classList.toggle('on',k===i);});
+    dots.forEach(function(d,k){d.classList.toggle('on',k===i);});
+  }
+  function start(){if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){timer=setInterval(function(){show(i+1);},6500);}}
+  function reset(){clearInterval(timer);start();}
+  if(prev){prev.addEventListener('click',function(){show(i-1);reset();});}
+  if(next){next.addEventListener('click',function(){show(i+1);reset();});}
+  dots.forEach(function(d,k){d.addEventListener('click',function(){show(k);reset();});});
+  show(0);start();
+})();
+</script>
+</body>
+</html>
