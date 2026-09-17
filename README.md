@@ -43,8 +43,8 @@ rates. Adding a country also needs a matching <option> in pricing.html's dropdow
 
 ## Links to wire up
 
-* Sign in      -> https://uat-app.secondfactor.ai/login
-* Get started  -> https://uat-app.secondfactor.ai/signup
+* Sign in      -> https://app.secondfactor.ai/login
+* Get started  -> https://app.secondfactor.ai/signup
 * LinkedIn     -> https://www.linkedin.com/company/secondfactorai/home
 * Support form shows a confirmation note only — point the <form> action at your
   backend or a form service and remove the preventDefault handler in js/app.js.
