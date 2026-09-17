@@ -15,6 +15,8 @@ Nginx, Apache) and it works as-is.
     pricing.html      Pricing (one routed rate per country, per-channel on request)
     support.html      Support / contact
     docs.html         API documentation (send, check, fetch, webhooks)
+    privacy.html      Privacy Policy (full text; footer links point here)
+    terms.html        Terms & Conditions (full text; footer links point here)
 
 ## Assets
 
@@ -23,7 +25,8 @@ Nginx, Apache) and it works as-is.
     js/data.js        Per-country rate data (DEMO VALUES — replace before launch)
     js/app.js         Scroll reveal, mobile drawer, pricing logic, support form
     assets/           Logo mark (mark-v4.png) and lockup
-    docs/             Privacy Policy and Terms and Conditions PDFs
+    docs/             PDF copies of the Privacy Policy and Terms (offered as "Download PDF" on
+                      privacy.html / terms.html — keep them in sync with the page text)
     robots.txt
 
 ## Fonts
