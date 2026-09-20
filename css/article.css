@@ -55,6 +55,7 @@
 .post-body pre code{background:none;padding:0;color:inherit;font-size:inherit}
 .post-body figure{margin:32px 0}
 .post-body figure img{display:block;width:100%;height:auto;border:1px solid var(--brd)}
+.post-body h2 + figure{margin-top:22px}
 .post-body figcaption,.post-cover figcaption{font:300 13px/1.5 Sora,system-ui,sans-serif;color:var(--mut2);margin-top:10px}
 
 /* ---- components ---- */
