@@ -164,18 +164,30 @@
     if (selChan) selChan.addEventListener('change', function () { state.channel = selChan.value; render(); });
     render();
   }
-  /* ---------- article table of contents: highlight the section in view ---------- */
+  /* ---------- article table of contents: highlight the section being read ----------
+     The current section is the last heading that has scrolled past the top of the viewport,
+     so the highlight stays correct inside long sections, when scrolling back up, and after
+     jumping to an anchor. */
   var tocLinks = document.querySelectorAll('.post-toc a[href^="#"]');
-  if (tocLinks.length && 'IntersectionObserver' in window) {
-    var byId = {};
-    Array.prototype.forEach.call(tocLinks, function (a) { byId[a.getAttribute('href').slice(1)] = a; });
-    var setOn = function (id) {
-      Array.prototype.forEach.call(tocLinks, function (a) { a.classList.toggle('on', a === byId[id]); });
+  if (tocLinks.length) {
+    var tocHeads = [];
+    Array.prototype.forEach.call(tocLinks, function (a) {
+      var h = document.getElementById(a.getAttribute('href').slice(1));
+      if (h) tocHeads.push({h: h, a: a});
+    });
+    var spyQueued = false;
+    var spy = function () {
+      spyQueued = false;
+      var cur = null;
+      for (var k = 0; k < tocHeads.length; k++) {
+        if (tocHeads[k].h.getBoundingClientRect().top <= 140) cur = tocHeads[k].a; else break;
+      }
+      Array.prototype.forEach.call(tocLinks, function (a) { a.classList.toggle('on', a === cur); });
     };
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) setOn(e.target.id); });
-    }, {rootMargin: '-96px 0px -70% 0px'});
-    Object.keys(byId).forEach(function (id) { var h = document.getElementById(id); if (h) spy.observe(h); });
+    var onSpy = function () { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } };
+    window.addEventListener('scroll', onSpy, {passive: true});
+    window.addEventListener('resize', onSpy);
+    spy();
   }
 
   /* mobile drawer */
