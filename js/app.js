@@ -175,18 +175,16 @@
       var h = document.getElementById(a.getAttribute('href').slice(1));
       if (h) tocHeads.push({h: h, a: a});
     });
-    var spyQueued = false;
     var spy = function () {
-      spyQueued = false;
       var cur = null;
       for (var k = 0; k < tocHeads.length; k++) {
         if (tocHeads[k].h.getBoundingClientRect().top <= 140) cur = tocHeads[k].a; else break;
       }
       Array.prototype.forEach.call(tocLinks, function (a) { a.classList.toggle('on', a === cur); });
     };
-    var onSpy = function () { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } };
-    window.addEventListener('scroll', onSpy, {passive: true});
-    window.addEventListener('resize', onSpy);
+    /* cheap enough (one rect read per heading) to run directly on scroll */
+    window.addEventListener('scroll', spy, {passive: true});
+    window.addEventListener('resize', spy);
     spy();
   }
 
