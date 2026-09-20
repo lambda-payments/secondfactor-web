@@ -161,7 +161,7 @@
       <span class="dotsep" aria-hidden="true"></span>
       <span>Last updated <time datetime="2026-09-20">20 September 2026</time></span>
       <span class="dotsep" aria-hidden="true"></span>
-      <span>10 min read</span>
+      <span>13 min read</span>
     </div>
   </header>
 
@@ -178,6 +178,7 @@
           <a href="#sinch-verification">Sinch Verification</a>
           <a href="#infobip-2fa">Infobip 2FA</a>
           <a href="#prelude-verify">Prelude Verify</a>
+          <a href="#factors-to-consider">Factors to consider</a>
         </div>
       </nav>
       <div class="post-sidecta">
@@ -264,6 +265,44 @@
       <p>Prelude also recommends adding signals such as the user’s IP address and device information to verification requests to improve fraud detection. Your developers should include that work when preparing the integration for production.</p>
       <p>Prelude’s current pay-as-you-go plan lists €0.032 per verification, plus message costs. The company says it passes through message charges without adding a markup, so the verification charge remains a separate part of your total cost.</p>
       <p>The entry-level plan includes basic fraud protection and delivery reporting; its Startup plan adds advanced fraud protection, Slack support, and a longer data history. Enterprise pricing is available for committed volumes and additional support requirements.</p>
+
+      <h2 id="factors-to-consider">Factors to Consider When Choosing an OTP Service Provider</h2>
+      <p>When evaluating OTP service providers, start with the markets you serve and how much of the verification process you want your developers to manage.</p>
+      <p>From there, review what it takes to get users through verification successfully, how much that process costs, and what happens when delivery does not work as expected.</p>
+      <h3 id="deliverability-in-your-target-markets">Deliverability in Your Target Markets</h3>
+      <p>Check which channels are available in the countries where your users live, rather than relying on the total number of countries a provider advertises.</p>
+      <p>Also confirm whether those channels are available through the verification product you plan to use.</p>
+      <p>For example, RCS availability can depend on the country, network, and recipient’s device, while WhatsApp requires the recipient to use the app.</p>
+      <p>Before committing, test with real phone numbers across your main markets and networks. Record how long codes take to arrive and whether users can complete verification without requesting another code.</p>
+      <p>Also review results by country rather than treating an overall success rate as sufficient; country-level monitoring can help identify delivery issues that need investigation.</p>
+      <h3 id="channel-selection-and-automatic-fallback">Channel Selection and Automatic Fallback</h3>
+      <p>A configurable sequence gives you control over the channel order; dynamic routing can select routes using criteria such as cost and verification success.</p>
+      <p>Find out whether the provider follows a delivery sequence your team configures or evaluates available routes for each request. Both approaches can support automatic fallback, but they leave different responsibilities with your developers.</p>
+      <p>Ask exactly what triggers the next attempt. Does the provider switch when delivery fails, when no delivery confirmation arrives, or when the user has not entered the code within a specified time?</p>
+      <p>These are different situations, and the timing affects how long someone waits before receiving another attempt. Vonage, for example, lets teams configure a timeout for the user to complete verification before advancing through the workflow.</p>
+      <p>Also check whether a retry means switching channels or trying another delivery provider on the same channel.</p>
+      <h3 id="the-total-cost-of-a-completed-verification">The Total Cost of a Completed Verification</h3>
+      <p>Depending on the service, your bill may include delivery charges and a separate successful-verification fee. Even wording such as “pay per successful verification” may still charge for the delivery attempts that did not result in verification.</p>
+      <p>Ask how the provider bills initial sends, retries, and fallback attempts. Then check minimum monthly commitments, paid support, and any additional charges for the fraud protection or routing features you need.</p>
+      <p>For your own evaluation, divide the total verification-related spend during a period by the number of completed verifications. Calculate this by market and across the application. That gives you a more useful budgeting figure than assuming every user will need exactly one message.</p>
+      <p>Also ask how the service controls costs after launch. Does it automatically evaluate lower-cost routes, or will your team need to review destination rates and update channel preferences?</p>
+      <h3 id="integration-work-and-market-onboarding">Integration Work and Market Onboarding</h3>
+      <p>A messaging API may leave code generation and validation to your application, while a verification API can handle those tasks.</p>
+      <p>Review the production integration, not just the quickstart. Check the available SDKs, server-side verification requirements, error handling, and how much retry logic your application must supply.</p>
+      <p>Also ask what happens when you add a country or delivery channel. Some destinations require sender registration or template setup, and those requirements can remain even when the API integration is already complete.</p>
+      <p>Establish who handles each step and allow time for approvals before scheduling a market launch.</p>
+      <h3 id="fraud-protection-and-code-security">Fraud Protection and Code Security</h3>
+      <p>Look for controls that address SMS pumping, including limits on repeated requests, restrictions on unused destinations, and alerts for unusual spending or falling verification completion rates.</p>
+      <p>Confirm which protections are included and which you must configure on your side.</p>
+      <p>Provider-side fraud detection should support your application’s protections, not replace them. Your team still needs to control access to verification requests and handle abuse appropriately; no provider-side system can guarantee that it will block every attack.</p>
+      <p>Separately, check code expiry, limits on incorrect submissions, and whether a successfully used code can be reused.</p>
+      <p>Keep your application's authentication requirements in mind, too: manually entered OTPs are not phishing-resistant, regardless of the delivery provider.</p>
+      <h3 id="reporting-and-support-when-something-goes-wrong">Reporting and Support When Something Goes Wrong</h3>
+      <p>Your team should be able to investigate an individual verification without reconstructing it from a user’s complaint.</p>
+      <p>Look for searchable request histories showing the destination, channel, verification outcome, and relevant error details. Logs should help distinguish an expired code or attempt limit from a delivery problem.</p>
+      <p>At the application level, look for reporting by country and channel, alongside spending and completed-verification metrics. Alerts for unexpected usage or a drop in completion rates can help your team investigate problems before they affect more users.</p>
+      <p>Finally, confirm the support arrangements included in your plan. Ask who handles urgent delivery incidents, what response times are promised, and whether technical assistance costs extra.</p>
+      <p>Review production sending limits and the process for increasing them before a launch or traffic spike—not after users start having trouble receiving codes.</p>
 
       <div class="post-cta">
         <p class="post-cta-t">See what an OTP costs in your markets</p>
