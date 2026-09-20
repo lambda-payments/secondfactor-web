@@ -6,17 +6,28 @@ Nginx, Apache) and it works as-is.
 
 ## Pages
 
-    index.html        Home (animated hero, routing diagram, testimonials, FAQ)
-    channels.html     Channels overview
-    sms.html          SMS OTP
-    whatsapp.html     WhatsApp OTP
-    viber.html        Viber OTP
-    rcs.html          RCS OTP
-    pricing.html      Pricing (one routed rate per country, per-channel on request)
-    support.html      Support / contact
-    docs.html         API documentation (send, check, fetch, webhooks)
-    privacy.html      Privacy Policy (full text; footer links point here)
-    terms.html        Terms & Conditions (full text; footer links point here)
+Clean URLs, one directory per page (each holds an `index.html`):
+
+    /                     index.html                    Home (animated hero, routing diagram, testimonials, FAQ)
+    /channels/            channels/index.html           Channels overview
+    /channels/sms/        channels/sms/index.html       SMS OTP
+    /channels/whatsapp/   channels/whatsapp/index.html  WhatsApp OTP
+    /channels/viber/      channels/viber/index.html     Viber OTP
+    /channels/rcs/        channels/rcs/index.html       RCS OTP
+    /pricing/             pricing/index.html            Pricing (one routed rate per country, per-channel on request)
+    /support/             support/index.html            Support / contact
+    /docs/                docs/index.html               API documentation (send, check, fetch, webhooks)
+    /privacy/             privacy/index.html            Privacy Policy (full text; footer links point here)
+    /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
+
+Internal links and asset paths are root-absolute (`/pricing/`, `/css/styles.css`), so the
+site must be served from the domain root. Every page carries a `<link rel="canonical">`
+and is listed in `sitemap.xml` (referenced from `robots.txt`).
+
+The old flat URLs (`/sms.html`, `/pricing.html`, ...) are kept as tiny redirect stubs
+(meta refresh + canonical + noindex) so existing links and search results still resolve.
+GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
+(Netlify `_redirects`, Cloudflare Pages, Nginx), replace the stubs with real 301s.
 
 ## Assets
 
@@ -25,9 +36,10 @@ Nginx, Apache) and it works as-is.
     js/data.js        Per-country rate data (DEMO VALUES — replace before launch)
     js/app.js         Scroll reveal, mobile drawer, pricing logic, support form
     assets/           Logo mark (mark-v4.png) and lockup
-    docs/             PDF copies of the Privacy Policy and Terms (offered as "Download PDF" on
-                      privacy.html / terms.html — keep them in sync with the page text)
-    robots.txt
+    assets/legal/     PDF copies of the Privacy Policy and Terms (offered as "Download PDF" on
+                      /privacy/ and /terms/ — keep them in sync with the page text)
+    robots.txt        Allows all crawlers, points at sitemap.xml
+    sitemap.xml       All canonical page URLs
 
 ## Fonts
 
@@ -42,7 +54,7 @@ Rates live in js/data.js under RATES, one entry per country:
 
 Values are USD per delivered OTP. The pricing page publishes ONE routed price per
 country (the lowest available value) and never discloses channels or per-channel
-rates. Adding a country also needs a matching <option> in pricing.html's dropdown.
+rates. Adding a country also needs a matching <option> in pricing/index.html's dropdown.
 
 ## Links to wire up
 
