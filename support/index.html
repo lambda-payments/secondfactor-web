@@ -108,7 +108,7 @@
     <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:44px">
       <div>
         <span class="eyebrow" style="margin-bottom:26px">Support</span>
-        <h1 style="font:300 clamp(32px,3.8vw,48px)/1.08 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 18px;max-width:18ch">Talk to the SecondFactor Team</h1>
+        <h1 style="font:300 clamp(32px,3.8vw,48px)/1.08 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 18px;max-width:18ch;text-wrap:balance">Talk to the SecondFactor Team</h1>
         <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:48ch;margin:0 0 32px">Send us your question about integration, channel setup, sender approvals, or pricing for your destination markets. We reply from <a href="mailto:support@secondfactor.ai">support@secondfactor.ai</a>.</p>
         <div style="display:flex;flex-direction:column;gap:14px">
           <div class="crd" style="padding:22px"><div class="lbl" style="margin-bottom:6px">Email</div><a href="mailto:support@secondfactor.ai" style="font:400 16.5px Sora,system-ui,sans-serif">support@secondfactor.ai</a></div>
@@ -116,7 +116,7 @@
           <div class="crd" style="padding:22px"><div class="lbl" style="margin-bottom:6px">Channel onboarding</div><div style="font:300 15px Sora,system-ui,sans-serif;color:var(--mut)">WhatsApp Business Account, Viber and RCS sender approvals, authentication templates.</div></div>
         </div>
       </div>
-      <form id="supportForm" class="crd" style="padding:36px;display:flex;flex-direction:column;gap:20px;align-self:start" action="mailto:support@secondfactor.ai" method="post" enctype="text/plain">
+      <form id="supportForm" class="crd" style="padding:36px;display:flex;flex-direction:column;gap:20px" action="mailto:support@secondfactor.ai" method="post" enctype="text/plain">
         <h2 style="font:300 26px Sora,system-ui,sans-serif;margin:0">Send a message</h2>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px">
           <div class="field"><label for="sn">Full name</label><input class="input" id="sn" name="name" placeholder="Your name" required></div>
@@ -126,7 +126,7 @@
           <div class="field"><label for="sc">Company</label><input class="input" id="sc" name="company" placeholder="Company name"></div>
           <div class="field"><label for="st">Topic</label><select class="input" id="st" name="topic"><option>Integration question</option><option>Channel setup and sender approval</option><option>Pricing and volume</option><option>Account and billing</option><option>Something else</option></select></div>
         </div>
-        <div class="field"><label for="sm">How can we help?</label><textarea class="input" id="sm" name="message" placeholder="Tell us about your app, destination markets, and expected monthly volume." required></textarea></div>
+        <div class="field" style="flex:1"><label for="sm">How can we help?</label><textarea class="input" id="sm" style="flex:1" name="message" placeholder="Tell us about your app, destination markets, and expected monthly volume." required></textarea></div>
         <button class="pill pill-p" type="submit" style="align-self:flex-start;border:0">Send message</button>
         <p style="margin:0;font:300 12.5px Sora,system-ui,sans-serif;color:var(--mut2)">By submitting this form you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
         <div id="formNote" hidden style="padding:14px 16px;border-radius:0;background:rgba(85,88,221,.1);color:var(--ac);font:300 14px Sora,system-ui,sans-serif">Thanks &mdash; connect this form to your backend or form service to receive submissions. Until then, write to support@secondfactor.ai.</div>
