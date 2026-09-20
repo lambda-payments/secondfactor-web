@@ -177,6 +177,7 @@
           <a href="#infobip-2fa">Infobip 2FA</a>
           <a href="#prelude-verify">Prelude Verify</a>
           <a href="#factors-to-consider">Factors to consider</a>
+          <a href="#send-and-verify-otps-with-secondfactor">Send and verify with SecondFactor</a>
         </div>
       </nav>
       <div class="post-sidecta">
@@ -322,6 +323,12 @@
       <p>At the application level, look for reporting by country and channel, alongside spending and completed-verification metrics. Alerts for unexpected usage or a drop in completion rates can help your team investigate problems before they affect more users.</p>
       <p>Finally, confirm the support arrangements included in your plan. Ask who handles urgent delivery incidents, what response times are promised, and whether technical assistance costs extra.</p>
       <p>Review production sending limits and the process for increasing them before a launch or traffic spike—not after users start having trouble receiving codes.</p>
+
+      <h2 id="send-and-verify-otps-with-secondfactor">Send and Verify OTPs With SecondFactor</h2>
+      <p>For apps and websites serving multiple markets that need to send and verify OTPs, you need reliable delivery and manageable costs, without leaving your developers responsible for continually adjusting channel selection and fallback workflows.</p>
+      <p>With SecondFactor, your application makes two API calls to send and verify codes. We handle code generation and validation, select the lowest-cost eligible channel across SMS, WhatsApp, Viber, and RCS, and automatically try another eligible channel when delivery is not confirmed.</p>
+      <p>Your team can use the same integration as you activate additional channels, rather than building separate delivery workflows.</p>
+      <p><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener">Create your SecondFactor account</a> to test the send-and-verify flow, or <a href="/support/">contact our team</a> to discuss <a href="/pricing/">pricing</a> for the markets you serve.</p>
 
       <div class="post-cta">
         <p class="post-cta-t">See what an OTP costs in your markets</p>
