@@ -20,6 +20,7 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /privacy/             privacy/index.html            Privacy Policy (full text; footer links point here)
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
     /blog/                blog/index.html               Blog listing (placeholder cards; noindex and not in sitemap until articles ship)
+    (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
 Internal links and asset paths are root-absolute (`/pricing/`, `/css/styles.css`), so the
 site must be served from the domain root. Every page carries a `<link rel="canonical">`
@@ -31,6 +32,26 @@ Every page uses the same header/footer markup (`header.band > .hd`, `footer.band
 `.ftb`). When you change either, change it on all pages (a quick `grep -l '<header' -r .`
 lists them). Mark the current section's nav link with class `on`. Geometry and colours come
 from `css/chrome.css`; do not put width/padding inline on `.hd`, `.ft` or `.ftb`.
+
+## Publishing a blog article
+
+`blog/_template/` is the master copy. The leading underscore means GitHub Pages (Jekyll)
+never publishes it, but it still previews locally at `/blog/_template/`.
+
+1. Copy the folder: `cp -r blog/_template blog/<slug>` (lowercase, hyphenated, keyword-led slug).
+2. In the new `index.html`, edit every line marked `<!-- EDIT -->`: title, description,
+   canonical and `og:url` (slug), Open Graph / Twitter text and image, both dates, the JSON-LD
+   block, breadcrumb, category, h1, standfirst, byline and author box.
+3. Change the robots meta to `index, follow, max-image-preview:large, max-snippet:-1`.
+4. Write the body with the ready-made blocks: `.post-tldr` (key takeaways), `.post-table`
+   (comparison table, add `class="is-us"` to our row), `.post-item` (one per provider, with
+   `.post-facts` and `.post-proscons`), `.post-note`, `.post-cta`, `.post-faq`. Delete the
+   "Body styles reference" block. Give every `<h2>` an `id` and list it in `.post-toc`.
+5. Do not wrap body content in `<section>` or use `.crd`: `motion.css` restyles both.
+6. Link the article: turn its card on `/blog/` into a link, and fill "Keep reading" with
+   published posts only.
+7. Add the URL to `sitemap.xml`. When the first article ships, also switch `/blog/` to
+   `index, follow` and add `/blog/` to the sitemap.
 
 ## SEO head
 
@@ -49,6 +70,7 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
 
     css/styles.css    Base tokens and components
     css/motion.css    Shared design layer: gradients, cards, animation, responsive rules
+    css/article.css   Blog article layout (.post-* classes). Loaded only by /blog/<slug>/ pages
     css/chrome.css    Header + footer: the ONLY place their width, spacing and colours live.
                       Loaded last on every page (the home page has its own inline CSS, so this
                       is what keeps its header/footer identical to the inner pages).

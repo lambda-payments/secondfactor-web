@@ -164,6 +164,20 @@
     if (selChan) selChan.addEventListener('change', function () { state.channel = selChan.value; render(); });
     render();
   }
+  /* ---------- article table of contents: highlight the section in view ---------- */
+  var tocLinks = document.querySelectorAll('.post-toc a[href^="#"]');
+  if (tocLinks.length && 'IntersectionObserver' in window) {
+    var byId = {};
+    Array.prototype.forEach.call(tocLinks, function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+    var setOn = function (id) {
+      Array.prototype.forEach.call(tocLinks, function (a) { a.classList.toggle('on', a === byId[id]); });
+    };
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setOn(e.target.id); });
+    }, {rootMargin: '-96px 0px -70% 0px'});
+    Object.keys(byId).forEach(function (id) { var h = document.getElementById(id); if (h) spy.observe(h); });
+  }
+
   /* mobile drawer */
   var burger = document.querySelector('.burger'), navlinks = document.querySelector('.navlinks');
   if (burger && navlinks) {
