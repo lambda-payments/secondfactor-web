@@ -195,7 +195,6 @@
       <h2 id="secondfactor">1. SecondFactor</h2>
       <figure class="post-shot">
         <img src="/assets/blog/best-otp-service-providers/secondfactor-hero.webp" alt="SecondFactor home page, with the headline “Stronger Authentication for a Safer World.”" width="1280" height="720" loading="lazy" decoding="async">
-        <figcaption>The SecondFactor home page.</figcaption>
       </figure>
       <p>We built SecondFactor for teams that need to verify users across multiple markets without maintaining separate delivery workflows for each one.</p>
       <p>Our platform sends and verifies OTPs via <a href="/channels/sms/">SMS</a>, <a href="/channels/whatsapp/">WhatsApp</a>, <a href="/channels/viber/">Viber</a>, and <a href="/channels/rcs/">RCS</a> through a <a href="/docs/">single API</a>, with automatic channel selection and fallback built in.</p>
@@ -224,9 +223,8 @@
       <h2 id="twilio-verify">2. Twilio Verify</h2>
       <figure class="post-shot">
         <img src="/assets/blog/best-otp-service-providers/twilio-hero.webp" alt="Twilio Verify API product page, with the headline “Let good users in. Keep bad actors out with Verify API.”" width="1280" height="720" loading="lazy" decoding="async">
-        <figcaption>The Twilio Verify product page. Source: twilio.com, captured 20 September 2026.</figcaption>
       </figure>
-      <p>Twilio Verify supports OTP delivery through SMS, WhatsApp, voice calls, and email. It also offers authenticator-app codes and push approvals, making it worth considering when your application needs authentication options beyond phone-based OTP delivery.</p>
+      <p><a href="https://www.twilio.com/en-us/user-authentication-identity/verify" target="_blank" rel="nofollow noopener">Twilio Verify</a> supports OTP delivery through SMS, WhatsApp, voice calls, and email. It also offers authenticator-app codes and push approvals, making it worth considering when your application needs authentication options beyond phone-based OTP delivery.</p>
       <p>Twilio handles sending and checking verification codes through its API, with helper libraries for languages including JavaScript, Python, PHP, and Java.</p>
       <p>Twilio also offers Fraud Guard, which is enabled by default and analyzes SMS traffic for suspicious patterns. When it detects potential SMS pumping, it can block messages to the affected number prefixes.</p>
       <p>Your team can adjust the protection level and investigate blocked requests through the console. This protection applies to SMS, rather than every verification channel.</p>
@@ -237,9 +235,8 @@
       <h2 id="vonage-verify">3. Vonage Verify</h2>
       <figure class="post-shot">
         <img src="/assets/blog/best-otp-service-providers/vonage-hero.webp" alt="Vonage Verify API product page, showing the Verify API headline and an introductory video." width="1280" height="720" loading="lazy" decoding="async">
-        <figcaption>The Vonage Verify API product page. Source: vonage.com, captured 20 September 2026.</figcaption>
       </figure>
-      <p>Vonage Verify gives teams control over the sequence of channels used to verify a user. Its supported options include SMS, RCS, WhatsApp, voice, and email, although availability and setup requirements differ by channel.</p>
+      <p><a href="https://www.vonage.com/communications-apis/verify/" target="_blank" rel="nofollow noopener">Vonage Verify</a> gives teams control over the sequence of channels used to verify a user. Its supported options include SMS, RCS, WhatsApp, voice, and email, although availability and setup requirements differ by channel.</p>
       <p>With Vonage, your developers define the channel order in the verification request and can configure how long Vonage waits for the user to complete verification before moving to the next step.</p>
       <p>Vonage then executes that sequence and automatically advances when verification is not completed. You don't need to build the fallback mechanism, but your team still chooses the sequence and timing.</p>
       <p>WhatsApp verification also requires your own WhatsApp Business Account and configuration with Vonage.</p>
@@ -249,9 +246,8 @@
       <h2 id="plivo-verify">4. Plivo Verify</h2>
       <figure class="post-shot">
         <img src="/assets/blog/best-otp-service-providers/plivo-hero.webp" alt="Plivo Verify product page, with the headline “Verify new users with Plivo” and a phone showing a verification code." width="1280" height="720" loading="lazy" decoding="async">
-        <figcaption>The Plivo Verify product page. Source: plivo.com, captured 20 September 2026.</figcaption>
       </figure>
-      <p>Plivo Verify offers managed OTP generation and validation without a separate verification fee. It also includes Fraud Shield at no additional charge, which monitors SMS traffic and blocks suspicious messages associated with SMS pumping.</p>
+      <p><a href="https://www.plivo.com/verify/" target="_blank" rel="nofollow noopener">Plivo Verify</a> offers managed OTP generation and validation without a separate verification fee. It also includes Fraud Shield at no additional charge, which monitors SMS traffic and blocks suspicious messages associated with SMS pumping.</p>
       <p>Your team can configure code length, expiry, and the maximum number of delivery attempts per session. Plivo then handles sending the code and validating the user’s response. However, its documented SMS-to-voice fallback example puts the switching logic in your application, so account for that implementation work when planning the integration.</p>
       <p>Plivo’s product page lists SMS, voice, and WhatsApp, with RCS and email marked as coming soon. Its developer documentation currently describes SMS and voice, so confirm WhatsApp access and integration requirements with its team rather than assuming all three use the same documented workflow.</p>
       <p>Plivo charges by delivery channel rather than adding separate OTP verification or Fraud Shield fees, and channel rates depend on the destination, so a zero verification fee does not mean OTP delivery is free.</p>
@@ -259,9 +255,8 @@
       <h2 id="sinch-verification">5. Sinch Verification</h2>
       <figure class="post-shot">
         <img src="/assets/blog/best-otp-service-providers/sinch-hero.webp" alt="Sinch Verification API product page, with the headline “Step up security, keep engagements flowing.”" width="1280" height="720" loading="lazy" decoding="async">
-        <figcaption>The Sinch Verification API product page. Source: sinch.com, captured 20 September 2026.</figcaption>
       </figure>
-      <p>Sinch Verification supports SMS, voice calls, flash calls, and mobile-data verification. It also offers integrations with Auth0 and Okta for teams already using those authentication platforms.</p>
+      <p><a href="https://sinch.com/verification-api/" target="_blank" rel="nofollow noopener">Sinch Verification</a> supports SMS, voice calls, flash calls, and mobile-data verification. It also offers integrations with Auth0 and Okta for teams already using those authentication platforms.</p>
       <p>Its Flash Call method verifies a phone number through a missed call, using the incoming caller number as the verification code.</p>
       <p>On Android, the SDK can handle this automatically, reducing the need for users to switch applications and type a code. Flash Call can also support website verification, although the user experience depends on the device and implementation.</p>
       <p>It also offers data verification, which removes the code-entry step entirely by checking the phone number through the mobile network. However, users must have mobile data enabled, and access requires contacting a Sinch account manager.</p>
@@ -271,9 +266,8 @@
       <h2 id="infobip-2fa">6. Infobip 2FA</h2>
       <figure class="post-shot">
         <img src="/assets/blog/best-otp-service-providers/infobip-hero.webp" alt="Infobip Authenticate product page, with the headline “Enhancing your 2FA solution with cutting-edge OTP delivery.”" width="1280" height="720" loading="lazy" decoding="async">
-        <figcaption>The Infobip Authenticate product page. Source: infobip.com, captured 20 September 2026.</figcaption>
       </figure>
-      <p>Infobip’s 2FA API generates, sends, and verifies OTPs through SMS, voice, and email. Your application requests a code, receives a PIN ID, and then submits that ID with the code the user entered for validation.</p>
+      <p><a href="https://www.infobip.com/authentication" target="_blank" rel="nofollow noopener">Infobip’s 2FA API</a> generates, sends, and verifies OTPs through SMS, voice, and email. Your application requests a code, receives a PIN ID, and then submits that ID with the code the user entered for validation.</p>
       <p>You can set code expiry, verification-attempt limits, and sending limits for individual phone numbers or the application as a whole. You can also create separate configurations to apply different rules to signup, password resets, or other verification flows, while multiple templates support different languages.</p>
       <p>You also need to complete the setup for each delivery channel before sending live traffic, including configuring the sender and any additional channel requirements.</p>
       <p>For teams that want automatic channel selection and fallback, Infobip also offers Authenticate, which advertises optimized routing across channels including SMS, WhatsApp, RCS, and Viber.</p>
@@ -282,9 +276,8 @@
       <h2 id="prelude-verify">7. Prelude Verify</h2>
       <figure class="post-shot">
         <img src="/assets/blog/best-otp-service-providers/prelude-hero.webp" alt="Prelude Verify product page, with the headline “Phone verification for exponential growth.”" width="1280" height="720" loading="lazy" decoding="async">
-        <figcaption>The Prelude Verify product page. Source: prelude.so, captured 20 September 2026.</figcaption>
       </figure>
-      <p>Prelude Verify handles phone and email verification, with delivery options including SMS, RCS, and WhatsApp. Its routing engine evaluates multiple providers and channels for each user, making it worth considering when your team wants to reduce the work of choosing and maintaining delivery routes across markets.</p>
+      <p><a href="https://prelude.so/verify" target="_blank" rel="nofollow noopener">Prelude Verify</a> handles phone and email verification, with delivery options including SMS, RCS, and WhatsApp. Its routing engine evaluates multiple providers and channels for each user, making it worth considering when your team wants to reduce the work of choosing and maintaining delivery routes across markets.</p>
       <p>Prelude selects routes using both cost and verification-conversion data. Your team can set a country-specific preference to prioritize price, prioritize conversion, or balance the two. This gives you control over the trade-off without requiring your developers to select individual delivery providers for every request.</p>
       <p>When delivery fails, or a user requests another code, Prelude chooses the next available route based on those criteria. A retry does not necessarily switch channels: it may use another SMS provider or move to a different channel entirely.</p>
       <p>The basic integration uses separate requests to send and check a code, with backend SDKs available for several languages.</p>
