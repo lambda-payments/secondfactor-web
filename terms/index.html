@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms &amp; Conditions | SecondFactor.ai</title>
+<meta name="description" content="The terms that govern access to and use of the SecondFactor OTP platform, API and dashboard.">
+<link rel="canonical" href="https://secondfactor.ai/terms/">
+<link rel="icon" type="image/png" href="/assets/logo/secondfactor-icon.png">
+<link rel="apple-touch-icon" href="/assets/logo/secondfactor-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/motion.css">
+</head>
+<body>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<header class="band" style="position:sticky;top:0;z-index:30;backdrop-filter:blur(8px)">
+  <div class="hd" style="max-width:1200px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+    <a href="/" class="brand" style="display:flex;align-items:center;margin-right:auto">
+      <img class="brand-logo" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772">
+    </a>
+      <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="navlinks" style="display:flex;gap:26px;font:300 14.5px Sora,system-ui,sans-serif">
+      <a href="/" class="nav-a">Home</a>
+      <span class="chdd">
+        <a href="/channels/" class="nav-a" style="display:inline-flex;align-items:center;gap:6px">Channels<span style="font-size:14px;opacity:.85;line-height:1">&#9662;</span></a>
+        <span class="chmenu">
+          <a href="/channels/sms/" class="chitem">SMS</a>
+          <a href="/channels/whatsapp/" class="chitem">WhatsApp</a>
+          <a href="/channels/viber/" class="chitem">Viber</a>
+          <a href="/channels/rcs/" class="chitem">RCS</a>
+        </span>
+      </span>
+      <a href="/pricing/" class="nav-a">Pricing</a>
+      <a href="/support/" class="nav-a">Support</a>
+    </nav>
+    <a href="https://app.secondfactor.ai/login" target="_blank" rel="noopener" class="nav-a signin">Sign in</a>
+    <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="sm hdcta" style="background:var(--ac2);color:#1f2450">Get Started</a>
+  </div>
+</header>
+<main style="flex:1">
+
+  <section class="legal-hero">
+    <div>
+      <span class="eyebrow" style="margin-bottom:26px">Legal</span>
+      <h1>Terms &amp; Conditions</h1>
+      <p class="legal-meta">Effective date: 17 September 2026 &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/assets/legal/terms-and-conditions.pdf" target="_blank" rel="noopener">Download PDF</a></p>
+    </div>
+  </section>
+
+  <section class="legal-wrap">
+    <div class="legal">
+      <nav class="legal-toc" aria-label="On this page">
+        <div class="lbl" style="margin-bottom:14px">On this page</div>
+          <a href="#s1">1. Introduction and Acceptance</a>
+          <a href="#s2">2. The Services</a>
+          <a href="#s3">3. Eligibility and Account Registration</a>
+          <a href="#s4">4. License Grant</a>
+          <a href="#s5">5. Acceptable Use and Restrictions</a>
+          <a href="#s6">6. Your Responsibilities as a Customer</a>
+          <a href="#s7">7. Fees, Credits, and Payment</a>
+          <a href="#s8">8. Beta and Sandbox Features</a>
+          <a href="#s9">9. Intellectual Property</a>
+          <a href="#s10">10. Confidentiality</a>
+          <a href="#s11">11. Reliance on Third-Party Channel Providers; Not for Emergency Use</a>
+          <a href="#s12">12. Suspension and Termination</a>
+          <a href="#s13">13. Warranties and Disclaimers</a>
+          <a href="#s14">14. Limitation of Liability</a>
+          <a href="#s15">15. Indemnification</a>
+          <a href="#s16">16. Governing Law and Dispute Resolution</a>
+          <a href="#s17">17. General Provisions</a>
+          <a href="#s18">18. Changes to These Terms</a>
+          <a href="#s19">19. Contact Us</a>
+      </nav>
+      <article class="legal-body">
+        <h2 id="s1">1. Introduction and Acceptance</h2>
+        <p>These Terms &amp; Conditions ("Terms") govern access to and use of SecondFactor, a product of Digital 360 Pte. Ltd., a company incorporated in Singapore (UEN: 202017689H), with its registered office at 160 Robinson Road, #14-04, Singapore 068914 ("Digital360," "Company," "we," "us," "our").</p>
+        <p>By creating an account, accessing our dashboard, or making an API call using your API key, you ("Customer," "you") agree to be bound by these Terms, our <a href="/privacy/">Privacy Policy</a>, and any order form or Data Processing Terms agreed between us. If you are agreeing on behalf of a company or other legal entity, you represent that you have the authority to bind that entity, in which case "you" refers to that entity.</p>
+        <h2 id="s2">2. The Services</h2>
+        <p>"Services" means the SecondFactor platform available at <a href="https://secondfactor.ai">secondfactor.ai</a>, including:</p>
+        <ul>
+          <li>The OTP send/verify API; POST /otp/send and POST /otp/verify - to send a one-time password to a phone number and later verify the code entered by your end user ("End User"). We generate, deliver, and validate the OTP; your systems never need to generate or independently validate it.</li>
+          <li>PIE (Price Intelligence Engine) - automatically selects the cheapest eligible delivery channel for each phone number in real time (from among SMS, WhatsApp, Viber, RCS, and Silent Network Authentication, as available and eligible for your account) and automatically fails over to an alternate channel if delivery is not confirmed within our standard time window.</li>
+          <li>Free credits, live API keys, the PIE Playground sandbox, Templates, Channel Integrations, and OTP Logs and Analytics.</li>
+        </ul>
+        <p>Some channels (WhatsApp, Viber, RCS) require you to complete a third-party verification process outside our control; for example, Meta Business Portfolio verification, a Viber business application, or Google RCS agent registration each with its own timeline and requirements set by that third party, not by us.</p>
+        <p>We may add, modify, or discontinue features of the Services from time to time. Where a change is not backward-compatible with your existing integration, we will make reasonable efforts to give you advance notice.</p>
+        <h2 id="s3">3. Eligibility and Account Registration</h2>
+        <p>You must provide accurate, current, and complete information when creating an account, and keep it up to date. You are responsible for maintaining the confidentiality of your account credentials and API keys, and for all activity that occurs under your account. Notify us immediately at <a href="mailto:support@secondfactor.ai">support@secondfactor.ai</a> if you suspect unauthorized use of your account or a compromised API key, you remain responsible for charges incurred before we are able to act on that notice.</p>
+        <p>You represent that you have the legal capacity and authority to enter into these Terms, whether in your personal capacity or on behalf of the entity you represent.</p>
+        <h2 id="s4">4. License Grant</h2>
+        <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to access and use our API, SDKs, and documentation to build, operate, and support your own application that interfaces with the Services ("Customer Application"), and to deliver the Services to your End Users through that Customer Application. This license extends to your affiliates acting through your account, but not further.</p>
+        <p>You may not resell, sublicense, or offer the Services to third parties as a standalone or competing product, except through your own Customer Application as contemplated by this license.</p>
+        <h2 id="s5">5. Acceptable Use and Restrictions</h2>
+        <p>You agree not to use the Services to:</p>
+        <ul>
+          <li>Send OTPs or other messages to phone numbers without a lawful basis or the necessary consent of the recipient under applicable law.</li>
+          <li>Engage in or facilitate SMS pumping, Artificially Inflated Traffic (AIT), or any other fraudulent traffic-generation scheme.</li>
+          <li>Send spam, unsolicited marketing, phishing content, or any unlawful, defamatory, deceptive, or abusive content.</li>
+          <li>Violate the content, template, or usage policies of any underlying channel provider (including Meta/WhatsApp, Google/RCS, or Rakuten Viber), or misrepresent your business identity in any template or channel-verification submission.</li>
+          <li>Reverse-engineer, decompile, or attempt to derive the source code of the Services, except to the extent applicable law prohibits this restriction.</li>
+          <li>Modify, adapt, or create derivative works of the Services, except as we expressly authorize.</li>
+          <li>Infringe any third party's intellectual property or other rights, or violate any applicable law or regulation.</li>
+        </ul>
+        <p>We monitor usage patterns for indicators of fraud or abuse (such as abnormal send volumes) and may act under <a href="#s12">Section 12</a> (Suspension and Termination) where such indicators are found.</p>
+        <h2 id="s6">6. Your Responsibilities as a Customer</h2>
+        <p>As between you and us, you are solely responsible for:</p>
+        <ul>
+          <li>Obtaining any consent required from your End Users before submitting their phone numbers to us for OTP delivery.</li>
+          <li>Your own application's compliance with applicable telecommunications, data protection, and consumer protection laws in every jurisdiction where you operate.</li>
+          <li>The accuracy and content of any message templates you submit, and compliance with each channel's approval requirements.</li>
+          <li>Integrating our API to meet your own resilience needs, including implementing appropriate retry logic and error handling on your side.</li>
+          <li>Safeguarding your API keys and promptly rotating them if compromised.</li>
+        </ul>
+        <h2 id="s7">7. Fees, Credits, and Payment</h2>
+        <ul>
+          <li>Use of the Services requires a positive credit balance. New accounts receive a small number of free credits and free test credits for use in the PIE Playground and sandbox environment.</li>
+          <li>Credits are purchased through our third-party payment processor, subject to a minimum top-up amount displayed at checkout.</li>
+          <li>Credits are non-refundable and non-transferable. Once loaded, credits do not expire and remain available for your use for as long as your account is active and in good standing, they are yours to draw on, not a use-it-or-lose-it balance, but we do not issue cash refunds, exchange credits for cash, or reimburse credits already consumed.</li>
+          <li>Pricing is displayed either as a flat per-country rate ("Straightforward Pricing") or, where enabled for your account, a channel-by-channel savings view. We may update pricing from time to time; changes will not affect credits already loaded to your account but will apply to future sends.</li>
+          <li>If a payment fails or your credit balance reaches zero, we may suspend your ability to send further OTPs until the balance is restored.</li>
+        </ul>
+        <h2 id="s8">8. Beta and Sandbox Features</h2>
+        <p>The PIE Playground and any feature we designate as "beta," "preview," or "sandbox" are made available for testing and evaluation purposes and are provided at our sole discretion. They may be modified, limited, or withdrawn at any time, may contain errors or produce inconsistent results, and are not intended for production or commercial use. Free test credits used within these features do not incur real charges and are not refundable, transferable, or convertible to live credits.</p>
+        <h2 id="s9">9. Intellectual Property</h2>
+        <p>The Services, including the PIE routing engine, our software, dashboard, documentation, and all related intellectual property, are owned by Digital360 or our licensors. Nothing in these Terms transfers any of our intellectual property to you, beyond the limited license in <a href="#s4">Section 4</a>.</p>
+        <p>You retain all rights to your own Customer Application, your own data, and the content you transmit through it. You grant us a limited license to process the data you submit (including End User Data) solely to provide the Services to you, as described in our <a href="/privacy/">Privacy Policy</a>.</p>
+        <p>Any feedback or suggestions you give us about the Services may be used by us without restriction or obligation to you.</p>
+        <h2 id="s10">10. Confidentiality</h2>
+        <p>Each party may receive non-public information from the other in connection with the Services ("Confidential Information"), which does not include information that is or becomes public through no fault of the receiving party, was already known to the receiving party, is received from a third party without a duty of confidentiality, or is independently developed. Each party agrees to protect the other's Confidential Information with at least a reasonable degree of care, and not to disclose it except to employees, contractors, or advisors with a need to know (and who are themselves bound by confidentiality obligations), or as required by law, with prompt notice to the other party where legally permitted.</p>
+        <h2 id="s11">11. Reliance on Third-Party Channel Providers; Not for Emergency Use</h2>
+        <p>Delivery of OTPs depends on third parties outside our control, including mobile network operators, Meta/WhatsApp, Google (for RCS), Rakuten Viber, and our underlying delivery infrastructure providers. Availability, deliverability, and turnaround times for any given channel may be affected by those third parties' own systems, policies, verification timelines, or outages. While PIE is designed to automatically fail over to an alternate channel when delivery is not confirmed within our standard time window, we do not guarantee that any specific message will be delivered via any specific channel, or within any specific time frame, and we are not liable for delivery failures caused by third-party channel providers.</p>
+        <p>The Services are not designed or intended for use in connection with emergency services, life-critical systems, or any use case where failure or delay of message delivery could result in death, personal injury, or property damage. You must not rely on the Services for any such purpose.</p>
+        <h2 id="s12">12. Suspension and Termination</h2>
+        <p><strong>By you</strong>: you may close your account at any time by contacting <a href="mailto:support@secondfactor.ai">support@secondfactor.ai</a>.</p>
+        <p><strong>By us, for convenience</strong>: we may terminate these Terms or your access to the Services by giving you reasonable advance notice.</p>
+        <p><strong>By us, for cause, immediately and without notice</strong>: if we reasonably believe you have breached these Terms (including Sections 5 or 6), your account shows signs of fraud, abuse, SMS pumping, or AIT, payment has failed or your account is delinquent, or suspension or termination is required to comply with applicable law or a third-party channel provider's requirements (for example, a WhatsApp, Viber, or RCS policy violation).</p>
+        <p><strong>Effect of termination</strong>: your right to use the Services ends immediately. Outstanding fees remain payable, and unused credits are forfeited upon account closure, this is distinct from ordinary account inactivity, during which credits remain available as described in <a href="#s7">Section 7</a>. Sections that by their nature should survive termination (including Intellectual Property, Confidentiality, Limitation of Liability, Indemnification, and Governing Law) will survive.</p>
+        <h2 id="s13">13. Warranties and Disclaimers</h2>
+        <p>We represent that we have the authority to enter into these Terms and provide the Services. Beyond that, THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING WITHOUT LIMITATION WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE, OR THAT ANY PARTICULAR OTP WILL BE SUCCESSFULLY DELIVERED OR VERIFIED. YOUR USE OF THE SERVICES IS AT YOUR OWN RISK.</p>
+        <h2 id="s14">14. Limitation of Liability</h2>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, DIGITAL360 WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, REVENUE, DATA, OR GOODWILL, ARISING FROM OR RELATED TO YOUR USE OF THE SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, DIGITAL360'S TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICES WILL NOT EXCEED THE TOTAL FEES YOU ACTUALLY PAID TO US IN THE <strong>[TO BE SET BY COUNSEL - e.g. THREE (3) OR SIX (6)]</strong> MONTHS PRECEDING THE EVENT GIVING RISE TO THE CLAIM.</p>
+        <p>The limitations in this Section do not apply to liability that cannot be limited or excluded under applicable law (such as liability for fraud, willful misconduct, or gross negligence), and do not limit either party's liability for breach of the Confidentiality or Intellectual Property sections, to the extent applicable law permits such carve-outs.</p>
+        <h2 id="s15">15. Indemnification</h2>
+        <p>You agree to indemnify and hold harmless Digital360, its officers, directors, employees, and agents from and against any claims, damages, liabilities, costs, and expenses (including reasonable legal fees) arising out of or related to: (a) your use of the Services in violation of these Terms or applicable law; (b) your failure to obtain necessary consents from End Users; (c) content submitted through your templates or Customer Application; or (d) a claim brought by one of your End Users that would not have arisen but for your use of the Services.</p>
+        <h2 id="s16">16. Governing Law and Dispute Resolution</h2>
+        <p>These Terms are governed by the laws of the Republic of Singapore, without regard to its conflict of laws principles.</p>
+        <p>Before either party initiates formal legal proceedings, the parties will first attempt in good faith to resolve the dispute through direct negotiation between authorized representatives for a period of thirty (30) days. If the dispute remains unresolved after that period, the courts of Singapore will have exclusive jurisdiction to settle it.</p>
+        <h2 id="s17">17. General Provisions</h2>
+        <ul>
+          <li><strong>Relationship of the parties</strong>: Digital360 and you are independent contractors. Nothing in these Terms creates a partnership, joint venture, agency, or employment relationship.</li>
+          <li><strong>Assignment</strong>: You may not assign or transfer these Terms without our prior written consent. We may assign these Terms in connection with a merger, acquisition, reorganization, or sale of assets.</li>
+          <li><strong>Force Majeure</strong>: Neither party is liable for any failure or delay in performance caused by circumstances beyond its reasonable control, including acts of God, natural disasters, war, terrorism, labor disputes, internet or telecommunications failures, or the acts or omissions of a third-party channel provider or network operator.</li>
+          <li><strong>Entire Agreement</strong>: These Terms, together with our <a href="/privacy/">Privacy Policy</a> and any order form or Data Processing Terms agreed between the parties, constitute the entire agreement between you and Digital360 regarding the Services, and supersede all prior discussions or agreements on the subject.</li>
+          <li><strong>Severability</strong>: If any provision of these Terms is found unenforceable, the remaining provisions continue in full force and effect, and the unenforceable provision will be replaced with one that most closely reflects its intent.</li>
+          <li><strong>No Waiver</strong>: Our failure to enforce any provision of these Terms is not a waiver of that provision.</li>
+          <li><strong>Notices</strong>: We may provide notices to you by email to the address on your account, or through an in-dashboard notice; you are responsible for keeping your account email current.</li>
+        </ul>
+        <h2 id="s18">18. Changes to These Terms</h2>
+        <p>We may update these Terms from time to time. We will post the updated Terms on this page with a revised effective date, and where changes are material, we will provide additional notice (for example, by email or an in-dashboard notice). Continued use of the Services after an update takes effect constitutes your acceptance of the revised Terms.</p>
+        <h2 id="s19">19. Contact Us</h2>
+        <address>Digital 360 Pte. Ltd. (operating SecondFactor)<br>160 Robinson Road, #14-04, Singapore 068914<br>Email: <a href="mailto:support@secondfactor.ai">support@secondfactor.ai</a><br>Website: <a href="https://secondfactor.ai">secondfactor.ai</a></address>
+      </article>
+    </div>
+  </section></main>
+<footer class="band">
+  <div class="ft" style="max-width:1200px;margin:0 auto;padding:60px 40px 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;margin-bottom:16px"><img class="brand-logo brand-logo-ft" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772"></div>
+      <p style="font:300 14px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.82);margin:0;max-width:32ch">One stop solution for your OTPs. Send and verify through the lowest-cost eligible channel.</p>
+    </div>
+    <div><div style="display:flex;flex-direction:column;gap:11px"><a href="/" class="nl">Home</a><a href="/channels/" class="nl">Channels</a><a href="/pricing/" class="nl">Pricing</a></div></div>
+    <div><div style="display:flex;flex-direction:column;gap:9px"><a href="/channels/sms/" class="nav-a">SMS</a><a href="/channels/whatsapp/" class="nav-a">WhatsApp</a><a href="/channels/viber/" class="nav-a">Viber</a><a href="/channels/rcs/" class="nav-a">RCS</a></div></div>
+    <div><div style="display:flex;flex-direction:column;gap:9px"><a href="/support/" class="nav-a">Support</a><a href="/privacy/" class="nav-a">Privacy Policy</a><a href="/terms/" class="nav-a">Terms and Conditions</a><a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nav-a" aria-label="SecondFactor.ai on LinkedIn" style="display:inline-flex;width:17px"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor" style="display:block"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z"></path></svg></a></div></div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:20px 40px 46px;border-top:1px solid rgba(244,243,253,.14);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font:300 13px Sora,system-ui,sans-serif;color:rgba(244,243,253,.78)"><span>&copy; 2026 SecondFactor.ai. All rights reserved.</span><span>Rates shown are indicative and quoted in USD.</span></div>
+</footer>
+</div>
+<script src="/js/data.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
