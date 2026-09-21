@@ -100,9 +100,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ac);outline-offset:
 .nav-a.on,.nav-a:hover{color:#f4f3fd}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (max-width:760px){
-  header .hd{padding:14px 20px!important;gap:16px!important}
   section{padding-left:20px!important;padding-right:20px!important}
-  footer .ft{padding-left:20px!important;padding-right:20px!important}
 }
 
 /* ---- legal pages (privacy.html, terms.html) ---- */

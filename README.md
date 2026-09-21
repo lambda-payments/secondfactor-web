@@ -19,10 +19,46 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /docs/                docs/index.html               API documentation (send, check, fetch, webhooks)
     /privacy/             privacy/index.html            Privacy Policy (full text; footer links point here)
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
+    /blog/                blog/index.html               Blog listing: published articles as clickable cards, planned ones as "Coming soon"
+    (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
 Internal links and asset paths are root-absolute (`/pricing/`, `/css/styles.css`), so the
 site must be served from the domain root. Every page carries a `<link rel="canonical">`
 and is listed in `sitemap.xml` (referenced from `robots.txt`).
+
+## Header and footer
+
+Every page uses the same header/footer markup (`header.band > .hd`, `footer.band > .ft` +
+`.ftb`). When you change either, change it on all pages (a quick `grep -l '<header' -r .`
+lists them). Mark the current section's nav link with class `on`. Geometry and colours come
+from `css/chrome.css`; do not put width/padding inline on `.hd`, `.ft` or `.ftb`.
+
+## Publishing a blog article
+
+`blog/_template/` is the master copy. The leading underscore means GitHub Pages (Jekyll)
+never publishes it, but it still previews locally at `/blog/_template/`.
+
+1. Copy the folder: `cp -r blog/_template blog/<slug>` (lowercase, hyphenated, keyword-led slug).
+2. In the new `index.html`, edit every line marked `<!-- EDIT -->`: title, description,
+   canonical and `og:url` (slug), Open Graph / Twitter text and image, both dates, the JSON-LD
+   block, breadcrumb, category, h1, standfirst, byline and author box.
+3. Change the robots meta to `index, follow, max-image-preview:large, max-snippet:-1`.
+4. Write the body with the ready-made blocks: `.post-tldr` (key takeaways), `.post-table`
+   (comparison table, add `class="is-us"` to our row), `.post-item` (one per provider, with
+   `.post-facts` and `.post-proscons`), `.post-note`, `.post-cta`, `.post-faq`. Delete the
+   "Body styles reference" block. Give every `<h2>` an `id` and list it in `.post-toc`.
+5. Do not wrap body content in `<section>` or use `.crd`: `motion.css` restyles both.
+6. Link the article: turn its card on `/blog/` into a link, and fill "Keep reading" with
+   published posts only.
+7. Add the URL to `sitemap.xml` (and bump the `/blog/` entry's `lastmod`).
+
+## SEO head
+
+Each page's `<head>` carries, in order: title, meta description, canonical, robots,
+theme-color, Open Graph tags, Twitter card tags, apple-touch-icon, then a JSON-LD block.
+The JSON-LD is a `@graph`: the home page declares `Organization` + `WebSite` + `WebPage`;
+every other page declares `BreadcrumbList` + `WebPage`. When you add a page, copy the head
+of the closest sibling and update the URL, title, description and breadcrumb name.
 
 The old flat URLs (`/sms.html`, `/pricing.html`, ...) are kept as tiny redirect stubs
 (meta refresh + canonical + noindex) so existing links and search results still resolve.
@@ -33,14 +69,20 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
 
     css/styles.css    Base tokens and components
     css/motion.css    Shared design layer: gradients, cards, animation, responsive rules
+    css/article.css   Blog article layout (.post-* classes). Loaded only by /blog/<slug>/ pages
+    css/chrome.css    Header + footer: the ONLY place their width, spacing and colours live.
+                      Loaded last on every page (the home page has its own inline CSS, so this
+                      is what keeps its header/footer identical to the inner pages).
     js/data.js        Per-country rate data (DEMO VALUES — replace before launch)
     js/app.js         Scroll reveal, mobile drawer, pricing logic, support form
     assets/logo/      Brand files: secondFactor-full.png (header/footer lockup), secondfactor-icon.png
                       (favicon); the -white variants are for dark backgrounds and are not used yet
     assets/legal/     PDF copies of the Privacy Policy and Terms (offered as "Download PDF" on
                       /privacy/ and /terms/ — keep them in sync with the page text)
+    assets/og-default.png  1200x630 share image used by the Open Graph / Twitter tags on every page
     robots.txt        Allows all crawlers, points at sitemap.xml
     sitemap.xml       All canonical page URLs
+    404.html          Custom not-found page (GitHub Pages serves it automatically; noindex)
 
 ## Fonts
 
