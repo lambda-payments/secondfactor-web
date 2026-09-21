@@ -19,7 +19,7 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /docs/                docs/index.html               API documentation (send, check, fetch, webhooks)
     /privacy/             privacy/index.html            Privacy Policy (full text; footer links point here)
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
-    /blog/                blog/index.html               Blog listing (placeholder cards; noindex and not in sitemap until articles ship)
+    /blog/                blog/index.html               Blog listing: published articles as clickable cards, planned ones as "Coming soon"
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
 Internal links and asset paths are root-absolute (`/pricing/`, `/css/styles.css`), so the
@@ -50,8 +50,7 @@ never publishes it, but it still previews locally at `/blog/_template/`.
 5. Do not wrap body content in `<section>` or use `.crd`: `motion.css` restyles both.
 6. Link the article: turn its card on `/blog/` into a link, and fill "Keep reading" with
    published posts only.
-7. Add the URL to `sitemap.xml`. When the first article ships, also switch `/blog/` to
-   `index, follow` and add `/blog/` to the sitemap.
+7. Add the URL to `sitemap.xml` (and bump the `/blog/` entry's `lastmod`).
 
 ## SEO head
 
