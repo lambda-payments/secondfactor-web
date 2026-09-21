@@ -19,6 +19,7 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /docs/                docs/index.html               API documentation (send, check, fetch, webhooks)
     /privacy/             privacy/index.html            Privacy Policy (full text; footer links point here)
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
+    /blog/                blog/index.html               Blog listing (placeholder cards; noindex and not in sitemap until articles ship)
 
 Internal links and asset paths are root-absolute (`/pricing/`, `/css/styles.css`), so the
 site must be served from the domain root. Every page carries a `<link rel="canonical">`
