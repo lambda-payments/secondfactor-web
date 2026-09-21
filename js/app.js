@@ -164,6 +164,30 @@
     if (selChan) selChan.addEventListener('change', function () { state.channel = selChan.value; render(); });
     render();
   }
+  /* ---------- article table of contents: highlight the section being read ----------
+     The current section is the last heading that has scrolled past the top of the viewport,
+     so the highlight stays correct inside long sections, when scrolling back up, and after
+     jumping to an anchor. */
+  var tocLinks = document.querySelectorAll('.post-toc a[href^="#"]');
+  if (tocLinks.length) {
+    var tocHeads = [];
+    Array.prototype.forEach.call(tocLinks, function (a) {
+      var h = document.getElementById(a.getAttribute('href').slice(1));
+      if (h) tocHeads.push({h: h, a: a});
+    });
+    var spy = function () {
+      var cur = null;
+      for (var k = 0; k < tocHeads.length; k++) {
+        if (tocHeads[k].h.getBoundingClientRect().top <= 140) cur = tocHeads[k].a; else break;
+      }
+      Array.prototype.forEach.call(tocLinks, function (a) { a.classList.toggle('on', a === cur); });
+    };
+    /* cheap enough (one rect read per heading) to run directly on scroll */
+    window.addEventListener('scroll', spy, {passive: true});
+    window.addEventListener('resize', spy);
+    spy();
+  }
+
   /* mobile drawer */
   var burger = document.querySelector('.burger'), navlinks = document.querySelector('.navlinks');
   if (burger && navlinks) {
