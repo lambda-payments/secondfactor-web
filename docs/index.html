@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SecondFactor.ai — API Documentation</title>
+<meta name="description" content="Connect SMS, WhatsApp, Viber and RCS OTP delivery through one SecondFactor API.">
+<link rel="canonical" href="https://secondfactor.ai/docs/">
+<link rel="icon" href="/assets/mark-v4.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/motion.css">
+<style>
+.docnav{position:sticky;top:96px;display:flex;flex-direction:column;gap:2px}
+.docnav a{font:300 14px Sora,system-ui,sans-serif;color:rgba(31,36,80,.72);padding:7px 0;border-bottom:1px solid rgba(31,36,80,.08)}
+.docnav a:hover{color:#5558dd}
+.doc{min-width:0;font:300 15.5px/1.75 Sora,system-ui,sans-serif;color:rgba(31,36,80,.82)}
+.doc h2{font:300 clamp(26px,2.6vw,34px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:clamp(40px,4vw,64px) 0 14px;padding-top:clamp(28px,3vw,44px);border-top:1px solid rgba(85,88,221,.18)}
+.doc h2:first-child{margin-top:0;padding-top:0;border-top:0}
+.doc h3{font:400 19px Sora,system-ui,sans-serif;margin:34px 0 10px}
+.doc h4{font:400 16px Sora,system-ui,sans-serif;margin:26px 0 8px}
+.doc p{margin:0 0 14px;max-width:78ch}
+.doc ul{margin:0 0 16px;padding-left:20px;max-width:78ch}
+.doc li{margin-bottom:8px}
+.doc code{font:400 13px 'JetBrains Mono',ui-monospace,Menlo,monospace;background:rgba(85,88,221,.08);padding:2px 5px;color:#4143c4}
+.doc pre{overflow:auto;background:linear-gradient(160deg,rgba(255,255,255,.62),rgba(226,225,251,.4));border:1px solid rgba(31,36,80,.12);padding:18px 20px;margin:0 0 18px;font:400 12.5px/1.75 'JetBrains Mono',ui-monospace,Menlo,monospace;color:rgba(31,36,80,.86)}
+.doc pre code{background:none;padding:0;color:inherit}
+.doc pre.ep{font-size:13px;letter-spacing:.02em;color:#4143c4;background:rgba(85,88,221,.07);border-color:rgba(85,88,221,.22)}
+.doc table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:14px}
+.doc th{text-align:left;font:400 11.5px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(31,36,80,.7);padding:10px 12px;border-bottom:1px solid rgba(31,36,80,.16)}
+.doc td{padding:11px 12px;border-bottom:1px solid rgba(31,36,80,.09);vertical-align:top;line-height:1.6}
+.doc .note{font-size:14px;color:rgba(31,36,80,.68)}
+.doc .callout{border-left:2px solid #5558dd;padding:12px 16px;background:rgba(85,88,221,.06);max-width:78ch}
+@media (max-width:900px){
+  main > section.sec[style*="230px"]{grid-template-columns:minmax(0,1fr)!important}
+  .docnav{position:static;flex-direction:row;flex-wrap:wrap;gap:10px}
+  .docnav a{border:1px solid rgba(31,36,80,.14);padding:8px 14px}
+  .docnav .lbl{width:100%}
+}
+</style>
+</head>
+<body>
+
+<div style="min-height:100vh;display:flex;flex-direction:column">
+<header class="band" style="position:sticky;top:0;z-index:30;backdrop-filter:blur(8px)">
+  <div class="hd" style="max-width:1200px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+    <a href="/" class="brand" style="display:flex;align-items:center;gap:11px;margin-right:auto;color:#f4f3fd">
+      <span class="brand-mk" style="display:grid;place-items:center"><img src="/assets/mark-v4.png" alt=""></span>
+      <span class="brand-tx" style="font-family:Sora,system-ui,sans-serif;font-weight:300;letter-spacing:.06em">second<span style="color:#5558dd">factor</span><span style="opacity:.72">.ai</span></span>
+    </a>
+      <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="navlinks" style="display:flex;gap:26px;font:300 14.5px Sora,system-ui,sans-serif">
+      <a href="/" class="nav-a">Home</a>
+      <span class="chdd">
+        <a href="/channels/" class="nav-a on" style="display:inline-flex;align-items:center;gap:6px">Channels<span style="font-size:14px;opacity:.85;line-height:1">&#9662;</span></a>
+        <span class="chmenu">
+          <a href="/channels/sms/" class="chitem">SMS</a>
+          <a href="/channels/whatsapp/" class="chitem">WhatsApp</a>
+          <a href="/channels/viber/" class="chitem">Viber</a>
+          <a href="/channels/rcs/" class="chitem">RCS</a>
+        </span>
+      </span>
+      <a href="/pricing/" class="nav-a">Pricing</a>
+      <a href="/support/" class="nav-a">Support</a>
+    </nav>
+    <a href="https://app.secondfactor.ai/login" target="_blank" rel="noopener" class="nav-a signin">Sign in</a>
+    <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="sm hdcta" style="background:var(--ac2);color:#1f2450">Get Started</a>
+  </div>
+</header>
+<main style="flex:1">
+  <section class="hero-in" style="padding:64px 40px 44px;text-align:center">
+    <span class="arcb"></span>
+    <span class="orb"><b></b></span>
+    <h1 style="font:300 clamp(32px,4vw,50px)/1.08 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 14px;max-width:22ch">API Documentation</h1>
+    <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 auto;max-width:60ch">Send a code, check it, and read a verification. Three endpoints, Twilio-shaped, with the behaviour differences called out.</p>
+  </section>
+
+  <section class="sec" style="display:grid;grid-template-columns:230px minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:start">
+    <nav class="docnav">
+      <div class="lbl" style="margin-bottom:14px">Contents</div>
+      <a href="#send">Send a code</a>
+      <a href="#check">Check a code</a>
+      <a href="#fetch">Fetch a verification</a>
+      <a href="#webhooks">Webhooks</a>
+      <a href="#polling">Polling</a>
+    </nav>
+
+    <div class="doc">
+      <!-- SEND -->
+      <h2 id="send">Send a code</h2>
+      <pre class="ep">POST /v2/Services/{ServiceSid}/Verifications</pre>
+      <p>Generates a six-digit code, charges your wallet, and queues delivery to the destination. Returns the <strong>verification SID</strong> you use to check the code and to follow what happened to it.</p>
+      <p>This is Twilio&rsquo;s Create Verification, and it is also the only way to send a code again &mdash; see repeat sends below.</p>
+
+      <h3>Path parameters</h3>
+      <table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody>
+        <tr><td><code>ServiceSid</code></td><td>Your Service SID, the <code>VA&hellip;</code> value on the dashboard&rsquo;s Profile page. Required. A malformed value is a <code>400</code>; another organization&rsquo;s is a <code>404</code>.</td></tr>
+      </tbody></table>
+
+      <h3>Body parameters</h3>
+      <table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+        <tr><td><code>To</code></td><td>string</td><td>Yes</td><td>The destination in E.164 format, including the leading <code>+</code>. Up to 20 characters, e.g. <code>+9779800000000</code>.</td></tr>
+        <tr><td><code>Channel</code></td><td>string</td><td>No</td><td>The channel to try first: <code>sms</code>, <code>whatsapp</code>, <code>viber</code>, <code>rcs</code> or <code>sna</code>.</td></tr>
+        <tr><td><code>TemplateSid</code></td><td>string</td><td>No</td><td>One of your template identifiers. Omit to use your organization&rsquo;s default template.</td></tr>
+      </tbody></table>
+      <p class="note">Every other parameter is accepted and ignored, including all of Twilio&rsquo;s that we do not model.</p>
+
+      <h3>Headers</h3>
+      <table><thead><tr><th>Header</th><th>Required</th><th>Description</th></tr></thead><tbody>
+        <tr><td><code>X-API-Key</code></td><td>Yes</td><td>Your API key.</td></tr>
+        <tr><td><code>Idempotency-Key</code></td><td>No</td><td>A unique string of your choosing, up to 191 characters, scoped to your organization.</td></tr>
+      </tbody></table>
+
+      <h4>What <code>Idempotency-Key</code> actually protects</h4>
+      <table><thead><tr><th>Situation</th><th>What happens</th></tr></thead><tbody>
+        <tr><td>You send with a key that has been used before</td><td>The original verification is returned unchanged, and nothing is charged &mdash; whether or not the destination still has a pending verification.</td></tr>
+        <tr><td>You send without a key to a number that still has a pending verification</td><td>A new verification is created and charged.</td></tr>
+      </tbody></table>
+      <p>The key identifies the <em>original request</em>, not the destination. Reusing a key with a different <code>To</code> returns the original verification &mdash; for the original number. Generate a fresh key per verification attempt, never a per-user or per-session constant, and reuse it on every retry of that attempt.</p>
+
+      <h3>Request</h3>
+      <pre><code>curl -X POST https://api.secondfactor.ai/v2/Services/VA0a1b2c&hellip;/Verifications \
+  -H "X-API-Key: sf_4f8a1c9b2e7d.xN3qR7vK2mZpL9wYcB4tH6jF8sD1aG5u" \
+  -H "Idempotency-Key: signup-4821-attempt-1" \
+  -d "To=+9779800000000" \
+  -d "Channel=sms"</code></pre>
+      <p>JSON works equally well:</p>
+      <pre><code>curl -X POST https://api.secondfactor.ai/v2/Services/VA0a1b2c&hellip;/Verifications \
+  -H "X-API-Key: sf_4f8a1c9b2e7d&hellip;" \
+  -H "Content-Type: application/json" \
+  -d '{"To": "+9779800000000", "Channel": "sms"}'</code></pre>
+
+      <h3>Response &mdash; <code>201 Created</code></h3>
+      <pre><code>{
+  "sid": "VE0a1b2c3d4e5f60718293a4b5c6d7e8f9",
+  "service_sid": "VA0a1b2c3d4e5f60718293a4b5c6d7e8f9",
+  "account_sid": "AC0a1b2c3d4e5f60718293a4b5c6d7e8f9",
+  "to": "+9779800000000",
+  "channel": "sms",
+  "status": "pending",
+  "valid": false,
+  "date_created": "2026-09-12T09:14:22Z",
+  "date_updated": "2026-09-12T09:14:22Z",
+  "lookup": {},
+  "amount": null,
+  "payee": null,
+  "send_code_attempts": [
+    {"attempt_sid": "VE0a1b2c&hellip;", "channel": "SMS", "time": "2026-09-12T09:14:22Z"}
+  ],
+  "sna": null,
+  "url": "https://api.secondfactor.ai/v2/Services/VA0a1b2c&hellip;/Verifications/VE0a1b2c&hellip;",
+  "attempts_remaining": 5
+}</code></pre>
+      <table><thead><tr><th>Field</th><th>Description</th></tr></thead><tbody>
+        <tr><td><code>sid</code></td><td>The verification SID. Store it against your user&rsquo;s session.</td></tr>
+        <tr><td><code>service_sid</code>, <code>account_sid</code></td><td>Your two identifiers, echoed back.</td></tr>
+        <tr><td><code>to</code></td><td>The destination, normalized to E.164.</td></tr>
+        <tr><td><code>channel</code></td><td>The channel that <strong>confirmed delivery</strong>. See the caveat below.</td></tr>
+        <tr><td><code>status</code></td><td><code>pending</code>, <code>approved</code>, <code>expired</code>, <code>max_attempts_reached</code> or <code>failed</code>.</td></tr>
+        <tr><td><code>valid</code></td><td><code>true</code> only when <code>status</code> is <code>approved</code>.</td></tr>
+        <tr><td><code>send_code_attempts</code></td><td>Always one entry: a verification is exactly one charged send.</td></tr>
+        <tr><td><code>attempts_remaining</code></td><td>How many more times the code may be checked before the verification locks. Not a Twilio field.</td></tr>
+        <tr><td><code>lookup</code>, <code>amount</code>, <code>payee</code>, <code>sna</code></td><td>Always empty or <code>null</code>, present for Twilio-client compatibility.</td></tr>
+      </tbody></table>
+      <p class="callout"><strong><code>channel</code> reads <code>sms</code> until a delivery is confirmed.</strong> Delivery is still in flight when you get this response, so do not read the <code>201</code>&rsquo;s <code>channel</code> as the route taken. Wait for the webhook, or fetch the verification.</p>
+
+      <h3>Repeat sends to the same number</h3>
+      <p><strong>There is no resend endpoint.</strong> If your user says the code never arrived, send again with the same <code>To</code>. Every send is a <strong>new verification</strong>: a new SID, a new code, a fresh check allowance, and a new charge. The previous verification is not cancelled, but a check that names only <code>To</code> resolves against the newest one.</p>
+      <ul>
+        <li><strong>Every send is charged.</strong> Twilio bundles up to five sends into one verification charge; we charge each one.</li>
+        <li><strong>There is no resend cooldown of its own.</strong> What bounds repeat sends is the per-number burst window and hourly cap &mdash; the send past either answers <code>429</code> and is not charged.</li>
+        <li><strong>The code changes.</strong> Store the SID from the latest response and check against that one.</li>
+      </ul>
+      <p>Because an enabled &ldquo;send again&rdquo; button is a billing problem as much as a UX one, gate it in your own UI.</p>
+
+      <h3>Choosing a channel</h3>
+      <p><code>Channel</code> is a preference, not an instruction: it moves your chosen channel to the front of the routing order and never removes the others. The preference is honoured only for organizations priced <strong>per channel</strong>; on blended pricing it is ignored in favour of the cheapest route. <code>email</code> and <code>call</code> are accepted for compatibility and treated as no preference, as is any unrecognised value.</p>
+
+      <h3>Errors</h3>
+      <table><thead><tr><th>HTTP</th><th><code>code</code></th><th>Cause</th></tr></thead><tbody>
+        <tr><td>400</td><td><code>60200</code></td><td><code>To</code> is missing or malformed, the <code>ServiceSid</code> is not <code>VA</code>-shaped, the number is not parseable E.164, or its country is not served.</td></tr>
+        <tr><td>400</td><td><code>60200</code></td><td>No <code>TemplateSid</code> given and your organization has no default template.</td></tr>
+        <tr><td>400</td><td><code>60204</code></td><td>No approved channel can reach this destination.</td></tr>
+        <tr><td>400</td><td><code>60238</code></td><td>This number is suppressed after failing on every channel.</td></tr>
+        <tr><td>400</td><td><code>20003</code></td><td>Your wallet does not hold enough credit. Nothing was sent or charged.</td></tr>
+        <tr><td>401</td><td><code>20003</code></td><td>Missing, invalid or revoked API key, an IP outside the key&rsquo;s allowlist, or a suspended organization.</td></tr>
+        <tr><td>403</td><td><code>60238</code></td><td>A delivery rule forbids this destination.</td></tr>
+        <tr><td>404</td><td><code>20404</code></td><td>The <code>TemplateSid</code> is not one of yours, or the <code>ServiceSid</code> is another organization&rsquo;s.</td></tr>
+        <tr><td>429</td><td><code>60203</code></td><td>Too many sends to this number in the last hour.</td></tr>
+        <tr><td>429</td><td><code>60212</code></td><td>Too many sends to this number in the last few minutes.</td></tr>
+        <tr><td>429</td><td><code>20429</code></td><td>Your API key exceeded its rate limit.</td></tr>
+        <tr><td>500</td><td><code>20500</code></td><td>We could not price this destination.</td></tr>
+      </tbody></table>
+      <p class="note">Insufficient credit is a <code>400</code>, not a <code>402</code>, and a suspended organization is a <code>401</code>, not a <code>403</code>.</p>
+
+      <!-- CHECK -->
+      <h2 id="check">Check a code</h2>
+      <pre class="ep">POST /v2/Services/{ServiceSid}/VerificationCheck</pre>
+      <p>Submits the code your user entered. Free &mdash; the send was already charged. The path is Twilio&rsquo;s: <code>VerificationCheck</code> is singular and carries <strong>no</strong> verification SID; you identify the verification in the body.</p>
+
+      <h3>Body parameters</h3>
+      <table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+        <tr><td><code>Code</code></td><td>string</td><td>Yes</td><td>The code your user typed. Up to 10 characters.</td></tr>
+        <tr><td><code>VerificationSid</code></td><td>string</td><td>One of the two</td><td>The <code>VE&hellip;</code> SID returned when you sent the code.</td></tr>
+        <tr><td><code>To</code></td><td>string</td><td>One of the two</td><td>The destination in E.164. Resolves to that number&rsquo;s most recent pending verification.</td></tr>
+      </tbody></table>
+      <p>Sending neither is a <code>400</code>. Sending both is accepted and <code>VerificationSid</code> wins &mdash; prefer it, since checking by <code>To</code> is ambiguous when a user has more than one signup in flight.</p>
+
+      <h3>Request</h3>
+      <pre><code>curl -X POST https://api.secondfactor.ai/v2/Services/VA0a1b2c&hellip;/VerificationCheck \
+  -H "X-API-Key: sf_4f8a1c9b2e7d&hellip;" \
+  -d "VerificationSid=VE0a1b2c3d4e5f60718293a4b5c6d7e8f9" \
+  -d "Code=482915"</code></pre>
+
+      <h3>Response</h3>
+      <p class="callout">A correct code and a wrong code are both <code>200 OK</code>. <strong>Branch on <code>status</code>, not on the HTTP status code.</strong></p>
+      <pre><code>// correct code
+{ "sid": "VE0a1b2c&hellip;", "to": "+9779800000000", "channel": "sms",
+  "status": "approved", "valid": true,
+  "date_created": "2026-09-12T09:14:22Z", "date_updated": "2026-09-12T09:15:03Z" }
+
+// wrong code
+{ "sid": "VE0a1b2c&hellip;", "to": "+9779800000000", "channel": "sms",
+  "status": "pending", "valid": false,
+  "date_created": "2026-09-12T09:14:22Z", "date_updated": "2026-09-12T09:14:22Z" }</code></pre>
+      <p>On approval the verification is terminal: a further check returns <code>404</code>, and so does fetching it. The check response carries no <code>attempts_remaining</code> &mdash; fetch the verification to read the remaining allowance, which is free and consumes nothing.</p>
+      <pre><code>response = requests.post(
+    f"{BASE}/v2/Services/{SERVICE_SID}/VerificationCheck",
+    headers={"X-API-Key": API_KEY},
+    data={"VerificationSid": sid, "Code": code_from_user},
+)
+
+if response.status_code == 200 and response.json()["status"] == "approved":
+    log_the_user_in()
+elif response.status_code == 200:
+    show("That code is not right. Try again.")
+else:
+    handle_error(response.json()["code"])</code></pre>
+
+      <h3>Attempts</h3>
+      <p>Each check consumes one attempt, right or wrong. The allowance is <strong>five per verification</strong>, enforced across concurrent checks. A repeat send is a new verification with a new code and a fresh allowance. When the allowance runs out the verification is locked permanently and the check that exhausted it answers <code>429</code> with code <code>60202</code>.</p>
+
+      <h3>Errors</h3>
+      <table><thead><tr><th>HTTP</th><th><code>code</code></th><th>Cause</th></tr></thead><tbody>
+        <tr><td>400</td><td><code>60200</code></td><td><code>Code</code> is missing, neither <code>VerificationSid</code> nor <code>To</code> was given, or the <code>ServiceSid</code> is malformed.</td></tr>
+        <tr><td>401</td><td><code>20003</code></td><td>Missing, invalid or revoked API key, or a suspended organization.</td></tr>
+        <tr><td>404</td><td><code>20404</code></td><td>No such verification for your organization &mdash; <strong>including</strong> one already approved, expired, or locked.</td></tr>
+        <tr><td>429</td><td><code>60202</code></td><td>The five-attempt allowance is exhausted and the verification is locked.</td></tr>
+        <tr><td>429</td><td><code>20429</code></td><td>Your API key exceeded its rate limit.</td></tr>
+      </tbody></table>
+      <p class="note">A wrong code is not in this table &mdash; it is a <code>200</code>. And a <code>404</code> is ambiguous on purpose: unknown, approved and expired all answer the same way, so track verification outcomes in your own session state.</p>
+
+      <!-- FETCH -->
+      <h2 id="fetch">Fetch a verification</h2>
+      <pre class="ep">GET /v2/Services/{ServiceSid}/Verifications/{VerificationSid}</pre>
+      <p>Reads a verification that is <strong>still pending</strong>. Free, and it changes nothing &mdash; in particular it does not consume a check attempt.</p>
+      <pre><code>curl https://api.secondfactor.ai/v2/Services/VA0a1b2c&hellip;/Verifications/VE0a1b2c&hellip; \
+  -H "X-API-Key: sf_4f8a1c9b2e7d&hellip;"</code></pre>
+      <p><code>200 OK</code>, with the same field set as the send response. Two fields are worth reading carefully: <code>channel</code> is the channel that <strong>confirmed delivery</strong> (until a carrier confirms it reads <code>sms</code>, and we hop to the next channel when the current one has not delivered within eight seconds), and <code>send_code_attempts</code> always has one entry because a verification is exactly one charged send.</p>
+
+      <h3>A finished verification is a 404</h3>
+      <table><thead><tr><th>State</th><th>This endpoint answers</th></tr></thead><tbody>
+        <tr><td>Pending, code still valid</td><td><code>200</code> with the verification body</td></tr>
+        <tr><td>Approved</td><td><code>404</code>, code <code>20404</code></td></tr>
+        <tr><td>Expired</td><td><code>404</code>, code <code>20404</code></td></tr>
+        <tr><td>Locked after too many wrong checks</td><td><code>404</code>, code <code>20404</code></td></tr>
+        <tr><td>Unknown SID, or another organization&rsquo;s</td><td><code>404</code>, code <code>20404</code></td></tr>
+      </tbody></table>
+      <p>A <code>404</code> means &ldquo;not pending any more&rdquo; and cannot tell you which terminal state you reached. <strong>Learn the outcome from the check call and from webhooks</strong>, not from here.</p>
+
+      <h3 id="webhooks">Webhooks</h3>
+      <p>Configure a webhook URL and a signing secret on the <strong>Integrate</strong> page of the dashboard. We push lifecycle events as they happen.</p>
+      <table><thead><tr><th>Event</th><th>When</th></tr></thead><tbody>
+        <tr><td><code>otp.delivered</code></td><td>A carrier confirmed delivery.</td></tr>
+        <tr><td><code>otp.failed</code></td><td>Every eligible channel was tried and none delivered.</td></tr>
+        <tr><td><code>otp.verified</code></td><td>A correct code was accepted.</td></tr>
+        <tr><td><code>otp.expired</code></td><td>The code&rsquo;s lifetime elapsed without a correct code.</td></tr>
+        <tr><td><code>credit.low</code></td><td>Your wallet balance crossed its alert threshold.</td></tr>
+      </tbody></table>
+      <pre><code>{
+  "event": "otp.delivered",
+  "request_id": "OTP26H7K3M9PQRSTVW",
+  "phone": "+9779800000000",
+  "country": "NP",
+  "status": "DELIVERED",
+  "channel": "WHATSAPP",
+  "charged": "0.02",
+  "verified_at": null,
+  "requested_at": "2026-09-12T09:14:22.104382+00:00"
+}</code></pre>
+      <p class="callout"><strong><code>request_id</code> is not the <code>VE&hellip;</code> SID.</strong> Match an event to a user by <code>phone</code> plus <code>requested_at</code>, or use the check response rather than the webhook as your source of truth.</p>
+      <p><code>status</code> is our delivery vocabulary &mdash; <code>PENDING</code>, <code>DELIVERED</code>, <code>FAILED</code>, <code>EXPIRED</code> or <code>REJECTED</code> &mdash; and not the verification <code>status</code> this API returns. <code>charged</code> is what the request has cost so far, rounded to two decimals.</p>
+      <table><thead><tr><th>Header</th><th>Meaning</th></tr></thead><tbody>
+        <tr><td><code>X-SF-Signature</code></td><td><code>"sha256=" + HMAC_SHA256(your_secret, raw_body)</code></td></tr>
+        <tr><td><code>X-SF-Event</code></td><td>The event name, also in the body</td></tr>
+        <tr><td><code>X-SF-Delivery</code></td><td>A unique id for this delivery attempt</td></tr>
+        <tr><td><code>X-SF-Timestamp</code></td><td>When we sent it</td></tr>
+      </tbody></table>
+      <p>Compute the HMAC over the <strong>raw</strong> body, compare it in constant time, and reject a stale <code>X-SF-Timestamp</code> to defeat replay. A non-2xx response is retried up to five times with exponential backoff &mdash; roughly 30 seconds, then 1, 2 and 4 minutes &mdash; each attempt timing out after five seconds. Your endpoint must be reachable over public DNS.</p>
+
+      <h3 id="polling">Polling</h3>
+      <p>If you cannot take a webhook, polling this endpoint works, but polling tells you when a verification stops being pending, not what it became. Poll no more than once per second, and stop on the first <code>404</code> or your own timeout. Your key&rsquo;s rate limit applies.</p>
+
+      <h3>Errors</h3>
+      <table><thead><tr><th>HTTP</th><th><code>code</code></th><th>Cause</th></tr></thead><tbody>
+        <tr><td>400</td><td><code>60200</code></td><td>The <code>ServiceSid</code> is not <code>VA</code>-shaped.</td></tr>
+        <tr><td>401</td><td><code>20003</code></td><td>Missing, invalid or revoked API key, or a suspended organization.</td></tr>
+        <tr><td>404</td><td><code>20404</code></td><td>Not pending, unknown, or another organization&rsquo;s.</td></tr>
+        <tr><td>429</td><td><code>20429</code></td><td>Your API key exceeded its rate limit.</td></tr>
+      </tbody></table>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:clamp(30px,3.4vw,48px)">
+        <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-p">Get Started</a>
+        <a href="/support/" class="pill pill-s">Talk to Sales</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="band">
+  <div class="ft" style="max-width:1200px;margin:0 auto;padding:60px 40px 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:26px;height:26px;display:grid;place-items:center"><img src="/assets/mark-v4.png" alt="" style="width:22px;height:22px"></span><span style="font:300 17px Sora,system-ui,sans-serif;letter-spacing:.06em">second<span style="color:#5558dd">factor</span><span style="opacity:.72">.ai</span></span></div>
+      <p style="font:300 14px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.82);margin:0;max-width:32ch">One stop solution for your OTPs. Send and verify through the lowest-cost eligible channel.</p>
+    </div>
+    <div><div style="display:flex;flex-direction:column;gap:11px"><a href="/" class="nl">Home</a><a href="/channels/" class="nl">Channels</a><a href="/pricing/" class="nl">Pricing</a></div></div>
+    <div><div style="display:flex;flex-direction:column;gap:9px"><a href="/channels/sms/" class="nav-a">SMS</a><a href="/channels/whatsapp/" class="nav-a">WhatsApp</a><a href="/channels/viber/" class="nav-a">Viber</a><a href="/channels/rcs/" class="nav-a">RCS</a></div></div>
+    <div><div style="display:flex;flex-direction:column;gap:9px"><a href="/support/" class="nav-a">Support</a><a href="/privacy/" class="nav-a">Privacy Policy</a><a href="/terms/" class="nav-a">Terms and Conditions</a><a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nav-a" aria-label="SecondFactor.ai on LinkedIn" style="display:inline-flex;width:17px"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor" style="display:block"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z"></path></svg></a></div></div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:20px 40px 46px;border-top:1px solid rgba(244,243,253,.14);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font:300 13px Sora,system-ui,sans-serif;color:rgba(244,243,253,.78)"><span>&copy; 2026 SecondFactor.ai. All rights reserved.</span><span>Rates shown are indicative and quoted in USD.</span></div>
+</footer>
+</div>
+<script src="/js/data.js"></script>
+<script src="/js/app.js"></script>
+
+
+</body>
+</html>
