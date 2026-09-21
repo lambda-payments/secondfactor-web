@@ -24,6 +24,14 @@ Internal links and asset paths are root-absolute (`/pricing/`, `/css/styles.css`
 site must be served from the domain root. Every page carries a `<link rel="canonical">`
 and is listed in `sitemap.xml` (referenced from `robots.txt`).
 
+## SEO head
+
+Each page's `<head>` carries, in order: title, meta description, canonical, robots,
+theme-color, Open Graph tags, Twitter card tags, apple-touch-icon, then a JSON-LD block.
+The JSON-LD is a `@graph`: the home page declares `Organization` + `WebSite` + `WebPage`;
+every other page declares `BreadcrumbList` + `WebPage`. When you add a page, copy the head
+of the closest sibling and update the URL, title, description and breadcrumb name.
+
 The old flat URLs (`/sms.html`, `/pricing.html`, ...) are kept as tiny redirect stubs
 (meta refresh + canonical + noindex) so existing links and search results still resolve.
 GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
@@ -38,8 +46,10 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
     assets/           Logo mark (mark-v4.png) and lockup
     assets/legal/     PDF copies of the Privacy Policy and Terms (offered as "Download PDF" on
                       /privacy/ and /terms/ — keep them in sync with the page text)
+    assets/og-default.png  1200x630 share image used by the Open Graph / Twitter tags on every page
     robots.txt        Allows all crawlers, points at sitemap.xml
     sitemap.xml       All canonical page URLs
+    404.html          Custom not-found page (GitHub Pages serves it automatically; noindex)
 
 ## Fonts
 
