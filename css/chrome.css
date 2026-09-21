@@ -6,7 +6,9 @@
    in both). */
 
 /* ---- container geometry (shared by header, footer and footer bottom bar) ---- */
-header.band .hd,footer.band .ft,footer.band .ftb{
+/* `footer.dark > div` is the home page's own footer container (it keeps its own footer markup), listed here so it
+   shares exactly the same width and side padding as every other page. */
+header.band .hd,footer.band .ft,footer.band .ftb,footer.dark > div{
   box-sizing:border-box!important;width:100%;max-width:1640px!important;margin:0 auto!important;
   padding-left:clamp(20px,4vw,80px)!important;padding-right:clamp(20px,4vw,80px)!important}
 
