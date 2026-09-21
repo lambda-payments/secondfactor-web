@@ -3,9 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SecondFactor.ai — OTP delivery &amp; verification API</title>
+<title>OTP Delivery &amp; Verification API | SecondFactor.ai</title>
 <meta name="description" content="Send and verify OTPs through the lowest-cost eligible channel across SMS, WhatsApp, Viber and RCS with one API.">
 <link rel="canonical" href="https://secondfactor.ai/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#5558dd">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SecondFactor.ai">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://secondfactor.ai/">
+<meta property="og:title" content="SecondFactor.ai — OTP Delivery &amp; Verification API">
+<meta property="og:description" content="Send and verify OTPs through the lowest-cost eligible channel across SMS, WhatsApp, Viber and RCS with one API.">
+<meta property="og:image" content="https://secondfactor.ai/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SecondFactor.ai — OTP delivery and verification API across SMS, WhatsApp, Viber and RCS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SecondFactor.ai — OTP Delivery &amp; Verification API">
+<meta name="twitter:description" content="Send and verify OTPs through the lowest-cost eligible channel across SMS, WhatsApp, Viber and RCS with one API.">
+<meta name="twitter:image" content="https://secondfactor.ai/assets/og-default.png">
+<link rel="apple-touch-icon" href="/assets/mark-v4.png">
 <link rel="icon" href="/assets/mark-v4.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +49,7 @@ img{max-width:100%}
 .p-d{font:300 clamp(15.5px,1.1vw,18px)/1.7 var(--disp);color:rgba(244,243,253,.85);margin:0}
 .s{font:300 14.5px/1.7 var(--disp);color:var(--mut);margin:0}
 .s-d{font:300 14.5px/1.7 var(--disp);color:rgba(244,243,253,.8);margin:0}
-.sec{padding:clamp(64px,7vw,116px) clamp(20px,4vw,80px);max-width:min(1640px,94vw);margin:0 auto}
+.sec{box-sizing:border-box;padding:clamp(64px,7vw,116px) clamp(20px,4vw,80px);max-width:1640px;margin:0 auto}
 .btn{display:inline-flex;align-items:center;gap:10px;font:400 13px var(--mono);letter-spacing:.16em;text-transform:uppercase;padding:16px 28px;border:1px solid var(--ac);background:var(--ac);color:#fff;cursor:pointer;transition:background .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)}
 .btn:hover{background:#2a2d6b;border-color:#2a2d6b;color:#fff;transform:translateY(-2px)}
 .btn-g{background:transparent;color:var(--fg);border-color:var(--brd)}
@@ -46,7 +63,6 @@ img{max-width:100%}
 
 /* ---------- header ---------- */
 header{position:sticky;top:0;z-index:60;background:rgba(43,47,120,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(244,243,253,.12);color:#f4f3fd}
-.nav{display:flex;align-items:center;gap:30px;flex-wrap:wrap;max-width:min(1640px,94vw);margin:0 auto;padding:10px clamp(20px,4vw,80px)}
 .brand-mk{width:32px;height:32px;flex:none}
 .brand-mk img{width:30px;height:30px}
 .brand-tx{font-size:21px;line-height:1}
@@ -160,7 +176,6 @@ section.dark > .sec{position:relative;z-index:2}
 .dark{background:var(--ink);color:#f4f3fd}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--ac2);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.wordline > span{transform:none}}
-@media (max-width:1040px){.nav{gap:16px;row-gap:10px}.nav nav{order:3;width:100%;gap:18px!important}.nav > a.btn{order:2}}
 @media (max-width:900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:560px){.g4,.g2{grid-template-columns:minmax(0,1fr)!important}}
 @media (max-width:720px){.sec{padding:52px 20px!important}.btn{width:100%;justify-content:center}.hero{min-height:auto;padding-top:72px;padding-bottom:72px}.prow{flex-wrap:wrap;gap:6px}}
@@ -172,8 +187,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 @media (max-width:860px){
-  header .hd,header .nav{flex-wrap:nowrap!important;gap:12px!important;padding:8px 20px!important}
-  header .hd > a:first-child,header .nav > a:first-child{margin-right:auto!important}
   .burger{display:flex;order:9}
   .navlinks{display:none!important;position:absolute;left:0;right:0;top:100%;box-sizing:border-box;flex-direction:column!important;gap:0!important;background:var(--ink);border-top:1px solid rgba(244,243,253,.14);padding:8px 20px 18px}
   .navlinks.open{display:flex!important}
@@ -477,7 +490,7 @@ main section.sec:has(.tcarousel):before{content:"";position:absolute;left:50%;to
   background:conic-gradient(from 210deg,transparent 0deg,rgba(85,88,221,.18) 48deg,rgba(85,88,221,.06) 105deg,transparent 165deg);
   mask:radial-gradient(circle,transparent 63%,#000 64%,#000 65.5%,transparent 66.5%);
   -webkit-mask:radial-gradient(circle,transparent 63%,#000 64%,#000 65.5%,transparent 66.5%);animation:mSpin 40s linear infinite}
-main section.sec:has(.tcarousel) > *{position:relative;z-index:2;max-width:min(1640px,94vw);margin-left:auto;margin-right:auto}
+main section.sec:has(.tcarousel) > *{position:relative;z-index:2;max-width:1640px;margin-left:auto;margin-right:auto}
 
 main section.sec:has(.tcarousel){padding-top:clamp(40px,4vw,62px)!important;padding-bottom:clamp(40px,4vw,62px)!important}
 
@@ -595,20 +608,77 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
 /* hero lead paragraph: heavier + darker so it holds up over the ring artwork */
 .hero .copy .p-d{font-weight:400!important;font-size:clamp(16.5px,1.25vw,19.5px)!important;line-height:1.65!important;color:rgba(31,36,80,.92)!important}
 </style>
+<link rel="stylesheet" href="/css/chrome.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://secondfactor.ai/#organization",
+   "name": "SecondFactor.ai",
+   "url": "https://secondfactor.ai/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://secondfactor.ai/assets/mark-v4.png",
+    "width": 320,
+    "height": 320
+   },
+   "sameAs": [
+    "https://www.linkedin.com/company/secondfactorai/home"
+   ],
+   "contactPoint": [
+    {
+     "@type": "ContactPoint",
+     "contactType": "customer support",
+     "email": "support@secondfactor.ai",
+     "url": "https://secondfactor.ai/support/",
+     "availableLanguage": "en"
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://secondfactor.ai/#website",
+   "url": "https://secondfactor.ai/",
+   "name": "SecondFactor.ai",
+   "description": "Send and verify OTPs through the lowest-cost eligible channel across SMS, WhatsApp, Viber and RCS with one API.",
+   "publisher": {
+    "@id": "https://secondfactor.ai/#organization"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://secondfactor.ai/#webpage",
+   "url": "https://secondfactor.ai/",
+   "name": "OTP Delivery & Verification API | SecondFactor.ai",
+   "description": "Send and verify OTPs through the lowest-cost eligible channel across SMS, WhatsApp, Viber and RCS with one API.",
+   "isPartOf": {
+    "@id": "https://secondfactor.ai/#website"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://secondfactor.ai/assets/og-default.png",
+    "width": 1200,
+    "height": 630
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
 
-<header>
-  <div class="nav">
-    <a href="/" class="brand" style="display:flex;align-items:center;gap:11px;margin-right:auto;color:#f4f3fd">
-      <span class="brand-mk" style="display:grid;place-items:center;flex:none"><img src="/assets/mark-v4.png" alt=""></span>
-      <span class="brand-tx" style="font-family:var(--disp);font-weight:300;letter-spacing:.06em">second<span style="color:#5558dd">factor</span><span style="opacity:.72">.ai</span></span>
-    </a>
-      <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <nav class="navlinks" style="display:flex;gap:clamp(18px,2.4vw,40px);flex-wrap:wrap">
-      <a href="/" class="nl on">Home</a>
+<header class="band">
+  <div class="hd">
+    <a href="/" class="brand"><span class="brand-mk"><img src="/assets/mark-v4.png" alt=""></span><span class="brand-tx">second<span class="brand-ac">factor</span><span class="brand-tld">.ai</span></span></a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="navlinks" aria-label="Main">
+      <a href="/" class="nav-a on">Home</a>
       <span class="chdd">
-        <a href="/channels/" class="nl" style="display:inline-flex;align-items:center;gap:6px">Channels<span style="font-size:14px;opacity:.85;line-height:1">&#9662;</span></a>
+        <a href="/channels/" class="nav-a chdd-a">Channels<span class="caret">&#9662;</span></a>
         <span class="chmenu">
           <a href="/channels/sms/" class="chitem">SMS</a>
           <a href="/channels/whatsapp/" class="chitem">WhatsApp</a>
@@ -616,11 +686,12 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
           <a href="/channels/rcs/" class="chitem">RCS</a>
         </span>
       </span>
-      <a href="/pricing/" class="nl">Pricing</a>
-      <a href="/support/" class="nl">Support</a>
+      <a href="/pricing/" class="nav-a">Pricing</a>
+      <a href="/support/" class="nav-a">Support</a>
+      <a href="/blog/" class="nav-a">Blog</a>
     </nav>
-    <a href="https://app.secondfactor.ai/login" target="_blank" rel="noopener" class="nl signin">Sign in</a>
-    <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="btn btn-l hdcta" style="padding:11px 20px">Get started</a>
+    <a href="https://app.secondfactor.ai/login" target="_blank" rel="noopener" class="nav-a signin">Sign in</a>
+    <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="hdcta">Get started</a>
   </div>
 </header>
 
@@ -867,21 +938,17 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
   </section>
 </main>
 
-<footer class="dark" data-decor="1" style="border-top:1px solid rgba(244,243,253,.12)">
-  <div style="max-width:min(1640px,94vw);margin:0 auto;padding:clamp(44px,4.5vw,68px) clamp(20px,4vw,80px) 26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:40px">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:26px;height:26px;display:grid;place-items:center;flex:none"><img src="/assets/mark-v4.png" alt="" style="width:22px;height:22px"></span><span style="font:300 17px var(--disp);letter-spacing:.06em">second<span style="color:#5558dd">factor</span><span style="opacity:.72">.ai</span></span></div>
-    <div></div>
-      <p class="s-d" style="max-width:32ch">One stop solution for your OTPs. Send and verify through the lowest-cost eligible channel.</p>
+<footer class="band">
+  <div class="ft">
+    <div class="ft-brand">
+      <a href="/" class="brand"><span class="brand-mk"><img src="/assets/mark-v4.png" alt=""></span><span class="brand-tx">second<span class="brand-ac">factor</span><span class="brand-tld">.ai</span></span></a>
+      <p>One stop solution for your OTPs. Send and verify through the lowest-cost eligible channel.</p>
     </div>
-    <div><div style="display:flex;flex-direction:column;gap:11px"><a href="/" class="nl">Home</a><a href="/channels/" class="nl">Channels</a><a href="/pricing/" class="nl">Pricing</a></div></div>
-    <div><div style="display:flex;flex-direction:column;gap:11px"><a href="/channels/sms/" class="nl">SMS</a><a href="/channels/whatsapp/" class="nl">WhatsApp</a><a href="/channels/viber/" class="nl">Viber</a><a href="/channels/rcs/" class="nl">RCS</a></div></div>
-    <div><div style="display:flex;flex-direction:column;gap:11px"><a href="/support/" class="nl">Support</a><a href="/privacy/" class="nl">Privacy policy</a><a href="/terms/" class="nl">Terms and Conditions</a>
-<a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nl" aria-label="SecondFactor.ai on LinkedIn" style="display:inline-flex;width:17px"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor" style="display:block"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z"></path></svg></a></div></div>
+    <div class="ft-col"><a href="/" class="nav-a">Home</a><a href="/channels/" class="nav-a">Channels</a><a href="/pricing/" class="nav-a">Pricing</a><a href="/blog/" class="nav-a">Blog</a></div>
+    <div class="ft-col"><a href="/channels/sms/" class="nav-a">SMS</a><a href="/channels/whatsapp/" class="nav-a">WhatsApp</a><a href="/channels/viber/" class="nav-a">Viber</a><a href="/channels/rcs/" class="nav-a">RCS</a></div>
+    <div class="ft-col"><a href="/support/" class="nav-a">Support</a><a href="/privacy/" class="nav-a">Privacy Policy</a><a href="/terms/" class="nav-a">Terms and Conditions</a><a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nav-a ft-social" aria-label="SecondFactor.ai on LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z"></path></svg></a></div>
   </div>
-  <div class="lbl-d" style="max-width:min(1640px,94vw);margin:0 auto;padding:18px clamp(20px,4vw,80px) clamp(34px,3vw,46px);border-top:1px solid rgba(244,243,253,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between">
-    <span>&copy; 2026 SecondFactor.ai</span>
-  </div>
+  <div class="ftb"><span>&copy; 2026 SecondFactor.ai. All rights reserved.</span><span>Rates shown are indicative and quoted in USD.</span></div>
 </footer>
 
 <script>
