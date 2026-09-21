@@ -24,7 +24,8 @@ Nginx, Apache) and it works as-is.
     css/motion.css    Shared design layer: gradients, cards, animation, responsive rules
     js/data.js        Per-country rate data (DEMO VALUES — replace before launch)
     js/app.js         Scroll reveal, mobile drawer, pricing logic, support form
-    assets/           Logo mark (mark-v4.png) and lockup
+    assets/logo/      Brand files: secondFactor-full.png (header/footer lockup), secondfactor-icon.png
+                      (favicon); the -white variants are for dark backgrounds and are not used yet
     docs/             PDF copies of the Privacy Policy and Terms (offered as "Download PDF" on
                       privacy.html / terms.html — keep them in sync with the page text)
     robots.txt
