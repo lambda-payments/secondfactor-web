@@ -25,6 +25,13 @@ Internal links and asset paths are root-absolute (`/pricing/`, `/css/styles.css`
 site must be served from the domain root. Every page carries a `<link rel="canonical">`
 and is listed in `sitemap.xml` (referenced from `robots.txt`).
 
+## Header and footer
+
+Every page uses the same header/footer markup (`header.band > .hd`, `footer.band > .ft` +
+`.ftb`). When you change either, change it on all pages (a quick `grep -l '<header' -r .`
+lists them). Mark the current section's nav link with class `on`. Geometry and colours come
+from `css/chrome.css`; do not put width/padding inline on `.hd`, `.ft` or `.ftb`.
+
 ## SEO head
 
 Each page's `<head>` carries, in order: title, meta description, canonical, robots,
@@ -42,6 +49,9 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
 
     css/styles.css    Base tokens and components
     css/motion.css    Shared design layer: gradients, cards, animation, responsive rules
+    css/chrome.css    Header + footer: the ONLY place their width, spacing and colours live.
+                      Loaded last on every page (the home page has its own inline CSS, so this
+                      is what keeps its header/footer identical to the inner pages).
     js/data.js        Per-country rate data (DEMO VALUES — replace before launch)
     js/app.js         Scroll reveal, mobile drawer, pricing logic, support form
     assets/           Logo mark (mark-v4.png) and lockup
