@@ -75,7 +75,8 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
                       is what keeps its header/footer identical to the inner pages).
     js/data.js        Per-country rate data (DEMO VALUES — replace before launch)
     js/app.js         Scroll reveal, mobile drawer, pricing logic, support form
-    assets/           Logo mark (mark-v4.png) and lockup
+    assets/logo/      Brand files: secondFactor-full.png (header/footer lockup), secondfactor-icon.png
+                      (favicon); the -white variants are for dark backgrounds and are not used yet
     assets/legal/     PDF copies of the Privacy Policy and Terms (offered as "Download PDF" on
                       /privacy/ and /terms/ — keep them in sync with the page text)
     assets/og-default.png  1200x630 share image used by the Open Graph / Twitter tags on every page

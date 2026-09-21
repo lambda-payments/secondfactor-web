@@ -22,8 +22,8 @@
 <meta name="twitter:title" content="Viber OTP API">
 <meta name="twitter:description" content="Deliver Viber OTPs through an approved business sender in supported markets.">
 <meta name="twitter:image" content="https://secondfactor.ai/assets/og-default.png">
-<link rel="apple-touch-icon" href="/assets/mark-v4.png">
-<link rel="icon" href="/assets/mark-v4.png">
+<link rel="icon" type="image/png" href="/assets/logo/secondfactor-icon.png">
+<link rel="apple-touch-icon" href="/assets/logo/secondfactor-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -85,11 +85,13 @@
 <body>
 <div style="min-height:100vh;display:flex;flex-direction:column">
 
-<header class="band">
-  <div class="hd">
-    <a href="/" class="brand"><span class="brand-mk"><img src="/assets/mark-v4.png" alt=""></span><span class="brand-tx">second<span class="brand-ac">factor</span><span class="brand-tld">.ai</span></span></a>
-    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <nav class="navlinks" aria-label="Main">
+<header class="band" style="position:sticky;top:0;z-index:30;backdrop-filter:blur(8px)">
+  <div class="hd" style="max-width:1200px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+    <a href="/" class="brand" style="display:flex;align-items:center;margin-right:auto">
+      <img class="brand-logo" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772">
+    </a>
+      <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="navlinks" style="display:flex;gap:26px;font:300 14.5px Sora,system-ui,sans-serif">
       <a href="/" class="nav-a">Home</a>
       <span class="chdd">
         <a href="/channels/" class="nav-a chdd-a on">Channels<span class="caret">&#9662;</span></a>
@@ -228,10 +230,10 @@
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-d">Get Started</a><a href="/support/" class="pill pill-o">Talk to Sales</a></div>
   </section></main>
 <footer class="band">
-  <div class="ft">
-    <div class="ft-brand">
-      <a href="/" class="brand"><span class="brand-mk"><img src="/assets/mark-v4.png" alt=""></span><span class="brand-tx">second<span class="brand-ac">factor</span><span class="brand-tld">.ai</span></span></a>
-      <p>One stop solution for your OTPs. Send and verify through the lowest-cost eligible channel.</p>
+  <div class="ft" style="max-width:1200px;margin:0 auto;padding:60px 40px 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;margin-bottom:16px"><img class="brand-logo brand-logo-ft" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772"></div>
+      <p style="font:300 14px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.82);margin:0;max-width:32ch">One stop solution for your OTPs. Send and verify through the lowest-cost eligible channel.</p>
     </div>
     <div class="ft-col"><a href="/" class="nav-a">Home</a><a href="/channels/" class="nav-a">Channels</a><a href="/pricing/" class="nav-a">Pricing</a><a href="/blog/" class="nav-a">Blog</a></div>
     <div class="ft-col"><a href="/channels/sms/" class="nav-a">SMS</a><a href="/channels/whatsapp/" class="nav-a">WhatsApp</a><a href="/channels/viber/" class="nav-a">Viber</a><a href="/channels/rcs/" class="nav-a">RCS</a></div>
