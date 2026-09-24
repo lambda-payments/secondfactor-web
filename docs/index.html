@@ -7,7 +7,7 @@
 <meta name="description" content="Reference for the SecondFactor OTP API: send a code, verify it, fetch a verification and receive delivery webhooks, with request and response examples.">
 <link rel="canonical" href="https://secondfactor.ai/docs/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-<meta name="theme-color" content="#5558dd">
+<meta name="theme-color" content="#3078e8">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SecondFactor.ai">
 <meta property="og:locale" content="en_US">
@@ -33,24 +33,24 @@
 <style>
 .docnav{position:sticky;top:96px;display:flex;flex-direction:column;gap:2px}
 .docnav a{font:300 14px Sora,system-ui,sans-serif;color:rgba(31,36,80,.72);padding:7px 0;border-bottom:1px solid rgba(31,36,80,.08)}
-.docnav a:hover{color:#5558dd}
+.docnav a:hover{color:#3078e8}
 .doc{min-width:0;font:300 15.5px/1.75 Sora,system-ui,sans-serif;color:rgba(31,36,80,.82)}
-.doc h2{font:300 clamp(26px,2.6vw,34px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:clamp(40px,4vw,64px) 0 14px;padding-top:clamp(28px,3vw,44px);border-top:1px solid rgba(85,88,221,.18)}
+.doc h2{font:300 clamp(26px,2.6vw,34px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:clamp(40px,4vw,64px) 0 14px;padding-top:clamp(28px,3vw,44px);border-top:1px solid rgba(48,120,232,.18)}
 .doc h2:first-child{margin-top:0;padding-top:0;border-top:0}
 .doc h3{font:400 19px Sora,system-ui,sans-serif;margin:34px 0 10px}
 .doc h4{font:400 16px Sora,system-ui,sans-serif;margin:26px 0 8px}
 .doc p{margin:0 0 14px;max-width:78ch}
 .doc ul{margin:0 0 16px;padding-left:20px;max-width:78ch}
 .doc li{margin-bottom:8px}
-.doc code{font:400 13px 'JetBrains Mono',ui-monospace,Menlo,monospace;background:rgba(85,88,221,.08);padding:2px 5px;color:#4143c4}
-.doc pre{overflow:auto;background:linear-gradient(160deg,rgba(255,255,255,.62),rgba(226,225,251,.4));border:1px solid rgba(31,36,80,.12);padding:18px 20px;margin:0 0 18px;font:400 12.5px/1.75 'JetBrains Mono',ui-monospace,Menlo,monospace;color:rgba(31,36,80,.86)}
+.doc code{font:400 13px 'JetBrains Mono',ui-monospace,Menlo,monospace;background:rgba(48,120,232,.08);padding:2px 5px;color:#2461c9}
+.doc pre{overflow:auto;background:linear-gradient(160deg,rgba(255,255,255,.62),rgba(220,232,251,.4));border:1px solid rgba(31,36,80,.12);padding:18px 20px;margin:0 0 18px;font:400 12.5px/1.75 'JetBrains Mono',ui-monospace,Menlo,monospace;color:rgba(31,36,80,.86)}
 .doc pre code{background:none;padding:0;color:inherit}
-.doc pre.ep{font-size:13px;letter-spacing:.02em;color:#4143c4;background:rgba(85,88,221,.07);border-color:rgba(85,88,221,.22)}
+.doc pre.ep{font-size:13px;letter-spacing:.02em;color:#2461c9;background:rgba(48,120,232,.07);border-color:rgba(48,120,232,.22)}
 .doc table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:14px}
 .doc th{text-align:left;font:400 11.5px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(31,36,80,.7);padding:10px 12px;border-bottom:1px solid rgba(31,36,80,.16)}
 .doc td{padding:11px 12px;border-bottom:1px solid rgba(31,36,80,.09);vertical-align:top;line-height:1.6}
 .doc .note{font-size:14px;color:rgba(31,36,80,.68)}
-.doc .callout{border-left:2px solid #5558dd;padding:12px 16px;background:rgba(85,88,221,.06);max-width:78ch}
+.doc .callout{border-left:2px solid #3078e8;padding:12px 16px;background:rgba(48,120,232,.06);max-width:78ch}
 @media (max-width:900px){
   main > section.sec[style*="230px"]{grid-template-columns:minmax(0,1fr)!important}
   .docnav{position:static;flex-direction:row;flex-wrap:wrap;gap:10px}
