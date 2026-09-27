@@ -70,8 +70,8 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
 
     css/styles.css    Base tokens and components
     css/motion.css    Shared design layer: gradients, cards, animation, responsive rules
-    css/components.css Home-page section components (channels diagram, PIE Playground) for the country
-                      pages; the home page keeps an inline copy of the same rules, so change both together
+    css/components.css Shared section components (channels section, PIE Playground) used by the home page
+                      and the country pages. Load it before the home page's inline <style> / motion.css
     css/article.css   Blog article layout (.post-* classes). Loaded only by /blog/<slug>/ pages
     css/chrome.css    Header + footer: the ONLY place their width, spacing and colours live.
                       Loaded last on every page (the home page has its own inline CSS, so this
@@ -86,6 +86,22 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
     robots.txt        Allows all crawlers, points at sitemap.xml
     sitemap.xml       All canonical page URLs
     404.html          Custom not-found page (GitHub Pages serves it automatically; noindex)
+
+## Shared components
+
+Two home-page sections are reusable on any page that loads `css/components.css` (before
+`motion.css`). Copy the markup from the home page (`<!-- CHANNELS -->`, `<!-- PLAYGROUND -->`)
+or from `country/india/index.html`, then change only the content:
+
+* Channels section: the three `.st` status chips inside `.stseq` (keep three; they animate in
+  sequence), the SVG diagram (one `path.flow` + label per channel; the India page shows the
+  three-channel layout with outputs at y=45/125/205), the channel cards in `.grid.g4` (add class
+  `cols-3` and `repeat(3,…)` for three cards) and the availability note.
+* PIE Playground: heading, copy and the `.tline` steps of the route inspector. Country pages
+  never show per-channel rates in the inspector.
+
+Put a `.sec` section directly after another `.sec` with `padding-top:0` only when both sit on the
+same band, as on the home page; after a `.band` section keep the default padding.
 
 ## Fonts
 

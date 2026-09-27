@@ -1,8 +1,9 @@
-/* components.css — home-page section components, shared with the country pages.
-   These are the base rules from the home page's inline <style>; motion.css (loaded after this
-   file) already carries the home page's override layer for .grid/.cell/.btn/.st/.panel, so the
-   same markup renders identically. The home page keeps its inline copy: change both together.
-   Used by: /country/<slug>/ (channels diagram, PIE Playground). */
+/* components.css — shared section components: the channels section (status chips, animated
+   route diagram, channel cards) and the PIE Playground (route inspector).
+   Used by: / (home) and /country/<slug>/. Each page keeps the same markup and fills in its own
+   content; see README "Shared components". This file holds the base rules; the override layer
+   comes from the home page's inline <style> on / and from motion.css on inner pages, so load
+   this file BEFORE either of them. */
 .lbl{font:400 11.5px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mut2)}
 .h2{font:300 clamp(28px,3.5vw,48px)/1.1 var(--disp);letter-spacing:-.025em;margin:0}
 .h3{font:400 19px var(--disp);letter-spacing:-.01em;margin:0 0 10px}
@@ -47,3 +48,7 @@ h3.h2{font-weight:300!important} /* motion.css sets h3 to 400; the home page kee
 .secpill:after{content:"";order:-1;flex:none;width:6px;height:6px;border-radius:50%;background:#3078e8;box-shadow:0 0 0 3px rgba(48,120,232,.14)}
 .cell > .secpill{align-self:flex-start}
 @media (max-width:480px){.secpill{font-size:10.5px;letter-spacing:.14em;padding:7px 15px 7px 12px}}
+
+/* three-card variant of the channel row (country pages list only the channels offered there) */
+@media (max-width:900px){.grid.g4.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media (max-width:720px){.grid.g4.cols-3{grid-template-columns:minmax(0,1fr)!important}}
