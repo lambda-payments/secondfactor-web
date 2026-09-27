@@ -232,11 +232,12 @@
       <figure class="post-shot">
         <img src="/assets/blog/best-sms-otp-providers/plivo-hero.webp" alt="Plivo Verify product page, with the headline “Verify new users with Plivo” and a phone showing a verification code." width="1280" height="720" loading="lazy" decoding="async">
       </figure>
-      <p><a href="https://www.plivo.com/verify/" target="_blank" rel="nofollow noopener">Plivo Verify</a> is a managed OTP service for sending and validating verification codes over SMS and voice. Like Twilio Verify, it handles OTP generation and validation, so you can add phone verification without building the full OTP lifecycle yourself.</p>
+      <p><a href="https://www.plivo.com/verify/" target="_blank" rel="nofollow noopener">Plivo Verify</a> is a managed OTP service for sending and validating verification codes over SMS, voice, and WhatsApp. Like Twilio Verify, it handles OTP generation and validation, so you can add phone verification without building the full OTP lifecycle yourself.</p>
       <p>A verification starts by sending the recipient’s phone number and delivery channel to the Verify API. Plivo generates the OTP and creates a verification session, and you use its Validate Session API to check the code entered by the user. You can also receive delivery status updates through webhooks.</p>
       <p>Plivo includes Fraud Shield for detecting SMS pumping. It monitors verification traffic and blocks messages it considers suspicious, with high, medium, and low protection levels depending on how aggressively you want it to filter traffic.</p>
       <p>Plivo Verify is currently offered to direct brands rather than resellers or ISVs, and access requires a minimum monthly commitment. A $1,000 monthly commitment covers the US, Canada, UK, Australia, India through ILDO routes, and countries that don’t require pre-registration. A $10,000 commitment adds markets where sender or brand registration is required.</p>
-      <p>Plivo Verify currently supports SMS and voice, so teams looking for WhatsApp or other messaging channels within the same verification product will find fewer options than with some of the other providers in this list.</p>
+      <p>Plivo doesn’t charge a separate verification fee, so you pay only the SMS, voice, or WhatsApp charges for the messages and calls used.</p>
+      <p>Plivo’s Verify product page lists SMS, voice, and WhatsApp, while its Verify availability documentation describes delivery over SMS and voice. If you plan to use WhatsApp, confirm that it’s enabled for your account.</p>
       <h2 id="vonage-verify">4. Vonage Verify</h2>
       <figure class="post-shot">
         <img src="/assets/blog/best-sms-otp-providers/vonage-hero.webp" alt="Vonage Verify API product page, showing the Verify API headline and an introductory video." width="1280" height="720" loading="lazy" decoding="async">
@@ -258,9 +259,9 @@
       <p>Sinch charges for verification attempts based on the method used. For SMS, the price depends on the destination country and operator, and Sinch charges for each SMS verification attempt.</p>
       <h2 id="infobip">6. Infobip</h2>
       <figure class="post-shot">
-        <img src="/assets/blog/best-sms-otp-providers/infobip-hero.webp" alt="Infobip Authenticate product page, with the headline “Enhancing your 2FA solution with cutting-edge OTP delivery.”" width="1280" height="720" loading="lazy" decoding="async">
+        <img src="/assets/blog/best-sms-otp-providers/infobip-hero.webp" alt="Infobip 2FA API documentation page, listing SMS, voice and email as the available channels." width="1280" height="720" loading="lazy" decoding="async">
       </figure>
-      <p><a href="https://www.infobip.com/authentication" target="_blank" rel="nofollow noopener">Infobip</a> provides a 2FA API for generating, sending, and verifying OTPs. The service supports OTP delivery through SMS, voice, and email.</p>
+      <p><a href="https://www.infobip.com/docs/2fa-service" target="_blank" rel="nofollow noopener">Infobip</a> provides a 2FA API for generating, sending, and verifying OTPs. The service supports OTP delivery through SMS, voice, and email.</p>
       <p>For SMS verification, you first configure a 2FA application and message template. When you make a request with the user’s phone number, Infobip generates a PIN and sends it using the configured template. You then submit the PIN entered by the user to Infobip for verification.</p>
       <p>Infobip lets you configure settings such as PIN length, PIN type, validity period, and the number of verification attempts allowed. Its APIs can also return delivery and verification information that you can use to track individual authentication attempts.</p>
       <p>Infobip has its own global messaging infrastructure and offers SMS pricing based on the destination country and message volume.</p>
