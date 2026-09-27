@@ -19,14 +19,14 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /docs/                docs/index.html               API documentation (send, check, fetch, webhooks)
     /privacy/             privacy/index.html            Privacy Policy (full text; footer links point here)
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
-    /country/             country/index.html            Country LP directory (DRAFT)
-    /country/<slug>/      country/<slug>/index.html     20 country LPs, including India (DRAFT: noindex, not in sitemap)
+    /country/             country/index.html            Country directory (linked from /pricing/)
+    /country/<slug>/      country/<slug>/index.html     20 country LPs, including India
     /blog/                blog/index.html               Blog listing: published articles as clickable cards, planned ones as "Coming soon"
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
 Internal links and asset paths are root-absolute (`/pricing/`, `/css/styles.css`), so the
-site must be served from the domain root. Every page carries a `<link rel="canonical">`. Published pages are listed in
-`sitemap.xml` (referenced from `robots.txt`); draft country pages are excluded.
+site must be served from the domain root. Every page carries a `<link rel="canonical">`. All published pages are listed in
+`sitemap.xml` (referenced from `robots.txt`).
 
 ## Header and footer
 
@@ -107,9 +107,10 @@ same band, as on the home page; after a `.band` section keep the default padding
 
 ## Country landing pages
 
-Preview the full set at `/country/`. All 20 destinations from the pricing list have
-static landing pages. They retain `noindex, nofollow` and stay out of the sitemap
-until publication. No public navigation links were added to the drafts.
+All 20 destinations from the pricing list have a static landing page, collected in the
+`/country/` directory (linked from the pricing page). Every country page and the directory
+are indexable and listed in `sitemap.xml`; breadcrumbs run Home › Countries › Country.
+When you add a country, add its `/country/<slug>/` URL to `sitemap.xml` too.
 
 `country/india/index.html` is the reference layout. The other 19 pages and the
 country directory are generated from it, using `country/countries.json` for country
