@@ -175,6 +175,7 @@
           <a href="#plivo-verify">Plivo Verify</a>
           <a href="#bird-verify">Bird Verify</a>
           <a href="#telesign-verify">Telesign Verify</a>
+          <a href="#what-to-consider-before-switching">What to consider before switching</a>
         </div>
       </nav>
       <div class="post-sidecta">
@@ -274,6 +275,33 @@
       <p>Your developers can configure routing rules to choose the preferred verification channel and the fallback sequence. You can also set different routing preferences by market instead of applying the same channel order to every destination.</p>
       <p>For integration, Telesign provides a REST API for OTP verification and mobile SDKs for additional verification methods. Its developer documentation states that the unified Verify API requires a full-service account, so businesses should contact Telesign to arrange access rather than assume that a standard self-service account includes the complete offering.</p>
       <p>Pricing depends on the verification method and destination country, and they also offer a custom pricing for volume and committed use.</p>
+      <h2 id="what-to-consider-before-switching">What to Consider Before Switching From Twilio Verify</h2>
+      <p>If you are looking to switch away from Twilio Verify, consider how the OTP provider handles unsuccessful attempts, what your developers will need to change, and how you will measure whether switching has improved the process.</p>
+      <h3 id="compare-the-total-cost-of-a-successful-verification">Compare the Total Cost of a Successful Verification</h3>
+      <p>A lower advertised verification fee does not necessarily mean a lower overall bill.</p>
+      <p>Start with your monthly verification volume, the countries your users live in, and the channels you expect to use. Then compare the full billing structure, including any verification fees, message or call charges, carrier fees, and applicable sender-registration costs.</p>
+      <p>Pay particular attention to unsuccessful attempts and fallback. Ask whether the provider charges when a code is sent, delivered, or successfully verified, and what happens to the bill when another delivery attempt is necessary.</p>
+      <p>Request an estimate based on your actual destination mix and expected retries rather than comparing starting rates from different pricing pages.</p>
+      <h3 id="check-channel-availability-in-your-main-markets">Check Channel Availability in Your Main Markets</h3>
+      <p>A provider’s country count does not tell you which channels you can use in each destination. Confirm availability for the countries you serve, along with any sender-registration, template, or local-number requirements that affect your setup.</p>
+      <p>Also, make a list of the verification methods your application currently uses. SMS and WhatsApp codes, authenticator-generated codes, push approvals, and silent network verification involve different workflows.</p>
+      <p>A service that covers your messaging channels may not replace every authentication method in your existing integration. Check whether those methods belong to the same verification product or require an additional service.</p>
+      <h3 id="understand-what-happens-when-a-code-does-not-arrive">Understand What Happens When a Code Does Not Arrive</h3>
+      <p>Check how the provider chooses the first delivery channel and what happens when that attempt does not reach the user. Confirm whether fallback happens automatically, requires a request from your application, or depends on the user selecting another option.</p>
+      <p>Ask what triggers the next attempt, how long the platform waits, and whether it reuses the same code.</p>
+      <p>Your developers should also understand what happens when a user requests a resend or your application repeats a request after a timeout.</p>
+      <p>Look at the information available when something goes wrong, too. Delivery events, verification states, and error responses should help your team distinguish an unsuccessful delivery from an expired code, an incorrect entry, or a blocked attempt.</p>
+      <p>Ask what support can investigate when a particular route causes repeated problems.</p>
+      <h3 id="review-fraud-controls-and-security-requirements">Review Fraud Controls and Security Requirements</h3>
+      <p>Look beyond whether a provider lists “fraud protection” as a feature. Review how it generates and stores codes, enforces expiration, limits resend requests and incorrect guesses, and protects against artificially inflated SMS traffic.</p>
+      <p>Confirm which controls the service includes and which settings your team must configure.</p>
+      <p>For security reviews, request documentation that covers the verification service you plan to use.</p>
+      <p>A company-level certification does not automatically establish that every product and processing region falls within the same audit scope, so confirm the scope rather than relying on a badge on the provider’s website.</p>
+      <h3 id="assess-the-work-required-to-migrate">Assess the Work Required to Migrate</h3>
+      <p>Compare the new provider’s API with your current implementation before estimating the work involved.</p>
+      <p>Map your send and verification-check requests, verification state, webhooks, rate limits, fraud settings, and fallback behavior to the replacement service.</p>
+      <p>Test the full workflow on real devices in your main markets before moving all traffic. Measure delivery time, successful verifications, retries, fallback outcomes, and total cost—not just whether the API accepts a request.</p>
+      <p>A controlled rollout gives you a way to check whether the alternative meets your delivery and cost requirements before committing to a complete switch.</p>
 
       <div class="post-cta">
         <p class="post-cta-t">See what an OTP costs in your markets</p>
