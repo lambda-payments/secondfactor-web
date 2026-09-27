@@ -19,13 +19,14 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /docs/                docs/index.html               API documentation (send, check, fetch, webhooks)
     /privacy/             privacy/index.html            Privacy Policy (full text; footer links point here)
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
-    /country/india/       country/india/index.html      Country LP: OTP service for India (DRAFT: noindex, not in sitemap)
+    /country/             country/index.html            Country LP directory (DRAFT)
+    /country/<slug>/      country/<slug>/index.html     20 country LPs, including India (DRAFT: noindex, not in sitemap)
     /blog/                blog/index.html               Blog listing: published articles as clickable cards, planned ones as "Coming soon"
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
 Internal links and asset paths are root-absolute (`/pricing/`, `/css/styles.css`), so the
-site must be served from the domain root. Every page carries a `<link rel="canonical">`
-and is listed in `sitemap.xml` (referenced from `robots.txt`).
+site must be served from the domain root. Every page carries a `<link rel="canonical">`. Published pages are listed in
+`sitemap.xml` (referenced from `robots.txt`); draft country pages are excluded.
 
 ## Header and footer
 
@@ -72,6 +73,7 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
     css/motion.css    Shared design layer: gradients, cards, animation, responsive rules
     css/components.css Shared section components (channels section, PIE Playground) used by the home page
                       and the country pages. Load it before the home page's inline <style> / motion.css
+    css/country.css   Country LP content alignment, four-card sections and homepage-style FAQ rows
     css/article.css   Blog article layout (.post-* classes). Loaded only by /blog/<slug>/ pages
     css/chrome.css    Header + footer: the ONLY place their width, spacing and colours live.
                       Loaded last on every page (the home page has its own inline CSS, so this
@@ -94,14 +96,65 @@ Two home-page sections are reusable on any page that loads `css/components.css` 
 or from `country/india/index.html`, then change only the content:
 
 * Channels section: the three `.st` status chips inside `.stseq` (keep three; they animate in
-  sequence), the SVG diagram (one `path.flow` + label per channel; the India page shows the
-  three-channel layout with outputs at y=45/125/205), the channel cards in `.grid.g4` (add class
-  `cols-3` and `repeat(3,…)` for three cards) and the availability note.
+  sequence), the SVG diagram (one `path.flow` + label per channel; the India page uses the
+  four-channel layout with outputs at y=34/95/155/216), the channel cards in `.grid.g4` (add
+  class `cols-3` and `repeat(3,…)` when showing three cards) and the availability note.
 * PIE Playground: heading, copy and the `.tline` steps of the route inspector. Country pages
   never show per-channel rates in the inspector.
 
 Put a `.sec` section directly after another `.sec` with `padding-top:0` only when both sit on the
 same band, as on the home page; after a `.band` section keep the default padding.
+
+## Country landing pages
+
+Preview the full set at `/country/`. All 20 destinations from the pricing list have
+static landing pages. They retain `noindex, nofollow` and stay out of the sitemap
+until publication. No public navigation links were added to the drafts.
+
+`country/india/index.html` is the reference layout. The other 19 pages and the
+country directory are generated from it, using `country/countries.json` for country
+names, URL slugs, dialing codes, phone examples and formatting guidance:
+
+```bash
+python3 scripts/generate-country-pages.py
+python3 scripts/generate-country-pages.py --check
+```
+
+Edit the India layout for shared design/copy changes, and the generator or country
+JSON for localized content; regenerate instead of hand-editing generated pages.
+Generated pages replace India's DLT content with channel setup guidance and never
+infer channel coverage from null demo prices. Actual routing still depends on the
+account, sender approvals and recipient support. Prices remain illustrative and
+come from `js/data.js`, using the same calculation as the pricing page.
+
+Dialing codes and example formats were checked against Google's
+[libphonenumber metadata](https://github.com/google/libphonenumber/blob/master/resources/PhoneNumberMetadata.xml).
+Examples illustrate formatting; they are not test destinations. Test delivery only
+to a number you control. Country-specific sender requirements should be confirmed
+for the customer's actual route during onboarding.
+
+| Country | Draft path |
+| --- | --- |
+| Australia | `/country/australia/` |
+| Bangladesh | `/country/bangladesh/` |
+| Brazil | `/country/brazil/` |
+| France | `/country/france/` |
+| Germany | `/country/germany/` |
+| India | `/country/india/` |
+| Indonesia | `/country/indonesia/` |
+| Japan | `/country/japan/` |
+| Mexico | `/country/mexico/` |
+| Nepal | `/country/nepal/` |
+| Nigeria | `/country/nigeria/` |
+| Pakistan | `/country/pakistan/` |
+| Philippines | `/country/philippines/` |
+| Saudi Arabia | `/country/saudi-arabia/` |
+| Spain | `/country/spain/` |
+| Turkey | `/country/turkey/` |
+| United Arab Emirates | `/country/united-arab-emirates/` |
+| United Kingdom | `/country/united-kingdom/` |
+| United States | `/country/united-states/` |
+| Vietnam | `/country/vietnam/` |
 
 ## Fonts
 
