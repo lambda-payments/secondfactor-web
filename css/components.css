@@ -1,0 +1,49 @@
+/* components.css — home-page section components, shared with the country pages.
+   These are the base rules from the home page's inline <style>; motion.css (loaded after this
+   file) already carries the home page's override layer for .grid/.cell/.btn/.st/.panel, so the
+   same markup renders identically. The home page keeps its inline copy: change both together.
+   Used by: /country/<slug>/ (channels diagram, PIE Playground). */
+.lbl{font:400 11.5px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mut2)}
+.h2{font:300 clamp(28px,3.5vw,48px)/1.1 var(--disp);letter-spacing:-.025em;margin:0}
+.h3{font:400 19px var(--disp);letter-spacing:-.01em;margin:0 0 10px}
+.p{font:300 clamp(15.5px,1.1vw,18px)/1.7 var(--disp);color:var(--mut);margin:0}
+.s{font:300 14.5px/1.7 var(--disp);color:var(--mut);margin:0}
+h3.h2{font-weight:300!important} /* motion.css sets h3 to 400; the home page keeps h2-styled h3s at 300 */
+.sec{box-sizing:border-box;padding:clamp(64px,7vw,116px) clamp(20px,4vw,80px);max-width:1640px;margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:10px;font:400 13px var(--mono);letter-spacing:.16em;text-transform:uppercase;padding:16px 28px;border:1px solid var(--ac);background:var(--ac);color:#fff;cursor:pointer;transition:background .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)}
+.btn:hover{background:#1d4fa8;border-color:#1d4fa8;color:#fff;transform:translateY(-2px)}
+.btn-g{background:transparent;color:var(--fg);border-color:var(--brd)}
+.btn-g:hover{background:transparent;color:var(--ac);border-color:var(--ac);transform:translateY(-2px)}
+.btn span.ar{transition:transform .3s var(--ease)}
+.btn:hover span.ar{transform:translateX(4px)}
+
+/* cards, panels, status chips, route diagram */
+.grid{display:grid;gap:1px;background:var(--brd);border:1px solid var(--brd)}
+.cell{background:#fff;padding:clamp(24px,2.3vw,36px);position:relative;overflow:hidden;display:flex;flex-direction:column}
+.cell > .lbl:last-child{margin-top:auto}
+.cell .btn{align-self:flex-start}
+.cell > .btn:last-child,.cell > a:last-child{margin-top:auto}
+.cell p{margin-bottom:22px}
+.cell:before{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.cell:hover:before{transform:scaleX(1)}
+.panel{background:#fff;border:1px solid var(--brd);padding:clamp(24px,2.3vw,36px)}
+.prow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--brd)}
+.st{font:400 11px var(--mono);letter-spacing:.14em;color:var(--ac);border:1px solid rgba(48,120,232,.3);padding:5px 10px}
+.flow{stroke-dasharray:12 9;animation:dash 2.6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-210}}
+.panel.diagram rect[fill="#f6f9fe"],.panel.diagram rect[fill="#e5eefc"],.panel.diagram rect[fill="#efeefc"]{fill:rgba(255,255,255,.5)}
+@media (max-width:900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:560px){.g4,.g2{grid-template-columns:minmax(0,1fr)!important}}
+@media (max-width:720px){.sec{padding:52px 20px!important}.btn{width:100%;justify-content:center}}
+
+/* section pill */
+.secpill{position:relative;display:inline-flex;align-items:center;gap:10px;width:auto;padding:8px 18px 8px 14px;border:0;border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(244,243,253,.55));
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 8px 22px -12px rgba(48,120,232,.32),0 2px 5px -2px rgba(31,36,80,.07);
+  font:500 11.5px var(--mono,"JetBrains Mono",monospace);letter-spacing:.18em;text-transform:uppercase;color:#1f2450;white-space:nowrap}
+.secpill:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(100deg,rgba(48,120,232,.7),rgba(185,209,249,.45) 50%,rgba(48,120,232,.7));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.secpill:after{content:"";order:-1;flex:none;width:6px;height:6px;border-radius:50%;background:#3078e8;box-shadow:0 0 0 3px rgba(48,120,232,.14)}
+.cell > .secpill{align-self:flex-start}
+@media (max-width:480px){.secpill{font-size:10.5px;letter-spacing:.14em;padding:7px 15px 7px 12px}}

@@ -70,6 +70,8 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
 
     css/styles.css    Base tokens and components
     css/motion.css    Shared design layer: gradients, cards, animation, responsive rules
+    css/components.css Home-page section components (channels diagram, PIE Playground) for the country
+                      pages; the home page keeps an inline copy of the same rules, so change both together
     css/article.css   Blog article layout (.post-* classes). Loaded only by /blog/<slug>/ pages
     css/chrome.css    Header + footer: the ONLY place their width, spacing and colours live.
                       Loaded last on every page (the home page has its own inline CSS, so this
