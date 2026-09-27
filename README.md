@@ -19,6 +19,7 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /docs/                docs/index.html               API documentation (send, check, fetch, webhooks)
     /privacy/             privacy/index.html            Privacy Policy (full text; footer links point here)
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
+    /otp-service/india/   otp-service/india/index.html  Country LP: OTP service for India (DRAFT: noindex, not in sitemap)
     /blog/                blog/index.html               Blog listing: published articles as clickable cards, planned ones as "Coming soon"
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 

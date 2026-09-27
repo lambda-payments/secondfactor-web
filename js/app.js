@@ -104,9 +104,23 @@
   }
 
   /* ---------- pricing ---------- */
+  /* one published price per country: the lowest available rate, never per channel */
+  function routedPrice(row) {
+    var vals = window.SF.CHANNEL_META.map(function (m) { return row[m.key]; }).filter(function (v) { return v != null; });
+    return vals.length ? money(Math.min.apply(null, vals)) : 'On request';
+  }
+
+  /* country pages: <span data-routed-price="India"> */
+  if (window.SF) {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-routed-price]'), function (el) {
+      var row = window.SF.RATES[el.getAttribute('data-routed-price')];
+      if (row) { el.textContent = routedPrice(row); }
+    });
+  }
+
   var priceRoot = document.getElementById('routedPrice');
   if (priceRoot && window.SF) {
-    var RATES = window.SF.RATES, META = window.SF.CHANNEL_META;
+    var RATES = window.SF.RATES;
     var state = {
       mode: 'pie',
       channel: 'whatsapp',
@@ -151,10 +165,7 @@
 
       /* single routed price for the country */
       var priceEl = document.getElementById('routedPrice');
-      if (priceEl) {
-        var vals = META.map(function (m) { return row[m.key]; }).filter(function (v) { return v != null; });
-        priceEl.textContent = vals.length ? money(Math.min.apply(null, vals)) : 'On request';
-      }
+      if (priceEl) { priceEl.textContent = routedPrice(row); }
     }
 
     Array.prototype.forEach.call(document.querySelectorAll('.mode-t'), function (b) {
