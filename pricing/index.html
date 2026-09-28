@@ -29,6 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="stylesheet" href="/css/motion.css">
+<link rel="stylesheet" href="/css/pricing.css">
 <link rel="stylesheet" href="/css/chrome.css">
 <link rel="stylesheet" href="/css/surface.css">
 <script type="application/ld+json">
@@ -117,20 +118,18 @@
   </section>
 
 
-  <section style="padding:clamp(48px,5vw,76px) 40px 40px">
-    <div style="max-width:1120px;margin:0 auto">
-      <div id="modeTabs" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(220,232,251,.38));border:1px solid rgba(31,36,80,.14);padding:8px;margin:0 auto 30px;width:fit-content">
-        <button type="button" class="sm mode-t on" data-mode="pie">Routed pricing</button>
-        <button type="button" class="sm mode-t" data-mode="fine">Per-channel pricing</button>
-      </div>
-
-      <div style="max-width:720px;margin:0 auto">
-        <div class="crd" style="padding:36px">
-          <h2 id="modeTitle" style="font:300 clamp(24px,2.6vw,32px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 12px">Routed pricing</h2>
-          <p id="modeBlurb" style="font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 28px">One rate per country, covering delivery and verification. Routing is handled for you.</p>
-
-          <div class="field" id="countryField" style="margin-bottom:26px"><label for="country">Destination country</label>
-            <select class="input" id="country">
+  <section class="pr-tool" aria-label="Price calculator">
+    <div class="pr-wrap pr-grid">
+      <div class="pr-controls">
+        <div id="modeTabs" class="pr-tabs" role="group" aria-label="Pricing model">
+          <button type="button" class="pr-tab mode-t on" data-mode="pie" aria-pressed="true">Routed pricing</button>
+          <button type="button" class="pr-tab mode-t" data-mode="fine" aria-pressed="false">Per-channel pricing</button>
+        </div>
+        <h2 id="modeTitle" class="pr-title">Routed pricing</h2>
+        <p id="modeBlurb" class="pr-blurb">One rate per country, covering delivery and verification. Routing is handled for you.</p>
+        <div class="pr-field" id="countryField">
+          <label for="country">Destination country</label>
+          <select class="pr-select" id="country">
               <option value="United States" selected>United States</option>
               <option value="United Kingdom">United Kingdom</option>
               <option value="Germany">Germany</option>
@@ -151,69 +150,67 @@
               <option value="Turkey">Turkey</option>
               <option value="Australia">Australia</option>
               <option value="Japan">Japan</option>
-            </select>
-          </div>
+          </select>
+        </div>
+        <p class="pr-more"><a href="/country/">See OTP delivery details by country <span aria-hidden="true">&rarr;</span></a></p>
+      </div>
 
-          <div id="pieBlock">
-            <div style="border:1px solid var(--brd);padding:26px;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between">
-              <div>
-                <div style="font:400 11.5px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--mut2);margin-bottom:10px">Price per delivered OTP &mdash; <span id="cLabel">United States</span></div>
-                <div id="routedPrice" style="font:200 clamp(34px,4vw,50px) Sora,system-ui,sans-serif;letter-spacing:-.03em;font-variant-numeric:tabular-nums">&mdash;</div>
-              </div>
-              <div style="font:400 11.5px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--ac);border:1px solid rgba(48,120,232,.3);padding:8px 14px">USD &middot; indicative</div>
-            </div>
-            <p style="font:300 13.5px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:16px 0 0">One rate per country covers delivery and verification. SecondFactor selects the delivery route for each request &mdash; you don't manage channels or per-channel rates.</p>
-            <span class="tip" tabindex="0" aria-label="Pricing note" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;font:400 11.5px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--ac);cursor:help">
-              <span style="display:grid;place-items:center;width:18px;height:18px;border:1px solid rgba(48,120,232,.5);border-radius:50%;font-size:11px">i</span>Why may my price differ?
-              <span class="tipbody">Rates shown here are indicative. Your final pricing may differ depending on your monthly volume, the channels you want to use and your destination markets. Talk to our team for a quote for your account.</span>
-            </span>
-            <p style="font:300 13.5px/1.7 Sora,system-ui,sans-serif;margin:14px 0 0"><a href="/country/">See OTP delivery details by country &rarr;</a></p>
-          </div>
+      <div class="pr-panel">
+        <div id="pieBlock">
+          <div class="pr-lbl">Price per delivered OTP &middot; <span id="cLabel">United States</span></div>
+          <div class="pr-price-row"><div id="routedPrice" class="pr-price">&mdash;</div><span class="pr-unit">USD &middot; indicative</span></div>
+          <ul class="pr-incl">
+            <li>Delivery and verification included in the rate</li>
+            <li>SecondFactor selects the delivery route for each request</li>
+            <li>No channels or per-channel rates to manage</li>
+          </ul>
+          <span class="tip pr-tip" tabindex="0" aria-label="Pricing note"><span class="pr-tip-i" aria-hidden="true">i</span>Why may my price differ?
+            <span class="tipbody">Rates shown here are indicative. Your final pricing may differ depending on your monthly volume, the channels you want to use and your destination markets. Talk to our team for a quote for your account.</span>
+          </span>
+        </div>
 
-          <div id="fineBlock" hidden>
-            <select class="input" id="chan" hidden>
-              <option value="sms">SMS</option>
-              <option value="whatsapp" selected>WhatsApp</option>
-              <option value="viber">Viber</option>
-              <option value="rcs">RCS</option>
-            </select>
-            <div style="display:flex;flex-direction:column;gap:12px;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut)">
-                            <p style="margin:0">It is enabled on request. Once your account is approved, your selling price per channel and per country is set for you and shown inside your SecondFactor portal &mdash; per-channel rates are not published on this website.</p>
-            </div>
-            <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap"><a href="/support/" class="pill pill-p">Request per-channel pricing</a></div>
-          </div>
+        <div id="fineBlock" hidden>
+          <select id="chan" hidden>
+            <option value="sms">SMS</option>
+            <option value="whatsapp" selected>WhatsApp</option>
+            <option value="viber">Viber</option>
+            <option value="rcs">RCS</option>
+          </select>
+          <div class="pr-lbl">Per-channel pricing &middot; on request</div>
+          <p class="pr-fine">It is enabled on request. Once your account is approved, your selling price per channel and per country is set for you and shown inside your SecondFactor portal &mdash; per-channel rates are not published on this website.</p>
+          <a href="/support/" class="pill pill-p">Request per-channel pricing</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section style="padding:76px 40px 82px">
-    <div style="max-width:1120px;margin:0 auto">
-      <h2 style="font:300 clamp(26px,3vw,36px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">Two Ways to Be Priced</h2>
-      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 34px;max-width:66ch">Every account starts on routed pricing. Per-channel pricing is available on request when you need to fix the channel yourself in specific markets.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
-        <div class="crd" style="padding:34px">
-          <span class="sm" style="background:rgba(48,120,232,.1);color:var(--ac);margin-bottom:18px">Default</span>
-          <h3 style="font:300 23px Sora,system-ui,sans-serif;margin:0 0 10px">Routed Pricing</h3>
-          <p style="font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 16px">You select the destination country and pay a single rate per delivered OTP. Routing and fallback are handled for you.</p>
-          <div style="display:flex;flex-direction:column;gap:10px;font:300 14.5px/1.6 Sora,system-ui,sans-serif;color:var(--mut)">
-            <span>&middot; Country selection only &mdash; one published rate</span>
-            <span>&middot; No setup or delivery configuration on your side</span>
-            <span>&middot; Delivery and verification included in the rate</span>
-            <span>&middot; Shown in your portal by default</span>
-          </div>
+  <section class="pr-compare">
+    <div class="pr-wrap">
+      <h2 class="pr-h2">Two Ways to Be Priced</h2>
+      <p class="pr-sub">Every account starts on routed pricing. Per-channel pricing is available on request when you need to fix the channel yourself in specific markets.</p>
+      <div class="pr-cols">
+        <div class="pr-col">
+          <span class="pr-tag pr-tag-on">Default</span>
+          <h3>Routed Pricing</h3>
+          <p>You select the destination country and pay a single rate per delivered OTP. Routing and fallback are handled for you.</p>
+          <ul class="pr-list">
+            <li>Country selection only &mdash; one published rate</li>
+            <li>No setup or delivery configuration on your side</li>
+            <li>Delivery and verification included in the rate</li>
+            <li>Shown in your portal by default</li>
+          </ul>
         </div>
-        <div class="crd" style="padding:34px">
-          <span class="sm" style="background:var(--pap2);color:var(--fg);margin-bottom:18px">On request</span>
-          <h3 style="font:300 23px Sora,system-ui,sans-serif;margin:0 0 10px">Per-Channel Pricing</h3>
-          <p style="font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 16px">If you need more control over delivery, we enable per-channel pricing for your account after reviewing your expected volume and requirements.</p>
-          <div style="display:flex;flex-direction:column;gap:10px;font:300 14.5px/1.6 Sora,system-ui,sans-serif;color:var(--mut)">
-            <span>&middot; Enabled on request, per account</span>
-            <span>&middot; Rates set for your account and shown in your portal</span>
-            <span>&middot; Priced against your volume and destination markets</span>
-            <span>&middot; Not published on this website</span>
-          </div>
-          <div style="margin-top:22px"><a href="/support/" class="pill pill-s">Request per-channel pricing</a></div>
+        <div class="pr-col">
+          <span class="pr-tag">On request</span>
+          <h3>Per-Channel Pricing</h3>
+          <p>If you need more control over delivery, we enable per-channel pricing for your account after reviewing your expected volume and requirements.</p>
+          <ul class="pr-list">
+            <li>Enabled on request, per account</li>
+            <li>Rates set for your account and shown in your portal</li>
+            <li>Priced against your volume and destination markets</li>
+            <li>Not published on this website</li>
+          </ul>
+          <a href="/support/" class="pr-link">Request per-channel pricing <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </div>

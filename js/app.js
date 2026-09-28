@@ -161,6 +161,7 @@
       Array.prototype.forEach.call(document.querySelectorAll('.mode-t'), function (b) {
         var on = b.getAttribute('data-mode') === state.mode;
         b.classList.toggle('on', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
 
       /* single routed price for the country */
