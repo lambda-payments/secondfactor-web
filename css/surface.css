@@ -90,6 +90,9 @@ html body main :is(a.btn-g,a.btn-o,button.btn-o,a.pill-s,a.pill-o,a.sm:not(.hdct
 /* section eyebrow pills sit on white now, so drop their blue-tinted fill */
 html body .secpill,html body .eyebrow{background:linear-gradient(180deg,#fff,#f8fafc)!important}
 
+/* motion.css makes .pill width:100% on phones; without border-box its padding overflows the screen */
+html body .pill{box-sizing:border-box;max-width:100%}
+
 /* ---- footer ---- */
 html body footer.band:not(#sf){background:var(--sf-wash)!important;border-top:1px solid var(--sf-line)!important}
 html body footer.band:before,html body footer.band:after{content:none!important;display:none!important}

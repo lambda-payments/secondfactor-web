@@ -1,0 +1,44 @@
+/* SecondFactor.ai — /channels/ and /channels/<name>/ layout.
+   Loaded after motion.css, before chrome.css and surface.css, on pages whose <main> has
+   class="ch-page". The markup is inline-styled cards; this file opens them up: feature items
+   lose their box and sit under a hairline, icons sit beside their titles, the pricing
+   callout and FAQ drop their container. :not(#sf) keeps these ahead of surface.css. */
+
+:root{--ch-line:#e6e9f0;--ch-ink:#3b4160}
+
+/* feature grids: open items under a hairline instead of boxed cards */
+html body main.ch-page section div[style*="display:grid"]:has(> .crd,> div[style*="padding:28px"]):not(#sf){column-gap:clamp(28px,3.4vw,52px)!important;row-gap:40px!important}
+html body main.ch-page section div[style*="display:grid"] > :is(.crd,div[style*="padding:28px"]):not(#sf){
+  background:none!important;border:0!important;border-top:1px solid var(--ch-line)!important;border-radius:0!important;box-shadow:none!important;
+  padding:26px 0 0!important;transform:none!important}
+html body main.ch-page section div[style*="display:grid"] > :is(.crd,div[style*="padding:28px"]):not(#sf):hover{transform:none!important;box-shadow:none!important}
+main.ch-page section div[style*="display:grid"] > :is(.crd,div[style*="padding:28px"]) h3{font-weight:400!important;font-size:19px!important;letter-spacing:-.01em;color:#1f2450}
+main.ch-page section div[style*="display:grid"] > :is(.crd,div[style*="padding:28px"]) p{color:var(--ch-ink)!important;line-height:1.7!important}
+
+/* icon + title on one line; description and link run full width underneath */
+html body main.ch-page .crd:has(> .ico):not(#sf){display:grid!important;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:center;align-content:start}
+main.ch-page .crd:has(> .ico) > .ico{grid-column:1;margin:0!important}
+main.ch-page .crd:has(> .ico) > h3{grid-column:2;margin:0!important;line-height:1.25!important}
+main.ch-page .crd:has(> .ico) > :not(.ico):not(h3){grid-column:1 / -1}
+main.ch-page .crd:has(> .ico) > p{margin:16px 0 0!important}
+main.ch-page .crd:has(> .ico) > p + a{margin-top:18px;justify-self:start}
+
+/* feature icons sit in a soft tile */
+main.ch-page .crd > .ico{display:grid!important;place-items:center;width:40px;height:40px;background:#f2f6fe;border:1px solid #d9e6fb;border-radius:10px;color:#2461c9}
+main.ch-page .crd > .ico svg{width:20px;height:20px}
+main.ch-page .crd:hover .ico{transform:none}
+/* channel marks (overview page): each channel in its own colour */
+main.ch-page .crd > .ico-ch{width:44px;height:44px;border-radius:11px}
+main.ch-page .ico-ch svg{width:24px;height:24px}
+main.ch-page .ico-sms{color:#2461c9}
+main.ch-page .ico-whatsapp{color:#25d366;background:#ecfbf1!important;border-color:#c8f1d6!important}
+main.ch-page .ico-viber{color:#7360f2;background:#f2f0fe!important;border-color:#dcd7fc!important}
+main.ch-page .ico-rcs{color:#1a73e8;background:#eef4fe!important;border-color:#d3e3fc!important}
+
+/* steps in the tinted band sections: slightly stronger hairline on the grey tint */
+html body main.ch-page section.band div[style*="display:grid"] > div[style*="padding:28px"]:not(#sf){border-top-color:#d6dce6!important}
+
+/* pricing callout and FAQ: no container */
+html body main.ch-page section > div[style*="rgba(220,232,251,.38)"]:not(#sf){background:none!important;border:0!important;box-shadow:none!important;padding:0!important}
+html body main.ch-page section div[style*="text-align:left;background"]:not(#sf){background:none!important;border:0!important;border-top:1px solid var(--ch-line)!important;box-shadow:none!important;padding:0!important}
+main.ch-page details summary{font-weight:400!important}

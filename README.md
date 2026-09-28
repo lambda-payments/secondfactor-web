@@ -73,6 +73,10 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
     css/motion.css    Shared design layer: gradients, cards, animation, responsive rules
     css/components.css Shared section components (channels section, PIE Playground) used by the home page
                       and the country pages. Load it before the home page's inline <style> / motion.css
+    css/pricing.css   /pricing/ layout (.pr-*): calculator controls, result panel, comparison columns.
+                      Keeps the ids js/app.js drives (#modeTabs, #country, #routedPrice, ...)
+    css/channels.css  /channels/ and /channels/<name>/ (main.ch-page): opens the inline-styled cards into
+                      hairline feature rows with inline icons, drops the pricing/FAQ containers
     css/country.css   Country LP content alignment, four-card sections and homepage-style FAQ rows
     css/article.css   Blog layout: article pages (.post-* classes) and the /blog/ listing (.blog-*).
                       Loaded by /blog/ and /blog/<slug>/ pages
