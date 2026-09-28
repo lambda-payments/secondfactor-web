@@ -2,8 +2,8 @@
    Loaded LAST on every page (after chrome.css). Turns everything below the hero into a
    white canvas: sections start with a hairline and a faint neutral wash instead of a blue
    gradient, cards are white with a neutral border and soft shadow, alternate bands use a
-   cool-grey tint. The hero bands (.hero on the home page, .hero-in on inner pages) keep
-   their gradient art and only fade into white at the bottom edge.
+   cool-grey tint. Only the home hero (.hero) keeps its gradient art; inner-page intros
+   (.hero-in) become plain, left-aligned white headers.
    The page CSS layers (home inline styles, motion.css) already stack !important overrides with
    long selectors, so rules here use !important plus `html body` and, where needed, a `:not(#sf)`
    specificity bump (no element has id="sf"; it just adds id-level weight). */
@@ -22,9 +22,8 @@ html body{background:#fff!important;background-attachment:scroll!important}
 html body header.band{background:rgba(255,255,255,.86)!important;border-bottom-color:var(--sf-line)!important}
 html body header.band.scrolled{box-shadow:0 10px 30px -18px rgba(16,24,40,.18)}
 
-/* ---- hero bands keep their art but fade into the white canvas ---- */
+/* ---- the home hero keeps its art but fades into the white canvas ---- */
 html body main section.hero{background:linear-gradient(180deg,rgba(255,255,255,0) 68%,#fff 100%),linear-gradient(160deg,#fff 0%,#e8f0fd 34%,#d7e5fb 68%,#e9f1fd 100%)!important}
-html body main section.hero-in{background:linear-gradient(180deg,rgba(255,255,255,0) 55%,#fff 100%),linear-gradient(160deg,#f5f9ff 0%,#e2ecfc 55%,#d2e1fa 100%)!important}
 
 /* ---- sections: white, separated by a hairline that fades at both ends ---- */
 html body main > section:where(:not(.hero,.hero-in)):not(#sf){position:relative;
@@ -34,11 +33,25 @@ html body main > section:where(:not(.hero,.hero-in)):not(#sf)::before{content:""
   background:linear-gradient(90deg,rgba(214,220,230,0),var(--sf-line-2) 14%,var(--sf-line-2) 86%,rgba(214,220,230,0))!important;
   mask:none!important;-webkit-mask:none!important;animation:none!important;opacity:1!important;border-radius:0!important;pointer-events:none;z-index:1}
 html body main > section:where(:not(.hero,.hero-in)):not(#sf)::after{content:none!important}
-/* no separator straight after a hero (it already fades out), or on sections that continue the previous one */
-html body main > :is(section.hero,section.hero-in) + section:not(#sf){background:#fff!important}
-html body main > :is(section.hero,section.hero-in) + section:not(#sf)::before,
+/* no separator straight after the home hero (it already fades out), or on sections that continue the previous one */
+html body main > section.hero + section:not(#sf){background:#fff!important}
+html body main > section.hero + section:not(#sf)::before,
 html body main > section[style*="padding-top:0"]:not(#sf)::before{display:none!important}
 html body main > section[style*="padding-top:0"]:not(#sf){background:#fff!important}
+
+/* ---- inner-page intros (.hero-in): plain, white and left-aligned like /blog/ and /support/.
+   Content lines up with the header logo: same 1640px frame and gutter as chrome.css. ---- */
+html body main > section.hero-in:not(#sf){background:#fff!important;text-align:left!important;min-height:0!important;align-items:flex-start!important;justify-content:flex-start!important;
+  padding:clamp(40px,4.4vw,64px) var(--sf-gutter) clamp(28px,3vw,40px) calc(max(0px,(100% - 1640px) / 2) + var(--sf-gutter))!important}
+html body main > section.hero-in:not(#sf)::before,html body main > section.hero-in:not(#sf)::after,
+html body main > section.hero-in:not(#sf) > :is(.arcb,.arcw,.orb,.motes,.glow,.arc,.orbit,.halo,.grain,.ringdot){content:none!important;display:none!important}
+html body main > section.hero-in:not(#sf) > *{margin-left:0!important;margin-right:0!important}
+html body main > section.hero-in:not(#sf) > h1{font-size:clamp(34px,3.6vw,46px)!important;font-weight:300!important;line-height:1.1!important;max-width:24ch!important;margin-bottom:12px!important}
+html body main > section.hero-in:not(#sf) > p{font-size:17px!important;line-height:1.65!important;max-width:62ch!important}
+html body main > section.hero-in:not(#sf) > p:not(:last-child){margin-bottom:26px!important}
+html body main > section.hero-in:not(#sf) > div:first-of-type:not(:has(a.pill)){margin-bottom:16px!important}
+html body main > section.hero-in:not(#sf) > div:has(> a.pill){justify-content:flex-start!important}
+@media (max-width:720px){html body main > section.hero-in:not(#sf){padding:36px 20px 24px!important}}
 
 /* old blue ring / glow / mote decorations inside content sections */
 html body main > section:where(:not(.hero,.hero-in)):not(#sf) > :is(.glow,.arc,.arc2,.arc3,.orbit,.halo,.motes,.grain,.arcb,.arcw,.orb,.ringdot){display:none!important}
