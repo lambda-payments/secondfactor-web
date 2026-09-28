@@ -1,0 +1,85 @@
+/* SecondFactor.ai — neutral surface layer.
+   Loaded LAST on every page (after chrome.css). Turns everything below the hero into a
+   white canvas: sections start with a hairline and a faint neutral wash instead of a blue
+   gradient, cards are white with a neutral border and soft shadow, alternate bands use a
+   cool-grey tint. The hero bands (.hero on the home page, .hero-in on inner pages) keep
+   their gradient art and only fade into white at the bottom edge.
+   The page CSS layers (home inline styles, motion.css) already stack !important overrides with
+   long selectors, so rules here use !important plus `html body` and, where needed, a `:not(#sf)`
+   specificity bump (no element has id="sf"; it just adds id-level weight). */
+
+:root{
+  --sf-wash:#f7f9fc;
+  --sf-line:#e6e9f0;
+  --sf-line-2:#d6dce6;
+  --sf-shadow:0 1px 2px rgba(16,24,40,.04);
+  --sf-shadow-h:0 20px 44px -22px rgba(16,24,40,.22),0 2px 6px -2px rgba(16,24,40,.06);
+  --sf-gutter:clamp(20px,4vw,80px);
+}
+
+/* ---- canvas ---- */
+html body{background:#fff!important;background-attachment:scroll!important}
+html body header.band{background:rgba(255,255,255,.86)!important;border-bottom-color:var(--sf-line)!important}
+html body header.band.scrolled{box-shadow:0 10px 30px -18px rgba(16,24,40,.18)}
+
+/* ---- hero bands keep their art but fade into the white canvas ---- */
+html body main section.hero{background:linear-gradient(180deg,rgba(255,255,255,0) 68%,#fff 100%),linear-gradient(160deg,#fff 0%,#e8f0fd 34%,#d7e5fb 68%,#e9f1fd 100%)!important}
+html body main section.hero-in{background:linear-gradient(180deg,rgba(255,255,255,0) 55%,#fff 100%),linear-gradient(160deg,#f5f9ff 0%,#e2ecfc 55%,#d2e1fa 100%)!important}
+
+/* ---- sections: white, separated by a hairline that fades at both ends ---- */
+html body main > section:where(:not(.hero,.hero-in)):not(#sf){position:relative;
+  background:linear-gradient(180deg,var(--sf-wash) 0,rgba(247,249,252,0) 200px),#fff!important;border-top:0!important;border-bottom:0!important}
+html body main > section:where(:not(.hero,.hero-in)):not(#sf)::before{content:""!important;display:block!important;position:absolute!important;inset:0 auto auto 50%!important;
+  width:min(1480px,calc(100% - 2 * var(--sf-gutter)))!important;height:1px!important;aspect-ratio:auto!important;transform:translateX(-50%)!important;
+  background:linear-gradient(90deg,rgba(214,220,230,0),var(--sf-line-2) 14%,var(--sf-line-2) 86%,rgba(214,220,230,0))!important;
+  mask:none!important;-webkit-mask:none!important;animation:none!important;opacity:1!important;border-radius:0!important;pointer-events:none;z-index:1}
+html body main > section:where(:not(.hero,.hero-in)):not(#sf)::after{content:none!important}
+/* no separator straight after a hero (it already fades out), or on sections that continue the previous one */
+html body main > :is(section.hero,section.hero-in) + section:not(#sf){background:#fff!important}
+html body main > :is(section.hero,section.hero-in) + section:not(#sf)::before,
+html body main > section[style*="padding-top:0"]:not(#sf)::before{display:none!important}
+html body main > section[style*="padding-top:0"]:not(#sf){background:#fff!important}
+
+/* old blue ring / glow / mote decorations inside content sections */
+html body main > section:where(:not(.hero,.hero-in)):not(#sf) > :is(.glow,.arc,.arc2,.arc3,.orbit,.halo,.motes,.grain,.arcb,.arcw,.orb,.ringdot){display:none!important}
+
+/* alternate bands (inner pages) and the home stats strip: a flat cool-grey tint */
+html body main > section.band:not(#sf),html body main > section.dark:has(.num):not(#sf){background:var(--sf-wash)!important}
+html body main > section.dark:has(.num):not(#sf)::after{content:""!important;display:block!important;position:absolute!important;inset:auto auto 0 50%!important;
+  width:min(1480px,calc(100% - 2 * var(--sf-gutter)))!important;height:1px!important;transform:translateX(-50%)!important;
+  background:linear-gradient(90deg,rgba(214,220,230,0),var(--sf-line-2) 14%,var(--sf-line-2) 86%,rgba(214,220,230,0))!important;opacity:1!important;animation:none!important}
+html body main section.sec:has(.tcarousel):not(#sf){background:linear-gradient(180deg,var(--sf-wash) 0,rgba(247,249,252,0) 200px),#fff!important}
+
+/* closing call-to-action bands: a quiet dot grid that fades out toward the edges */
+html body main > section:last-child:not(.hero):not(.hero-in):not(#sf){background:#fff!important}
+html body main > section:last-child:not(.hero):not(.hero-in):has(.btn-l,.pill-p):not(#sf){
+  background:radial-gradient(rgba(31,36,80,.13) 1px,transparent 1.3px) 0 0/22px 22px,#fff!important}
+html body main > section:last-child:not(.hero):not(.hero-in):has(.btn-l,.pill-p):not(#sf) > *{position:relative;z-index:2}
+html body main > section:last-child:not(.hero):not(.hero-in):has(.btn-l,.pill-p):not(#sf)::after{content:""!important;display:block!important;position:absolute!important;inset:0!important;
+  width:auto!important;height:auto!important;transform:none!important;pointer-events:none;z-index:1;opacity:1!important;animation:none!important;mask:none!important;-webkit-mask:none!important;
+  background:radial-gradient(60% 70% at 50% 50%,rgba(255,255,255,.55) 0%,#fff 78%)!important}
+
+/* ---- cards and panels ---- */
+html body main :is(.cell,.crd,.stepcard,.panel,.sfd):not(#sf){background:#fff!important;border:1px solid var(--sf-line)!important;
+  box-shadow:var(--sf-shadow)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+/* two-column rows on the home page are deliberately unboxed */
+html body main .grid.g2 > .cell:not(#sf){background:transparent!important;border:0!important;box-shadow:none!important}
+html body main :is(a.cell,a.crd){transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+html body main :is(a.cell,a.crd):not(#sf):hover{border-color:var(--sf-line-2)!important;box-shadow:var(--sf-shadow-h)!important;transform:translateY(-2px)}
+html body main .crd:not(a):not(#sf):hover{transform:none;box-shadow:var(--sf-shadow)!important}
+html body main :is([style*="rgba(220,232,251,.38)"],[style*="rgba(215,229,250,.45)"]):not(#sf){background:#fff!important;border-color:var(--sf-line)!important;box-shadow:var(--sf-shadow)}
+html body main details.q{border-color:var(--sf-line)!important}
+
+/* ---- secondary controls ---- */
+html body main :is(a.btn-g,a.btn-o,button.btn-o,a.pill-s,a.pill-o,a.sm:not(.hdcta),.tnav):not(#sf){background:#fff!important;border:1px solid var(--sf-line-2)!important;color:#1f2450!important;box-shadow:var(--sf-shadow)}
+html body main :is(a.btn-g,a.btn-o,button.btn-o,a.pill-s,a.pill-o,a.sm:not(.hdcta),.tnav):not(#sf):hover{border-color:#3078e8!important;color:#2461c9!important}
+
+/* section eyebrow pills sit on white now, so drop their blue-tinted fill */
+html body .secpill,html body .eyebrow{background:linear-gradient(180deg,#fff,#f8fafc)!important}
+
+/* ---- footer ---- */
+html body footer.band:not(#sf){background:var(--sf-wash)!important;border-top:1px solid var(--sf-line)!important}
+html body footer.band:before,html body footer.band:after{content:none!important;display:none!important}
+html body footer.band .ftb{border-top-color:var(--sf-line)!important}
+
+@media (prefers-reduced-motion:reduce){html body main :is(a.cell,a.crd){transition:none}}

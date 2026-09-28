@@ -21,7 +21,7 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
     /country/             country/index.html            Country directory (linked from /pricing/)
     /country/<slug>/      country/<slug>/index.html     20 country LPs, including India
-    /blog/                blog/index.html               Blog listing: published articles as clickable cards, planned ones as "Coming soon"
+    /blog/                blog/index.html               Blog listing: compact intro, then one `.blog-card` link per published article
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
 Internal links and asset paths are root-absolute (`/pricing/`, `/css/styles.css`), so the
@@ -50,8 +50,8 @@ never publishes it, but it still previews locally at `/blog/_template/`.
    `.post-facts` and `.post-proscons`), `.post-note`, `.post-cta`, `.post-faq`. Delete the
    "Body styles reference" block. Give every `<h2>` an `id` and list it in `.post-toc`.
 5. Do not wrap body content in `<section>` or use `.crd`: `motion.css` restyles both.
-6. Link the article: turn its card on `/blog/` into a link, and fill "Keep reading" with
-   published posts only.
+6. List the article: copy an `<a class="blog-card">` block on `/blog/` (category, title, one-line
+   summary, "Read article") for the new post, and fill "Keep reading" with published posts only.
 7. Add the URL to `sitemap.xml` (and bump the `/blog/` entry's `lastmod`).
 
 ## SEO head
@@ -74,10 +74,14 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
     css/components.css Shared section components (channels section, PIE Playground) used by the home page
                       and the country pages. Load it before the home page's inline <style> / motion.css
     css/country.css   Country LP content alignment, four-card sections and homepage-style FAQ rows
-    css/article.css   Blog article layout (.post-* classes). Loaded only by /blog/<slug>/ pages
+    css/article.css   Blog layout: article pages (.post-* classes) and the /blog/ listing (.blog-*).
+                      Loaded by /blog/ and /blog/<slug>/ pages
     css/chrome.css    Header + footer: the ONLY place their width, spacing and colours live.
                       Loaded last on every page (the home page has its own inline CSS, so this
                       is what keeps its header/footer identical to the inner pages).
+    css/surface.css   Neutral surface layer, loaded after chrome.css on every page: white canvas,
+                      hairline section starts, white cards, grey-tint bands and footer. The hero
+                      bands (.hero, .hero-in) keep their gradient art. New pages must link it too.
     js/data.js        Per-country rate data (DEMO VALUES — replace before launch)
     js/app.js         Scroll reveal, mobile drawer, pricing logic, support form
     assets/logo/      Brand files: secondFactor-full.png (header/footer lockup), secondfactor-icon.png

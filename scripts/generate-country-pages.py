@@ -95,7 +95,6 @@ def render_index(template):
       </a>''')
     main = '''<main style="flex:1">
   <section class="sec country-content">
-    <span class="secpill">Countries</span>
     <h1 class="h2" style="margin:18px 0 16px">OTP Delivery by Country</h1>
     <p class="p" style="max-width:64ch">Explore delivery, verification and setup for each destination. Rates are indicative and quoted in USD.</p>
     <div class="grid g4" style="grid-template-columns:repeat(4,minmax(0,1fr));margin-top:36px">
