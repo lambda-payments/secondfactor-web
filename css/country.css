@@ -1,0 +1,15 @@
+/* Country landing pages share the homepage content edges and FAQ alignment. */
+.country-content{box-sizing:border-box;max-width:1640px;margin:0 auto}
+.country-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;text-align:left}
+@media (max-width:900px){.country-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.country-steps{grid-template-columns:minmax(0,1fr)}}
+
+/* Same open FAQ rows as the homepage, with no inset card around the list. */
+.country-faq details{border-top:1px solid var(--brd);padding:22px 0}
+.country-faq details:last-child{border-bottom:1px solid var(--brd)}
+.country-faq summary{list-style:none;cursor:pointer;font:400 17px var(--disp);display:flex;justify-content:space-between;gap:24px;align-items:baseline}
+.country-faq summary::-webkit-details-marker{display:none}
+.country-faq summary i{font-family:var(--mono);color:var(--ac);font-style:normal;transition:transform .3s var(--ease);flex:none}
+.country-faq details[open] summary i{transform:rotate(45deg)}
+.country-faq details p{font:300 15px/1.75 var(--disp);color:var(--mut);margin:14px 0 0;max-width:74ch}
+@media (prefers-reduced-motion:reduce){.country-faq summary i{transition:none}}

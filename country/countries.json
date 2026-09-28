@@ -1,0 +1,211 @@
+[
+  {
+    "name": "United States",
+    "slug": "united-states",
+    "prose_name": "the United States",
+    "short_name": "US",
+    "iso": "US",
+    "dial": "+1",
+    "example": "+12015550123",
+    "masked_example": "+1 20XXXXXX23",
+    "number_format": "Use E.164 format: +1 followed by the 10-digit number, including its area code, with no spaces or punctuation."
+  },
+  {
+    "name": "United Kingdom",
+    "slug": "united-kingdom",
+    "prose_name": "the United Kingdom",
+    "short_name": "UK",
+    "iso": "GB",
+    "dial": "+44",
+    "example": "+447400123456",
+    "masked_example": "+44 74XXXXXX56",
+    "number_format": "Use E.164 format: +44 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "Germany",
+    "slug": "germany",
+    "prose_name": "Germany",
+    "short_name": "Germany",
+    "iso": "DE",
+    "dial": "+49",
+    "example": "+4915123456789",
+    "masked_example": "+49 15XXXXXXX89",
+    "number_format": "Use E.164 format: +49 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "France",
+    "slug": "france",
+    "prose_name": "France",
+    "short_name": "France",
+    "iso": "FR",
+    "dial": "+33",
+    "example": "+33612345678",
+    "masked_example": "+33 61XXXXX78",
+    "number_format": "Use E.164 format: +33 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "Spain",
+    "slug": "spain",
+    "prose_name": "Spain",
+    "short_name": "Spain",
+    "iso": "ES",
+    "dial": "+34",
+    "example": "+34612345678",
+    "masked_example": "+34 61XXXXX78",
+    "number_format": "Use E.164 format: +34 followed by the nine-digit national number, with no spaces or punctuation."
+  },
+  {
+    "name": "Indonesia",
+    "slug": "indonesia",
+    "prose_name": "Indonesia",
+    "short_name": "Indonesia",
+    "iso": "ID",
+    "dial": "+62",
+    "example": "+62812345678",
+    "masked_example": "+62 81XXXXX78",
+    "number_format": "Use E.164 format: +62 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "Philippines",
+    "slug": "philippines",
+    "prose_name": "the Philippines",
+    "short_name": "Philippines",
+    "iso": "PH",
+    "dial": "+63",
+    "example": "+639051234567",
+    "masked_example": "+63 90XXXXXX67",
+    "number_format": "Use E.164 format: +63 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "Vietnam",
+    "slug": "vietnam",
+    "prose_name": "Vietnam",
+    "short_name": "Vietnam",
+    "iso": "VN",
+    "dial": "+84",
+    "example": "+84912345678",
+    "masked_example": "+84 91XXXXX78",
+    "number_format": "Use E.164 format: +84 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "Nepal",
+    "slug": "nepal",
+    "prose_name": "Nepal",
+    "short_name": "Nepal",
+    "iso": "NP",
+    "dial": "+977",
+    "example": "+9779841234567",
+    "masked_example": "+977 98XXXXXX67",
+    "number_format": "Use E.164 format: +977 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "Bangladesh",
+    "slug": "bangladesh",
+    "prose_name": "Bangladesh",
+    "short_name": "Bangladesh",
+    "iso": "BD",
+    "dial": "+880",
+    "example": "+8801812345678",
+    "masked_example": "+880 18XXXXXX78",
+    "number_format": "Use E.164 format: +880 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "Pakistan",
+    "slug": "pakistan",
+    "prose_name": "Pakistan",
+    "short_name": "Pakistan",
+    "iso": "PK",
+    "dial": "+92",
+    "example": "+923012345678",
+    "masked_example": "+92 30XXXXXX78",
+    "number_format": "Use E.164 format: +92 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "Brazil",
+    "slug": "brazil",
+    "prose_name": "Brazil",
+    "short_name": "Brazil",
+    "iso": "BR",
+    "dial": "+55",
+    "example": "+5511961234567",
+    "masked_example": "+55 11XXXXXXX67",
+    "number_format": "Use E.164 format: +55 followed by the area code and mobile number. Omit domestic trunk and carrier-selection prefixes."
+  },
+  {
+    "name": "Mexico",
+    "slug": "mexico",
+    "prose_name": "Mexico",
+    "short_name": "Mexico",
+    "iso": "MX",
+    "dial": "+52",
+    "example": "+522221234567",
+    "masked_example": "+52 22XXXXXX67",
+    "number_format": "Use E.164 format: +52 followed by the 10-digit national number, with no spaces or punctuation."
+  },
+  {
+    "name": "Nigeria",
+    "slug": "nigeria",
+    "prose_name": "Nigeria",
+    "short_name": "Nigeria",
+    "iso": "NG",
+    "dial": "+234",
+    "example": "+2348021234567",
+    "masked_example": "+234 80XXXXXX67",
+    "number_format": "Use E.164 format: +234 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "United Arab Emirates",
+    "slug": "united-arab-emirates",
+    "prose_name": "the United Arab Emirates",
+    "short_name": "UAE",
+    "iso": "AE",
+    "dial": "+971",
+    "example": "+971501234567",
+    "masked_example": "+971 50XXXXX67",
+    "number_format": "Use E.164 format: +971 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "Saudi Arabia",
+    "slug": "saudi-arabia",
+    "prose_name": "Saudi Arabia",
+    "short_name": "Saudi Arabia",
+    "iso": "SA",
+    "dial": "+966",
+    "example": "+966512345678",
+    "masked_example": "+966 51XXXXX78",
+    "number_format": "Use E.164 format: +966 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "Turkey",
+    "slug": "turkey",
+    "prose_name": "Turkey",
+    "short_name": "Turkey",
+    "iso": "TR",
+    "dial": "+90",
+    "example": "+905012345678",
+    "masked_example": "+90 50XXXXXX78",
+    "number_format": "Use E.164 format: +90 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "Australia",
+    "slug": "australia",
+    "prose_name": "Australia",
+    "short_name": "Australia",
+    "iso": "AU",
+    "dial": "+61",
+    "example": "+61412345678",
+    "masked_example": "+61 41XXXXX78",
+    "number_format": "Use E.164 format: +61 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  },
+  {
+    "name": "Japan",
+    "slug": "japan",
+    "prose_name": "Japan",
+    "short_name": "Japan",
+    "iso": "JP",
+    "dial": "+81",
+    "example": "+819012345678",
+    "masked_example": "+81 90XXXXXX78",
+    "number_format": "Use E.164 format: +81 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero."
+  }
+]
