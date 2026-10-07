@@ -142,6 +142,16 @@ section.dark > .sec{position:relative;z-index:2}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .rv2{transition-delay:.1s}.rv3{transition-delay:.2s}.rv4{transition-delay:.3s}
+/* logo cloud under the hero: eyebrow + a wrapping row that blurs in one logo at a time */
+.logos{text-align:center;padding:clamp(40px,4.4vw,64px) clamp(20px,5vw,56px)}
+.logos-eb{margin:0;font:500 12px/1.4 var(--disp);letter-spacing:.16em;text-transform:uppercase;color:rgba(31,36,80,.5)}
+.logos-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:28px clamp(32px,4.6vw,64px);max-width:1200px;margin:32px auto 0;padding:0;list-style:none}
+.logos-row li{display:flex;align-items:center;justify-content:center;min-width:100px}
+.logos-row li.rv{transform:translateY(20px);filter:blur(12px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease),filter 1.2s var(--ease)}
+.logos-row li.rv.in{transform:none;filter:none}
+.logos-row img{display:block;height:var(--h,26px);width:auto;filter:brightness(0);opacity:.6;transition:filter .3s,opacity .3s}
+.logos-row li:hover img{filter:none;opacity:1}
+@media (max-width:720px){.logos-row{gap:24px 34px}.logos-row img{height:calc(var(--h,26px)*.82)}}
 
 /* ---------- cards ---------- */
 .num{font:200 clamp(34px,4vw,54px) var(--disp);letter-spacing:-.03em;color:var(--fg)}
@@ -699,7 +709,18 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
     <div class="cue"><b></b></div>
   </section>
 
-  <!-- MARQUEE -->
+  <!-- LOGOS -->
+  <section class="logos" aria-label="Brands using SecondFactor">
+    <p class="logos-eb">Trusted by leading brands</p>
+    <ul class="logos-row">
+      <li class="rv" style="transition-delay:0ms"><img src="/assets/logos/coca-cola.svg" alt="Coca-Cola" style="--h:30px" loading="lazy"></li>
+      <li class="rv" style="transition-delay:100ms"><img src="/assets/logos/unilever.svg" alt="Unilever" style="--h:30px" loading="lazy"></li>
+      <li class="rv" style="transition-delay:200ms"><img src="/assets/logos/royal-enfield.svg" alt="Royal Enfield" style="--h:17px" loading="lazy"></li>
+      <li class="rv" style="transition-delay:300ms"><img src="/assets/logos/unicef.svg" alt="UNICEF" style="--h:25px" loading="lazy"></li>
+      <li class="rv" style="transition-delay:400ms"><img src="/assets/logos/nike.svg" alt="Nike" style="--h:26px" loading="lazy"></li>
+      <li class="rv" style="transition-delay:500ms"><img src="/assets/logos/pizza-hut.svg" alt="Pizza Hut" style="--h:42px" loading="lazy"></li>
+    </ul>
+  </section>
 
   <!-- ENGINE -->
   <section class="sec">
