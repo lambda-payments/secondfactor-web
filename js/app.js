@@ -14,13 +14,13 @@
   /* ---------- scroll reveal (rect-based, works in any scroll container) ---------- */
   (function () {
     var nodes = Array.prototype.slice.call(
-      document.querySelectorAll('section .crd, section .sfd, section h2, section details, section .field')
+      document.querySelectorAll('section .crd, section .sfd, section h2, section details, section .field, section .logos-row li')
     );
     if (!nodes.length) return;
     var n = 0;
     nodes.forEach(function (el) {
       el.classList.add('rv');
-      el.style.transitionDelay = ((n++ % 5) * 70) + 'ms';
+      if (!el.style.transitionDelay) el.style.transitionDelay = ((n++ % 5) * 70) + 'ms';
     });
     var pending = nodes.slice();
     function show(el) { el.classList.add('in'); }
