@@ -1,0 +1,12 @@
+/* SecondFactor.ai — client logo cloud, shown under the hero on the home page and the
+   /channels/ pages: an eyebrow and a wrapping row that blurs in one logo at a time. */
+
+.logos{text-align:center;padding:clamp(40px,4.4vw,64px) clamp(20px,5vw,56px)}
+.logos-eb{margin:0;font:500 12px/1.4 var(--disp,Sora,system-ui,sans-serif);letter-spacing:.16em;text-transform:uppercase;color:rgba(31,36,80,.5)}
+.logos-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:28px clamp(32px,4.6vw,64px);max-width:1200px;margin:32px auto 0;padding:0;list-style:none}
+.logos-row li{display:flex;align-items:center;justify-content:center;min-width:100px}
+.logos-row li.rv{transform:translateY(20px);filter:blur(12px);transition:opacity 1.2s var(--ease,cubic-bezier(.16,1,.3,1)),transform 1.2s var(--ease,cubic-bezier(.16,1,.3,1)),filter 1.2s var(--ease,cubic-bezier(.16,1,.3,1))}
+.logos-row li.rv.in{transform:none;filter:none}
+.logos-row img{display:block;height:var(--h,26px);width:auto;filter:brightness(0);opacity:.6;transition:filter .3s,opacity .3s}
+.logos-row li:hover img{filter:none;opacity:1}
+@media (max-width:720px){.logos-row{gap:24px 34px}.logos-row img{height:calc(var(--h,26px)*.82)}}
