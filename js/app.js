@@ -200,6 +200,17 @@
     spy();
   }
 
+  /* article code samples: copy button */
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.post-code-copy') : null;
+    if (!btn || !navigator.clipboard) return;
+    var pre = btn.closest('.post-code').querySelector('pre');
+    navigator.clipboard.writeText(pre.textContent).then(function () {
+      btn.textContent = 'Copied'; btn.classList.add('done');
+      setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1600);
+    });
+  });
+
   /* mobile drawer */
   var burger = document.querySelector('.burger'), navlinks = document.querySelector('.navlinks');
   if (burger && navlinks) {

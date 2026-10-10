@@ -56,6 +56,14 @@
 .post-body code{font:400 .86em 'JetBrains Mono',ui-monospace,monospace;color:#1f2450;background:#f1f4f8;border:1px solid var(--post-line);padding:1px 6px}
 .post-body pre{background:#0f172a;color:#e5e9f2;padding:20px 22px;overflow:auto;margin:0 0 26px;font:400 13.5px/1.7 'JetBrains Mono',ui-monospace,monospace}
 .post-body pre code{background:none;border:0;padding:0;color:inherit;font-size:inherit}
+/* code sample: label bar with a copy button over a scrolling block (js/app.js wires .post-code-copy) */
+.post-code{margin:0 0 26px;background:#0f172a;border-radius:10px;overflow:hidden}
+.post-code figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px 9px 18px;background:#182238;border-bottom:1px solid rgba(255,255,255,.08);margin:0}
+.post-code-n{font:400 12.5px 'JetBrains Mono',ui-monospace,monospace;color:#aab6d3;letter-spacing:.02em}
+.post-code-copy{appearance:none;border:1px solid rgba(255,255,255,.16);background:transparent;color:#d5ddf0;font:400 12px Sora,system-ui,sans-serif;padding:5px 12px;border-radius:6px;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.post-code-copy:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3)}
+.post-code-copy.done{color:#7ee2a8;border-color:rgba(126,226,168,.5)}
+.post-body .post-code pre{margin:0;border-radius:0;font-size:13px;tab-size:2;font-variant-ligatures:none}
 .post-body figure{margin:32px 0}
 .post-body figure img{display:block;width:100%;height:auto;border:1px solid var(--post-line);box-shadow:0 12px 32px -20px rgba(16,24,40,.25)}
 .post-body h2 + figure{margin-top:22px}
