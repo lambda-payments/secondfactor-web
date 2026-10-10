@@ -21,7 +21,8 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
     /country/             country/index.html            Country directory (linked from /pricing/)
     /country/<slug>/      country/<slug>/index.html     20 country LPs, including India
-    /features/<slug>/     features/<slug>/index.html    Feature pages (no /features/ hub yet): otp-routing-fallback, otp-delivery-logs,
+    /features/            features/index.html           Features overview (the "Features" nav dropdown links here and to each page)
+    /features/<slug>/     features/<slug>/index.html    Feature pages: otp-routing-fallback, otp-delivery-logs,
                                                         otp-template-management, pie-playground
     /blog/                blog/index.html               Blog listing: compact intro, then one `.blog-card` link per published article
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
