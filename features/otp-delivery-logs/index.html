@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OTP Delivery Logs and Cost Visibility | SecondFactor.ai</title>
+<meta name="description" content="See the channel, delivery status and cost of every OTP request in your dashboard, through the API and by webhook.">
+<link rel="canonical" href="https://secondfactor.ai/features/otp-delivery-logs/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#3078e8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SecondFactor.ai">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://secondfactor.ai/features/otp-delivery-logs/">
+<meta property="og:title" content="OTP Delivery Logs and Cost Visibility">
+<meta property="og:description" content="See the channel, delivery status and cost of every OTP request in your dashboard, through the API and by webhook.">
+<meta property="og:image" content="https://secondfactor.ai/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SecondFactor.ai — OTP delivery and verification API across SMS, WhatsApp, Viber and RCS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OTP Delivery Logs and Cost Visibility">
+<meta name="twitter:description" content="See the channel, delivery status and cost of every OTP request in your dashboard, through the API and by webhook.">
+<meta name="twitter:image" content="https://secondfactor.ai/assets/og-default.png">
+<link rel="icon" type="image/png" href="/assets/logo/secondfactor-icon.png">
+<link rel="apple-touch-icon" href="/assets/logo/secondfactor-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/motion.css">
+<link rel="stylesheet" href="/css/channels.css">
+<link rel="stylesheet" href="/css/features.css">
+<link rel="stylesheet" href="/css/logos.css">
+<link rel="stylesheet" href="/css/chrome.css">
+<link rel="stylesheet" href="/css/surface.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://secondfactor.ai/features/otp-delivery-logs/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://secondfactor.ai/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Features",
+     "item": "https://secondfactor.ai/features/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "OTP Delivery Logs",
+     "item": "https://secondfactor.ai/features/otp-delivery-logs/"
+    }
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://secondfactor.ai/features/otp-delivery-logs/#webpage",
+   "url": "https://secondfactor.ai/features/otp-delivery-logs/",
+   "name": "OTP Delivery Logs and Cost Visibility | SecondFactor.ai",
+   "description": "See the channel, delivery status and cost of every OTP request in your dashboard, through the API and by webhook.",
+   "isPartOf": {
+    "@id": "https://secondfactor.ai/#website"
+   },
+   "inLanguage": "en",
+   "breadcrumb": {
+    "@id": "https://secondfactor.ai/features/otp-delivery-logs/#breadcrumb"
+   },
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://secondfactor.ai/assets/og-default.png",
+    "width": 1200,
+    "height": 630
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<header class="band" style="position:sticky;top:0;z-index:30;backdrop-filter:blur(8px)">
+  <div class="hd" style="max-width:1200px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+    <a href="/" class="brand" style="display:flex;align-items:center;margin-right:auto">
+      <img class="brand-logo" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772">
+    </a>
+      <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="navlinks" style="display:flex;gap:26px;font:300 14.5px Sora,system-ui,sans-serif">
+      <a href="/" class="nav-a">Home</a>
+      <span class="chdd">
+        <a href="/channels/" class="nav-a chdd-a">Channels<span class="caret">&#9662;</span></a>
+        <span class="chmenu">
+          <a href="/channels/sms/" class="chitem">SMS</a>
+          <a href="/channels/whatsapp/" class="chitem">WhatsApp</a>
+          <a href="/channels/viber/" class="chitem">Viber</a>
+          <a href="/channels/rcs/" class="chitem">RCS</a>
+        </span>
+      </span>
+      <span class="chdd">
+        <a href="/features/" class="nav-a chdd-a on">Features<span class="caret">&#9662;</span></a>
+        <span class="chmenu">
+          <a href="/features/otp-routing-fallback/" class="chitem">OTP Routing and Fallback</a>
+          <a href="/features/otp-delivery-logs/" class="chitem">Delivery Logs and Costs</a>
+          <a href="/features/otp-template-management/" class="chitem">Template Management</a>
+          <a href="/features/pie-playground/" class="chitem">PIE Playground</a>
+        </span>
+      </span>
+      <a href="/pricing/" class="nav-a">Pricing</a>
+      <a href="/docs/" class="nav-a">Docs</a>
+      <a href="/support/" class="nav-a">Support</a>
+      <a href="/blog/" class="nav-a">Blog</a>
+    </nav>
+    <a href="https://app.secondfactor.ai/login" target="_blank" rel="noopener" class="nav-a signin">Sign in</a>
+    <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="hdcta">Get started</a>
+  </div>
+</header>
+<main class="ch-page" style="flex:1">
+  <section class="hero-in" style="padding:76px 40px 60px;text-align:center">
+    <span class="arcb"></span>
+    <span class="orb"><b></b></span>
+    <span class="arcw"></span>
+    <span class="orb wide"><b></b></span>
+    <span class="motes"><i></i><i></i><i></i><i></i></span>
+    <div style="font:300 13px Sora,system-ui,sans-serif;color:var(--mut2);margin-bottom:26px"><a href="/features/" style="color:var(--mut2)">Features</a> / <span style="color:var(--ac)">OTP Delivery Logs</span></div>
+    <h1 style="font:300 clamp(36px,4.4vw,56px)/1.08 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 18px;max-width:22ch">OTP Delivery Logs and Cost Visibility</h1>
+    <p style="font:300 17.5px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 auto 32px;max-width:64ch">See which channel delivered each code, whether it arrived and what it cost, in your dashboard and through the API.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-p">Get Started</a><a href="/support/" class="pill pill-s">Talk to Sales</a></div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div class="ft-split" style="max-width:1120px;margin:0 auto">
+      <div>
+        <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:22px">What Are OTP Delivery Logs?</h2>
+        <p>An OTP delivery log is the record of one verification request: where the code was sent, which channel carried it, whether it was delivered and what the send cost.</p>
+        <p>SecondFactor routes each code for you, so the log is where you see what the routing engine did. Every request shows its delivery status, the delivering channel and its price.</p>
+        <p>The same record is available three ways: as OTP logs in your dashboard, as a verification you can fetch through the API, and as webhook events sent to your server.</p>
+      </div>
+      <div class="ft-trace">
+        <span class="ft-trace-h">One verification</span>
+        <ul class="ft-kv">
+          <li>Destination <b>+9779841000000</b></li>
+          <li>Delivery status <b class="ok">DELIVERED</b></li>
+          <li>Channel <b>whatsapp</b></li>
+          <li>Code status <b>VERIFIED</b></li>
+          <li>Price <b>0.0120 USD</b></li>
+          <li>Created <b>2026-09-12T09:14:22Z</b></li>
+        </ul>
+        <p class="ft-trace-n">Illustrative values, using the example from the API reference.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div style="max-width:1120px;margin:0 auto">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">Know What Every OTP Did and What It Cost</h2>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">Routing decisions and charges are recorded per request, so spend and delivery problems can be traced to individual sends.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"></path><path d="M16.5 7.5c-.8-1.2-2.3-2-4.5-2-2.6 0-4.3 1.2-4.3 3.1 0 4.3 9 1.9 9 6.4 0 2-1.9 3.3-4.7 3.3-2.4 0-4.1-.9-5-2.4"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">A Price on Every Request</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Each verification carries the cost of its send as an exact decimal amount in USD.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13"></path><path d="M14 4l4 4-4 4"></path><path d="M20 16H7"></path><path d="M10 12l-4 4 4 4"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">The Channel That Delivered</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">See whether a code arrived over SMS, WhatsApp, Viber or RCS, including after a fallback.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M8.5 12.2l2.4 2.4 4.6-5"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Delivery and Code Status</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Delivery status says whether the message arrived. Code status says whether the user verified it.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"></path><circle cx="12" cy="12" r="2.8"></circle></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Free to Read</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Fetching a verification costs nothing and doesn&rsquo;t use up one of the code&rsquo;s check attempts.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding:76px 40px">
+    <div style="max-width:1120px;margin:0 auto;text-align:center">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 14px;max-width:24ch">Three Ways to Read a Delivery</h2>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.85);margin:0 auto 44px;max-width:66ch">Use the dashboard to investigate, the API to show progress in your app, and webhooks to react without polling.</p>
+      <div class="ft-steps" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;text-align:left">
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">OTP Logs in Your Dashboard</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Review the destination, delivery channel, status and cost of each request.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Fetch a Verification</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Request a verification by its SID to read its current delivery status, channel and price at any time.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Receive Webhooks</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Get a signed event when a code is delivered, fails on every channel, is verified or expires.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div class="ft-split ft-split-code" style="max-width:1120px;margin:0 auto;align-items:center">
+      <div>
+        <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:22px">Read Status and Cost From the API</h2>
+        <p>Fetch a verification with the SID returned when you sent the code. The response is the same verification object every endpoint returns.</p>
+        <p><code class="ft-ic">delivery_status</code> is the state of the message, <code class="ft-ic">status</code> is the state of the code, and <code class="ft-ic">price</code> is what the send cost. Use <code class="ft-ic">price</code> for exact amounts: the <code class="ft-ic">charged</code> value in webhooks is rounded to two decimal places.</p>
+        <p><a href="https://docs.secondfactor.ai/get-verification" target="_blank" rel="noopener" style="font:400 14.5px Sora,system-ui,sans-serif">Read the Get OTP status reference &rarr;</a></p>
+      </div>
+      <div>
+        <pre class="ft-code"><span class="c"># Fetch a verification: free</span>
+curl "https://api.secondfactor.ai/v2/Services/$SERVICE_SID/Verifications/$VERIFICATION_SID" \
+  -H "X-API-Key: $SF_API_KEY"</pre>
+        <pre class="ft-code">{
+  <span class="k">"sid"</span>: "VEb7c8d9e0f1a2b3c4d5e6f708192a3b4c",
+  <span class="k">"to"</span>: "+9779841000000",
+  <span class="k">"status"</span>: "VERIFIED",
+  <span class="k">"delivery_status"</span>: "DELIVERED",
+  <span class="k">"channel"</span>: "whatsapp",
+  <span class="k">"price"</span>: "0.0120",
+  <span class="k">"price_unit"</span>: "USD",
+  <span class="k">"expires_at"</span>: "2026-09-12T09:19:22Z",
+  <span class="k">"date_created"</span>: "2026-09-12T09:14:22Z"
+}</pre>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div style="max-width:1120px;margin:0 auto">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">What Each Delivery Status Means</h2>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">Four delivery statuses cover the life of a message.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Pending</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">SecondFactor is still trying channels. No channel has confirmed delivery yet.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Sent</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">The last channel accepted the message and no delivery receipt has arrived. This can be the final status.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Delivered</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">A carrier confirmed that the message reached the recipient.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Failed</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Every eligible channel was tried and each one failed.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div style="max-width:1120px;margin:0 auto">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">Understand What You Are Charged For</h2>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">Billing follows a few fixed rules, so the cost in your logs can be reconciled against your balance.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">One Charge per Accepted Send</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Each accepted send is one charge. The charge stands whether or not the message is delivered.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Refused Sends Are Free</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">A send that is refused with an error is not charged.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Checking and Fetching Are Free</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Verifying a code and reading a verification&rsquo;s status cost nothing.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Sending Again Is a New Charge</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">A new code to the same number is a new send. Limit how often users can request one.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE FEATURES -->
+  <section style="padding:76px 40px 70px">
+    <div style="max-width:1120px;margin:0 auto">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:36px">More SecondFactor Features</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/otp-routing-fallback/" style="color:inherit">Automatic OTP Routing and Fallback</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Send each code over the lowest-cost channel that can reach the number, with fallback after eight seconds. <a href="/features/otp-routing-fallback/">Learn more &rarr;</a></p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/otp-template-management/" style="color:inherit">OTP Template Management</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Create templates per channel, track approval and choose one per request. <a href="/features/otp-template-management/">Learn more &rarr;</a></p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/pie-playground/" style="color:inherit">PIE Playground</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Send a real OTP, inspect its route and verify the code before you integrate. <a href="/features/pie-playground/">Learn more &rarr;</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 90px">
+    <div style="max-width:900px;margin:0 auto;text-align:center">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 12px">Frequently Asked Questions</h2>
+      <p style="font:300 15.5px Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 36px">Write to <a href="mailto:support@secondfactor.ai">support@secondfactor.ai</a> for anything not covered here.</p>
+      <div style="text-align:left;background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(220,232,251,.38));border:1px solid rgba(31,36,80,.14);padding:8px 26px">
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Where Can I See Whether an OTP Was Delivered?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">In the OTP logs in your dashboard, in the <code class="ft-ic">delivery_status</code> field when you fetch a verification, or through the <code class="ft-ic">otp.delivered</code> and <code class="ft-ic">otp.failed</code> webhooks.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Is the Cost Shown for Each Request?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Yes. Each verification has a <code class="ft-ic">price</code> field with the cost of that send as a decimal string, and <code class="ft-ic">price_unit</code> is always USD.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Am I Charged for an OTP That Isn&rsquo;t Delivered?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Yes. An accepted send is charged whether or not the message is delivered. A send that is refused with an error is not charged.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Does It Cost Anything to Check Delivery Status?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">No. Fetching a verification is free and doesn&rsquo;t count as a check attempt on the code.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Why Does a Delivery Stay on Sent?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Sent means the last channel accepted the message but no delivery receipt has come back. Some routes never return one, so Sent can be final.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Will I Receive a Webhook for Every OTP?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Webhooks are best-effort. If the last channel accepts a message but never returns a receipt, neither <code class="ft-ic">otp.delivered</code> nor <code class="ft-ic">otp.failed</code> is sent. Confirm events that matter by fetching the verification.</p>
+        </details>
+        <details style="padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>How Often Can I Poll for Delivery?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">At most once a second. Stop when the delivery status is Delivered or Failed, or when the code&rsquo;s expiry time has passed.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding:84px 40px;text-align:center">
+    <span class="ringdot"><b></b></span>
+    <h2 style="font:300 clamp(30px,3.6vw,46px)/1.1 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 18px;max-width:22ch">See What Every OTP Costs</h2>
+    <p style="font:300 17.5px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.85);margin:0 auto 34px;max-width:58ch">Create an account to send a test OTP and inspect its log, or talk to our team about pricing for your destination markets.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-d">Get Started</a><a href="/support/" class="pill pill-o">Talk to Sales</a></div>
+  </section></main>
+<footer class="band">
+  <div class="ft" style="max-width:1200px;margin:0 auto;padding:60px 40px 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;margin-bottom:16px"><img class="brand-logo brand-logo-ft" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772"></div>
+      <p style="font:300 14px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.82);margin:0;max-width:32ch">One stop solution for your OTPs. Send and verify through the lowest-cost eligible channel.</p>
+    </div>
+    <div class="ft-col"><a href="/" class="nav-a">Home</a><a href="/channels/" class="nav-a">Channels</a><a href="/pricing/" class="nav-a">Pricing</a><a href="/docs/" class="nav-a">Docs</a><a href="/blog/" class="nav-a">Blog</a></div>
+    <div class="ft-col"><a href="/channels/sms/" class="nav-a">SMS</a><a href="/channels/whatsapp/" class="nav-a">WhatsApp</a><a href="/channels/viber/" class="nav-a">Viber</a><a href="/channels/rcs/" class="nav-a">RCS</a></div>
+    <div class="ft-col"><a href="/support/" class="nav-a">Support</a><a href="/privacy/" class="nav-a">Privacy Policy</a><a href="/terms/" class="nav-a">Terms and Conditions</a><a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nav-a ft-social" aria-label="SecondFactor.ai on LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z"></path></svg></a></div>
+  </div>
+  <div class="ftb"><span>&copy; 2026 SecondFactor.ai. All rights reserved.</span><span>Rates shown are indicative and quoted in USD.</span></div>
+</footer>
+</div>
+<script src="/js/data.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
