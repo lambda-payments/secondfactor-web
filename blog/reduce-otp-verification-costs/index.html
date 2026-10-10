@@ -216,7 +216,7 @@
       <p>Instead of repeatedly sending OTPs through the same channel, you can configure automatic fallback to try another delivery method when the first attempt fails, or delivery isn’t confirmed.</p>
       <p>For example, if WhatsApp is the lowest-cost channel for a recipient but the OTP isn’t delivered, your system can automatically try SMS.</p>
       <p>At SecondFactor, our Price Intelligence Engine handles this automatically. If delivery isn’t confirmed within eight seconds, we attempt the next eligible channel available for that recipient. You don’t need to build separate retry and fallback workflows for SMS, WhatsApp, Viber, or RCS.</p>
-      <p>Fallback attempts can add delivery costs, so measure their impact on your overall cost per successful verification, not just the initial message.</p>
+      <p>With SecondFactor, fallback happens within the same verification request, and each accepted request is a single charge. With other providers, fallback attempts can add delivery costs, so measure their impact on your overall cost per successful verification, not just the initial message.</p>
       <h2 id="reduce-unnecessary-otp-resends">3. Reduce Unnecessary OTP Resends</h2>
       <p>Every time a user requests another OTP, your application may generate a new verification request and incur additional charges.</p>
       <p>This can happen when users repeatedly click the resend button, experience delivery delays, or accidentally trigger multiple requests.</p>

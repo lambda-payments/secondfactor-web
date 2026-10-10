@@ -222,6 +222,5 @@ Tools is linked from the shared footer, not the header.
 UI styles live in `css/tools.css`. Carrier behavior and fixtures live in
 `js/carrier-check.js`; type and validation behavior share `js/phone-check.js`.
 See [tools/README.md](tools/README.md) for the backend handoff and UI states.
-All four tools pages use `noindex, follow` and stay out of the sitemap until live
-functionality is ready. Remove `noindex` and add their canonical URLs to the
-sitemap at launch.
+All four tools pages are indexable and listed in `sitemap.xml`. The lookups still
+run on the sample fixtures described in tools/README.md until a backend is connected.

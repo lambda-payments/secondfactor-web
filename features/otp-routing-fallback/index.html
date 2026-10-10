@@ -275,7 +275,7 @@ curl -X POST "https://api.secondfactor.ai/v2/Services/$SERVICE_SID/Verifications
         </details>
         <details style="border-bottom:1px solid var(--brd);padding:20px 0">
           <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Am I Charged Again When an OTP Falls Back to Another Channel?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
-          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Each accepted send is a single charge. Sending a new code to the same number is a new send and is charged again, so limit how often users can press &ldquo;send again&rdquo;.</p>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">No. Billing is per OTP request: one accepted request is one charge, and fallback happens within that same request. Sending a new code to the same number is a new request and is charged again, so limit how often users can press &ldquo;send again&rdquo;.</p>
         </details>
         <details style="border-bottom:1px solid var(--brd);padding:20px 0">
           <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>What Happens When Every Channel Fails?</span><span style="color:var(--ac);font-size:18px">+</span></summary>

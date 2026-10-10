@@ -155,7 +155,7 @@
         <h2 id="s2">2. The Services</h2>
         <p>"Services" means the SecondFactor platform available at <a href="https://secondfactor.ai">secondfactor.ai</a>, including:</p>
         <ul>
-          <li>The OTP send/verify API; POST /otp/send and POST /otp/verify - to send a one-time password to a phone number and later verify the code entered by your end user ("End User"). We generate, deliver, and validate the OTP; your systems never need to generate or independently validate it.</li>
+          <li>The OTP send/verify API; POST /v2/Services/{ServiceSid}/Verifications and POST /v2/Services/{ServiceSid}/VerificationCheck - to send a one-time password to a phone number and later verify the code entered by your end user ("End User"). We generate, deliver, and validate the OTP; your systems never need to generate or independently validate it.</li>
           <li>PIE (Price Intelligence Engine) - automatically selects the cheapest eligible delivery channel for each phone number in real time (from among SMS, WhatsApp, Viber, RCS, and Silent Network Authentication, as available and eligible for your account) and automatically fails over to an alternate channel if delivery is not confirmed within our standard time window.</li>
           <li>Free credits, live API keys, the PIE Playground sandbox, Templates, Channel Integrations, and OTP Logs and Analytics.</li>
         </ul>
