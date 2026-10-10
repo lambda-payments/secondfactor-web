@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8 Ways to Reduce OTP Verification Costs</title>
+<meta name="description" content="Learn 8 ways to reduce OTP verification costs with smarter channel routing, automatic fallback, fewer resends, fraud prevention, and improved delivery rates.">
+<link rel="canonical" href="https://secondfactor.ai/blog/reduce-otp-verification-costs/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#3078e8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SecondFactor.ai">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://secondfactor.ai/blog/reduce-otp-verification-costs/">
+<meta property="og:title" content="8 Ways to Reduce OTP Verification Costs">
+<meta property="og:description" content="Learn 8 ways to reduce OTP verification costs with smarter channel routing, automatic fallback, fewer resends, fraud prevention, and improved delivery rates.">
+<meta property="og:image" content="https://secondfactor.ai/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SecondFactor.ai — OTP delivery and verification API across SMS, WhatsApp, Viber and RCS">
+<meta property="article:published_time" content="2026-10-10T09:00:00+00:00">
+<meta property="article:modified_time" content="2026-10-10T09:00:00+00:00">
+<meta property="article:section" content="Guide">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="8 Ways to Reduce OTP Verification Costs">
+<meta name="twitter:description" content="Learn 8 ways to reduce OTP verification costs with smarter channel routing, automatic fallback, fewer resends, fraud prevention, and improved delivery rates.">
+<meta name="twitter:image" content="https://secondfactor.ai/assets/og-default.png">
+<link rel="apple-touch-icon" href="/assets/logo/secondfactor-icon.png">
+<link rel="icon" type="image/png" href="/assets/logo/secondfactor-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/motion.css">
+<link rel="stylesheet" href="/css/article.css">
+<link rel="stylesheet" href="/css/chrome.css">
+<link rel="stylesheet" href="/css/surface.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://secondfactor.ai/blog/reduce-otp-verification-costs/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://secondfactor.ai/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Blog",
+     "item": "https://secondfactor.ai/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "8 Ways to Reduce OTP Verification Costs",
+     "item": "https://secondfactor.ai/blog/reduce-otp-verification-costs/"
+    }
+   ]
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://secondfactor.ai/blog/reduce-otp-verification-costs/#article",
+   "mainEntityOfPage": {
+    "@id": "https://secondfactor.ai/blog/reduce-otp-verification-costs/#webpage"
+   },
+   "headline": "8 Ways to Reduce OTP Verification Costs",
+   "description": "Learn 8 ways to reduce OTP verification costs with smarter channel routing, automatic fallback, fewer resends, fraud prevention, and improved delivery rates.",
+   "image": {
+    "@type": "ImageObject",
+    "url": "https://secondfactor.ai/assets/og-default.png",
+    "width": 1200,
+    "height": 630
+   },
+   "datePublished": "2026-10-10T09:00:00+00:00",
+   "dateModified": "2026-10-10T09:00:00+00:00",
+   "author": {
+    "@type": "Organization",
+    "name": "SecondFactor Team",
+    "url": "https://secondfactor.ai/"
+   },
+   "publisher": {
+    "@id": "https://secondfactor.ai/#organization"
+   },
+   "articleSection": "Guide",
+   "inLanguage": "en"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://secondfactor.ai/blog/reduce-otp-verification-costs/#webpage",
+   "url": "https://secondfactor.ai/blog/reduce-otp-verification-costs/",
+   "name": "8 Ways to Reduce OTP Verification Costs",
+   "description": "Learn 8 ways to reduce OTP verification costs with smarter channel routing, automatic fallback, fewer resends, fraud prevention, and improved delivery rates.",
+   "isPartOf": {
+    "@id": "https://secondfactor.ai/#website"
+   },
+   "breadcrumb": {
+    "@id": "https://secondfactor.ai/blog/reduce-otp-verification-costs/#breadcrumb"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://secondfactor.ai/assets/og-default.png",
+    "width": 1200,
+    "height": 630
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<header class="band">
+  <div class="hd">
+    <a href="/" class="brand"><img class="brand-logo" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772"></a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="navlinks" aria-label="Main">
+      <a href="/" class="nav-a">Home</a>
+      <span class="chdd">
+        <a href="/channels/" class="nav-a chdd-a">Channels<span class="caret">&#9662;</span></a>
+        <span class="chmenu">
+          <a href="/channels/sms/" class="chitem">SMS</a>
+          <a href="/channels/whatsapp/" class="chitem">WhatsApp</a>
+          <a href="/channels/viber/" class="chitem">Viber</a>
+          <a href="/channels/rcs/" class="chitem">RCS</a>
+        </span>
+      </span>
+      <span class="chdd">
+        <a href="/features/" class="nav-a chdd-a">Features<span class="caret">&#9662;</span></a>
+        <span class="chmenu">
+          <a href="/features/otp-routing-fallback/" class="chitem">OTP Routing and Fallback</a>
+          <a href="/features/otp-delivery-logs/" class="chitem">Delivery Logs and Costs</a>
+          <a href="/features/otp-template-management/" class="chitem">Template Management</a>
+          <a href="/features/pie-playground/" class="chitem">PIE Playground</a>
+        </span>
+      </span>
+      <a href="/pricing/" class="nav-a">Pricing</a>
+      <a href="/docs/" class="nav-a">Docs</a>
+      <a href="/support/" class="nav-a">Support</a>
+      <a href="/blog/" class="nav-a on">Blog</a>
+    </nav>
+    <a href="https://app.secondfactor.ai/login" target="_blank" rel="noopener" class="nav-a signin">Sign in</a>
+    <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="hdcta">Get started</a>
+  </div>
+</header>
+<main style="flex:1">
+<div class="post-wrap">
+
+  <header class="post-head">
+    <nav aria-label="Breadcrumb">
+      <ol class="post-crumbs">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><span aria-current="page">8 Ways to Reduce OTP Verification Costs</span></li>
+      </ol>
+    </nav>
+    <span class="post-cat">Guide</span>
+    <h1>8 Ways to Reduce OTP Verification Costs</h1>
+    <p class="post-dek">Eight practical ways to lower what you pay per verified user, from channel routing and fallback to resend limits, fraud controls and cost monitoring.</p>
+    <div class="post-meta">
+      <span class="post-avatar" aria-hidden="true">SF</span>
+      <span>By <b>SecondFactor Team</b></span>
+      <span class="dotsep" aria-hidden="true"></span>
+      <span>Last updated <time datetime="2026-10-10">10 October 2026</time></span>
+    </div>
+  </header>
+
+  <div class="post-grid">
+
+    <aside class="post-side">
+      <nav class="post-toc-box" aria-label="On this page">
+        <p class="post-side-lbl">On this page</p>
+        <div class="post-toc">
+          <a href="#use-the-lowest-cost-eligible-otp-channel">Use the lowest-cost channel</a>
+          <a href="#set-up-automatic-fallback-for-failed-otp-deliveries">Set up automatic fallback</a>
+          <a href="#reduce-unnecessary-otp-resends">Reduce unnecessary resends</a>
+          <a href="#prevent-sms-pumping-and-otp-fraud">Prevent SMS pumping and fraud</a>
+          <a href="#validate-phone-numbers-before-sending-otps">Validate phone numbers</a>
+          <a href="#improve-otp-delivery-rates">Improve delivery rates</a>
+          <a href="#compare-otp-providers-based-on-total-verification-costs">Compare providers on total cost</a>
+          <a href="#monitor-otp-costs-by-country-and-delivery-channel">Monitor costs by country and channel</a>
+          <a href="#reduce-otp-verification-costs-with-secondfactor">Reduce costs with SecondFactor</a>
+        </div>
+      </nav>
+      <div class="post-sidecta">
+        <p class="post-side-lbl">Try SecondFactor</p>
+        <p>Send and verify OTPs across SMS, WhatsApp, Viber and RCS through one API.</p>
+        <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener">Start with free credits &rarr;</a>
+      </div>
+    </aside>
+
+    <article class="post-body">
+
+      <p>If your application sends OTPs to users in different countries, verification costs can add up quickly, depending on the destination, delivery channel, and the provider’s pricing model.</p>
+      <p>Similarly, failed deliveries, repeated OTP requests, and fraudulent traffic can also increase these costs, especially as your verification volume grows.</p>
+      <p>However, you can reduce OTP expenses without compromising delivery reliability by using lower-cost messaging channels, setting up automatic fallbacks, limiting unnecessary requests, and improving OTP delivery management.</p>
+      <p>In this article, we’ll cover eight practical ways to reduce OTP verification costs and explain how you can implement them in your application.</p>
+      <h2 id="use-the-lowest-cost-eligible-otp-channel">1. Use the Lowest-Cost Eligible OTP Channel</h2>
+      <p>If you send every OTP via SMS, you may be paying more than necessary, especially if your application serves users across multiple countries.</p>
+      <p><a href="/channels/sms/">SMS</a>, <a href="/channels/whatsapp/">WhatsApp</a>, <a href="/channels/viber/">Viber</a>, and <a href="/channels/rcs/">RCS</a> have different delivery costs by destination. For example, WhatsApp may be cheaper than SMS in one country, while SMS might be the more economical option in another.</p>
+      <p>Instead of using a fixed delivery channel for every verification request, you can compare channel rates for your destination markets and route OTPs through the lowest-cost option available to each recipient.</p>
+      <p>However, maintaining these routing rules manually can become complicated as you expand into more countries.</p>
+      <p>You also need to account for whether a channel is supported for the recipient and whether you’ve completed the required sender registrations and template approvals.</p>
+      <p>At SecondFactor, we handle this through our <a href="/features/otp-routing-fallback/">Price Intelligence Engine (PIE)</a>. For each OTP request, PIE checks the destination and eligible channels, compares their costs, and automatically selects the lowest-cost option.</p>
+      <p>For example, if WhatsApp is available for a recipient and costs less than SMS, SecondFactor can send the OTP through WhatsApp first. For another recipient, it may select SMS or another eligible channel.</p>
+      <p>This allows you to optimize OTP delivery costs across different markets without having to build and maintain country-specific routing rules yourself.</p>
+      <h2 id="set-up-automatic-fallback-for-failed-otp-deliveries">2. Set Up Automatic Fallback for Failed OTP Deliveries</h2>
+      <p>Using a cheaper delivery channel won’t necessarily reduce your verification costs if users don’t receive their codes and have to request another OTP. Each additional request may incur another charge, increasing the total cost of verifying a user.</p>
+      <p>Instead of repeatedly sending OTPs through the same channel, you can configure automatic fallback to try another delivery method when the first attempt fails, or delivery isn’t confirmed.</p>
+      <p>For example, if WhatsApp is the lowest-cost channel for a recipient but the OTP isn’t delivered, your system can automatically try SMS.</p>
+      <p>At SecondFactor, our Price Intelligence Engine handles this automatically. If delivery isn’t confirmed within eight seconds, we attempt the next eligible channel available for that recipient. You don’t need to build separate retry and fallback workflows for SMS, WhatsApp, Viber, or RCS.</p>
+      <p>Fallback attempts can add delivery costs, so measure their impact on your overall cost per successful verification, not just the initial message.</p>
+      <h2 id="reduce-unnecessary-otp-resends">3. Reduce Unnecessary OTP Resends</h2>
+      <p>Every time a user requests another OTP, your application may generate a new verification request and incur additional charges.</p>
+      <p>This can happen when users repeatedly click the resend button, experience delivery delays, or accidentally trigger multiple requests.</p>
+      <p>You can reduce unnecessary OTP requests by adding a few controls to your verification flow:</p>
+      <ul>
+        <li><strong>Add a resend cooldown:</strong> Require users to wait 30–60 seconds before requesting another code. Enforce this on your backend, not just through a countdown in the interface.</li>
+        <li><strong>Limit resend attempts:</strong> Set a maximum number of OTP requests per phone number or user account within a defined period.</li>
+        <li><strong>Avoid generating a new OTP for incorrect entries:</strong> Allow users to retry entering their existing code until it expires or reaches the verification attempt limit.</li>
+        <li><strong>Prevent duplicate API requests:</strong> Use idempotency keys so network timeouts or accidental retries don’t create multiple verifications for the same request.</li>
+      </ul>
+      <p>SecondFactor supports idempotency keys for verification requests. If your application needs to retry an API call because of a network timeout, you can reuse the same idempotency key to avoid creating and paying for a duplicate verification.</p>
+      <p>These controls reduce unnecessary OTP spending while still letting users request another code when they genuinely need one.</p>
+      <h2 id="prevent-sms-pumping-and-otp-fraud">4. Prevent SMS Pumping and OTP Fraud</h2>
+      <p>SMS pumping fraud occurs when attackers exploit your signup, login, or phone verification forms to generate large numbers of OTP requests, often to phone numbers tied to revenue-sharing arrangements.</p>
+      <p>These attacks can significantly increase your OTP expenses, particularly when attackers target countries or number ranges with high SMS delivery costs.</p>
+      <p>You can reduce fraudulent OTP requests by implementing several controls:</p>
+      <ul>
+        <li><strong>Set rate limits:</strong> Restrict OTP requests by IP address, phone number, account, and phone number prefix to prevent excessive requests.</li>
+        <li><strong>Restrict destination countries:</strong> Disable OTP delivery to countries where your application doesn’t operate or serve users.</li>
+        <li><strong>Add bot protection:</strong> Use CAPTCHA or other bot detection mechanisms when you identify suspicious verification activity.</li>
+        <li><strong>Monitor unusual traffic:</strong> Watch for sudden increases in OTP requests from specific countries, IP addresses, or phone number ranges, especially when very few requests result in successful verifications.</li>
+        <li><strong>Set spending alerts:</strong> Configure alerts for unexpected increases in OTP volume or costs so your team can investigate potential abuse before it generates a large bill.</li>
+      </ul>
+      <p>Implement these controls at the application level, and use any fraud-protection features your OTP provider offers to prevent unnecessary verification requests from reaching the messaging network and generating charges.</p>
+      <h2 id="validate-phone-numbers-before-sending-otps">5. Validate Phone Numbers Before Sending OTPs</h2>
+      <p>Incorrectly formatted, invalid, or unreachable phone numbers can lead to failed OTP deliveries and unnecessary verification costs.</p>
+      <p>This is particularly common in applications serving users across multiple countries, where phone number lengths, prefixes, and formatting rules differ.</p>
+      <p>You should validate phone numbers before submitting them to your OTP provider. Here are a few ways to do this:</p>
+      <ul>
+        <li><strong>Use E.164 formatting:</strong> Convert phone numbers to the international format, including the country code, such as <code>+14155552671</code> for a US number.</li>
+        <li><strong>Validate numbers with a library:</strong> Use libraries like <code>libphonenumber-js</code> to check whether a number has a valid format and length for its country.</li>
+        <li><strong>Use phone number lookup services:</strong> For higher-volume applications, consider checking whether a number is active, its line type, and carrier information before sending an OTP, where supported.</li>
+        <li><strong>Check supported destinations:</strong> Reject numbers from countries where your application doesn’t operate or your OTP provider cannot deliver messages.</li>
+      </ul>
+      <p>Keep in mind that a correctly formatted phone number isn’t necessarily active or capable of receiving OTPs.</p>
+      <p>Phone number lookup services can provide additional information, but they also cost money, so always evaluate whether the reduction in failed deliveries justifies the lookup expenses.</p>
+      <h2 id="improve-otp-delivery-rates">6. Improve OTP Delivery Rates</h2>
+      <p>Poor OTP deliverability can increase your verification costs because users may need to request another code when the first message doesn’t arrive.</p>
+      <p>Even with a low-cost messaging channel, repeated delivery failures can make each successful verification more expensive.</p>
+      <p>You can improve OTP delivery rates by addressing a few common issues:</p>
+      <ul>
+        <li><strong>Complete sender registration requirements:</strong> Some countries require businesses to register their sender IDs and messaging templates before sending OTPs. For example, India requires DLT registration, while the US requires A2P 10DLC registration for applicable SMS traffic.</li>
+        <li><strong>Use approved OTP templates:</strong> Ensure your verification messages meet the requirements of the destination country and messaging channel. For example, WhatsApp uses authentication message templates for OTP delivery.</li>
+        <li><strong>Keep OTP messages short:</strong> Avoid unnecessary text, special characters, and long messages that can split SMS into multiple billable segments.</li>
+        <li><strong>Monitor delivery failures:</strong> Review delivery statuses and error codes to identify countries, carriers, or messaging routes where OTPs frequently fail.</li>
+        <li><strong>Review poorly performing routes:</strong> If a particular route consistently has low delivery rates, work with your provider to identify the cause or use a more reliable eligible route.</li>
+      </ul>
+      <p>You should also monitor how many delivered OTPs result in successful verifications. This helps you determine whether changes to your delivery setup are actually reducing the total cost of verifying users.</p>
+      <h2 id="compare-otp-providers-based-on-total-verification-costs">7. Compare OTP Providers Based on Total Verification Costs</h2>
+      <p>OTP providers use different pricing models, so the cost of sending a message doesn’t always reflect how much you’ll pay to verify a user.</p>
+      <p>For example, <a href="https://www.twilio.com/en-us/verify/pricing" target="_blank" rel="nofollow noopener">Twilio Verify</a> charges $0.05 per successful verification plus applicable channel fees. If you verify 10,000 users, that’s $500 in verification fees alone, before SMS, WhatsApp, or other delivery charges.</p>
+      <p>Other providers may charge per message, per verification request, or offer a single rate that includes both delivery and verification.</p>
+      <p>When comparing providers, consider:</p>
+      <ul>
+        <li><strong>Verification fees:</strong> Check whether the provider charges separately for generating and validating OTPs.</li>
+        <li><strong>Channel costs:</strong> Compare SMS, WhatsApp, and other supported channels for the countries you serve.</li>
+        <li><strong>Failed attempts and retries:</strong> Understand whether unsuccessful deliveries, expired verifications, and resend requests incur additional charges.</li>
+        <li><strong>Volume discounts:</strong> Ask about custom pricing if your application processes a large number of verifications each month.</li>
+        <li><strong>Additional charges:</strong> Account for sender registration, phone number rental, carrier surcharges, and other applicable fees.</li>
+      </ul>
+      <p>At SecondFactor, we offer routed OTP pricing, where a destination-specific rate covers delivery and verification.</p>
+      <p>We handle channel selection and fallback, so you don’t have to manage separate per-channel rates for every market. Per-channel pricing is also available on request.</p>
+      <h2 id="monitor-otp-costs-by-country-and-delivery-channel">8. Monitor OTP Costs by Country and Delivery Channel</h2>
+      <p>If you only look at your total monthly OTP spending, it can be difficult to identify which countries, delivery channels, or verification requests are driving up your costs.</p>
+      <p>Regularly review your OTP delivery data to find opportunities to reduce unnecessary spending.</p>
+      <p>Some important metrics to track include:</p>
+      <ul>
+        <li><strong>Cost by country:</strong> Identify destinations with the highest OTP spending and compare their delivery rates.</li>
+        <li><strong>Cost by delivery channel:</strong> Review how much you’re spending on SMS, WhatsApp, Viber, and other channels across different markets.</li>
+        <li><strong>Failed deliveries and resends:</strong> Track how often messages fail or users request additional codes, resulting in extra charges.</li>
+        <li><strong>Cost per successful verification:</strong> Divide your total OTP spending, including retries and fallback attempts, by the number of successfully completed verifications.</li>
+      </ul>
+      <p>For example, if OTP costs are unusually high in a particular country, you can investigate whether expensive SMS routes, frequent delivery failures, or repeated verification requests are responsible.</p>
+      <p>At SecondFactor, our <a href="/features/otp-delivery-logs/">OTP logs</a> show the recipient’s country, delivery channel, status, and cost of each request.</p>
+      <p>Use this information to identify expensive routes, investigate delivery failures, and review how our automatic channel selection handles your verification traffic.</p>
+      <h2 id="reduce-otp-verification-costs-with-secondfactor">Reduce OTP Verification Costs with SecondFactor</h2>
+      <p>At SecondFactor, we help businesses reduce OTP costs through automatic channel selection and fallback.</p>
+      <p>Our Price Intelligence Engine routes OTPs through the lowest-cost eligible channel across SMS, WhatsApp, Viber, and RCS, while giving you visibility into delivery statuses and costs.</p>
+      <p><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener">Get started with SecondFactor</a> or explore our <a href="/pricing/">OTP pricing</a> to see how you can reduce verification costs across your target markets.</p>
+
+
+      <div class="post-author">
+        <span class="post-avatar" aria-hidden="true">SF</span>
+        <div>
+          <p class="post-author-n">SecondFactor Team</p>
+          <p class="post-author-r">Product and engineering at SecondFactor.ai</p>
+          <p class="post-author-b">We build OTP delivery and verification infrastructure across SMS, WhatsApp, Viber and RCS, and write about what we learn running it.</p>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+
+  <aside class="post-related" aria-label="Related articles">
+    <p class="post-related-t">Keep reading</p>
+    <div class="post-cards">
+      <a class="post-card" href="/blog/best-otp-service-providers/"><span class="post-cat">Comparison</span><p class="post-card-t">Best OTP Service Providers for Apps and Websites</p><p class="post-card-d">How SecondFactor handles OTP delivery across markets, plus six other OTP service providers compared.</p></a>
+      <a class="post-card" href="/blog/nodejs-phone-verification/"><span class="post-cat">Tutorial</span><p class="post-card-t">How to Add Phone Verification to a Node.js App</p><p class="post-card-d">Send and verify one-time passwords from an Express backend, step by step.</p></a>
+    </div>
+  </aside>
+
+</div>
+</main>
+<footer class="band">
+  <div class="ft">
+    <div class="ft-brand">
+      <a href="/" class="brand"><img class="brand-logo brand-logo-ft" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772"></a>
+      <p>One stop solution for your OTPs. Send and verify through the lowest-cost eligible channel.</p>
+    </div>
+    <div class="ft-col"><a href="/" class="nav-a">Home</a><a href="/channels/" class="nav-a">Channels</a><a href="/pricing/" class="nav-a">Pricing</a><a href="/docs/" class="nav-a">Docs</a><a href="/blog/" class="nav-a">Blog</a></div>
+    <div class="ft-col"><a href="/channels/sms/" class="nav-a">SMS</a><a href="/channels/whatsapp/" class="nav-a">WhatsApp</a><a href="/channels/viber/" class="nav-a">Viber</a><a href="/channels/rcs/" class="nav-a">RCS</a></div>
+    <div class="ft-col"><a href="/support/" class="nav-a">Support</a><a href="/privacy/" class="nav-a">Privacy Policy</a><a href="/terms/" class="nav-a">Terms and Conditions</a><a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nav-a ft-social" aria-label="SecondFactor.ai on LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z"></path></svg></a></div>
+  </div>
+  <div class="ftb"><span>&copy; 2026 SecondFactor.ai. All rights reserved.</span><span>Rates shown are indicative and quoted in USD.</span></div>
+</footer>
+</div>
+<script src="/js/data.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
