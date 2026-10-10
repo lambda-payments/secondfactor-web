@@ -64,6 +64,15 @@
 .post-code-copy:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3)}
 .post-code-copy.done{color:#7ee2a8;border-color:rgba(126,226,168,.5)}
 .post-body .post-code pre{margin:0;border-radius:0;font-size:13px;tab-size:2}
+/* token colours, applied by js/app.js when the figure has data-lang */
+.post-code .tk-c{color:#7c8aa8;font-style:italic}
+.post-code .tk-s{color:#a5e3a1}
+.post-code .tk-r{color:#f0a8c0}
+.post-code .tk-k{color:#c4a7ff}
+.post-code .tk-l,.post-code .tk-n{color:#f5b97a}
+.post-code .tk-f,.post-code .tk-p{color:#8cc4ff}
+.post-code .tk-v{color:#f0a8c0}
+.post-code .tk-o{color:#f5b97a}
 .post-body .post-code pre,.post-body .post-code pre code{font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0}
 .post-body figure{margin:32px 0}
 .post-body figure img{display:block;width:100%;height:auto;border:1px solid var(--post-line);box-shadow:0 12px 32px -20px rgba(16,24,40,.25)}

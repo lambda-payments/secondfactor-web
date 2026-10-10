@@ -48,7 +48,8 @@ never publishes it, but it still previews locally at `/blog/_template/`.
 4. Write the body with the ready-made blocks: `.post-tldr` (key takeaways), `.post-table`
    (comparison table, add `class="is-us"` to our row), `.post-item` (one per provider, with
    `.post-facts` and `.post-proscons`), `.post-note`, `.post-cta`, `.post-faq`, `.post-code`
-   (code sample: `<figure class="post-code">` with a `<figcaption>` holding the file name or
+   (code sample: `<figure class="post-code" data-lang="js">` (`js`, `bash`, `json` or `env`; colours
+   are applied in the browser by `js/app.js`, omit `data-lang` for plain text) with a `<figcaption>` holding the file name or
    "Terminal" in `.post-code-n` and a `.post-code-copy` button, then `<pre><code>`; HTML-escape the code). Delete the
    "Body styles reference" block. Give every `<h2>` an `id` and list it in `.post-toc`.
 5. Do not wrap body content in `<section>` or use `.crd`: `motion.css` restyles both.

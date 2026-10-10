@@ -195,21 +195,21 @@
       <p>You’ll need Node.js 18 or later and a SecondFactor account to get started.</p>
       <h3 id="step-1-set-up-your-node-js-project">Step 1: Set Up Your Node.js Project</h3>
       <p>First, create a new directory for your project and initialize it with npm.</p>
-      <figure class="post-code">
+      <figure class="post-code" data-lang="bash">
         <figcaption><span class="post-code-n">Terminal</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
         <pre><code>mkdir phone-verification
 cd phone-verification
 npm init -y</code></pre>
       </figure>
       <p>Next, install Express, <code>dotenv</code>, and <code>express-session</code>. Express will handle our API endpoints, <code>dotenv</code> will load environment variables, and <code>express-session</code> will let us associate a verification request with a user session.</p>
-      <figure class="post-code">
+      <figure class="post-code" data-lang="bash">
         <figcaption><span class="post-code-n">Terminal</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
         <pre><code>npm install express dotenv express-session</code></pre>
       </figure>
       <h3 id="step-2-get-your-secondfactor-api-credentials">Step 2: Get Your SecondFactor API Credentials</h3>
       <p>Sign in to your SecondFactor dashboard and get your API key and Service SID. You can find the Service SID on the Settings page.</p>
       <p>Create a <code>.env</code> file in your project directory and add the following variables:</p>
-      <figure class="post-code">
+      <figure class="post-code" data-lang="env">
         <figcaption><span class="post-code-n">.env</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
         <pre><code>SECONDFACTOR_API_KEY=your_api_key
 SECONDFACTOR_SERVICE_SID=your_service_sid
@@ -221,7 +221,7 @@ PORT=3000</code></pre>
       <h3 id="step-3-create-an-api-endpoint-to-send-otps">Step 3: Create an API Endpoint to Send OTPs</h3>
       <p>Next, create an <code>app.js</code> file. We’ll add a <code>/send-otp</code> endpoint that accepts a phone number and requests a verification code from SecondFactor.</p>
       <p>SecondFactor’s API accepts phone numbers in E.164 format, such as <code>+14155552671</code>. When the request succeeds, the API returns a verification SID that we’ll store in the user’s session and use later to check the OTP.</p>
-      <figure class="post-code">
+      <figure class="post-code" data-lang="js">
         <figcaption><span class="post-code-n">app.js</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
         <pre><code>require('dotenv').config();
 
@@ -300,7 +300,7 @@ app.listen(process.env.PORT || 3000, () =&gt; {
       <h3 id="step-4-create-an-api-endpoint-to-verify-the-otp">Step 4: Create an API Endpoint to Verify the OTP</h3>
       <p>Once the user receives the verification code, they need to enter it in your application. We’ll create a <code>/verify-otp</code> endpoint that accepts the code and checks it using SecondFactor’s API.</p>
       <p>Add the following code to your <code>app.js</code> file, before the <code>app.listen()</code> statement.</p>
-      <figure class="post-code">
+      <figure class="post-code" data-lang="js">
         <figcaption><span class="post-code-n">app.js</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
         <pre><code>app.post('/verify-otp', async (req, res) =&gt; {
   const { code } = req.body;
@@ -385,14 +385,14 @@ app.listen(process.env.PORT || 3000, () =&gt; {
       <h3 id="step-5-test-the-phone-verification-flow">Step 5: Test the Phone Verification Flow</h3>
       <p>Now that both endpoints are ready, let’s test the complete verification process.</p>
       <p>First, start your Node.js application from the project directory.</p>
-      <figure class="post-code">
+      <figure class="post-code" data-lang="bash">
         <figcaption><span class="post-code-n">Terminal</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
         <pre><code>node app.js</code></pre>
       </figure>
       <p>Your Express server should now be running at <code>http://localhost:3000</code>.</p>
       <h4>Send a verification code</h4>
       <p>Open another terminal and send a POST request to <code>/send-otp</code> using curl. Replace the example phone number with a number you can access.</p>
-      <figure class="post-code">
+      <figure class="post-code" data-lang="bash">
         <figcaption><span class="post-code-n">Terminal</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
         <pre><code>curl -X POST http://localhost:3000/send-otp \
   -H "Content-Type: application/json" \
@@ -400,7 +400,7 @@ app.listen(process.env.PORT || 3000, () =&gt; {
   -d '{"phoneNumber":"+14155552671"}'</code></pre>
       </figure>
       <p>If the request succeeds, you’ll receive the following response:</p>
-      <figure class="post-code">
+      <figure class="post-code" data-lang="json">
         <figcaption><span class="post-code-n">Response</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
         <pre><code>{
   "message": "Verification code requested."
@@ -409,7 +409,7 @@ app.listen(process.env.PORT || 3000, () =&gt; {
       <p>SecondFactor generates a six-digit OTP and queues it for delivery to the phone number. The successful API response confirms that the verification request was accepted, not necessarily that the code has been delivered.</p>
       <h4>Verify the received code</h4>
       <p>Once you receive the OTP, submit it to the <code>/verify-otp</code> endpoint. Replace <code>123456</code> with the actual code you received.</p>
-      <figure class="post-code">
+      <figure class="post-code" data-lang="bash">
         <figcaption><span class="post-code-n">Terminal</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
         <pre><code>curl -X POST http://localhost:3000/verify-otp \
   -H "Content-Type: application/json" \
@@ -417,7 +417,7 @@ app.listen(process.env.PORT || 3000, () =&gt; {
   -d '{"code":"123456"}'</code></pre>
       </figure>
       <p>If the code is correct, the application returns:</p>
-      <figure class="post-code">
+      <figure class="post-code" data-lang="json">
         <figcaption><span class="post-code-n">Response</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
         <pre><code>{
   "message": "Phone number verified successfully.",
