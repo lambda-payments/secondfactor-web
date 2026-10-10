@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automatic OTP Routing and Fallback | SecondFactor.ai</title>
+<meta name="description" content="Send each OTP over the lowest-cost channel that can reach the number, and switch to the next channel when delivery is not confirmed within eight seconds.">
+<link rel="canonical" href="https://secondfactor.ai/features/otp-routing-fallback/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#3078e8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SecondFactor.ai">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://secondfactor.ai/features/otp-routing-fallback/">
+<meta property="og:title" content="Automatic OTP Routing and Fallback">
+<meta property="og:description" content="Send each OTP over the lowest-cost channel that can reach the number, and switch to the next channel when delivery is not confirmed within eight seconds.">
+<meta property="og:image" content="https://secondfactor.ai/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SecondFactor.ai — OTP delivery and verification API across SMS, WhatsApp, Viber and RCS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Automatic OTP Routing and Fallback">
+<meta name="twitter:description" content="Send each OTP over the lowest-cost channel that can reach the number, and switch to the next channel when delivery is not confirmed within eight seconds.">
+<meta name="twitter:image" content="https://secondfactor.ai/assets/og-default.png">
+<link rel="icon" type="image/png" href="/assets/logo/secondfactor-icon.png">
+<link rel="apple-touch-icon" href="/assets/logo/secondfactor-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/motion.css">
+<link rel="stylesheet" href="/css/channels.css">
+<link rel="stylesheet" href="/css/features.css">
+<link rel="stylesheet" href="/css/logos.css">
+<link rel="stylesheet" href="/css/chrome.css">
+<link rel="stylesheet" href="/css/surface.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://secondfactor.ai/features/otp-routing-fallback/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://secondfactor.ai/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "OTP Routing and Fallback",
+     "item": "https://secondfactor.ai/features/otp-routing-fallback/"
+    }
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://secondfactor.ai/features/otp-routing-fallback/#webpage",
+   "url": "https://secondfactor.ai/features/otp-routing-fallback/",
+   "name": "Automatic OTP Routing and Fallback | SecondFactor.ai",
+   "description": "Send each OTP over the lowest-cost channel that can reach the number, and switch to the next channel when delivery is not confirmed within eight seconds.",
+   "isPartOf": {
+    "@id": "https://secondfactor.ai/#website"
+   },
+   "inLanguage": "en",
+   "breadcrumb": {
+    "@id": "https://secondfactor.ai/features/otp-routing-fallback/#breadcrumb"
+   },
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://secondfactor.ai/assets/og-default.png",
+    "width": 1200,
+    "height": 630
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<header class="band" style="position:sticky;top:0;z-index:30;backdrop-filter:blur(8px)">
+  <div class="hd" style="max-width:1200px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+    <a href="/" class="brand" style="display:flex;align-items:center;margin-right:auto">
+      <img class="brand-logo" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772">
+    </a>
+      <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="navlinks" style="display:flex;gap:26px;font:300 14.5px Sora,system-ui,sans-serif">
+      <a href="/" class="nav-a">Home</a>
+      <span class="chdd">
+        <a href="/channels/" class="nav-a chdd-a">Channels<span class="caret">&#9662;</span></a>
+        <span class="chmenu">
+          <a href="/channels/sms/" class="chitem">SMS</a>
+          <a href="/channels/whatsapp/" class="chitem">WhatsApp</a>
+          <a href="/channels/viber/" class="chitem">Viber</a>
+          <a href="/channels/rcs/" class="chitem">RCS</a>
+        </span>
+      </span>
+      <a href="/pricing/" class="nav-a">Pricing</a>
+      <a href="/docs/" class="nav-a">Docs</a>
+      <a href="/support/" class="nav-a">Support</a>
+      <a href="/blog/" class="nav-a">Blog</a>
+    </nav>
+    <a href="https://app.secondfactor.ai/login" target="_blank" rel="noopener" class="nav-a signin">Sign in</a>
+    <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="hdcta">Get started</a>
+  </div>
+</header>
+<main class="ch-page" style="flex:1">
+  <section class="hero-in" style="padding:76px 40px 60px;text-align:center">
+    <span class="arcb"></span>
+    <span class="orb"><b></b></span>
+    <span class="arcw"></span>
+    <span class="orb wide"><b></b></span>
+    <span class="motes"><i></i><i></i><i></i><i></i></span>
+    <div style="font:300 13px Sora,system-ui,sans-serif;color:var(--mut2);margin-bottom:26px">Features / <span style="color:var(--ac)">OTP Routing and Fallback</span></div>
+    <h1 style="font:300 clamp(36px,4.4vw,56px)/1.08 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 18px;max-width:20ch">Automatic OTP Routing and Fallback</h1>
+    <p style="font:300 17.5px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 auto 32px;max-width:64ch">SecondFactor sends each code over the lowest-cost channel that can reach the number, and switches to the next channel when delivery isn&rsquo;t confirmed within eight seconds.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-p">Get Started</a><a href="/support/" class="pill pill-s">Talk to Sales</a></div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div class="ft-split" style="max-width:1120px;margin:0 auto">
+      <div>
+        <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:22px">What Is Automatic OTP Routing and Fallback?</h2>
+        <p>OTP routing is the decision about which channel carries a verification code: SMS, WhatsApp, Viber or RCS. Fallback is what happens when that channel doesn&rsquo;t deliver. The code is sent again over a different channel, so the user still receives it.</p>
+        <p>With SecondFactor, both happen inside one API request. You send a phone number. The routing engine picks the lowest-cost channel your account has enabled that can reach it, waits eight seconds for a delivery receipt, and moves to the next channel if none arrives.</p>
+        <p>Your application doesn&rsquo;t hold a channel order, a retry timer or a second provider integration.</p>
+      </div>
+      <div class="ft-trace">
+        <span class="ft-trace-h">One request, two attempts</span>
+        <ol class="tline">
+          <li><span class="tl-k">Attempt 1</span><span class="tl-v"><b>WhatsApp</b> &mdash; lowest-cost eligible channel</span></li>
+          <li><span class="tl-k">+8.0s</span><span class="tl-v" style="color:var(--ac)">No delivery receipt. Switching channel</span></li>
+          <li><span class="tl-k">Attempt 2</span><span class="tl-v"><b>SMS</b> &mdash; delivered</span></li>
+          <li class="done"><span class="tl-k">Verify</span><span class="tl-v mono" style="font-size:12.5px;color:var(--ac)">200 OK &middot; code matched</span></li>
+        </ol>
+        <p class="ft-trace-n">Illustrative route. The channels tried depend on what your account has enabled and what the recipient can receive.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div style="max-width:1120px;margin:0 auto">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">Lower Delivery Costs Without Losing Deliveries</h2>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">Routing on price cuts what you pay for each verification. Fallback keeps the cheaper route from costing you signups when it fails.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"></path><path d="M16.5 7.5c-.8-1.2-2.3-2-4.5-2-2.6 0-4.3 1.2-4.3 3.1 0 4.3 9 1.9 9 6.4 0 2-1.9 3.3-4.7 3.3-2.4 0-4.1-.9-5-2.4"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Lowest-Cost Route First</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Each request is priced for its destination, and the cheapest channel that can reach the number is tried first.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13"></path><path d="M14 4l4 4-4 4"></path><path d="M20 16H7"></path><path d="M10 12l-4 4 4 4"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Fallback in Eight Seconds</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">When the first channel doesn&rsquo;t confirm delivery, the next eligible channel takes over without a second request from your app.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4"></path><path d="M16 8l4 4-4 4"></path><path d="M13.5 5l-3 14"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">No Routing Code to Maintain</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">The send request has no channel parameter. Channel order, timers and retries stay out of your codebase.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"></path><circle cx="12" cy="12" r="2.8"></circle></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Every Route on Record</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">The verification shows the channel that delivered, the delivery status and what the send cost.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding:76px 40px">
+    <div style="max-width:1120px;margin:0 auto;text-align:center">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 14px;max-width:24ch">How Routing and Fallback Work</h2>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.85);margin:0 auto 44px;max-width:66ch">Four things happen between your send request and the code reaching your user.</p>
+      <div class="ft-steps" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;text-align:left">
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">You Send a Phone Number</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Post the number in E.164 format to the Verifications endpoint. SecondFactor generates the code and returns a verification SID.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Eligible Channels Are Found</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">The engine keeps the channels that are enabled on your account, can reach this number and are allowed by your delivery rules.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">The Cheapest Channel Sends</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">The code goes out over the lowest-cost channel left. A delivery receipt within eight seconds ends the routing.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">The Next Channel Takes Over</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">With no receipt after eight seconds, the next eligible channel is tried, until one delivers or every channel has failed.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div class="ft-split ft-split-code" style="max-width:1120px;margin:0 auto;align-items:center">
+      <div>
+        <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:22px">One Request, No Channel Logic</h2>
+        <p>The send request carries the destination and nothing about delivery. The <code class="ft-ic">201</code> response means the send was accepted, not that the message has arrived.</p>
+        <p>To follow delivery, fetch the verification or listen for webhooks. <code class="ft-ic">delivery_status</code> moves from <code class="ft-ic">PENDING</code> to <code class="ft-ic">DELIVERED</code> or <code class="ft-ic">FAILED</code>, and <code class="ft-ic">channel</code> holds the channel that delivered the code.</p>
+        <p><a href="https://docs.secondfactor.ai/send-otp" target="_blank" rel="noopener" style="font:400 14.5px Sora,system-ui,sans-serif">Read the Send OTP reference &rarr;</a></p>
+      </div>
+      <div>
+        <pre class="ft-code"><span class="c"># Send: no channel parameter</span>
+curl -X POST "https://api.secondfactor.ai/v2/Services/$SERVICE_SID/Verifications" \
+  -H "X-API-Key: $SF_API_KEY" \
+  --data-urlencode "To=+9779841000000"</pre>
+        <pre class="ft-code"><span class="c"># Fetch the verification (excerpt)</span>
+{
+  <span class="k">"sid"</span>: "VEb7c8d9e0f1a2b3c4d5e6f708192a3b4c",
+  <span class="k">"status"</span>: "PENDING",
+  <span class="k">"delivery_status"</span>: "DELIVERED",
+  <span class="k">"channel"</span>: "whatsapp",
+  <span class="k">"price"</span>: "0.0120",
+  <span class="k">"price_unit"</span>: "USD"
+}</pre>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div style="max-width:1120px;margin:0 auto">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">What Decides the Route</h2>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">A channel is only tried when it is eligible for that request. Four things decide eligibility and order.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Channels Enabled on Your Account</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Only channels you have connected are considered, with their sender and template setup complete. <a href="/channels/">Compare the channels</a>.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">What the Recipient Can Receive</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">A channel has to be able to reach the number. Channels that can&rsquo;t reach it are left out of the route.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">The Price for the Destination</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Eligible channels are ordered by cost for the destination, lowest first. <a href="/pricing/">See pricing by country</a>.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Your Delivery Rules</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Destinations blocked by your delivery rules are refused before anything is sent, and refused sends are not charged.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div style="max-width:1120px;margin:0 auto">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">Follow Every Delivery</h2>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">Routing decisions are visible after the fact, so a missing code can be traced to a channel and a status.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Delivery Webhooks</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Receive a signed <code class="ft-ic">otp.delivered</code> event when a carrier confirms delivery and <code class="ft-ic">otp.failed</code> when every channel has failed. <a href="https://docs.secondfactor.ai/webhooks" target="_blank" rel="noopener">Webhook reference</a>.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Verification Status</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Fetch a verification at any time to read its delivery status, delivering channel and price. Fetching is free.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">OTP Logs</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Review the destination, channel, status and cost of each request in your dashboard.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px">
+    <div style="max-width:1120px;margin:0 auto;background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(220,232,251,.38));border:1px solid rgba(31,36,80,.14);padding:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:36px;align-items:center">
+      <h2 style="font:300 clamp(26px,3vw,36px)/1.14 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0;max-width:22ch">See the Route for Your Own Number in the PIE Playground</h2>
+      <div>
+        <p style="font:300 16px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 10px">Use your free credits to send a real OTP, inspect the route it took and verify the code you receive.</p>
+        <p style="font:300 14px/1.7 Sora,system-ui,sans-serif;color:var(--mut2);margin:0 0 26px">Every playground send delivers a real message, so test with a phone number you own.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap"><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-p">Open the Playground</a><a href="/pricing/" class="pill pill-s">View Pricing</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE FEATURES -->
+  <section style="padding:76px 40px 70px">
+    <div style="max-width:1120px;margin:0 auto">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:36px">More SecondFactor Features</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/otp-delivery-logs/" style="color:inherit">OTP Delivery Logs and Cost Visibility</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">See the channel, delivery status and cost of every OTP request. <a href="/features/otp-delivery-logs/">Learn more &rarr;</a></p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/otp-template-management/" style="color:inherit">OTP Template Management</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Create templates per channel, track approval and choose one per request. <a href="/features/otp-template-management/">Learn more &rarr;</a></p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/pie-playground/" style="color:inherit">PIE Playground</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Send a real OTP, inspect its route and verify the code before you integrate. <a href="/features/pie-playground/">Learn more &rarr;</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 90px">
+    <div style="max-width:900px;margin:0 auto;text-align:center">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 12px">Frequently Asked Questions</h2>
+      <p style="font:300 15.5px Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 36px">Write to <a href="mailto:support@secondfactor.ai">support@secondfactor.ai</a> for anything not covered here.</p>
+      <div style="text-align:left;background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(220,232,251,.38));border:1px solid rgba(31,36,80,.14);padding:8px 26px">
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Can I Choose Which Channel an OTP Uses?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">The send request has no channel parameter. SecondFactor chooses from the channels enabled on your account, so the way to keep a channel out of routing is to leave it disabled.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>How Long Does SecondFactor Wait Before Switching Channels?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Eight seconds. If the first channel has not confirmed delivery by then, the next eligible channel is tried.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Do I Need Every Channel Connected for Fallback to Work?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">No. Fallback needs at least two enabled channels that can reach the recipient. With one channel connected, requests are sent on that channel only.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Am I Charged Again When an OTP Falls Back to Another Channel?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Each accepted send is a single charge. Sending a new code to the same number is a new send and is charged again, so limit how often users can press &ldquo;send again&rdquo;.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>What Happens When Every Channel Fails?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">The verification&rsquo;s delivery status becomes <code class="ft-ic">FAILED</code> and you receive an <code class="ft-ic">otp.failed</code> webhook. A number that every channel rejects is refused for up to 30 days, and refused sends are not charged.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>How Do I See Which Channel Delivered a Code?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Read the <code class="ft-ic">channel</code> field on the verification, listen for the <code class="ft-ic">otp.delivered</code> webhook, or open the OTP logs in your dashboard.</p>
+        </details>
+        <details style="padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Can I Test Routing and Fallback Before Integrating?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Yes. Use your free credits in the PIE Playground to send a real OTP to your own number, inspect the route it took and verify the code you receive.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding:84px 40px;text-align:center">
+    <span class="ringdot"><b></b></span>
+    <h2 style="font:300 clamp(30px,3.6vw,46px)/1.1 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 18px;max-width:22ch">Route Your First OTP With SecondFactor</h2>
+    <p style="font:300 17.5px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.85);margin:0 auto 34px;max-width:58ch">Create an account to test routing and fallback with free credits, or talk to our team about the channels and pricing for your destination markets.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-d">Get Started</a><a href="/support/" class="pill pill-o">Talk to Sales</a></div>
+  </section></main>
+<footer class="band">
+  <div class="ft" style="max-width:1200px;margin:0 auto;padding:60px 40px 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;margin-bottom:16px"><img class="brand-logo brand-logo-ft" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772"></div>
+      <p style="font:300 14px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.82);margin:0;max-width:32ch">One stop solution for your OTPs. Send and verify through the lowest-cost eligible channel.</p>
+    </div>
+    <div class="ft-col"><a href="/" class="nav-a">Home</a><a href="/channels/" class="nav-a">Channels</a><a href="/pricing/" class="nav-a">Pricing</a><a href="/docs/" class="nav-a">Docs</a><a href="/blog/" class="nav-a">Blog</a></div>
+    <div class="ft-col"><a href="/channels/sms/" class="nav-a">SMS</a><a href="/channels/whatsapp/" class="nav-a">WhatsApp</a><a href="/channels/viber/" class="nav-a">Viber</a><a href="/channels/rcs/" class="nav-a">RCS</a></div>
+    <div class="ft-col"><a href="/support/" class="nav-a">Support</a><a href="/privacy/" class="nav-a">Privacy Policy</a><a href="/terms/" class="nav-a">Terms and Conditions</a><a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nav-a ft-social" aria-label="SecondFactor.ai on LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z"></path></svg></a></div>
+  </div>
+  <div class="ftb"><span>&copy; 2026 SecondFactor.ai. All rights reserved.</span><span>Rates shown are indicative and quoted in USD.</span></div>
+</footer>
+</div>
+<script src="/js/data.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
