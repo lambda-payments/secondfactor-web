@@ -241,15 +241,29 @@
     Array.prototype.forEach.call(blocks, function (code) {
       var re = rules[code.closest('.post-code').getAttribute('data-lang')];
       if (!re) return;
-      var src = code.textContent, out = '', last = 0, m, k;
+      /* one block per source line, so a long line wraps under its own indentation */
+      var src = code.textContent.replace(/\n$/, ''), lines = [''], last = 0, m, k;
+      var put = function (text, cls) {
+        text.split('\n').forEach(function (part, i) {
+          if (i) lines.push('');
+          if (part) lines[lines.length - 1] += cls ? '<span class="tk-' + cls + '">' + esc(part) + '</span>' : esc(part);
+        });
+      };
       re.lastIndex = 0;
       while ((m = re.exec(src))) {
         if (!m[0]) { re.lastIndex++; continue; }
         for (k in m.groups) if (m.groups[k] !== undefined) break;
-        out += esc(src.slice(last, m.index)) + '<span class="tk-' + k + '">' + esc(m[0]) + '</span>';
+        put(src.slice(last, m.index));
+        put(m[0], k);
         last = m.index + m[0].length;
       }
-      code.innerHTML = out + esc(src.slice(last));
+      put(src.slice(last));
+      code.innerHTML = src.split('\n').map(function (raw, i) {
+        var n = raw.match(/^ */)[0].length, html = lines[i] || '';
+        /* the indent keeps white-space:pre so the line cannot break right after it */
+        if (n && html.slice(0, n) === raw.slice(0, n)) html = '<span class="ws">' + html.slice(0, n) + '</span>' + html.slice(n);
+        return '<span class="ln" style="--i:' + n + '">' + html + '\n</span>';
+      }).join('');
     });
   })();
 

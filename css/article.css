@@ -63,7 +63,11 @@
 .post-code-copy{appearance:none;border:1px solid rgba(255,255,255,.16);background:transparent;color:#d5ddf0;font:400 12px Sora,system-ui,sans-serif;padding:5px 12px;border-radius:6px;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
 .post-code-copy:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3)}
 .post-code-copy.done{color:#7ee2a8;border-color:rgba(126,226,168,.5)}
-.post-body .post-code pre{margin:0;border-radius:0;font-size:13px;tab-size:2}
+.post-body .post-code pre{margin:0;border-radius:0;font-size:13px;tab-size:2;white-space:pre-wrap;overflow-wrap:anywhere;overflow-x:hidden}
+/* long lines wrap instead of scrolling; js/app.js wraps each line in .ln so the continuation hangs under the line's own indent */
+.post-body .post-code pre code{display:block;line-height:1.7}
+.post-code .ln{display:block;padding-left:calc(var(--i)*1ch + 4ch);text-indent:calc(var(--i)*-1ch - 4ch)}
+.post-code .ln .ws{white-space:pre}
 /* token colours, applied by js/app.js when the figure has data-lang */
 .post-code .tk-c{color:#7c8aa8;font-style:italic}
 .post-code .tk-s{color:#a5e3a1}
