@@ -28,3 +28,11 @@ main.ch-page code.ft-ic{font:400 .9em "JetBrains Mono",ui-monospace,monospace;ba
 .ft-split-code pre.ft-code{font-size:12.5px!important}
 
 @media (max-width:860px){.ft-split,.ft-split-code{grid-template-columns:minmax(0,1fr)}}
+
+/* key/value panel inside .ft-trace: one log entry, a template list */
+.ft-kv{list-style:none;margin:18px 0 0;padding:0}
+.ft-kv li{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:11px 0;border-top:1px solid #e3eaf6;font:300 14.5px/1.5 Sora,system-ui,sans-serif;color:rgba(31,36,80,.72)}
+.ft-kv li:first-child{border-top:0}
+.ft-kv li > b{font:400 13.5px "JetBrains Mono",ui-monospace,monospace;color:#1f2450;text-align:right}
+.ft-kv .ok{color:#17804d}
+.ft-kv .wait{color:#a8650a}
