@@ -24,11 +24,15 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /features/            features/index.html           Features overview (the "Features" nav dropdown links here and to each page)
     /features/<slug>/     features/<slug>/index.html    Feature pages: otp-routing-fallback, otp-delivery-logs,
                                                         otp-template-management, pie-playground
+    /tools/               tools/index.html              Free tools directory
+    /tools/carrier-check/ tools/carrier-check/index.html Carrier checker with local sample data
+    /tools/phone-type-check/ tools/phone-type-check/index.html Mobile, landline, and VoIP checker
+    /tools/phone-number-validation/ tools/phone-number-validation/index.html Number format validation
     /blog/                blog/index.html               Blog listing: compact intro, then one `.blog-card` link per published article
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
 Internal links and asset paths are root-absolute (`/pricing/`, `/css/styles.css`), so the
-site must be served from the domain root. Every page carries a `<link rel="canonical">`. All published pages are listed in
+site must be served from the domain root. Every page carries a `<link rel="canonical">`. All indexable published pages are listed in
 `sitemap.xml` (referenced from `robots.txt`).
 
 ## Header and footer
@@ -199,3 +203,16 @@ rates. Adding a country also needs a matching <option> in pricing/index.html's d
 * Layout is fluid: containers cap at min(1640px, 94vw); grids collapse at 1100/900/720px;
   the header becomes a hamburger drawer below 860px.
 * Rate figures in copy are illustrative — update with your real price list.
+
+## Free phone tools
+
+`/tools/` lists the carrier checker, phone type checker, and number validator.
+All three use local fictional sample data; they do not query any live service.
+Tools is linked from the shared footer, not the header.
+
+UI styles live in `css/tools.css`. Carrier behavior and fixtures live in
+`js/carrier-check.js`; type and validation behavior share `js/phone-check.js`.
+See [tools/README.md](tools/README.md) for the backend handoff and UI states.
+All four tools pages use `noindex, follow` and stay out of the sitemap until live
+functionality is ready. Remove `noindex` and add their canonical URLs to the
+sitemap at launch.
