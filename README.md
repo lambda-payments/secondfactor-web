@@ -42,6 +42,12 @@ Every page uses the same header/footer markup (`header.band > .hd`, `footer.band
 lists them). Mark the current section's nav link with class `on`. Geometry and colours come
 from `css/chrome.css`; do not put width/padding inline on `.hd`, `.ft` or `.ftb`.
 
+The footer groups links under **Product, Channels, Tools and Company**, with a
+separate legal navigation in the bottom bar. It uses four link columns on desktop
+and two on mobile. Keep the footer identical across pages, including the blog
+article template and tools pages. Update the India page and regenerate country
+pages with `python3 scripts/generate-country-pages.py` after footer changes.
+
 ## Publishing a blog article
 
 `blog/_template/` is the master copy. The leading underscore means GitHub Pages (Jekyll)
