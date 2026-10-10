@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PIE Playground: Test OTP Delivery | SecondFactor.ai</title>
+<meta name="description" content="Test OTP delivery in the PIE Playground before integrating the API. Send a code, inspect the selected route and verify it with your free account credits.">
+<link rel="canonical" href="https://secondfactor.ai/features/pie-playground/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#3078e8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SecondFactor.ai">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://secondfactor.ai/features/pie-playground/">
+<meta property="og:title" content="PIE Playground: Test OTP Delivery">
+<meta property="og:description" content="Test OTP delivery in the PIE Playground before integrating the API. Send a code, inspect the selected route and verify it with your free account credits.">
+<meta property="og:image" content="https://secondfactor.ai/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SecondFactor.ai — OTP delivery and verification API across SMS, WhatsApp, Viber and RCS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PIE Playground: Test OTP Delivery">
+<meta name="twitter:description" content="Test OTP delivery in the PIE Playground before integrating the API. Send a code, inspect the selected route and verify it with your free account credits.">
+<meta name="twitter:image" content="https://secondfactor.ai/assets/og-default.png">
+<link rel="icon" type="image/png" href="/assets/logo/secondfactor-icon.png">
+<link rel="apple-touch-icon" href="/assets/logo/secondfactor-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/motion.css">
+<link rel="stylesheet" href="/css/channels.css">
+<link rel="stylesheet" href="/css/features.css">
+<link rel="stylesheet" href="/css/logos.css">
+<link rel="stylesheet" href="/css/chrome.css">
+<link rel="stylesheet" href="/css/surface.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://secondfactor.ai/features/pie-playground/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://secondfactor.ai/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Features",
+     "item": "https://secondfactor.ai/features/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "PIE Playground",
+     "item": "https://secondfactor.ai/features/pie-playground/"
+    }
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://secondfactor.ai/features/pie-playground/#webpage",
+   "url": "https://secondfactor.ai/features/pie-playground/",
+   "name": "PIE Playground: Test OTP Delivery | SecondFactor.ai",
+   "description": "Test OTP delivery in the PIE Playground before integrating the API. Send a code, inspect the selected route and verify it with your free account credits.",
+   "isPartOf": {
+    "@id": "https://secondfactor.ai/#website"
+   },
+   "inLanguage": "en",
+   "breadcrumb": {
+    "@id": "https://secondfactor.ai/features/pie-playground/#breadcrumb"
+   },
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://secondfactor.ai/assets/og-default.png",
+    "width": 1200,
+    "height": 630
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<header class="band" style="position:sticky;top:0;z-index:30;backdrop-filter:blur(8px)">
+  <div class="hd" style="max-width:1200px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+    <a href="/" class="brand" style="display:flex;align-items:center;margin-right:auto">
+      <img class="brand-logo" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772">
+    </a>
+      <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="navlinks" style="display:flex;gap:26px;font:300 14.5px Sora,system-ui,sans-serif">
+      <a href="/" class="nav-a">Home</a>
+      <span class="chdd">
+        <a href="/channels/" class="nav-a chdd-a">Channels<span class="caret">&#9662;</span></a>
+        <span class="chmenu">
+          <a href="/channels/sms/" class="chitem">SMS</a>
+          <a href="/channels/whatsapp/" class="chitem">WhatsApp</a>
+          <a href="/channels/viber/" class="chitem">Viber</a>
+          <a href="/channels/rcs/" class="chitem">RCS</a>
+        </span>
+      </span>
+      <span class="chdd">
+        <a href="/features/" class="nav-a chdd-a on">Features<span class="caret">&#9662;</span></a>
+        <span class="chmenu">
+          <a href="/features/otp-routing-fallback/" class="chitem">OTP Routing and Fallback</a>
+          <a href="/features/otp-delivery-logs/" class="chitem">Delivery Logs and Costs</a>
+          <a href="/features/otp-template-management/" class="chitem">Template Management</a>
+          <a href="/features/pie-playground/" class="chitem">PIE Playground</a>
+        </span>
+      </span>
+      <a href="/pricing/" class="nav-a">Pricing</a>
+      <a href="/docs/" class="nav-a">Docs</a>
+      <a href="/support/" class="nav-a">Support</a>
+      <a href="/blog/" class="nav-a">Blog</a>
+    </nav>
+    <a href="https://app.secondfactor.ai/login" target="_blank" rel="noopener" class="nav-a signin">Sign in</a>
+    <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="hdcta">Get started</a>
+  </div>
+</header>
+<main class="ch-page" style="flex:1">
+  <section class="hero-in" style="padding:76px 40px 60px;text-align:center">
+    <span class="arcb"></span>
+    <span class="orb"><b></b></span>
+    <span class="arcw"></span>
+    <span class="orb wide"><b></b></span>
+    <span class="motes"><i></i><i></i><i></i><i></i></span>
+    <div style="font:300 13px Sora,system-ui,sans-serif;color:var(--mut2);margin-bottom:26px"><a href="/features/" style="color:var(--mut2)">Features</a> / <span style="color:var(--ac)">PIE Playground</span></div>
+    <h1 style="font:300 clamp(36px,4.4vw,56px)/1.08 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 18px;max-width:22ch">PIE Playground: Test OTP Delivery Before You Integrate</h1>
+    <p style="font:300 17.5px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 auto 32px;max-width:64ch">Use your free credits to send an OTP to your phone, inspect the selected route and verify the code. Test from your dashboard before adding the API to your app.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-p">Get Started</a><a href="/support/" class="pill pill-s">Talk to Sales</a></div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div class="ft-split" style="max-width:1120px;margin:0 auto">
+      <div>
+        <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:22px">Send and Verify a Code From Your Dashboard</h2>
+        <p>Use the PIE Playground to test OTP delivery with the channels and templates configured on your account.</p>
+        <p>Enter your phone number and request a code. The route inspector shows the selected channel and any fallback attempts. Enter the code you receive to check verification.</p>
+        <p>The playground uses SecondFactor&rsquo;s delivery and verification service, so you can check your setup before writing the integration.</p>
+      </div>
+      <div class="ft-trace">
+        <span class="ft-trace-h">Route inspector</span>
+        <ol class="tline">
+          <li><span class="tl-k">Attempt 1</span><span class="tl-v"><b>WhatsApp</b> &mdash; no confirmation</span></li>
+          <li><span class="tl-k">+8.0s</span><span class="tl-v" style="color:var(--ac)">Fallback triggered automatically</span></li>
+          <li><span class="tl-k">Attempt 2</span><span class="tl-v"><b>SMS</b> &mdash; delivered</span></li>
+          <li class="done"><span class="tl-k">Verify</span><span class="tl-v mono" style="font-size:12.5px;color:var(--ac)">200 OK &middot; code matched</span></li>
+        </ol>
+        <p class="ft-trace-n">Illustrative route. Yours depends on the channels enabled on your account and what your number can receive.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div style="max-width:1120px;margin:0 auto">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">Test Delivery With Your Account Setup</h2>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">Playground requests use real channels and account credits. Results depend on your channel setup, destination and recipient.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"></rect><path d="M11 17.5h2"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Real Delivery</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Request an OTP over an eligible channel and check the message on your phone.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13"></path><path d="M14 4l4 4-4 4"></path><path d="M20 16H7"></path><path d="M10 12l-4 4 4 4"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Route Inspection</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">See which channel was selected and whether delivery moved to another channel.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M8.5 12.2l2.4 2.4 4.6-5"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Code Verification</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Enter the received code to confirm that verification succeeds.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="1"></rect><path d="M12 9v11"></path><path d="M4 13h16"></path><path d="M12 9c-1.5-3.5-5-3.500-5-1.500S9.500 9 12 9zm0 0c1.500-3.500 5-3.500 5-1.500S14.500 9 12 9z"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Free Credits to Start</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">New accounts receive free credits to cover test sends.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding:76px 40px">
+    <div style="max-width:1120px;margin:0 auto;text-align:center">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 14px;max-width:24ch">How to Test an OTP</h2>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.85);margin:0 auto 44px;max-width:66ch">Test from the dashboard once your channel and template setup is complete.</p>
+      <div class="ft-steps" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;text-align:left">
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Create an Account</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Sign up for free credits, then complete the required channel and template setup.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Enter Your Number</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Open the PIE Playground and send an OTP to a phone number you own.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Inspect the Route</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Review the channel that was tried and any fallback in the route inspector.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Verify the Code</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Enter the code from your phone to confirm the verification succeeds.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div class="ft-split ft-split-code" style="max-width:1120px;margin:0 auto;align-items:center">
+      <div>
+        <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:22px">From the Playground to Your App</h2>
+        <p>Call <code class="ft-ic">/Verifications</code> to send a code, then <code class="ft-ic">/VerificationCheck</code> with the returned SID and the code your user entered.</p>
+        <p>A check can return <code class="ft-ic">200</code> for either a correct or incorrect code. Confirm that <code class="ft-ic">status</code> is <code class="ft-ic">approved</code> before granting access. Keep your API key on your server.</p>
+        <p><a href="/docs/#send" style="font:400 14.5px Sora,system-ui,sans-serif">Read the API Documentation &rarr;</a></p>
+      </div>
+      <div>
+        <pre class="ft-code"><span class="c"># 1. Send a code</span>
+curl -X POST "https://api.secondfactor.ai/v2/Services/$SERVICE_SID/Verifications" \
+  -H "X-API-Key: $SF_API_KEY" \
+  --data-urlencode "To=+9779841000000"</pre>
+        <pre class="ft-code"><span class="c"># 2. Use the SID returned by step 1</span>
+curl -X POST "https://api.secondfactor.ai/v2/Services/$SERVICE_SID/VerificationCheck" \
+  -H "X-API-Key: $SF_API_KEY" \
+  -d "VerificationSid=$VERIFICATION_SID" \
+  -d "Code=482915"</pre>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 70px">
+    <div style="max-width:1120px;margin:0 auto">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">What to Look For While Testing</h2>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">Check the selected channel, message content and verification result. Use numbers you control in the markets you plan to serve.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Which Channel Delivers</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">See which of your enabled channels the routing engine picks for your number.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Fallback Attempts</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">If delivery isn&rsquo;t confirmed within eight seconds, inspect the next attempt. Another eligible channel must be available for fallback.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">How the Message Reads</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Check the message as it arrives on your phone, using your template.</p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Whether Verification Passes</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Confirm that the code you received is accepted.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE FEATURES -->
+  <section style="padding:76px 40px 70px">
+    <div style="max-width:1120px;margin:0 auto">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:36px">More SecondFactor Features</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/otp-routing-fallback/" style="color:inherit">Automatic OTP Routing and Fallback</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Route codes through eligible channels, with fallback after eight seconds without delivery confirmation. <a href="/features/otp-routing-fallback/">Learn more &rarr;</a></p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/otp-delivery-logs/" style="color:inherit">OTP Delivery Logs and Costs</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">See the channel, delivery status and cost of every OTP request. <a href="/features/otp-delivery-logs/">Learn more &rarr;</a></p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/otp-template-management/" style="color:inherit">OTP Template Management</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Create templates per channel, track approval and choose one per request. <a href="/features/otp-template-management/">Learn more &rarr;</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:76px 40px 90px">
+    <div style="max-width:900px;margin:0 auto;text-align:center">
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 12px">Frequently Asked Questions</h2>
+      <p style="font:300 15.5px Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 36px">Write to <a href="mailto:support@secondfactor.ai">support@secondfactor.ai</a> for anything not covered here.</p>
+      <div style="text-align:left;background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(220,232,251,.38));border:1px solid rgba(31,36,80,.14);padding:8px 26px">
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Does the Playground Send Real OTPs?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Yes. Playground requests use real delivery channels and account credits. Test with a phone number you own.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>What Does PIE Stand For?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Price Intelligence Engine, the routing engine that selects the lowest-cost eligible channel for each OTP.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Do I Need to Write Code to Use the Playground?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">No. Send and verify codes directly in your dashboard. Complete your channel and template setup first, then use the API when you are ready to integrate.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Are Test Sends Rate-Limited?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Yes. Per-number burst and hourly limits apply. Requests over those limits are rejected and are not charged. See the <a href="/docs/#send">send reference</a> for rate-limit responses.</p>
+        </details>
+        <details style="border-bottom:1px solid var(--brd);padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>What Happens When My Free Credits Run Out?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Top up your balance on the Billing &amp; credits page of the dashboard to keep sending.</p>
+        </details>
+        <details style="padding:20px 0">
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Which Channels Can I Test?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Test channels enabled on your account with the required sender and template approvals. The recipient must support the channel; fallback requires at least two eligible channels.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding:84px 40px;text-align:center">
+    <span class="ringdot"><b></b></span>
+    <h2 style="font:300 clamp(30px,3.6vw,46px)/1.1 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 18px;max-width:22ch">Send Your First Test OTP</h2>
+    <p style="font:300 17.5px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.85);margin:0 auto 34px;max-width:58ch">Create an account to open the PIE Playground with free credits, or talk to our team about channels and pricing for your destination markets.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-d">Get Started</a><a href="/support/" class="pill pill-o">Talk to Sales</a></div>
+  </section></main>
+<footer class="band">
+  <div class="ft" style="max-width:1200px;margin:0 auto;padding:60px 40px 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;margin-bottom:16px"><img class="brand-logo brand-logo-ft" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772"></div>
+      <p style="font:300 14px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.82);margin:0;max-width:32ch">One stop solution for your OTPs. Send and verify through the lowest-cost eligible channel.</p>
+    </div>
+    <div class="ft-col"><a href="/" class="nav-a">Home</a><a href="/channels/" class="nav-a">Channels</a><a href="/pricing/" class="nav-a">Pricing</a><a href="/tools/" class="nav-a">Tools</a><a href="/docs/" class="nav-a">Docs</a><a href="/blog/" class="nav-a">Blog</a></div>
+    <div class="ft-col"><a href="/channels/sms/" class="nav-a">SMS</a><a href="/channels/whatsapp/" class="nav-a">WhatsApp</a><a href="/channels/viber/" class="nav-a">Viber</a><a href="/channels/rcs/" class="nav-a">RCS</a></div>
+    <div class="ft-col"><a href="/support/" class="nav-a">Support</a><a href="/privacy/" class="nav-a">Privacy Policy</a><a href="/terms/" class="nav-a">Terms and Conditions</a><a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nav-a ft-social" aria-label="SecondFactor.ai on LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z"></path></svg></a></div>
+  </div>
+  <div class="ftb"><span>&copy; 2026 SecondFactor.ai. All rights reserved.</span><span>Rates shown are indicative and quoted in USD.</span></div>
+</footer>
+</div>
+<script src="/js/data.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
