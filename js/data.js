@@ -42,7 +42,7 @@ const HOME_FAQS = [
   {q:"How Does SecondFactor Choose a Delivery Channel?",a:"Our Price Intelligence Engine checks the destination and eligible channels, then attempts delivery through the lowest-cost option. If delivery isn't confirmed within eight seconds, it tries the next eligible channel."},
   {q:"Do I Need to Connect Every Channel?",a:"You can start with the channels you need and add others later. SecondFactor routes requests through channels enabled for your account and available to the recipient."},
   {q:"Do I Need a WhatsApp Business Account to Send WhatsApp OTPs?",a:"Yes, you need to connect a WhatsApp Business Account and complete the applicable setup and authentication template approvals before sending WhatsApp OTPs."},
-  {q:"Do I Need to Generate and Store OTPs in My Application?",a:"SecondFactor handles code generation and verification, so your application doesn't need to generate or store the codes. Use /otp/send to request delivery and /otp/verify to verify the code your user entered."},
+  {q:"Do I Need to Generate and Store OTPs in My Application?",a:"SecondFactor handles code generation and verification, so your application doesn't need to generate or store the codes. Use the Verifications endpoint to request delivery and VerificationCheck to verify the code your user entered."},
   {q:"Can I Use SecondFactor for Signup Verification and Two-Factor Authentication?",a:"Yes, you can verify phone numbers during signup or add an OTP step alongside another authentication factor, such as a password."},
   {q:"How Much Does OTP Delivery Cost?",a:"Pricing depends on the destination and your pricing arrangement. Check the pricing page for available rates, or contact our team to discuss your expected volume and channel requirements."},
   {q:"Can I Test SecondFactor Before Going Live?",a:"New accounts receive free credits to test real OTP delivery in the PIE Playground, inspect the selected route, and verify the code received."},
@@ -76,8 +76,8 @@ const CHANNEL_PAGES = {
     s3title:"Add SMS Verification With Two API Calls",
     s3sub:"Complete the applicable sender and template setup, then connect your application to SecondFactor's send-and-verify API.",
     steps:[
-      {n:"01",t:"Request an OTP",d:"Call /otp/send with the user's phone number to generate a code, request delivery, and receive a request ID."},
-      {n:"02",t:"Verify the Code",d:"Call /otp/verify with the request ID and the code your user entered to receive the verification result."}
+      {n:"01",t:"Request an OTP",d:"Post the user's phone number to /Verifications to generate a code, request delivery, and receive a verification SID."},
+      {n:"02",t:"Verify the Code",d:"Post the verification SID and the code your user entered to /VerificationCheck to receive the verification result."}
     ],
     s4title:"Manage Your SMS Sender and Verification Templates",
     s4sub:"Set up your SMS messages through SecondFactor, with sender requirements based on the countries where you plan to deliver codes.",
@@ -99,7 +99,7 @@ const CHANNEL_PAGES = {
       {q:"Will Every OTP Request Be Sent Through SMS?",a:"SecondFactor's routing engine selects the lowest-cost eligible channel for each request. If you enable additional channels, a request may use one of those instead of SMS."},
       {q:"Can SMS Be Used as a Fallback for WhatsApp?",a:"Yes, SMS can be used when WhatsApp delivery isn't confirmed and SMS is the next eligible channel. You need to enable SMS and complete any applicable sender and template setup."},
       {q:"What Happens if SMS Delivery Isn't Confirmed?",a:"SecondFactor attempts the next eligible channel after eight seconds without delivery confirmation. Fallback depends on another channel being enabled and available for the recipient."},
-      {q:"How Much Does an SMS OTP Cost?",a:"Pricing depends on the destination and your pricing arrangement. Review the pricing page or contact our team to understand applicable charges, including how message segments and fallback are billed."},
+      {q:"How Much Does an SMS OTP Cost?",a:"Pricing depends on the destination and your pricing arrangement. Each accepted OTP request is a single charge, including when delivery falls back to another channel. Review the pricing page or contact our team to understand applicable charges, including how message segments are billed."},
       {q:"Can I Test SMS OTP Delivery Before Integrating?",a:"New accounts receive free credits to test real OTP delivery through the PIE Playground. The result shows which eligible channel handled your request, and you can enter the received code to test verification."}
     ],
     ctaTitle:"Start Testing Your SMS OTP Integration",
@@ -122,7 +122,7 @@ const CHANNEL_PAGES = {
     steps:[
       {n:"01",t:"Connect WhatsApp",d:"Link your WhatsApp Business Account through the SecondFactor dashboard and complete the applicable business and sender setup."},
       {n:"02",t:"Set Up an Authentication Template",d:"Submit a WhatsApp authentication template and track its approval before using it to send codes."},
-      {n:"03",t:"Integrate the OTP API",d:"Use /otp/send to request a code and /otp/verify to check the code entered by your user."}
+      {n:"03",t:"Integrate the OTP API",d:"Use the Verifications endpoint to request a code and VerificationCheck to check the code entered by your user."}
     ],
     s4title:"Manage Your WhatsApp Authentication Templates",
     s4sub:"Create and submit authentication templates from SecondFactor, with wording and options that follow WhatsApp's authentication format.",
@@ -166,7 +166,7 @@ const CHANNEL_PAGES = {
     steps:[
       {n:"01",t:"Apply for a Business Sender",d:"Submit your business details and the required documents through SecondFactor's onboarding process for Viber sender approval."},
       {n:"02",t:"Create an OTP Template",d:"Add your verification message, app name, and OTP placeholder, then submit the template for review."},
-      {n:"03",t:"Send and Verify Codes",d:"Use /otp/send to request delivery and /otp/verify to check the code entered by your user once your sender and template are approved."}
+      {n:"03",t:"Send and Verify Codes",d:"Use the Verifications endpoint to request delivery and VerificationCheck to check the code entered by your user once your sender and template are approved."}
     ],
     s4title:"Create Viber Verification Messages for Your App",
     s4sub:"Write an authentication message that identifies your app and tells users what the code is for.",
@@ -211,7 +211,7 @@ const CHANNEL_PAGES = {
     steps:[
       {n:"01",t:"Submit Your Business Details",d:"Provide your business name, logo, and required brand information through SecondFactor's RCS sender application process."},
       {n:"02",t:"Complete Sender and Template Approval",d:"Complete the applicable RCS sender review and submit your authentication template before sending live verification codes."},
-      {n:"03",t:"Send and Verify OTPs",d:"Use /otp/send to request a code and /otp/verify to check the code entered by your user."}
+      {n:"03",t:"Send and Verify OTPs",d:"Use the Verifications endpoint to request a code and VerificationCheck to check the code entered by your user."}
     ],
     s4title:"Help Users Recognize Your Verification Messages",
     s4sub:"Set up an approved RCS business sender with your brand details so recipients can identify where their verification code came from.",

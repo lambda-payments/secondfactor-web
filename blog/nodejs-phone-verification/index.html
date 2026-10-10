@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Add Phone Verification to a Node.js App</title>
+<meta name="description" content="Learn how to add phone number verification to a Node.js app using Express and an OTP API.">
+<link rel="canonical" href="https://secondfactor.ai/blog/nodejs-phone-verification/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#3078e8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SecondFactor.ai">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://secondfactor.ai/blog/nodejs-phone-verification/">
+<meta property="og:title" content="How to Add Phone Verification to a Node.js App">
+<meta property="og:description" content="Learn how to add phone number verification to a Node.js app using Express and an OTP API.">
+<meta property="og:image" content="https://secondfactor.ai/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SecondFactor.ai — OTP delivery and verification API across SMS, WhatsApp, Viber and RCS">
+<meta property="article:published_time" content="2026-10-10T09:00:00+00:00">
+<meta property="article:modified_time" content="2026-10-10T09:00:00+00:00">
+<meta property="article:section" content="Tutorial">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Add Phone Verification to a Node.js App">
+<meta name="twitter:description" content="Learn how to add phone number verification to a Node.js app using Express and an OTP API.">
+<meta name="twitter:image" content="https://secondfactor.ai/assets/og-default.png">
+<link rel="apple-touch-icon" href="/assets/logo/secondfactor-icon.png">
+<link rel="icon" type="image/png" href="/assets/logo/secondfactor-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/motion.css">
+<link rel="stylesheet" href="/css/article.css">
+<link rel="stylesheet" href="/css/chrome.css">
+<link rel="stylesheet" href="/css/surface.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://secondfactor.ai/blog/nodejs-phone-verification/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://secondfactor.ai/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Blog",
+     "item": "https://secondfactor.ai/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "How to Add Phone Verification to a Node.js App",
+     "item": "https://secondfactor.ai/blog/nodejs-phone-verification/"
+    }
+   ]
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://secondfactor.ai/blog/nodejs-phone-verification/#article",
+   "mainEntityOfPage": {
+    "@id": "https://secondfactor.ai/blog/nodejs-phone-verification/#webpage"
+   },
+   "headline": "How to Add Phone Verification to a Node.js App",
+   "description": "Learn how to add phone number verification to a Node.js app using Express and an OTP API.",
+   "image": {
+    "@type": "ImageObject",
+    "url": "https://secondfactor.ai/assets/og-default.png",
+    "width": 1200,
+    "height": 630
+   },
+   "datePublished": "2026-10-10T09:00:00+00:00",
+   "dateModified": "2026-10-10T09:00:00+00:00",
+   "author": {
+    "@type": "Organization",
+    "name": "SecondFactor Team",
+    "url": "https://secondfactor.ai/"
+   },
+   "publisher": {
+    "@id": "https://secondfactor.ai/#organization"
+   },
+   "articleSection": "Tutorial",
+   "inLanguage": "en"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://secondfactor.ai/blog/nodejs-phone-verification/#webpage",
+   "url": "https://secondfactor.ai/blog/nodejs-phone-verification/",
+   "name": "How to Add Phone Verification to a Node.js App",
+   "description": "Learn how to add phone number verification to a Node.js app using Express and an OTP API.",
+   "isPartOf": {
+    "@id": "https://secondfactor.ai/#website"
+   },
+   "breadcrumb": {
+    "@id": "https://secondfactor.ai/blog/nodejs-phone-verification/#breadcrumb"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://secondfactor.ai/assets/og-default.png",
+    "width": 1200,
+    "height": 630
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<header class="band">
+  <div class="hd">
+    <a href="/" class="brand"><img class="brand-logo" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772"></a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="navlinks" aria-label="Main">
+      <a href="/" class="nav-a">Home</a>
+      <span class="chdd">
+        <a href="/channels/" class="nav-a chdd-a">Channels<span class="caret">&#9662;</span></a>
+        <span class="chmenu">
+          <a href="/channels/sms/" class="chitem">SMS</a>
+          <a href="/channels/whatsapp/" class="chitem">WhatsApp</a>
+          <a href="/channels/viber/" class="chitem">Viber</a>
+          <a href="/channels/rcs/" class="chitem">RCS</a>
+        </span>
+      </span>
+      <span class="chdd">
+        <a href="/features/" class="nav-a chdd-a">Features<span class="caret">&#9662;</span></a>
+        <span class="chmenu">
+          <a href="/features/otp-routing-fallback/" class="chitem">OTP Routing and Fallback</a>
+          <a href="/features/otp-delivery-logs/" class="chitem">Delivery Logs and Costs</a>
+          <a href="/features/otp-template-management/" class="chitem">Template Management</a>
+          <a href="/features/pie-playground/" class="chitem">PIE Playground</a>
+        </span>
+      </span>
+      <a href="/pricing/" class="nav-a">Pricing</a>
+      <a href="https://docs.secondfactor.ai" target="_blank" rel="noopener" class="nav-a">Docs</a>
+      <a href="/support/" class="nav-a">Support</a>
+      <a href="/blog/" class="nav-a on">Blog</a>
+    </nav>
+    <a href="https://app.secondfactor.ai/login" target="_blank" rel="noopener" class="nav-a signin">Sign in</a>
+    <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="hdcta">Get started</a>
+  </div>
+</header>
+<main style="flex:1">
+<div class="post-wrap">
+
+  <header class="post-head">
+    <nav aria-label="Breadcrumb">
+      <ol class="post-crumbs">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><span aria-current="page">How to Add Phone Verification to a Node.js App</span></li>
+      </ol>
+    </nav>
+    <span class="post-cat">Tutorial</span>
+    <h1>How to Add Phone Verification to a Node.js App</h1>
+    <p class="post-dek">Send a one-time password from an Express backend, check the code your user enters, and handle errors, expiry and resends, using SecondFactor’s API.</p>
+    <div class="post-meta">
+      <span class="post-avatar" aria-hidden="true">SF</span>
+      <span>By <b>SecondFactor Team</b></span>
+      <span class="dotsep" aria-hidden="true"></span>
+      <span>Last updated <time datetime="2026-10-10">10 October 2026</time></span>
+    </div>
+  </header>
+
+  <div class="post-grid">
+
+    <aside class="post-side">
+      <nav class="post-toc-box" aria-label="On this page">
+        <p class="post-side-lbl">On this page</p>
+        <div class="post-toc">
+          <a href="#step-1-set-up-your-node-js-project">Step 1: Set Up Your Node.js Project</a>
+          <a href="#step-2-get-your-secondfactor-api-credentials">Step 2: Get Your SecondFactor API Credentials</a>
+          <a href="#step-3-create-an-api-endpoint-to-send-otps">Step 3: Create an API Endpoint to Send OTPs</a>
+          <a href="#step-4-create-an-api-endpoint-to-verify-the-otp">Step 4: Create an API Endpoint to Verify the OTP</a>
+          <a href="#step-5-test-the-phone-verification-flow">Step 5: Test the Phone Verification Flow</a>
+          <a href="#errors-expiration-resends">Errors, expiration and resends</a>
+          <a href="#add-phone-verification-with-secondfactor">Add phone verification with SecondFactor</a>
+        </div>
+      </nav>
+      <div class="post-sidecta">
+        <p class="post-side-lbl">Try SecondFactor</p>
+        <p>Send and verify OTPs across SMS, WhatsApp, Viber and RCS through one API.</p>
+        <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener">Start with free credits &rarr;</a>
+      </div>
+    </aside>
+
+    <article class="post-body">
+
+      <p>If you’re building a Node.js app that requires users to verify their phone numbers during signup, login, or account recovery, you’ll need to send a one-time password (OTP) and confirm that the user entered the correct code.</p>
+      <p>A phone verification API can handle much of this work, including OTP generation, expiration, delivery, retries, and failed verification attempts, without requiring you to build and maintain the entire verification system yourself.</p>
+      <p>In this tutorial, we’ll walk through how to add phone number verification to a Node.js app using Express and SecondFactor’s API.</p>
+      <h2 id="add-phone-verification">How to Add Phone Verification to a Node.js App</h2>
+      <p>We’ll use Express.js to create a Node.js backend and SecondFactor’s API to send and verify one-time passwords.</p>
+      <p>You’ll need Node.js 18 or later and a SecondFactor account to get started.</p>
+      <h3 id="step-1-set-up-your-node-js-project">Step 1: Set Up Your Node.js Project</h3>
+      <p>First, create a new directory for your project and initialize it with npm.</p>
+      <figure class="post-code" data-lang="bash">
+        <figcaption><span class="post-code-n">Terminal</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
+        <pre><code>mkdir phone-verification
+cd phone-verification
+npm init -y</code></pre>
+      </figure>
+      <p>Next, install Express, <code>dotenv</code>, and <code>express-session</code>. Express will handle our API endpoints, <code>dotenv</code> will load environment variables, and <code>express-session</code> will let us associate a verification request with a user session.</p>
+      <figure class="post-code" data-lang="bash">
+        <figcaption><span class="post-code-n">Terminal</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
+        <pre><code>npm install express dotenv express-session</code></pre>
+      </figure>
+      <h3 id="step-2-get-your-secondfactor-api-credentials">Step 2: Get Your SecondFactor API Credentials</h3>
+      <p>Sign in to your SecondFactor dashboard and get your API key and Service SID. You can find the Service SID on the Settings page.</p>
+      <p>Create a <code>.env</code> file in your project directory and add the following variables:</p>
+      <figure class="post-code" data-lang="env">
+        <figcaption><span class="post-code-n">.env</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
+        <pre><code>SECONDFACTOR_API_KEY=your_api_key
+SECONDFACTOR_SERVICE_SID=your_service_sid
+SESSION_SECRET=your_random_session_secret
+PORT=3000</code></pre>
+      </figure>
+      <p>Replace the placeholders with your actual credentials and a securely generated session secret. Make sure you also have a default OTP template configured in SecondFactor.</p>
+      <p>Add <code>.env</code> and <code>node_modules/</code> to your <code>.gitignore</code> file so you don’t accidentally commit your API credentials.</p>
+      <h3 id="step-3-create-an-api-endpoint-to-send-otps">Step 3: Create an API Endpoint to Send OTPs</h3>
+      <p>Next, create an <code>app.js</code> file. We’ll add a <code>/send-otp</code> endpoint that accepts a phone number and requests a verification code from SecondFactor.</p>
+      <p>SecondFactor’s API accepts phone numbers in E.164 format, such as <code>+14155552671</code>. When the request succeeds, the API returns a verification SID that we’ll store in the user’s session and use later to check the OTP.</p>
+      <figure class="post-code" data-lang="js">
+        <figcaption><span class="post-code-n">app.js</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
+        <pre><code>require('dotenv').config();
+
+const express = require('express');
+const session = require('express-session');
+const { randomUUID } = require('crypto');
+
+const app = express();
+app.use(express.json());
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production'
+  }
+}));
+
+app.post('/send-otp', async (req, res) =&gt; {
+  const { phoneNumber } = req.body;
+
+  if (typeof phoneNumber !== 'string' ||
+      !/^\+[1-9]\d{1,14}$/.test(phoneNumber)) {
+    return res.status(400).json({
+      error: 'Enter a valid phone number in E.164 format.'
+    });
+  }
+
+  try {
+    const response = await fetch(
+      `https://api.secondfactor.ai/v2/Services/${process.env.SECONDFACTOR_SERVICE_SID}/Verifications`,
+      {
+        method: 'POST',
+        headers: {
+          'X-API-Key': process.env.SECONDFACTOR_API_KEY,
+          'Idempotency-Key': randomUUID(),
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ To: phoneNumber })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return res.status(response.status).json({
+        error: 'Could not send verification code.'
+      });
+    }
+
+    req.session.pendingVerification = {
+      sid: data.sid,
+      phoneNumber: data.to
+    };
+
+    return res.json({
+      message: 'Verification code requested.'
+    });
+  } catch (error) {
+    return res.status(502).json({
+      error: 'Verification service unavailable.'
+    });
+  }
+});
+
+app.listen(process.env.PORT || 3000, () =&gt; {
+  console.log('Server running on port 3000');
+});</code></pre>
+      </figure>
+      <p>The endpoint sends a POST request to SecondFactor with the phone number and your API key. SecondFactor generates the OTP and queues it for delivery through an eligible channel.</p>
+      <p>The response includes a unique verification SID. We store that SID on the server rather than ask the user to submit it, so the next endpoint can check the code against the verification started in the same session.</p>
+      <p>For this tutorial, Express uses its default in-memory session store. A production application should use a persistent session store, such as Redis, and enforce request limits before sending OTPs.</p>
+      <h3 id="step-4-create-an-api-endpoint-to-verify-the-otp">Step 4: Create an API Endpoint to Verify the OTP</h3>
+      <p>Once the user receives the verification code, they need to enter it in your application. We’ll create a <code>/verify-otp</code> endpoint that accepts the code and checks it using SecondFactor’s API.</p>
+      <p>Add the following code to your <code>app.js</code> file, before the <code>app.listen()</code> statement.</p>
+      <figure class="post-code" data-lang="js">
+        <figcaption><span class="post-code-n">app.js</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
+        <pre><code>app.post('/verify-otp', async (req, res) =&gt; {
+  const { code } = req.body;
+  const verification = req.session.pendingVerification;
+
+  if (!verification) {
+    return res.status(400).json({
+      error: 'No pending verification. Request a new code.'
+    });
+  }
+
+  if (typeof code !== 'string' || !/^\d{6}$/.test(code)) {
+    return res.status(400).json({
+      error: 'Enter a valid six-digit code.'
+    });
+  }
+
+  try {
+    const response = await fetch(
+      `https://api.secondfactor.ai/v2/Services/${process.env.SECONDFACTOR_SERVICE_SID}/VerificationCheck`,
+      {
+        method: 'POST',
+        headers: {
+          'X-API-Key': process.env.SECONDFACTOR_API_KEY,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          VerificationSid: verification.sid,
+          Code: code
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    if (response.status === 200 &amp;&amp; data.status === 'VERIFIED') {
+      req.session.verifiedPhone = data.to;
+      delete req.session.pendingVerification;
+
+      return res.json({
+        message: 'Phone number verified successfully.',
+        verified: true
+      });
+    }
+
+    if (response.status === 422) {
+      return res.status(400).json({
+        error: 'Incorrect verification code. Please try again.',
+        attemptsRemaining: data.attempts_remaining
+      });
+    }
+
+    if (response.status === 409 &amp;&amp; data.status === 'LOCKED') {
+      delete req.session.pendingVerification;
+      return res.status(429).json({
+        error: 'Too many attempts. Request a new code.'
+      });
+    }
+
+    if (response.status === 409 || response.status === 404) {
+      delete req.session.pendingVerification;
+      return res.status(410).json({
+        error: 'Verification is no longer available. Request a new code.'
+      });
+    }
+
+    return res.status(502).json({
+      error: 'Unable to verify code.'
+    });
+  } catch (error) {
+    return res.status(502).json({
+      error: 'Verification service unavailable.'
+    });
+  }
+});</code></pre>
+      </figure>
+      <p>The endpoint retrieves the verification SID stored in the user’s session and submits it along with the entered code to SecondFactor.</p>
+      <p>If the code is correct, SecondFactor responds with HTTP 200 and <code>status: "VERIFIED"</code>. Our application then records the verified phone number in the session and removes the pending verification.</p>
+      <p>An incorrect code returns HTTP 422 with <code>status: "PENDING"</code> and the number of attempts remaining. Only HTTP 200 means the code is correct, so our code treats every other response as a failed check.</p>
+      <p>SecondFactor allows five verification attempts per code. After the fifth unsuccessful attempt, the verification is locked, and the user needs to request a new OTP.</p>
+      <p>For an application with user accounts, you should also save the verified status against the user’s account in your database.</p>
+      <h3 id="step-5-test-the-phone-verification-flow">Step 5: Test the Phone Verification Flow</h3>
+      <p>Now that both endpoints are ready, let’s test the complete verification process.</p>
+      <p>First, start your Node.js application from the project directory.</p>
+      <figure class="post-code" data-lang="bash">
+        <figcaption><span class="post-code-n">Terminal</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
+        <pre><code>node app.js</code></pre>
+      </figure>
+      <p>Your Express server should now be running at <code>http://localhost:3000</code>.</p>
+      <h4>Send a verification code</h4>
+      <p>Open another terminal and send a POST request to <code>/send-otp</code> using curl. Replace the example phone number with a number you can access.</p>
+      <figure class="post-code" data-lang="bash">
+        <figcaption><span class="post-code-n">Terminal</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
+        <pre><code>curl -X POST http://localhost:3000/send-otp \
+  -H "Content-Type: application/json" \
+  -c cookies.txt \
+  -d '{"phoneNumber":"+14155552671"}'</code></pre>
+      </figure>
+      <p>If the request succeeds, you’ll receive the following response:</p>
+      <figure class="post-code" data-lang="json">
+        <figcaption><span class="post-code-n">Response</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
+        <pre><code>{
+  "message": "Verification code requested."
+}</code></pre>
+      </figure>
+      <p>SecondFactor generates a six-digit OTP and queues it for delivery to the phone number. The successful API response confirms that the verification request was accepted, not necessarily that the code has been delivered.</p>
+      <h4>Verify the received code</h4>
+      <p>Once you receive the OTP, submit it to the <code>/verify-otp</code> endpoint. Replace <code>123456</code> with the actual code you received.</p>
+      <figure class="post-code" data-lang="bash">
+        <figcaption><span class="post-code-n">Terminal</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
+        <pre><code>curl -X POST http://localhost:3000/verify-otp \
+  -H "Content-Type: application/json" \
+  -b cookies.txt \
+  -d '{"code":"123456"}'</code></pre>
+      </figure>
+      <p>If the code is correct, the application returns:</p>
+      <figure class="post-code" data-lang="json">
+        <figcaption><span class="post-code-n">Response</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
+        <pre><code>{
+  "message": "Phone number verified successfully.",
+  "verified": true
+}</code></pre>
+      </figure>
+      <p>The application now has a verified phone number associated with the user’s session. You can use this result to complete registration, allow account access, or update the user’s phone verification status in your database.</p>
+      <p>Notice that we’re using <code>cookies.txt</code> in both requests. This preserves the same Express session between sending and verifying the code.</p>
+      <p>Without the session cookie, the <code>/verify-otp</code> endpoint won’t be able to retrieve the pending verification SID.</p>
+      <p>You can also test an incorrect OTP before submitting the correct code to confirm that your application handles failed verification attempts properly.</p>
+      <h2 id="errors-expiration-resends">How to Handle OTP Errors, Expiration, and Resends</h2>
+      <p>Users may enter an incorrect verification code, request another OTP because the first one didn’t arrive, or try to verify a code that has already expired.</p>
+      <p>Your Node.js application must handle these situations without allowing unlimited verification attempts or repeated requests.</p>
+      <h3 id="incorrect-or-expired-otps">Incorrect or Expired OTPs</h3>
+      <p>Our <code>/verify-otp</code> endpoint already handles incorrect codes by returning an error message and allowing the user to try again.</p>
+      <p>SecondFactor allows up to five verification attempts per code. Once the limit is reached, the API returns HTTP 409 with <code>status: "LOCKED"</code>, and the user must request a new OTP.</p>
+      <p>If a verification has expired, the API returns HTTP 409 with <code>status: "EXPIRED"</code>. If the verification SID isn’t found, it returns HTTP 404. In either case, your application should ask the user to request a new code rather than continue checking the old one.</p>
+      <h3 id="resending-verification-codes">Resending Verification Codes</h3>
+      <p>SecondFactor doesn’t have a separate resend endpoint. To resend an OTP, your application can call the existing <code>/send-otp</code> endpoint with the same phone number.</p>
+      <p>Each request creates a new verification with a new code and verification SID. Our <code>/send-otp</code> endpoint already updates the session with the latest SID, so subsequent verification attempts will use the new code.</p>
+      <p>However, each new verification request is charged separately.</p>
+      <p>You should add a resend cooldown and enforce server-side rate limits to prevent users or automated scripts from triggering repeated requests.</p>
+      <h3 id="handling-otp-delivery-failures">Handling OTP Delivery Failures</h3>
+      <p>A successful request to SecondFactor means the OTP has been queued for delivery, not necessarily that the user has received it.</p>
+      <p>If a user reports that the code hasn’t arrived, you can check the verification’s delivery status using SecondFactor’s API or configure webhooks to receive delivery updates.</p>
+      <p>SecondFactor also supports automatic fallback between eligible messaging channels when delivery isn’t confirmed, helping reduce verification failures without requiring you to build separate channel-specific retry logic.</p>
+      <h2 id="add-phone-verification-with-secondfactor">Add Phone Verification to Your Node.js App with SecondFactor</h2>
+      <p>With SecondFactor’s API, you can add phone number verification to your Node.js application without building your own OTP generation, delivery, and verification system.</p>
+      <p>SecondFactor supports OTP delivery across <a href="/channels/sms/">SMS</a>, <a href="/channels/whatsapp/">WhatsApp</a>, <a href="/channels/viber/">Viber</a>, and <a href="/channels/rcs/">RCS</a>, with automatic channel selection and fallback to help improve delivery rates while keeping verification costs down.</p>
+      <p><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener">Sign up for SecondFactor</a> to start sending and verifying OTPs in your Node.js application, or explore our <a href="https://docs.secondfactor.ai" target="_blank" rel="noopener">API documentation</a> to learn more.</p>
+
+      <div class="post-author">
+        <span class="post-avatar" aria-hidden="true">SF</span>
+        <div>
+          <p class="post-author-n">SecondFactor Team</p>
+          <p class="post-author-r">Product and engineering at SecondFactor.ai</p>
+          <p class="post-author-b">We build OTP delivery and verification infrastructure across SMS, WhatsApp, Viber and RCS, and write about what we learn running it.</p>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+
+  <aside class="post-related" aria-label="Related articles">
+    <p class="post-related-t">Keep reading</p>
+    <div class="post-cards">
+      <a class="post-card" href="/blog/best-otp-service-providers/"><span class="post-cat">Comparison</span><p class="post-card-t">Best OTP Service Providers for Apps and Websites</p><p class="post-card-d">How SecondFactor handles OTP delivery across markets, plus six other OTP service providers compared.</p></a>
+      <a class="post-card" href="/blog/twilio-verify-alternatives/"><span class="post-cat">Alternatives</span><p class="post-card-t">Best Twilio Verify Alternatives for OTP Verification</p><p class="post-card-d">How SecondFactor handles OTP verification, plus seven other Twilio Verify alternatives compared.</p></a>
+    </div>
+  </aside>
+
+
+</div>
+</main>
+<footer class="band">
+  <div class="ft">
+    <div class="ft-brand">
+      <a href="/" class="brand" aria-label="SecondFactor home"><img class="brand-logo brand-logo-ft" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772"></a>
+      <p>Send and verify OTPs across SMS, WhatsApp, Viber and RCS through one API.</p>
+      <a href="mailto:support@secondfactor.ai" class="ft-contact">support@secondfactor.ai</a>
+    </div>
+    <nav class="ft-nav" aria-label="Footer">
+      <div class="ft-col">
+        <h2>Product</h2>
+        <ul>
+          <li><a href="/features/" class="nav-a">Features</a></li>
+          <li><a href="/pricing/" class="nav-a">Pricing</a></li>
+          <li><a href="https://docs.secondfactor.ai" target="_blank" rel="noopener" class="nav-a">API documentation</a></li>
+          <li><a href="/features/pie-playground/" class="nav-a">PIE Playground</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h2>Channels</h2>
+        <ul>
+          <li><a href="/channels/sms/" class="nav-a">SMS</a></li>
+          <li><a href="/channels/whatsapp/" class="nav-a">WhatsApp</a></li>
+          <li><a href="/channels/viber/" class="nav-a">Viber</a></li>
+          <li><a href="/channels/rcs/" class="nav-a">RCS</a></li>
+          <li><a href="/country/" class="nav-a">Browse by country</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h2>Tools</h2>
+        <ul>
+          <li><a href="/tools/carrier-check/" class="nav-a">Carrier checker</a></li>
+          <li><a href="/tools/phone-type-check/" class="nav-a">Phone type checker</a></li>
+          <li><a href="/tools/phone-number-validation/" class="nav-a">Number validation</a></li>
+          <li><a href="/tools/" class="nav-a">All tools</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/blog/" class="nav-a">Blog</a></li>
+          <li><a href="/support/" class="nav-a">Contact us</a></li>
+          <li><a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nav-a">LinkedIn <span aria-hidden="true">&nearr;</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="ftb">
+    <span>&copy; 2026 SecondFactor.ai. All rights reserved.</span>
+    <span class="ft-rates">Rates shown are indicative and quoted in USD.</span>
+    <nav class="ft-legal" aria-label="Legal"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms and Conditions</a></nav>
+  </div>
+</footer>
+</div>
+<script src="/js/data.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
