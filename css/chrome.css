@@ -16,6 +16,7 @@ header.band{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-
 header.band.scrolled{box-shadow:0 14px 34px rgba(31,36,80,.12)}
 header.band .hd{display:flex;align-items:center;flex-wrap:wrap;gap:30px!important;padding-top:10px!important;padding-bottom:10px!important}
 header.band .navlinks{display:flex;align-items:center;gap:26px}
+header.band .chitem{white-space:nowrap}
 header.band .nav-a{font:400 14.5px/1 Sora,system-ui,sans-serif!important;letter-spacing:.01em!important;text-transform:none!important;color:rgba(31,36,80,.92)!important;transition:color .25s}
 header.band .nav-a:hover,header.band .nav-a.on{color:#3078e8!important}
 header.band .chdd-a{display:inline-flex;align-items:center;gap:6px}
@@ -62,7 +63,7 @@ footer.band .ftb{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-betw
 footer.band .ftb span{color:rgba(31,36,80,.78)!important}
 
 /* ---- responsive ---- */
-@media (max-width:1040px){
+@media (max-width:1180px){
   header.band .hd{gap:16px!important;row-gap:10px!important}
   header.band .navlinks{gap:18px;order:3;width:100%}
   header.band .hdcta{order:2}
