@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OTP Template Management | SecondFactor.ai</title>
-<meta name="description" content="Create OTP templates for SMS, WhatsApp, Viber and RCS, track approval in one dashboard and choose a template per request.">
+<meta name="description" content="Create and manage OTP templates for your connected channels. Track approval, set a default and select a template for each verification request.">
 <link rel="canonical" href="https://secondfactor.ai/features/otp-template-management/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#3078e8">
@@ -13,14 +13,14 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://secondfactor.ai/features/otp-template-management/">
 <meta property="og:title" content="OTP Template Management">
-<meta property="og:description" content="Create OTP templates for SMS, WhatsApp, Viber and RCS, track approval in one dashboard and choose a template per request.">
+<meta property="og:description" content="Create and manage OTP templates for your connected channels. Track approval, set a default and select a template for each verification request.">
 <meta property="og:image" content="https://secondfactor.ai/assets/og-default.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SecondFactor.ai — OTP delivery and verification API across SMS, WhatsApp, Viber and RCS">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="OTP Template Management">
-<meta name="twitter:description" content="Create OTP templates for SMS, WhatsApp, Viber and RCS, track approval in one dashboard and choose a template per request.">
+<meta name="twitter:description" content="Create and manage OTP templates for your connected channels. Track approval, set a default and select a template for each verification request.">
 <meta name="twitter:image" content="https://secondfactor.ai/assets/og-default.png">
 <link rel="icon" type="image/png" href="/assets/logo/secondfactor-icon.png">
 <link rel="apple-touch-icon" href="/assets/logo/secondfactor-icon.png">
@@ -67,7 +67,7 @@
    "@id": "https://secondfactor.ai/features/otp-template-management/#webpage",
    "url": "https://secondfactor.ai/features/otp-template-management/",
    "name": "OTP Template Management | SecondFactor.ai",
-   "description": "Create OTP templates for SMS, WhatsApp, Viber and RCS, track approval in one dashboard and choose a template per request.",
+   "description": "Create and manage OTP templates for your connected channels. Track approval, set a default and select a template for each verification request.",
    "isPartOf": {
     "@id": "https://secondfactor.ai/#website"
    },
@@ -133,17 +133,17 @@
     <span class="motes"><i></i><i></i><i></i><i></i></span>
     <div style="font:300 13px Sora,system-ui,sans-serif;color:var(--mut2);margin-bottom:26px"><a href="/features/" style="color:var(--mut2)">Features</a> / <span style="color:var(--ac)">OTP Template Management</span></div>
     <h1 style="font:300 clamp(36px,4.4vw,56px)/1.08 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 18px;max-width:22ch">OTP Template Management</h1>
-    <p style="font:300 17.5px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 auto 32px;max-width:64ch">Create OTP message templates for each channel you connect, track their approval in one dashboard and choose a template for each request.</p>
+    <p style="font:300 17.5px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 auto 32px;max-width:64ch">Manage OTP messages for your connected channels in one dashboard. Create templates, track approval and choose which message to use for each verification request.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-p">Get Started</a><a href="/support/" class="pill pill-s">Talk to Sales</a></div>
   </section>
 
   <section style="padding:76px 40px 70px">
     <div class="ft-split" style="max-width:1120px;margin:0 auto">
       <div>
-        <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:22px">What Is OTP Template Management?</h2>
-        <p>An OTP template is the message that carries a verification code. Each channel has its own rules for it: an SMS template is short text with a code placeholder, while a WhatsApp authentication template follows wording set by WhatsApp.</p>
-        <p>Template management is how you create those messages, submit them for review and keep track of which ones are approved. SecondFactor keeps the templates for all your connected channels in one dashboard.</p>
-        <p>Once a template is approved, your application refers to it by ID, or sends without one and uses your default.</p>
+        <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:22px">Prepare Your OTP Messages for Delivery</h2>
+        <p>Create a verification message for each channel you plan to use. Add your app name and code placeholder where supported, and follow the channel&rsquo;s content requirements.</p>
+        <p>Submit templates for review and check their approval status in SecondFactor before sending live traffic.</p>
+        <p>Set a default template for routine sends, or choose a template in each API request.</p>
       </div>
       <div class="ft-trace">
         <span class="ft-trace-h">Templates by channel</span>
@@ -160,13 +160,13 @@
 
   <section style="padding:76px 40px 70px">
     <div style="max-width:1120px;margin:0 auto">
-      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">One Place for Every Channel&rsquo;s Templates</h2>
-      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">Channels review and format OTP messages differently. Managing them together keeps your integration the same while the message changes.</p>
+      <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">Manage Templates Across Your Channels</h2>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">Keep channel-specific messages and approval statuses in one dashboard, with the same API for sending codes.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
-        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7h12"></path><path d="M8 12h12"></path><path d="M8 17h12"></path><path d="M4 7h.01"></path><path d="M4 12h.01"></path><path d="M4 17h.01"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Templates for Each Channel</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Create SMS, WhatsApp, Viber and RCS templates alongside each other, with separate content where channel rules differ.</p></div>
-        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M8.5 12.2l2.4 2.4 4.6-5"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Approval Status in View</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Check each template&rsquo;s status from the dashboard so you know when it is ready for live delivery.</p></div>
-        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l2.3 4.8 5.2.7-3.800 3.600.9 5.200L12 15.800l-4.600 2.500.9-5.200L4.500 9.500l5.200-.7L12 4z"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">A Default Template</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Send without naming a template and your default template is used.</p></div>
-        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20V3.5z"></path><path d="M14 3.5v4h4"></path><path d="M10 12h5"></path><path d="M10 15.5h5"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">A Template per Request</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Pass a template ID with a send to use a specific template for that verification.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7h12"></path><path d="M8 12h12"></path><path d="M8 17h12"></path><path d="M4 7h.01"></path><path d="M4 12h.01"></path><path d="M4 17h.01"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Channel-Specific Messages</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Prepare messages for SMS, WhatsApp, Viber and RCS according to each channel&rsquo;s format.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M8.5 12.2l2.4 2.4 4.6-5"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Approval Tracking</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Check which templates are approved and which are still under review.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l2.3 4.8 5.2.7-3.800 3.600.9 5.200L12 15.800l-4.600 2.500.9-5.200L4.500 9.500l5.200-.7L12 4z"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Default Template</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Set a default so your application can send codes without specifying a template each time.</p></div>
+        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20V3.5z"></path><path d="M14 3.5v4h4"></path><path d="M10 12h5"></path><path d="M10 15.5h5"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Template Selection</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Choose a template for signup, login or another verification flow by passing its ID in the send request.</p></div>
       </div>
     </div>
   </section>
@@ -174,11 +174,11 @@
   <section class="band" style="padding:76px 40px">
     <div style="max-width:1120px;margin:0 auto;text-align:center">
       <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 14px;max-width:24ch">How Template Setup Works</h2>
-      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.85);margin:0 auto 44px;max-width:66ch">Four steps take a template from draft to live delivery.</p>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.85);margin:0 auto 44px;max-width:66ch">Create a template, complete the required review and select it when you send.</p>
       <div class="ft-steps" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;text-align:left">
         <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Create the Template</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Write the message for a connected channel with your app name and the OTP placeholder, following that channel&rsquo;s format.</p></div>
         <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Submit It for Review</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Templates are reviewed before live traffic. Requirements and timing depend on the channel and destination.</p></div>
-        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Track Its Status</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Follow the template&rsquo;s approval status in your dashboard until it is ready to use.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Track Its Status</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Check approval in your dashboard before using the template for live requests.</p></div>
         <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Send With It</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Send with your default template, or pass a template ID to choose one for that request.</p></div>
       </div>
     </div>
@@ -189,9 +189,8 @@
       <div>
         <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:22px">Choose a Template in the Send Request</h2>
         <p><code class="ft-ic">TemplateSid</code> is optional. Leave it out and SecondFactor uses your default template. Include it to use one of the templates listed on your dashboard&rsquo;s Templates page.</p>
-        <p>A send with no <code class="ft-ic">TemplateSid</code> and no default template is refused with <code class="ft-ic">no_default_template</code>. An ID that isn&rsquo;t one of your templates is refused with <code class="ft-ic">unknown_template</code>. Refused sends are not charged.</p>
-        <p>Moving from Twilio Verify? A Twilio template SID (<code class="ft-ic">HJ&hellip;</code>) is ignored, so those requests send with your default template.</p>
-        <p><a href="https://docs.secondfactor.ai/send-otp" target="_blank" rel="noopener" style="font:400 14.5px Sora,system-ui,sans-serif">Read the Send OTP reference &rarr;</a></p>
+        <p>Set up a default before omitting <code class="ft-ic">TemplateSid</code>. If neither is available, the request is rejected. Any template ID you provide must belong to your account.</p>
+        <p><a href="/docs/#send" style="font:400 14.5px Sora,system-ui,sans-serif">Read the Send OTP reference &rarr;</a></p>
       </div>
       <div>
         <pre class="ft-code"><span class="c"># Default template</span>
@@ -210,7 +209,7 @@ curl -X POST "https://api.secondfactor.ai/v2/Services/$SERVICE_SID/Verifications
   <section style="padding:76px 40px 70px">
     <div style="max-width:1120px;margin:0 auto">
       <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">Template Rules by Channel</h2>
-      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">What you can write depends on the channel. Each channel page covers its sender and template setup.</p>
+      <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">Message formats and approval requirements vary by channel. Check sender setup as well as template approval before sending.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
         <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">SMS</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Use your app name and a code placeholder. Message length and encoding affect the number of billable SMS segments. <a href="/channels/sms/">SMS OTP</a></p></div>
         <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">WhatsApp</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Authentication templates use prescribed wording, with an optional security disclaimer and expiry warning. <a href="/channels/whatsapp/">WhatsApp OTP</a></p></div>
@@ -225,8 +224,8 @@ curl -X POST "https://api.secondfactor.ai/v2/Services/$SERVICE_SID/Verifications
     <div style="max-width:1120px;margin:0 auto">
       <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:36px">More SecondFactor Features</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
-        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/otp-routing-fallback/" style="color:inherit">Automatic OTP Routing and Fallback</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Send each code over the lowest-cost channel that can reach the number, with fallback after eight seconds. <a href="/features/otp-routing-fallback/">Learn more &rarr;</a></p></div>
-        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/otp-delivery-logs/" style="color:inherit">OTP Delivery Logs and Cost Visibility</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">See the channel, delivery status and cost of every OTP request. <a href="/features/otp-delivery-logs/">Learn more &rarr;</a></p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/otp-routing-fallback/" style="color:inherit">Automatic OTP Routing and Fallback</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Route codes through eligible channels, with fallback after eight seconds without delivery confirmation. <a href="/features/otp-routing-fallback/">Learn more &rarr;</a></p></div>
+        <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/otp-delivery-logs/" style="color:inherit">OTP Delivery Logs and Costs</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">See the channel, delivery status and cost of every OTP request. <a href="/features/otp-delivery-logs/">Learn more &rarr;</a></p></div>
         <div class="crd"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px"><a href="/features/pie-playground/" style="color:inherit">PIE Playground</a></h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Send a real OTP, inspect its route and verify the code before you integrate. <a href="/features/pie-playground/">Learn more &rarr;</a></p></div>
       </div>
     </div>
@@ -250,16 +249,16 @@ curl -X POST "https://api.secondfactor.ai/v2/Services/$SERVICE_SID/Verifications
           <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Approval timing depends on the channel and its review process. Check the template&rsquo;s status in your dashboard before using it for live delivery.</p>
         </details>
         <details style="border-bottom:1px solid var(--brd);padding:20px 0">
-          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Can I Use One Template Across Every Channel?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
-          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">You manage templates together, but the content has to follow each channel&rsquo;s rules, so channels can need separate templates.</p>
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Do All Channels Use the Same Message Format?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">No. Each channel has its own content and approval requirements. Manage the templates in one dashboard, and prepare the message format required by each channel.</p>
         </details>
         <details style="border-bottom:1px solid var(--brd);padding:20px 0">
           <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Can I Use Different Templates for Signup and Login?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
           <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Yes. Pass a different <code class="ft-ic">TemplateSid</code> with each send to choose the template for that verification.</p>
         </details>
         <details style="padding:20px 0">
-          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>What Happens to My Twilio Template SIDs?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
-          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">A Twilio template SID in the request is ignored and the send uses your default template.</p>
+          <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>What Happens if I Send Without a Template?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">SecondFactor uses your account&rsquo;s default template when you omit <code class="ft-ic">TemplateSid</code>. If you have no default, the request is rejected before delivery.</p>
         </details>
       </div>
     </div>
@@ -272,16 +271,56 @@ curl -X POST "https://api.secondfactor.ai/v2/Services/$SERVICE_SID/Verifications
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-d">Get Started</a><a href="/support/" class="pill pill-o">Talk to Sales</a></div>
   </section></main>
 <footer class="band">
-  <div class="ft" style="max-width:1200px;margin:0 auto;padding:60px 40px 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:40px">
-    <div>
-      <div style="display:flex;align-items:center;margin-bottom:16px"><img class="brand-logo brand-logo-ft" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772"></div>
-      <p style="font:300 14px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.82);margin:0;max-width:32ch">One stop solution for your OTPs. Send and verify through the lowest-cost eligible channel.</p>
+  <div class="ft">
+    <div class="ft-brand">
+      <a href="/" class="brand" aria-label="SecondFactor home"><img class="brand-logo brand-logo-ft" src="/assets/logo/secondFactor-full.png" alt="SecondFactor" width="2924" height="772"></a>
+      <p>Send and verify OTPs across SMS, WhatsApp, Viber and RCS through one API.</p>
+      <a href="mailto:support@secondfactor.ai" class="ft-contact">support@secondfactor.ai</a>
     </div>
-    <div class="ft-col"><a href="/" class="nav-a">Home</a><a href="/channels/" class="nav-a">Channels</a><a href="/pricing/" class="nav-a">Pricing</a><a href="/docs/" class="nav-a">Docs</a><a href="/blog/" class="nav-a">Blog</a></div>
-    <div class="ft-col"><a href="/channels/sms/" class="nav-a">SMS</a><a href="/channels/whatsapp/" class="nav-a">WhatsApp</a><a href="/channels/viber/" class="nav-a">Viber</a><a href="/channels/rcs/" class="nav-a">RCS</a></div>
-    <div class="ft-col"><a href="/support/" class="nav-a">Support</a><a href="/privacy/" class="nav-a">Privacy Policy</a><a href="/terms/" class="nav-a">Terms and Conditions</a><a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nav-a ft-social" aria-label="SecondFactor.ai on LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z"></path></svg></a></div>
+    <nav class="ft-nav" aria-label="Footer">
+      <div class="ft-col">
+        <h2>Product</h2>
+        <ul>
+          <li><a href="/features/" class="nav-a">Features</a></li>
+          <li><a href="/pricing/" class="nav-a">Pricing</a></li>
+          <li><a href="/docs/" class="nav-a">API documentation</a></li>
+          <li><a href="/features/pie-playground/" class="nav-a">PIE Playground</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h2>Channels</h2>
+        <ul>
+          <li><a href="/channels/sms/" class="nav-a">SMS</a></li>
+          <li><a href="/channels/whatsapp/" class="nav-a">WhatsApp</a></li>
+          <li><a href="/channels/viber/" class="nav-a">Viber</a></li>
+          <li><a href="/channels/rcs/" class="nav-a">RCS</a></li>
+          <li><a href="/country/" class="nav-a">Browse by country</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h2>Tools</h2>
+        <ul>
+          <li><a href="/tools/carrier-check/" class="nav-a">Carrier checker</a></li>
+          <li><a href="/tools/phone-type-check/" class="nav-a">Phone type checker</a></li>
+          <li><a href="/tools/phone-number-validation/" class="nav-a">Number validation</a></li>
+          <li><a href="/tools/" class="nav-a">All tools</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/blog/" class="nav-a">Blog</a></li>
+          <li><a href="/support/" class="nav-a">Contact us</a></li>
+          <li><a href="https://www.linkedin.com/company/secondfactorai/home" target="_blank" rel="noopener" class="nav-a">LinkedIn <span aria-hidden="true">&nearr;</span></a></li>
+        </ul>
+      </div>
+    </nav>
   </div>
-  <div class="ftb"><span>&copy; 2026 SecondFactor.ai. All rights reserved.</span><span>Rates shown are indicative and quoted in USD.</span></div>
+  <div class="ftb">
+    <span>&copy; 2026 SecondFactor.ai. All rights reserved.</span>
+    <span class="ft-rates">Rates shown are indicative and quoted in USD.</span>
+    <nav class="ft-legal" aria-label="Legal"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms and Conditions</a></nav>
+  </div>
 </footer>
 </div>
 <script src="/js/data.js"></script>
