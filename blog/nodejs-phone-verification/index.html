@@ -207,7 +207,7 @@ npm init -y</code></pre>
         <pre><code>npm install express dotenv express-session</code></pre>
       </figure>
       <h3 id="step-2-get-your-secondfactor-api-credentials">Step 2: Get Your SecondFactor API Credentials</h3>
-      <p>Sign in to your SecondFactor dashboard and get your API key and Service SID. You can find the Service SID on the Profile page.</p>
+      <p>Sign in to your SecondFactor dashboard and get your API key and Service SID. You can find the Service SID on the Settings page.</p>
       <p>Create a <code>.env</code> file in your project directory and add the following variables:</p>
       <figure class="post-code">
         <figcaption><span class="post-code-n">.env</span><button type="button" class="post-code-copy" aria-label="Copy code">Copy</button></figcaption>
@@ -336,28 +336,8 @@ app.listen(process.env.PORT || 3000, () =&gt; {
 
     const data = await response.json();
 
-    if (response.status === 404) {
-      delete req.session.pendingVerification;
-      return res.status(410).json({
-        error: 'Verification is no longer available. Request a new code.'
-      });
-    }
-
-    if (response.status === 429 &amp;&amp; data.code === '60202') {
-      delete req.session.pendingVerification;
-      return res.status(429).json({
-        error: 'Too many attempts. Request a new code.'
-      });
-    }
-
-    if (!response.ok) {
-      return res.status(response.status).json({
-        error: 'Unable to verify code.'
-      });
-    }
-
-    if (data.status === 'approved' &amp;&amp; data.valid === true) {
-      req.session.verifiedPhone = verification.phoneNumber;
+    if (response.status === 200 &amp;&amp; data.status === 'VERIFIED') {
+      req.session.verifiedPhone = data.to;
       delete req.session.pendingVerification;
 
       return res.json({
@@ -366,8 +346,29 @@ app.listen(process.env.PORT || 3000, () =&gt; {
       });
     }
 
-    return res.status(400).json({
-      error: 'Incorrect verification code. Please try again.'
+    if (response.status === 422) {
+      return res.status(400).json({
+        error: 'Incorrect verification code. Please try again.',
+        attemptsRemaining: data.attempts_remaining
+      });
+    }
+
+    if (response.status === 409 &amp;&amp; data.status === 'LOCKED') {
+      delete req.session.pendingVerification;
+      return res.status(429).json({
+        error: 'Too many attempts. Request a new code.'
+      });
+    }
+
+    if (response.status === 409 || response.status === 404) {
+      delete req.session.pendingVerification;
+      return res.status(410).json({
+        error: 'Verification is no longer available. Request a new code.'
+      });
+    }
+
+    return res.status(502).json({
+      error: 'Unable to verify code.'
     });
   } catch (error) {
     return res.status(502).json({
@@ -377,8 +378,8 @@ app.listen(process.env.PORT || 3000, () =&gt; {
 });</code></pre>
       </figure>
       <p>The endpoint retrieves the verification SID stored in the user’s session and submits it along with the entered code to SecondFactor.</p>
-      <p>If the code is correct, SecondFactor returns a response with <code>status: "approved"</code> and <code>valid: true</code>. Our application then records the verified phone number in the session and removes the pending verification.</p>
-      <p>An incorrect code returns <code>status: "pending"</code> from SecondFactor, even though the API responds with HTTP 200. That’s why our code checks the verification status instead of relying on the HTTP response alone.</p>
+      <p>If the code is correct, SecondFactor responds with HTTP 200 and <code>status: "VERIFIED"</code>. Our application then records the verified phone number in the session and removes the pending verification.</p>
+      <p>An incorrect code returns HTTP 422 with <code>status: "PENDING"</code> and the number of attempts remaining. Only HTTP 200 means the code is correct, so our code treats every other response as a failed check.</p>
       <p>SecondFactor allows five verification attempts per code. After the fifth unsuccessful attempt, the verification is locked, and the user needs to request a new OTP.</p>
       <p>For an application with user accounts, you should also save the verified status against the user’s account in your database.</p>
       <h3 id="step-5-test-the-phone-verification-flow">Step 5: Test the Phone Verification Flow</h3>
@@ -432,8 +433,8 @@ app.listen(process.env.PORT || 3000, () =&gt; {
       <p>Your Node.js application must handle these situations without allowing unlimited verification attempts or repeated requests.</p>
       <h3 id="incorrect-or-expired-otps">Incorrect or Expired OTPs</h3>
       <p>Our <code>/verify-otp</code> endpoint already handles incorrect codes by returning an error message and allowing the user to try again.</p>
-      <p>SecondFactor allows up to five verification attempts per code. Once the limit is reached, the API returns HTTP 429 with error code <code>60202</code>, and the user must request a new OTP.</p>
-      <p>If a verification has expired or is no longer available, the API returns HTTP 404. Your application should ask the user to request a new code rather than continue checking the old one.</p>
+      <p>SecondFactor allows up to five verification attempts per code. Once the limit is reached, the API returns HTTP 409 with <code>status: "LOCKED"</code>, and the user must request a new OTP.</p>
+      <p>If a verification has expired, the API returns HTTP 409 with <code>status: "EXPIRED"</code>. If the verification SID isn’t found, it returns HTTP 404. In either case, your application should ask the user to request a new code rather than continue checking the old one.</p>
       <h3 id="resending-verification-codes">Resending Verification Codes</h3>
       <p>SecondFactor doesn’t have a separate resend endpoint. To resend an OTP, your application can call the existing <code>/send-otp</code> endpoint with the same phone number.</p>
       <p>Each request creates a new verification with a new code and verification SID. Our <code>/send-otp</code> endpoint already updates the session with the latest SID, so subsequent verification attempts will use the new code.</p>
