@@ -95,6 +95,10 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
                       hairline feature rows with inline icons, drops the pricing/FAQ containers
     css/features.css  /features/<slug>/ additions on top of channels.css (pages use main.ch-page): two-column
                       explainer (.ft-split), route trace / key-value panel (.ft-trace, .ft-kv), code sample (.ft-code), numbered steps
+    css/dark.css      Dark theme, scoped to html[data-theme="dark"]. Loaded last on every page
+    js/theme.js       Sets data-theme from the saved choice (localStorage "sf-theme") or the OS
+                      preference, injects the sun/moon toggle into the header, swaps the logo.
+                      Loaded in <head> on every page, right after dark.css
     css/country.css   Country LP content alignment, four-card sections and homepage-style FAQ rows
     css/article.css   Blog layout: article pages (.post-* classes) and the /blog/ listing (.blog-*).
                       Loaded by /blog/ and /blog/<slug>/ pages

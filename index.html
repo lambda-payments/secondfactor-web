@@ -185,7 +185,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 
 /* ---- light gradient hero (homepage) ---- */
 .hero{background:linear-gradient(165deg,#fbfbfd 0%,#eef1f7 48%,#e4e9f3 100%)!important;color:#1d2230!important}
-.hero .h1{color:#1d2230!important}
+.hero .h1{color:#1d2230!important;font-size:clamp(36px,4.6vw,68px)!important;font-weight:500!important;letter-spacing:-.035em!important;line-height:1.08!important}
+.hero .wordline > span{text-wrap:balance}
 .hero .p-d,.hero p{color:rgba(29,34,48,.74)!important}
 .hero .lbl-d{color:rgba(29,34,48,.7)!important}
 .hero .up.mono,.hero .up.mono span,.hero .up[style*="var(--disp)"],.hero .up[style*="var(--disp)"] span{color:rgba(31,36,80,.7)!important}
@@ -576,6 +577,8 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
 <link rel="stylesheet" href="/css/logos.css">
 <link rel="stylesheet" href="/css/chrome.css">
 <link rel="stylesheet" href="/css/surface.css">
+<link rel="stylesheet" href="/css/dark.css">
+<script src="/js/theme.js"></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -691,10 +694,10 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
     <div class="copy" style="position:relative;z-index:2;max-width:min(1200px,90vw)">
       <span class="heropill"><span class="hp-t"><i></i>OTP delivery &amp; verification <b>API</b></span></span>
       <h1 class="h1" style="margin:clamp(22px,2.6vw,38px) 0 0">
-        <span class="wordline"><span style="animation-delay:.12s">Stronger Authentication</span></span>
-        <span class="wordline"><span style="animation-delay:.24s">for <span style="color:#3078e8">a Safer World</span></span></span>
+        <span class="wordline"><span style="animation-delay:.12s">OTP Verification.</span></span>
+        <span class="wordline"><span style="animation-delay:.24s"><span style="color:#3078e8">Smarter, Faster, More Affordable.</span></span></span>
       </h1>
-      <p class="p-d up" style="animation-delay:.5s;margin:clamp(20px,2vw,30px) auto 0;max-width:58ch">SecondFactor makes two-factor authentication simple, reliable and enterprise-ready. Protect your users, data and business with trusted OTP delivery across SMS, WhatsApp, Viber and RCS.</p>
+      <p class="p-d up" style="animation-delay:.5s;margin:clamp(20px,2vw,30px) auto 0;max-width:58ch">Reduce authentication costs with intelligent routing, multi-channel delivery, and automatic fallback. One API for SMS, WhatsApp, Viber, and RCS.</p>
       <div class="up" style="animation-delay:.62s;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:clamp(28px,3vw,44px)">
         <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="btn btn-l">Get started <span class="ar">&rarr;</span></a>
         <a href="/support/" class="btn btn-o">Talk to sales</a>
