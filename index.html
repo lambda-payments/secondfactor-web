@@ -748,11 +748,11 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
       <div class="rv rv3 steps" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(18px,2vw,28px);max-width:900px;position:relative">
         <div class="stepcard" style="border:1px solid rgba(31,36,80,.14);padding:clamp(24px,2.4vw,34px)">
           <div class="stephead"><span class="stepnum">1</span><h3 class="h3" style="margin:0">Send an OTP</h3></div>
-          <p class="s-d">Call <span class="mono" style="font-size:13px">/otp/send</span> with the user's phone number to send a code through an eligible channel and receive a request ID.</p>
+          <p class="s-d">Post the user's phone number to <span class="mono" style="font-size:13px">/Verifications</span> to send a code through an eligible channel and receive a verification SID.</p>
         </div>
         <div class="stepcard" style="border:1px solid rgba(31,36,80,.14);padding:clamp(24px,2.4vw,34px)">
           <div class="stephead"><span class="stepnum">2</span><h3 class="h3" style="margin:0">Verify the code</h3></div>
-          <p class="s-d">Call <span class="mono" style="font-size:13px">/otp/verify</span> with the request ID and the code your user entered to receive the verification result.</p>
+          <p class="s-d">Post the verification SID and the code your user entered to <span class="mono" style="font-size:13px">/VerificationCheck</span> to receive the verification result.</p>
         </div>
       </div>
       <div class="rv rv4" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:clamp(28px,3vw,42px)">
@@ -901,7 +901,7 @@ main section .crd p{font-size:13.5px!important;line-height:1.6!important}
       <details class="q"><summary><span>How does SecondFactor choose a delivery channel?</span><i>+</i></summary><p>The Price Intelligence Engine checks the destination and eligible channels, then attempts delivery through the lowest-cost option. If delivery isn't confirmed within eight seconds, it tries the next eligible channel.</p></details>
       <details class="q"><summary><span>Do I need to connect every channel?</span><i>+</i></summary><p>You can start with the channels you need and add others later. SecondFactor routes requests through channels enabled for your account and available to the recipient.</p></details>
       <details class="q"><summary><span>Do I need a WhatsApp Business Account to send WhatsApp OTPs?</span><i>+</i></summary><p>Yes. You need to connect a WhatsApp Business Account and complete the applicable setup and authentication template approvals before sending WhatsApp OTPs.</p></details>
-      <details class="q"><summary><span>Do I need to generate and store OTPs in my application?</span><i>+</i></summary><p>No. SecondFactor handles code generation and verification. Use /otp/send to request delivery and /otp/verify to check the code your user entered.</p></details>
+      <details class="q"><summary><span>Do I need to generate and store OTPs in my application?</span><i>+</i></summary><p>No. SecondFactor handles code generation and verification. Call the Verifications endpoint to send a code and VerificationCheck to check the code your user entered.</p></details>
       <details class="q"><summary><span>Can I test SecondFactor before going live?</span><i>+</i></summary><p>New accounts receive free credits to test real OTP delivery in the PIE Playground, inspect the selected route and verify the code received.</p></details>
       <details class="q" style="border-bottom:1px solid var(--brd)"><summary><span>Can I see whether an OTP was delivered?</span><i>+</i></summary><p>Your dashboard includes OTP logs showing the destination, delivery channel, status and cost of each request.</p></details>
     </div>
