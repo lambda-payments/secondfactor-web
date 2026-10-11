@@ -99,7 +99,7 @@ const CHANNEL_PAGES = {
       {q:"Will Every OTP Request Be Sent Through SMS?",a:"SecondFactor's routing engine selects the lowest-cost eligible channel for each request. If you enable additional channels, a request may use one of those instead of SMS."},
       {q:"Can SMS Be Used as a Fallback for WhatsApp?",a:"Yes, SMS can be used when WhatsApp delivery isn't confirmed and SMS is the next eligible channel. You need to enable SMS and complete any applicable sender and template setup."},
       {q:"What Happens if SMS Delivery Isn't Confirmed?",a:"SecondFactor attempts the next eligible channel after eight seconds without delivery confirmation. Fallback depends on another channel being enabled and available for the recipient."},
-      {q:"How Much Does an SMS OTP Cost?",a:"Pricing depends on the destination and your pricing arrangement. Review the pricing page or contact our team to understand applicable charges, including how message segments and fallback are billed."},
+      {q:"How Much Does an SMS OTP Cost?",a:"Pricing depends on the destination and your pricing arrangement. Each accepted OTP request is a single charge, including when delivery falls back to another channel. Review the pricing page or contact our team to understand applicable charges, including how message segments are billed."},
       {q:"Can I Test SMS OTP Delivery Before Integrating?",a:"New accounts receive free credits to test real OTP delivery through the PIE Playground. The result shows which eligible channel handled your request, and you can enter the received code to test verification."}
     ],
     ctaTitle:"Start Testing Your SMS OTP Integration",

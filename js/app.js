@@ -200,6 +200,84 @@
     spy();
   }
 
+  /* article code samples: colour <figure class="post-code" data-lang="js|bash|json|env">.
+     Patterns are built with new RegExp so a browser without lookbehind just shows plain text. */
+  (function () {
+    var blocks = document.querySelectorAll('.post-code[data-lang] pre code');
+    if (!blocks.length) return;
+    var R = String.raw, STR = R`'(?:\\.|[^'\\\n])*'|"(?:\\.|[^"\\\n])*"`, rules;
+    try {
+      rules = {
+        js: new RegExp([
+          R`(?<c>\/\/[^\n]*|\/\*[\s\S]*?\*\/)`,
+          '(?<s>' + STR + R`|\x60(?:\\.|[^\x60\\])*\x60)`,
+          R`(?<r>(?<=[(,=:!&|?]\s*)\/(?![\/*])(?:\\.|\[(?:\\.|[^\]\\])*\]|[^\/\\\n])+\/[dgimsuy]*)`,
+          R`(?<k>\b(?:const|let|var|function|return|if|else|try|catch|finally|async|await|new|delete|typeof|throw|for|while|of|in|class|import|from|export|default)\b)`,
+          R`(?<l>\b(?:true|false|null|undefined)\b)`,
+          R`(?<n>\b\d+(?:\.\d+)?\b)`,
+          R`(?<f>\b[A-Za-z_$][\w$]*(?=\s*\())`
+        ].join('|'), 'g'),
+        bash: new RegExp([
+          R`(?<c>(?:^|(?<=\s))#[^\n]*)`,
+          '(?<s>' + STR + ')',
+          R`(?<v>\$\{?\w+\}?)`,
+          R`(?<o>(?<=\s)--?[A-Za-z][\w-]*)`,
+          R`(?<f>^[ \t]*[a-z][\w.-]*)`
+        ].join('|'), 'gm'),
+        json: new RegExp([
+          R`(?<p>"(?:\\.|[^"\\])*"(?=\s*:))`,
+          R`(?<s>"(?:\\.|[^"\\])*")`,
+          R`(?<l>\b(?:true|false|null)\b)`,
+          R`(?<n>-?\b\d+(?:\.\d+)?\b)`
+        ].join('|'), 'g'),
+        env: new RegExp([
+          R`(?<c>^#[^\n]*)`,
+          R`(?<p>^[A-Za-z_][A-Za-z0-9_]*(?==))`,
+          R`(?<s>(?<==)[^\n]+)`
+        ].join('|'), 'gm')
+      };
+    } catch (err) { return; }
+    var esc = function (s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+    Array.prototype.forEach.call(blocks, function (code) {
+      var re = rules[code.closest('.post-code').getAttribute('data-lang')];
+      if (!re) return;
+      /* one block per source line, so a long line wraps under its own indentation */
+      var src = code.textContent.replace(/\n$/, ''), lines = [''], last = 0, m, k;
+      var put = function (text, cls) {
+        text.split('\n').forEach(function (part, i) {
+          if (i) lines.push('');
+          if (part) lines[lines.length - 1] += cls ? '<span class="tk-' + cls + '">' + esc(part) + '</span>' : esc(part);
+        });
+      };
+      re.lastIndex = 0;
+      while ((m = re.exec(src))) {
+        if (!m[0]) { re.lastIndex++; continue; }
+        for (k in m.groups) if (m.groups[k] !== undefined) break;
+        put(src.slice(last, m.index));
+        put(m[0], k);
+        last = m.index + m[0].length;
+      }
+      put(src.slice(last));
+      code.innerHTML = src.split('\n').map(function (raw, i) {
+        var n = raw.match(/^ */)[0].length, html = lines[i] || '';
+        /* the indent keeps white-space:pre so the line cannot break right after it */
+        if (n && html.slice(0, n) === raw.slice(0, n)) html = '<span class="ws">' + html.slice(0, n) + '</span>' + html.slice(n);
+        return '<span class="ln" style="--i:' + n + '">' + html + '\n</span>';
+      }).join('');
+    });
+  })();
+
+  /* article code samples: copy button */
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.post-code-copy') : null;
+    if (!btn || !navigator.clipboard) return;
+    var pre = btn.closest('.post-code').querySelector('pre');
+    navigator.clipboard.writeText(pre.textContent).then(function () {
+      btn.textContent = 'Copied'; btn.classList.add('done');
+      setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1600);
+    });
+  });
+
   /* mobile drawer */
   var burger = document.querySelector('.burger'), navlinks = document.querySelector('.navlinks');
   if (burger && navlinks) {
