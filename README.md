@@ -21,6 +21,8 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
     /country/             country/index.html            Country directory (linked from /pricing/)
     /country/<slug>/      country/<slug>/index.html     20 country LPs, including India
+    /features/<slug>/     features/<slug>/index.html    Feature pages (no /features/ hub yet): otp-routing-fallback, otp-delivery-logs,
+                                                        otp-template-management, pie-playground
     /blog/                blog/index.html               Blog listing: compact intro, then one `.blog-card` link per published article
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
@@ -77,6 +79,8 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
                       Keeps the ids js/app.js drives (#modeTabs, #country, #routedPrice, ...)
     css/channels.css  /channels/ and /channels/<name>/ (main.ch-page): opens the inline-styled cards into
                       hairline feature rows with inline icons, drops the pricing/FAQ containers
+    css/features.css  /features/<slug>/ additions on top of channels.css (pages use main.ch-page): two-column
+                      explainer (.ft-split), route trace / key-value panel (.ft-trace, .ft-kv), code sample (.ft-code), numbered steps
     css/country.css   Country LP content alignment, four-card sections and homepage-style FAQ rows
     css/article.css   Blog layout: article pages (.post-* classes) and the /blog/ listing (.blog-*).
                       Loaded by /blog/ and /blog/<slug>/ pages

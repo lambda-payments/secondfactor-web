@@ -1,0 +1,38 @@
+/* SecondFactor.ai — /features/<name>/ pages.
+   Loaded after channels.css: feature pages reuse the channel page layout (main.ch-page) and
+   add three pieces here: the two-column explainer (.ft-split), the route trace panel
+   (.ft-trace, wraps motion.css's .tline) and the code sample (.ft-code). */
+
+.ft-split{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(32px,5vw,76px);align-items:start}
+.ft-split > div > p{font:300 16.5px/1.75 Sora,system-ui,sans-serif;color:var(--ch-ink,#3b4160);margin:0 0 18px;max-width:60ch}
+.ft-split > div > p:last-child{margin-bottom:0}
+
+html body main.ch-page .ft-trace:not(#sf){background:#f8fafe!important;border:1px solid #dfe7f5!important;border-radius:14px;padding:26px 28px 28px}
+.ft-trace-h{display:block;font:400 12px Sora,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(31,36,80,.6)}
+.ft-trace .tl-v b{font-weight:400;color:#1f2450}
+main.ch-page .ft-trace p.ft-trace-n{font:300 13px/1.6 Sora,system-ui,sans-serif;color:rgba(31,36,80,.62);margin:24px 0 0!important;padding-top:16px;border-top:1px solid #dfe7f5}
+
+html body main.ch-page pre.ft-code:not(#sf){margin:0;background:#141a3a!important;color:#dfe7fb!important;border-radius:14px;padding:22px 24px;overflow-x:auto;font:400 13px/1.75 "JetBrains Mono",ui-monospace,monospace;text-align:left;tab-size:2}
+pre.ft-code + pre.ft-code{margin-top:14px!important}
+pre.ft-code .c{color:#8f9cc4}
+pre.ft-code .k{color:#9ec1ff}
+main.ch-page code.ft-ic{font:400 .9em "JetBrains Mono",ui-monospace,monospace;background:#f2f6fe;border:1px solid #d9e6fb;border-radius:5px;padding:1px 5px;color:#1f2450;white-space:nowrap}
+
+/* numbered steps */
+.ft-steps{counter-reset:ft}
+.ft-steps > div{counter-increment:ft}
+.ft-steps > div > h3:before{content:counter(ft);display:inline-grid;place-items:center;width:26px;height:26px;margin-right:10px;border-radius:50%;background:#3078e8;color:#fff;font:400 13px Sora,system-ui,sans-serif;vertical-align:2px}
+
+.ft-split-code{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
+.ft-split-code > div{min-width:0}
+.ft-split-code pre.ft-code{font-size:12.5px!important}
+
+@media (max-width:860px){.ft-split,.ft-split-code{grid-template-columns:minmax(0,1fr)}}
+
+/* key/value panel inside .ft-trace: one log entry, a template list */
+.ft-kv{list-style:none;margin:18px 0 0;padding:0}
+.ft-kv li{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:11px 0;border-top:1px solid #e3eaf6;font:300 14.5px/1.5 Sora,system-ui,sans-serif;color:rgba(31,36,80,.72)}
+.ft-kv li:first-child{border-top:0}
+.ft-kv li > b{font:400 13.5px "JetBrains Mono",ui-monospace,monospace;color:#1f2450;text-align:right}
+.ft-kv .ok{color:#17804d}
+.ft-kv .wait{color:#a8650a}
