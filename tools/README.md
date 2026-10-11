@@ -8,41 +8,62 @@
 - `/js/carrier-check.js`: carrier controller and `lookupCarrier(number)` boundary.
 - `/js/phone-check.js`: shared type/validation controller and `lookupPhone(number)` boundary, selected by the form’s `data-tool` attribute.
 
-No dependencies, build step, network requests, or number storage.
+No dependencies or build step. The three tools call the SecondFactor Lookup API from the
+browser and store nothing.
 
-## Sample data
+## Live lookups
 
-The UI uses finished product copy. The following number-to-carrier pairings are temporary fictional fixtures for frontend development; the backend is not connected:
+`js/sf-lookup.js` is the shared adapter, loaded before each tool's controller. It calls
 
-| Input | Carrier | Country |
+    GET https://api.secondfactor.ai/v2/PhoneNumbers/{E164}?Fields=line_type_intelligence
+    X-API-Key: <demo key>
+
+and maps the response to the UI models the renderers already use:
+
+- `SFLookup.phoneType(number)` — `line_type_intelligence.type` becomes the line type
+  (mobile, landline, VoIP, toll-free, …); an invalid number renders as "Not a valid number"
+  with the API's reason; a valid number with no known type returns `null` (the
+  "phone type unavailable" state).
+- `SFLookup.validate(number)` — `valid` / `validation_errors` become "Valid format" /
+  "Invalid format" plus a readable reason (TOO_SHORT, NOT_A_NUMBER, …).
+- `SFLookup.carrier(number)` — `line_type_intelligence.carrier_name`, or `null` when the
+  API has no carrier for the number (the "carrier information unavailable" state).
+
+Country names come from `Intl.DisplayNames` (falling back to the ISO code). A 429 from the
+API shows a "too many lookups" message; any other failure shows the generic lookup-failed
+message, which never implies the number is invalid.
+
+### The API key
+
+The key in `js/sf-lookup.js` belongs to a demo account that can only run lookups. It is
+stored base64-encoded in pieces so it is not greppable as plain text, but a browser has to
+send it, so anyone can read it from DevTools or the network tab. Treat it as public: keep
+that account read-only, prepaid and rate-limited, and rotate the key from
+https://app.secondfactor.ai/dashboard/keys if it is abused. Real credentials belong on a
+server.
+
+### CORS
+
+The API answers browser requests only from origins on its allowlist (currently
+`https://app.secondfactor.ai`). `https://secondfactor.ai` must be added on the API side
+before the tools work on the live site; until then, and on local previews, every lookup
+ends in the "we couldn't complete the lookup" state.
+
+## Example numbers
+
+The example buttons use numbers the live API answers with real data:
+
+| Tool | Input | Result |
 | --- | --- | --- |
-| `+14155550123` | AT&T | United States |
-| `+447700900123` | Vodafone | United Kingdom |
-| `+16045550123` | TELUS | Canada |
+| Phone type | `+9779841234567` | Mobile, Nepal Telecom |
+| Phone type | `+61280000000` | Landline, Australia |
+| Phone type | `+18004444444` | Toll-free, United States |
+| Carrier | `+4915112345678` / `+33612345678` / `+919876543210` | T-Mobile / SFR / Airtel |
+| Validation | `+9779841234567`, `+4915112345678` | Valid format |
+| Validation | `+1415555012` | Invalid format (too short) |
 
-Spaces, parentheses, dots and hyphens are stripped before sample matching. Input checks only enforce a leading `+`, a nonzero first digit, and 7–15 total digits in this frontend. This is not numbering-plan validation, an active-line check, or evidence of ownership. Numbers outside the fixture set get a carrier-information-unavailable message, never an invented carrier.
-
-## Backend integration
-
-Replace `lookupCarrier(number)` with an adapter to an agreed server endpoint. It currently resolves a fixture or `null` after a 600 ms simulated delay. This repository does not define a carrier lookup endpoint: the existing public OTP documentation describes `lookup` as an empty compatibility field.
-
-The current renderer accepts this UI model (not a finalized API contract):
-
-```json
-{
-  "number": "+1 415 555 0123",
-  "carrier": "AT&T",
-  "country": "United States",
-  "countryCode": "US",
-  "callingCode": "+1"
-}
-```
-
-Keep provider credentials on the server. Agree how the provider represents unavailable or unknown carrier data, ported numbers, unsupported destinations, request failures and rate limits. Map those cases to explicit user-facing messages; a lookup failure must not imply the number is invalid. The current `null` handling shows carrier information unavailable; map the server’s actual not-found/unavailable responses to the appropriate state. Display provider strings as text, as the renderer currently does.
-
-The UI already includes example, editing, loading, result, format-error, unavailable, and exception states. A request counter prevents stale responses from replacing a more recent edit or submission. Copy failures are announced without falsely reporting success. The form supports Enter submission and accessible field errors and status announcements.
-
-Before launch, replace the fixture lookup, initial fixture result and simulated delay with the live integration. The page labels, messages and clipboard text already use finished product copy. Add any live lookup policy copy based on the actual implementation. Change the four pages from `noindex, follow` to the site's standard robots metadata and add all four canonical URLs to `sitemap.xml`.
+The result shown before the first lookup is the first example's real answer, hard-coded in
+the page and in the controller's `initial` / `INITIAL` object; keep the two in sync.
 
 ## Manual verification
 
@@ -50,8 +71,9 @@ Serve the repository root with `python3 -m http.server 8080`.
 
 1. Open `/tools/`, then the carrier checker; confirm all three cards open the correct tool.
 2. Submit an empty input; check the inline error and input focus.
-3. Try all three sample buttons, including a formatted number entered manually.
-4. Try a plausible unsampled number; it must show carrier information unavailable, not a carrier.
+3. Try all three example buttons, including a formatted number entered manually.
+4. Try a US number such as `+14155550123`: the API returns no carrier or type for it, so the
+   tools must show the unavailable state, never an invented carrier.
 5. Submit a sample, then edit or submit another sample during loading; only the latest state should remain.
 6. Copy a result and confirm it includes the displayed number and carrier; deny clipboard access to check the fallback.
 7. Check mobile layout, keyboard submission, FAQ expansion and the shared mobile menu.
@@ -65,45 +87,3 @@ Factual copy was checked against:
 - [Twilio Line Type Intelligence](https://www.twilio.com/docs/lookup/v2-api/line-type-intelligence): carrier names, line types, and missing carrier data.
 - [Twilio Line Status](https://www.twilio.com/docs/lookup/v2-api/line-status): activity and reachability are separate checks.
 - [Google libphonenumber FAQ](https://github.com/google/libphonenumber/blob/master/FAQ.md): portability, original-carrier metadata, and the distinction between validation and reachability.
-
-
-## Phone type and validation handoff
-
-`js/phone-check.js` keeps independent fixture maps for the two new tools. Replace
-`lookupPhone(number)` with an adapter that chooses the appropriate server endpoint
-using `form.dataset.tool`. The endpoint names and provider are still to be agreed.
-Do not replace these fixtures with prefix guessing or treat the input regex as validation.
-
-Phone type fixture responses:
-
-| Input | Line type | Carrier |
-| --- | --- | --- |
-| `+14155550123` | Mobile | AT&T |
-| `+14155550124` | Landline | AT&T |
-| `+14155550125` | VoIP | Twilio |
-
-Type renderer fields: `value` (display label), `number`, `country`, `carrier`,
-`callingCode`. These pairings are fictional, like the carrier fixtures.
-
-Validation fixture responses:
-
-| Input | Result | Reason |
-| --- | --- | --- |
-| `+14155550123` | Valid format | Matches numbering plan |
-| `+447700900123` | Valid format | Matches numbering plan |
-| `+1415555012` | Invalid format | Too short for United States |
-
-Validation renderer fields: `value`, `valid` (boolean), `number`, `country`,
-`international`, `reason`. The invalid fixture exercises a negative outcome,
-including a textual reason and red result styling. It passes the input sanity
-check but fails the fixture's numbering-plan check. Real validation must come
-from the eventual integration; these responses do not prove assignment or activity.
-
-An unknown input returns `null` and shows an unavailable message, which is
-separate from an invalid result. The result note and clipboard output explain
-that neither a line type nor a valid format establishes activity or ownership.
-Exercise all examples, pending-request edits, copy denial, malformed input,
-and unknown numbers on each tool before integration.
-
-Additional validation FAQ source:
-[Twilio Formatting and Validation](https://www.twilio.com/docs/lookup/v2-api/formatting-validation).

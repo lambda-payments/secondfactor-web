@@ -25,9 +25,10 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /features/<slug>/     features/<slug>/index.html    Feature pages: otp-routing-fallback, otp-delivery-logs,
                                                         otp-template-management, pie-playground
     /tools/               tools/index.html              Free tools directory
-    /tools/carrier-check/ tools/carrier-check/index.html Carrier checker with local sample data
+    /tools/carrier-check/ tools/carrier-check/index.html Carrier checker (live Lookup API)
     /tools/phone-type-check/ tools/phone-type-check/index.html Mobile, landline, and VoIP checker
     /tools/phone-number-validation/ tools/phone-number-validation/index.html Number format validation
+    /tools/savings-calculator/ tools/savings-calculator/index.html Savings vs Twilio Verify by country and volume (js/savings.js)
     /blog/                blog/index.html               Blog listing: compact intro, then one `.blog-card` link per published article
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
@@ -89,7 +90,8 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
     css/motion.css    Shared design layer: gradients, cards, animation, responsive rules
     css/components.css Shared section components (channels section, PIE Playground) used by the home page
                       and the country pages. Load it before the home page's inline <style> / motion.css
-    css/pricing.css   /pricing/ layout (.pr-*): calculator controls, result panel, comparison columns.
+    css/pricing.css   /pricing/ layout (.pr-*): calculator controls, result panel, comparison columns,
+                      and the savings-calculator layout (.sv-*) used by /tools/savings-calculator/
                       Keeps the ids js/app.js drives (#modeTabs, #country, #routedPrice, ...)
     css/channels.css  /channels/ and /channels/<name>/ (main.ch-page): opens the inline-styled cards into
                       hairline feature rows with inline icons, drops the pricing/FAQ containers
@@ -223,8 +225,9 @@ rates. Adding a country also needs a matching <option> in pricing/index.html's d
 All three use local fictional sample data; they do not query any live service.
 Tools is linked from the shared footer, not the header.
 
-UI styles live in `css/tools.css`. Carrier behavior and fixtures live in
-`js/carrier-check.js`; type and validation behavior share `js/phone-check.js`.
-See [tools/README.md](tools/README.md) for the backend handoff and UI states.
+UI styles live in `css/tools.css`. All three call the SecondFactor Lookup API through
+`js/sf-lookup.js` (demo key, see the note there); carrier behaviour lives in
+`js/carrier-check.js`, type and validation share `js/phone-check.js`.
+See [tools/README.md](tools/README.md) for the API mapping, the CORS requirement and UI states.
 All four tools pages are indexable and listed in `sitemap.xml`. The lookups still
 run on the sample fixtures described in tools/README.md until a backend is connected.

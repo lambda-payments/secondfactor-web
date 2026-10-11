@@ -1,14 +1,10 @@
-/* Carrier checker UI with local fixtures. No network requests or persistence.
-   Replace lookupCarrier with the backend adapter described in tools/README.md. */
+/* Carrier checker UI. Lookups go through window.SFLookup (js/sf-lookup.js), the browser
+   adapter for the SecondFactor Lookup API. Nothing is stored. */
 (function () {
   'use strict';
 
-  // Fictional number-to-carrier pairings. Never infer a carrier from a prefix.
-  var SAMPLES = {
-    '+14155550123': { number: '+1 415 555 0123', carrier: 'AT&T', country: 'United States', countryCode: 'US', callingCode: '+1' },
-    '+447700900123': { number: '+44 7700 900123', carrier: 'Vodafone', country: 'United Kingdom', countryCode: 'GB', callingCode: '+44' },
-    '+16045550123': { number: '+1 604 555 0123', carrier: 'TELUS', country: 'Canada', countryCode: 'CA', callingCode: '+1' }
-  };
+  // Result shown before the first lookup: the first example's real answer.
+  var INITIAL = { number: '+49 1511 2345678', carrier: 'T-Mobile', country: 'Germany', countryCode: 'DE', callingCode: '+49' };
 
   var form = document.getElementById('carrier-form');
   if (!form) return;
@@ -23,14 +19,13 @@
   var copy = document.getElementById('copy-result');
   var copyMarkup = copy.innerHTML;
   var submitMarkup = submit.innerHTML;
-  var selected = SAMPLES['+14155550123'];
+  var selected = INITIAL;
   var requestId = 0;
   var copyTimer;
 
-  // Temporary delay to exercise the loading state before backend integration.
   async function lookupCarrier(number) {
-    await new Promise(function (resolve) { setTimeout(resolve, 600); });
-    return SAMPLES[number] || null;
+    if (!window.SFLookup) throw new Error('adapter missing');
+    return window.SFLookup.carrier(number);
   }
 
   function clearError() {

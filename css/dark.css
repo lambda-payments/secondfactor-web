@@ -33,6 +33,8 @@ html[data-theme="dark"] footer.band:not(#sf):not(#sf){background:var(--d-surface
 html[data-theme="dark"] footer.band :is(.nav-a,.nl,p,span):not(#sf):not(#sf){color:var(--d-mut)!important}
 html[data-theme="dark"] footer.band :is(.nav-a,.nl):hover:not(#sf):not(#sf){color:var(--d-blue)!important}
 html[data-theme="dark"] footer.band .ftb:not(#sf):not(#sf){border-top-color:var(--d-line)!important}
+html[data-theme="dark"] footer.band :is(.ft-col h2,.ft-contact,.ftb a):not(#sf):not(#sf){color:var(--d-text)!important}
+html[data-theme="dark"] footer.band :is(.ft-contact,.ftb a):hover:not(#sf):not(#sf){color:var(--d-blue)!important}
 
 /* theme toggle (injected by js/theme.js) */
 .theme-t{display:inline-grid;place-items:center;width:36px;height:36px;flex:none;padding:0;border:1px solid rgba(31,36,80,.18);border-radius:999px;background:transparent;color:#1f2450;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
@@ -145,3 +147,49 @@ html[data-theme="dark"] main :is(.tl-k,.trole,.tname,.mono,.tquote blockquote):n
 html[data-theme="dark"] main :is(.tl-v,.tname):not(#sf):not(#sf){color:var(--d-text)!important}
 html[data-theme="dark"] main .tl-v[style*="color:var(--ac)"]:not(#sf):not(#sf){color:var(--d-blue)!important}
 html[data-theme="dark"] main .tline:before:not(#sf):not(#sf){background:linear-gradient(to bottom,rgba(91,155,255,.6),rgba(91,155,255,.15))!important}
+
+/* ---- pricing savings calculator ---- */
+html[data-theme="dark"] main :is(.sv-range-head label,.sv-range-ticks,.sv-help,.sv-note):not(#sf):not(#sf){color:var(--d-mut)!important}
+html[data-theme="dark"] main .sv-range-head output:not(#sf):not(#sf),html[data-theme="dark"] main .sv-break dd:not(#sf):not(#sf){color:var(--d-text)!important}
+html[data-theme="dark"] main .sv-range input[type=range]::-webkit-slider-runnable-track{background:linear-gradient(90deg,#3078e8 var(--sv-fill,10%),rgba(232,235,244,.18) var(--sv-fill,10%))}
+html[data-theme="dark"] main .sv-range input[type=range]::-moz-range-track{background:rgba(232,235,244,.18)}
+html[data-theme="dark"] main .sv-range input[type=range]::-webkit-slider-thumb{background:#e8ebf4;border-color:rgba(232,235,244,.3)}
+html[data-theme="dark"] main .sv-range input[type=range]::-moz-range-thumb{background:#e8ebf4;border-color:rgba(232,235,244,.3)}
+html[data-theme="dark"] main .sv-note:not(#sf):not(#sf){border-top-color:var(--d-line)!important}
+html[data-theme="dark"] main .sv-result .pr-unit.is-neg:not(#sf):not(#sf){color:#ff9b94!important;background:rgba(255,120,110,.14)!important;border-color:rgba(255,120,110,.35)!important}
+html[data-theme="dark"] .sv-num:not(#sf):not(#sf){background-image:none!important}
+html[data-theme="dark"] main .pr-save-strip:not(#sf):not(#sf){background:var(--d-surface)!important;border-color:var(--d-line)!important}
+html[data-theme="dark"] main .pr-save-strip:not(#sf):not(#sf){border-top-color:var(--d-blue)!important}
+html[data-theme="dark"] main .sv-page .pr-field label:not(#sf):not(#sf){color:var(--d-mut)!important}
+
+/* ---- /tools/ pages (css/tools.css hard-codes light surfaces) ---- */
+html[data-theme="dark"] .tools-page:not(#sf):not(#sf){color:var(--d-text)}
+html[data-theme="dark"] .tools-page :is(.tool-input-wrap,.tool-examples button,.tool-result,.tools-card):not(#sf):not(#sf){background:var(--d-surface)!important;border-color:var(--d-line)!important;color:var(--d-text)!important;box-shadow:none!important}
+html[data-theme="dark"] .tools-page .tool-input-wrap:not(#sf):not(#sf){border-color:rgba(232,235,244,.2)!important}
+html[data-theme="dark"] .tools-page .tool-input-wrap input:not(#sf):not(#sf){color:var(--d-text)!important}
+html[data-theme="dark"] .tools-page .tool-input-wrap :is(input::placeholder,svg):not(#sf):not(#sf){color:rgba(232,235,244,.45)!important}
+html[data-theme="dark"] .tools-page .tool-examples button:hover:not(#sf):not(#sf){background:var(--d-raise)!important;border-color:rgba(91,155,255,.5)!important}
+html[data-theme="dark"] .tools-page .tool-result-wrap:not(#sf):not(#sf){background:radial-gradient(rgba(232,235,244,.14) .8px,transparent .8px) 0 0/12px 12px,var(--d-bg)!important;border-color:var(--d-line)!important}
+html[data-theme="dark"] .tools-page :is(.tool-result-top,.tool-result-bottom,.tool-facts > div,.tool-how,.tool-faq-layout,.tool-faq details,.tool-cta):not(#sf):not(#sf){border-color:var(--d-line)!important}
+html[data-theme="dark"] .tools-page .tool-result-bottom:not(#sf):not(#sf){background:var(--d-raise)!important;color:var(--d-mut)!important}
+html[data-theme="dark"] .tools-page :is(.tool-tag,.tool-carrier-icon):not(#sf):not(#sf){background:var(--d-blue-soft)!important;border-color:rgba(91,155,255,.3)!important;color:var(--d-blue)!important}
+html[data-theme="dark"] .tools-page :is(.tool-eyebrow,.tool-step,.tool-examples button span,.tool-result-bottom button,.tool-text-button,.tools-card-link,.tool-faq summary span,.tool-breadcrumb a:hover):not(#sf):not(#sf){color:var(--d-blue)!important}
+html[data-theme="dark"] .tools-page :is(.tool-label,.tool-breadcrumb,.tool-breadcrumb a,.tool-hint,.tool-facts dt,.tool-result-note,.tool-lead,.tool-how p,.tool-faq p,.tool-cta p,.tools-card p,.tool-result-message p,.sv-help):not(#sf):not(#sf){color:var(--d-mut)!important}
+html[data-theme="dark"] .tools-page :is(h1,h2,h3,.tool-facts dd,.tool-faq summary,.tools-card h2):not(#sf):not(#sf){color:var(--d-text)!important}
+html[data-theme="dark"] .tools-page .tools-card-available:hover:not(#sf):not(#sf){border-color:rgba(91,155,255,.5)!important}
+html[data-theme="dark"] .tools-page .tool-error:not(#sf):not(#sf){color:#ff9b94!important}
+html[data-theme="dark"] .tools-page .tool-input-wrap:has([aria-invalid="true"]):not(#sf):not(#sf){border-color:#ff9b94!important}
+html[data-theme="dark"] .tools-page [data-validity="invalid"] #result-value:not(#sf):not(#sf){color:#ff9b94!important}
+html[data-theme="dark"] .tools-page [data-validity="invalid"] .tool-carrier-icon:not(#sf):not(#sf){color:#ff9b94!important;background:rgba(255,120,110,.14)!important;border-color:rgba(255,120,110,.35)!important}
+
+/* ---- /features/ pages (css/features.css) ---- */
+html[data-theme="dark"] main.ch-page .ft-trace:not(#sf):not(#sf){background:var(--d-surface)!important;border-color:var(--d-line)!important}
+html[data-theme="dark"] main.ch-page :is(.ft-trace-h,.ft-trace p.ft-trace-n,.ft-kv li,.ft-split > div > p):not(#sf):not(#sf){color:var(--d-mut)!important;border-color:var(--d-line)!important}
+html[data-theme="dark"] main.ch-page :is(.ft-trace .tl-v b,.ft-kv li > b):not(#sf):not(#sf){color:var(--d-text)!important}
+html[data-theme="dark"] main.ch-page .ft-kv li > b.ok:not(#sf):not(#sf){color:#4cd08a!important}
+html[data-theme="dark"] main.ch-page .ft-kv li > b.wait:not(#sf):not(#sf){color:#f0b45a!important}
+html[data-theme="dark"] main.ch-page code.ft-ic:not(#sf):not(#sf){background:rgba(255,255,255,.07)!important;border-color:var(--d-line)!important;color:var(--d-text)!important}
+html[data-theme="dark"] main.ch-page pre.ft-code:not(#sf):not(#sf){background:#060a16!important;border:1px solid var(--d-line)}
+
+/* home hero: live route/status line under the OTP digits */
+html[data-theme="dark"] .hero :is(#heroRoute,#heroStatus):not(#sf):not(#sf){color:var(--d-mut)!important}

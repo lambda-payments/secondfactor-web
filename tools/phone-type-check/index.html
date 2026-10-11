@@ -33,6 +33,8 @@
 <link rel="stylesheet" href="/css/logos.css">
 <link rel="stylesheet" href="/css/chrome.css">
 <link rel="stylesheet" href="/css/surface.css">
+<link rel="stylesheet" href="/css/dark.css">
+<script src="/js/theme.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -128,7 +130,7 @@
         <div class="tool-input-row"><div class="tool-input-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></svg><input id="phone-number" name="phone" type="tel" inputmode="tel" autocomplete="off" placeholder="+1 415 555 0123" maxlength="40" aria-describedby="phone-hint phone-error" required></div><button class="tool-button" id="check-number" type="submit">Check phone type <span aria-hidden="true">↗</span></button></div>
         <p class="tool-hint" id="phone-hint">Include the country code, for example +1 for the US.</p>
         <p class="tool-error" id="phone-error" role="alert" hidden></p>
-        <div class="tool-examples"><span>Try an example</span><button type="button" data-sample="+14155550123">Mobile <span aria-hidden="true">↗</span></button><button type="button" data-sample="+14155550124">Landline <span aria-hidden="true">↗</span></button><button type="button" data-sample="+14155550125">VoIP <span aria-hidden="true">↗</span></button></div>
+        <div class="tool-examples"><span>Try an example</span><button type="button" data-sample="+9779841234567">Mobile <span aria-hidden="true">↗</span></button><button type="button" data-sample="+61280000000">Landline <span aria-hidden="true">↗</span></button><button type="button" data-sample="+18004444444">Toll-free <span aria-hidden="true">↗</span></button></div>
       </form>
       <noscript><p class="tool-error">Enable JavaScript to check the phone type.</p></noscript>
     </div>
@@ -137,11 +139,11 @@
         <div class="tool-result-top"><span class="tool-label" id="result-label">PHONE TYPE DETAILS</span></div>
         <div id="result-data">
           <div class="tool-carrier"><div class="tool-carrier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 18h4M3 8v8M21 8v8"/></svg></div><div><span class="tool-label">LINE TYPE</span><h2 id="result-value">Mobile</h2></div></div>
-          <dl class="tool-facts"><div><dt>Phone number</dt><dd data-result-field="number">+1 415 555 0123</dd></div><div><dt>Country</dt><dd data-result-field="country">United States</dd></div><div><dt>Carrier</dt><dd data-result-field="carrier">AT&amp;T</dd></div><div><dt>Calling code</dt><dd data-result-field="callingCode">+1</dd></div></dl>
+          <dl class="tool-facts"><div><dt>Phone number</dt><dd data-result-field="number">+977 984-1234567</dd></div><div><dt>Country</dt><dd data-result-field="country">Nepal</dd></div><div><dt>Carrier</dt><dd data-result-field="carrier">Nepal Telecom</dd></div><div><dt>Calling code</dt><dd data-result-field="callingCode">+977</dd></div></dl>
           <p class="tool-result-note" id="result-note">Line type does not confirm that a number is active or can receive messages.</p>
           <div class="tool-result-bottom"><button type="button" id="copy-result" aria-label="Copy result">Copy result <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V3H3v13h5"/></svg></button></div>
         </div>
-        <div class="tool-result-message" id="result-message" hidden><div class="tool-carrier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 18h4M3 8v8M21 8v8"/></svg></div><h2 id="result-message-title"></h2><p id="result-message-text"></p><button type="button" class="tool-text-button" data-sample="+14155550123">Try an example number <span aria-hidden="true">→</span></button></div>
+        <div class="tool-result-message" id="result-message" hidden><div class="tool-carrier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 18h4M3 8v8M21 8v8"/></svg></div><h2 id="result-message-title"></h2><p id="result-message-text"></p><button type="button" class="tool-text-button" data-sample="+9779841234567">Try an example number <span aria-hidden="true">→</span></button></div>
       </div>
       <p class="sr" id="lookup-status" role="status" aria-live="polite"></p>
     </div>
@@ -193,6 +195,7 @@
           <li><a href="/tools/carrier-check/" class="nav-a">Carrier checker</a></li>
           <li><a href="/tools/phone-type-check/" class="nav-a">Phone type checker</a></li>
           <li><a href="/tools/phone-number-validation/" class="nav-a">Number validation</a></li>
+          <li><a href="/tools/savings-calculator/" class="nav-a">Savings calculator</a></li>
           <li><a href="/tools/" class="nav-a">All tools</a></li>
         </ul>
       </div>
@@ -212,6 +215,7 @@
   </div>
 </footer>
 <script src="/js/app.js"></script>
+<script src="/js/sf-lookup.js"></script>
 <script src="/js/phone-check.js"></script>
 </body>
 </html>

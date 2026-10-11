@@ -1,29 +1,23 @@
-/* Phone type and number validation UI with local fixtures. No network requests or persistence.
-   Replace lookupPhone with the backend adapter described in tools/README.md. */
+/* Phone type and number validation UI. Lookups go through window.SFLookup (js/sf-lookup.js),
+   the browser adapter for the SecondFactor Lookup API. Nothing is stored. */
 (function () {
   'use strict';
 
-  // Temporary fictional fixtures for UI review; replace lookupPhone with the backend.
+  // Per-tool copy, plus the result shown before the first lookup (the first example's real answer).
   var CONFIG = {
     'phone-type-check': {
       title: 'Phone type check', details: 'PHONE TYPE DETAILS', loading: 'Checking phone type…',
       loadingText: 'Looking up the number’s line type.', action: 'Check phone type',
       unavailable: 'Phone type unavailable', unavailableText: 'We couldn’t retrieve the phone type for this number. Please try again later.',
-      fixtures: {
-        '+14155550123': { value: 'Mobile', number: '+1 415 555 0123', country: 'United States', carrier: 'AT&T', callingCode: '+1' },
-        '+14155550124': { value: 'Landline', number: '+1 415 555 0124', country: 'United States', carrier: 'AT&T', callingCode: '+1' },
-        '+14155550125': { value: 'VoIP', number: '+1 415 555 0125', country: 'United States', carrier: 'Twilio', callingCode: '+1' }
-      }
+      initial: { value: 'Mobile', number: '+977 984-1234567', country: 'Nepal', carrier: 'Nepal Telecom', callingCode: '+977' },
+      lookup: function (n) { return window.SFLookup.phoneType(n); }
     },
     'phone-number-validation': {
       title: 'Phone number validation', details: 'VALIDATION RESULT', loading: 'Validating number…',
       loadingText: 'Checking the number’s format and numbering rules.', action: 'Validate number',
       unavailable: 'Validation unavailable', unavailableText: 'We couldn’t validate this number. Please try again later. This does not mean the number is invalid.',
-      fixtures: {
-        '+14155550123': { value: 'Valid format', valid: true, number: '+1 415 555 0123', country: 'United States', international: '+14155550123', reason: 'Matches numbering plan' },
-        '+447700900123': { value: 'Valid format', valid: true, number: '+44 7700 900123', country: 'United Kingdom', international: '+447700900123', reason: 'Matches numbering plan' },
-        '+1415555012': { value: 'Invalid format', valid: false, number: '+1 415 555 012', country: 'United States', international: 'Unavailable', reason: 'Too short for United States' }
-      }
+      initial: { value: 'Valid format', valid: true, number: '+977 984-1234567', country: 'Nepal', international: '+9779841234567', reason: 'Matches the numbering plan' },
+      lookup: function (n) { return window.SFLookup.validate(n); }
     }
   };
 
@@ -42,14 +36,13 @@
   var copy = document.getElementById('copy-result');
   var copyMarkup = copy.innerHTML;
   var submitMarkup = submit.innerHTML;
-  var selected = config.fixtures['+14155550123'];
+  var selected = config.initial;
   var requestId = 0;
   var copyTimer;
 
-  // Temporary delay to exercise the loading state before backend integration.
   async function lookupPhone(number) {
-    await new Promise(function (resolve) { setTimeout(resolve, 600); });
-    return config.fixtures[number] || null;
+    if (!window.SFLookup) throw new Error('adapter missing');
+    return config.lookup(number);
   }
 
   function clearError() {
@@ -82,7 +75,7 @@
     document.querySelectorAll('[data-result-field]').forEach(function (field) {
       field.textContent = sample[field.dataset.resultField] || 'Unavailable';
     });
-    if (typeof sample.valid === 'boolean') {
+    if (typeof sample.valid === 'boolean' && (sample.invalid || form.dataset.tool === 'phone-number-validation')) {
       result.setAttribute('data-validity', sample.valid ? 'valid' : 'invalid');
     } else {
       result.removeAttribute('data-validity');
@@ -131,7 +124,7 @@
     } catch (err) {
       if (id !== requestId) return;
       label.textContent = 'LOOKUP UNAVAILABLE';
-      showMessage('We couldn’t complete the lookup', 'Please try again in a moment.');
+      showMessage('We couldn’t complete the lookup', err && err.status === 429 ? 'Too many lookups right now. Please try again in a minute.' : 'Please try again in a moment.');
     } finally {
       if (id === requestId) stopLoading();
     }
