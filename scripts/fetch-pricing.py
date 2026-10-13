@@ -79,7 +79,11 @@ def main():
         fail('SF_PRICING_KEY is not set')
     status, body = fetch(key)
     if status != 200:
-        fail(f'HTTP {status}: {body[:300]}')
+        hint = ''
+        if body.lstrip().startswith('<'):
+            hint = (' (an HTML error page, not the API\'s JSON error: the request was blocked before it reached '
+                    'the API, most likely by an IP or region filter in front of it; this runner\'s IP must be allowed)')
+        fail(f'HTTP {status}: {body[:300]}{hint}')
     prices = validate(body)
 
     previous = None
