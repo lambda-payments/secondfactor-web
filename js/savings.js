@@ -1,13 +1,14 @@
-/* SecondFactor.ai — /tools/savings-calculator/: cost per completed verification versus Twilio Verify.
-   Needs js/data.js (window.SF.RATES, CHANNEL_META). Inputs: #svCountry (select), #svVolume (range),
-   #svTwilio and #svSf (cost per completion, USD). The SecondFactor field follows the selected
-   country's routed rate (lowest available channel rate) until the user edits it; the Twilio default
-   is the published Verify fee plus the US SMS channel charge. The query string (?country=India&volume=250000) preselects values. */
+/* SecondFactor.ai — /tools/savings-calculator/: cost per OTP versus Twilio Verify.
+   Prices come from window.SFPricing (js/pricing-client.js). Inputs: #svCountry (select, ISO codes),
+   #svVolume (range), #svTwilio and #svSf (cost per completion, USD). The SecondFactor field follows
+   the selected country's published price (rounded up to four decimals) until the user edits it; the
+   Twilio default is the published Verify fee plus the US SMS channel charge. The query string
+   (?country=NP&volume=250000) preselects values. */
 (function () {
   'use strict';
-  var SF = window.SF;
+  var P = window.SFPricing;
   var country = document.getElementById('svCountry');
-  if (!country || !SF) return;
+  if (!country || !P) return;
 
   var volume = document.getElementById('svVolume'), tw = document.getElementById('svTwilio'), sf = document.getElementById('svSf');
   var fmtInt = new Intl.NumberFormat('en-US');
@@ -16,31 +17,27 @@
   var num = function (el) { var v = parseFloat(el.value); return isFinite(v) && v >= 0 ? v : 0; };
   var sfTouched = false;
 
-  /* one routed rate per country: the lowest available channel rate */
-  function routedRate(name) {
-    var row = SF.RATES[name];
-    if (!row) return null;
-    var vals = SF.CHANNEL_META.map(function (m) { return row[m.key]; }).filter(function (v) { return v != null; });
-    return vals.length ? Math.min.apply(null, vals) : null;
+  var byCode = {};
+  function rateFor(code) { var row = byCode[code]; return row ? P.roundUp4(row.price) : null; }
+
+  function fill(list) {
+    list.slice().sort(function (a, b) { return a.name.localeCompare(b.name); }).forEach(function (row) {
+      byCode[row.country] = row;
+      var o = document.createElement('option'); o.value = row.country; o.textContent = row.name; country.appendChild(o);
+    });
+    var q = new URLSearchParams(location.search);
+    var want = (q.get('country') || '').toUpperCase();
+    country.value = byCode[want] ? want : (byCode.US ? 'US' : (list[0] ? list[0].country : ''));
+    if (q.get('volume') && +q.get('volume') >= +volume.min && +q.get('volume') <= +volume.max) volume.value = Math.round(+q.get('volume') / volume.step) * volume.step;
   }
 
-  var names = Object.keys(SF.RATES).sort();
-  names.forEach(function (n) {
-    var o = document.createElement('option');
-    o.value = n; o.textContent = n + ' (' + SF.RATES[n].dial + ')';
-    country.appendChild(o);
-  });
-
-  var q = new URLSearchParams(location.search);
-  if (q.get('country') && SF.RATES[q.get('country')]) country.value = q.get('country'); else country.value = 'United States';
-  if (q.get('volume') && +q.get('volume') >= +volume.min && +q.get('volume') <= +volume.max) volume.value = Math.round(+q.get('volume') / volume.step) * volume.step;
-
+  function countryName() { return byCode[country.value] ? byCode[country.value].name : country.value; }
   function syncRate() {
-    var r = routedRate(country.value);
-    document.getElementById('svCountryName').textContent = country.value;
+    var r = rateFor(country.value);
+    document.getElementById('svCountryName').textContent = countryName();
     if (sfTouched) return;
-    if (r != null) { sf.value = r.toFixed(4); sf.placeholder = ''; }
-    else { sf.value = ''; sf.placeholder = 'On request'; }
+    if (r != null) { sf.value = r; sf.placeholder = ''; }
+    else { sf.value = ''; sf.placeholder = 'Contact us'; }
   }
 
   function render() {
@@ -55,7 +52,7 @@
     document.getElementById('svTwilioTotal').textContent = usd(t * vol);
     document.getElementById('svSfTotal').textContent = usd(s * vol);
     document.getElementById('svYear').textContent = signed(saving * 12);
-    document.getElementById('svResultCountry').textContent = country.value;
+    document.getElementById('svResultCountry').textContent = countryName();
 
     var url = new URL(location.href);
     url.searchParams.set('country', country.value); url.searchParams.set('volume', vol);
@@ -65,6 +62,5 @@
   country.addEventListener('change', function () { sfTouched = false; syncRate(); render(); });
   [volume, tw, sf].forEach(function (el) { el.addEventListener('input', render); });
   sf.addEventListener('input', function () { sfTouched = true; });
-  syncRate();
-  render();
+  P.getPrices().then(function (list) { fill(list); syncRate(); render(); });
 })();

@@ -1,0 +1,1784 @@
+{
+ "source": "https://assets.cdn.prod.twilio.com/pricing-csv/SMSPricing.csv",
+ "source_page": "https://www.twilio.com/en-us/sms/pricing",
+ "fetched_at": "2026-10-13T05:28:24Z",
+ "note": "Twilio published outbound SMS price per message segment, USD, lowest and highest carrier rate per country. Twilio Verify adds its own fee per successful verification.",
+ "prices": [
+  {
+   "country": "AD",
+   "name": "Andorra",
+   "min": "0.14640",
+   "max": "0.14640",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "AE",
+   "name": "United Arab Emirates",
+   "min": "0.11760",
+   "max": "0.11760",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "AF",
+   "name": "Afghanistan",
+   "min": "0.44600",
+   "max": "0.44600",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "AG",
+   "name": "Antigua and Barbuda",
+   "min": "0.23840",
+   "max": "0.23840",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "AI",
+   "name": "Anguilla",
+   "min": "0.24150",
+   "max": "0.24150",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "AL",
+   "name": "Albania",
+   "min": "0.11670",
+   "max": "0.11670",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "AM",
+   "name": "Armenia",
+   "min": "0.29960",
+   "max": "0.29960",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "AN",
+   "name": "Netherlands Antilles",
+   "min": "0.17230",
+   "max": "0.17230",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "AO",
+   "name": "Angola",
+   "min": "0.30620",
+   "max": "0.30620",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "AR",
+   "name": "Argentina",
+   "min": "0.10340",
+   "max": "0.10340",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "AS",
+   "name": "American Samoa",
+   "min": "0.18810",
+   "max": "0.18810",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "AT",
+   "name": "Austria",
+   "min": "0.09790",
+   "max": "0.09790",
+   "carriers": 11,
+   "currency": "USD"
+  },
+  {
+   "country": "AU",
+   "name": "Australia",
+   "min": "0.05150",
+   "max": "0.05150",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "AW",
+   "name": "Aruba",
+   "min": "0.27890",
+   "max": "0.27890",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "AZ",
+   "name": "Azerbaijan",
+   "min": "0.41100",
+   "max": "0.41100",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "BA",
+   "name": "Bosnia and Herzegovina",
+   "min": "0.51100",
+   "max": "0.51100",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "BB",
+   "name": "Barbados",
+   "min": "0.26240",
+   "max": "0.26240",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "BD",
+   "name": "Bangladesh",
+   "min": "0.59620",
+   "max": "0.59620",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "BE",
+   "name": "Belgium",
+   "min": "0.11130",
+   "max": "0.11130",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "BF",
+   "name": "Burkina Faso",
+   "min": "0.22330",
+   "max": "0.22330",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "BG",
+   "name": "Bulgaria",
+   "min": "0.14660",
+   "max": "0.14660",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "BH",
+   "name": "Bahrain",
+   "min": "0.03860",
+   "max": "0.03860",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "BI",
+   "name": "Burundi",
+   "min": "0.46300",
+   "max": "0.46300",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "BJ",
+   "name": "Benin",
+   "min": "0.29850",
+   "max": "0.29850",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "BM",
+   "name": "Bermuda",
+   "min": "0.26300",
+   "max": "0.26300",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "BN",
+   "name": "Brunei",
+   "min": "0.06500",
+   "max": "0.06500",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "BO",
+   "name": "Bolivia",
+   "min": "0.22150",
+   "max": "0.22150",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "BR",
+   "name": "Brazil",
+   "min": "0.05990",
+   "max": "0.05990",
+   "carriers": 9,
+   "currency": "USD"
+  },
+  {
+   "country": "BS",
+   "name": "Bahamas",
+   "min": "0.09040",
+   "max": "0.09040",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "BT",
+   "name": "Bhutan",
+   "min": "0.40070",
+   "max": "0.40070",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "BW",
+   "name": "Botswana",
+   "min": "0.15800",
+   "max": "0.15800",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "BY",
+   "name": "Belarus",
+   "min": "0.25210",
+   "max": "0.25210",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "BZ",
+   "name": "Belize",
+   "min": "0.29020",
+   "max": "0.29020",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "CA",
+   "name": "Canada",
+   "min": "0.00830",
+   "max": "0.00830",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "CD",
+   "name": "DR Congo",
+   "min": "0.25840",
+   "max": "0.25840",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "CF",
+   "name": "Central Africa",
+   "min": "0.45180",
+   "max": "0.45180",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "CG",
+   "name": "Congo",
+   "min": "0.33710",
+   "max": "0.33710",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "CH",
+   "name": "Switzerland",
+   "min": "0.07690",
+   "max": "0.07690",
+   "carriers": 9,
+   "currency": "USD"
+  },
+  {
+   "country": "CI",
+   "name": "Ivory Coast",
+   "min": "0.49250",
+   "max": "0.49250",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "CK",
+   "name": "Cook Islands",
+   "min": "0.13960",
+   "max": "0.13960",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "CL",
+   "name": "Chile",
+   "min": "0.07970",
+   "max": "0.07970",
+   "carriers": 9,
+   "currency": "USD"
+  },
+  {
+   "country": "CM",
+   "name": "Cameroon",
+   "min": "0.31700",
+   "max": "0.31700",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "CN",
+   "name": "China",
+   "min": "0.10820",
+   "max": "0.10820",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "CO",
+   "name": "Colombia",
+   "min": "0.05920",
+   "max": "0.05920",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "CR",
+   "name": "Costa Rica",
+   "min": "0.10310",
+   "max": "0.10310",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "CV",
+   "name": "Cape Verde",
+   "min": "0.22390",
+   "max": "0.22390",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "CY",
+   "name": "Cyprus",
+   "min": "0.08640",
+   "max": "0.08640",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "CZ",
+   "name": "Czech Republic",
+   "min": "0.07060",
+   "max": "0.07060",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "DE",
+   "name": "Germany",
+   "min": "0.11200",
+   "max": "0.11200",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "DJ",
+   "name": "Djibouti",
+   "min": "0.16240",
+   "max": "0.16240",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "DK",
+   "name": "Denmark",
+   "min": "0.05920",
+   "max": "0.05920",
+   "carriers": 8,
+   "currency": "USD"
+  },
+  {
+   "country": "DM",
+   "name": "Dominica",
+   "min": "0.25330",
+   "max": "0.25330",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "DO",
+   "name": "Dominican Republic",
+   "min": "0.13080",
+   "max": "0.13080",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "DZ",
+   "name": "Algeria",
+   "min": "0.27300",
+   "max": "0.27300",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "EC",
+   "name": "Ecuador",
+   "min": "0.33900",
+   "max": "0.33900",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "EE",
+   "name": "Estonia",
+   "min": "0.09580",
+   "max": "0.09580",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "EG",
+   "name": "Egypt",
+   "min": "0.39590",
+   "max": "0.39590",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "ER",
+   "name": "Eritrea",
+   "min": "0.12360",
+   "max": "0.12360",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "ES",
+   "name": "Spain",
+   "min": "0.08750",
+   "max": "0.08750",
+   "carriers": 20,
+   "currency": "USD"
+  },
+  {
+   "country": "ET",
+   "name": "Ethiopia",
+   "min": "0.34250",
+   "max": "0.34250",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "FI",
+   "name": "Finland",
+   "min": "0.08610",
+   "max": "0.08610",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "FJ",
+   "name": "Fiji",
+   "min": "0.22000",
+   "max": "0.22000",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "FK",
+   "name": "Falkland Islands",
+   "min": "0.16720",
+   "max": "0.16720",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "FM",
+   "name": "Micronesia",
+   "min": "0.07350",
+   "max": "0.07350",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "FO",
+   "name": "Faroe Islands",
+   "min": "0.07170",
+   "max": "0.07170",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "FR",
+   "name": "France",
+   "min": "0.07980",
+   "max": "0.07980",
+   "carriers": 13,
+   "currency": "USD"
+  },
+  {
+   "country": "GA",
+   "name": "Gabon",
+   "min": "0.31460",
+   "max": "0.31460",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "GB",
+   "name": "United Kingdom",
+   "min": "0.05600",
+   "max": "0.05600",
+   "carriers": 15,
+   "currency": "USD"
+  },
+  {
+   "country": "GD",
+   "name": "Grenada",
+   "min": "0.29130",
+   "max": "0.29130",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "GE",
+   "name": "Georgia",
+   "min": "0.16840",
+   "max": "0.16840",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "GF",
+   "name": "French Guiana",
+   "min": "0.18420",
+   "max": "0.18420",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "GG",
+   "name": "Guernsey",
+   "min": "0.05240",
+   "max": "0.05240",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "GH",
+   "name": "Ghana",
+   "min": "0.37410",
+   "max": "0.37410",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "GI",
+   "name": "Gibraltar",
+   "min": "0.12250",
+   "max": "0.12250",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "GL",
+   "name": "Greenland",
+   "min": "0.04100",
+   "max": "0.04100",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "GM",
+   "name": "Gambia",
+   "min": "0.26060",
+   "max": "0.26060",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "GN",
+   "name": "Guinea",
+   "min": "0.27880",
+   "max": "0.27880",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "GP",
+   "name": "Guadeloupe",
+   "min": "0.22740",
+   "max": "0.22740",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "GQ",
+   "name": "Equatorial Guinea",
+   "min": "0.27050",
+   "max": "0.27050",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "GR",
+   "name": "Greece",
+   "min": "0.06570",
+   "max": "0.06570",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "GT",
+   "name": "Guatemala",
+   "min": "0.24980",
+   "max": "0.24980",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "GU",
+   "name": "Guam",
+   "min": "0.08470",
+   "max": "0.08470",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "GW",
+   "name": "Guinea-Bissau",
+   "min": "0.47220",
+   "max": "0.47220",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "GY",
+   "name": "Guyana",
+   "min": "0.33660",
+   "max": "0.33660",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "HK",
+   "name": "Hong Kong",
+   "min": "0.07230",
+   "max": "0.07230",
+   "carriers": 11,
+   "currency": "USD"
+  },
+  {
+   "country": "HN",
+   "name": "Honduras",
+   "min": "0.32960",
+   "max": "0.32960",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "HR",
+   "name": "Croatia",
+   "min": "0.13790",
+   "max": "0.13790",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "HT",
+   "name": "Haiti",
+   "min": "0.29210",
+   "max": "0.29210",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "HU",
+   "name": "Hungary",
+   "min": "0.09100",
+   "max": "0.09100",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "ID",
+   "name": "Indonesia",
+   "min": "0.44140",
+   "max": "0.44140",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "IE",
+   "name": "Ireland",
+   "min": "0.07790",
+   "max": "0.07790",
+   "carriers": 8,
+   "currency": "USD"
+  },
+  {
+   "country": "IL",
+   "name": "Israel",
+   "min": "0.25750",
+   "max": "0.25750",
+   "carriers": 8,
+   "currency": "USD"
+  },
+  {
+   "country": "IN",
+   "name": "India",
+   "min": "0.08320",
+   "max": "0.08320",
+   "carriers": 17,
+   "currency": "USD"
+  },
+  {
+   "country": "IQ",
+   "name": "Iraq",
+   "min": "0.50300",
+   "max": "0.50300",
+   "carriers": 8,
+   "currency": "USD"
+  },
+  {
+   "country": "IS",
+   "name": "Iceland",
+   "min": "0.07190",
+   "max": "0.07190",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "IT",
+   "name": "Italy",
+   "min": "0.09270",
+   "max": "0.09270",
+   "carriers": 14,
+   "currency": "USD"
+  },
+  {
+   "country": "JE",
+   "name": "Jersey",
+   "min": "0.05240",
+   "max": "0.05240",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "JM",
+   "name": "Jamaica",
+   "min": "0.31510",
+   "max": "0.31510",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "JO",
+   "name": "Jordan",
+   "min": "0.44290",
+   "max": "0.44290",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "JP",
+   "name": "Japan",
+   "min": "0.08900",
+   "max": "0.08900",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "KE",
+   "name": "Kenya",
+   "min": "0.31340",
+   "max": "0.31340",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "KG",
+   "name": "Kyrgyzstan",
+   "min": "0.45880",
+   "max": "0.45880",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "KH",
+   "name": "Cambodia",
+   "min": "0.44180",
+   "max": "0.44180",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "KI",
+   "name": "Kiribati",
+   "min": "0.14550",
+   "max": "0.14550",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "KM",
+   "name": "Comoros",
+   "min": "0.41750",
+   "max": "0.41750",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "KN",
+   "name": "St Kitts and Nevis",
+   "min": "0.25750",
+   "max": "0.25750",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "KR",
+   "name": "Korea Republic of",
+   "min": "0.05240",
+   "max": "0.05240",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "KW",
+   "name": "Kuwait",
+   "min": "0.31640",
+   "max": "0.31640",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "KY",
+   "name": "Cayman Islands",
+   "min": "0.27560",
+   "max": "0.27560",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "KZ",
+   "name": "Kazakhstan",
+   "min": "0.33820",
+   "max": "0.33820",
+   "carriers": 8,
+   "currency": "USD"
+  },
+  {
+   "country": "LA",
+   "name": "Laos PDR",
+   "min": "0.31180",
+   "max": "0.31180",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "LB",
+   "name": "Lebanon",
+   "min": "0.36190",
+   "max": "0.36190",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "LC",
+   "name": "St Lucia",
+   "min": "0.26230",
+   "max": "0.26230",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "LI",
+   "name": "Liechtenstein",
+   "min": "0.03620",
+   "max": "0.03620",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "LK",
+   "name": "Sri Lanka",
+   "min": "0.42000",
+   "max": "0.42000",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "LR",
+   "name": "Liberia",
+   "min": "0.26770",
+   "max": "0.26770",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "LS",
+   "name": "Lesotho",
+   "min": "0.41230",
+   "max": "0.41230",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "LT",
+   "name": "Lithuania",
+   "min": "0.05780",
+   "max": "0.05780",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "LU",
+   "name": "Luxembourg",
+   "min": "0.08180",
+   "max": "0.08180",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "LV",
+   "name": "Latvia",
+   "min": "0.08010",
+   "max": "0.08010",
+   "carriers": 8,
+   "currency": "USD"
+  },
+  {
+   "country": "LY",
+   "name": "Libya",
+   "min": "0.44350",
+   "max": "0.44350",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "MA",
+   "name": "Morocco",
+   "min": "0.22440",
+   "max": "0.22440",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "MC",
+   "name": "Monaco",
+   "min": "0.18560",
+   "max": "0.18560",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "MD",
+   "name": "Moldova",
+   "min": "0.14740",
+   "max": "0.14740",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "ME",
+   "name": "Montenegro",
+   "min": "0.19280",
+   "max": "0.19280",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "MG",
+   "name": "Madagascar",
+   "min": "0.58990",
+   "max": "0.58990",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "MH",
+   "name": "Marshall Islands",
+   "min": "0.15890",
+   "max": "0.15890",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "MK",
+   "name": "Macedonia",
+   "min": "0.20120",
+   "max": "0.20120",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "ML",
+   "name": "Mali",
+   "min": "0.34850",
+   "max": "0.34850",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "MM",
+   "name": "Myanmar",
+   "min": "0.41430",
+   "max": "0.41430",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "MN",
+   "name": "Mongolia",
+   "min": "0.29570",
+   "max": "0.29570",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "MO",
+   "name": "Macao",
+   "min": "0.05900",
+   "max": "0.05900",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "MQ",
+   "name": "Martinique",
+   "min": "0.18970",
+   "max": "0.18970",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "MR",
+   "name": "Mauritania",
+   "min": "0.36180",
+   "max": "0.36180",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "MS",
+   "name": "Montserrat",
+   "min": "0.25250",
+   "max": "0.25250",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "MT",
+   "name": "Malta",
+   "min": "0.06890",
+   "max": "0.06890",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "MU",
+   "name": "Mauritius",
+   "min": "0.26640",
+   "max": "0.26640",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "MV",
+   "name": "Maldives",
+   "min": "0.35810",
+   "max": "0.35810",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "MW",
+   "name": "Malawi",
+   "min": "0.33070",
+   "max": "0.33070",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "MX",
+   "name": "Mexico",
+   "min": "0.18190",
+   "max": "0.18190",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "MY",
+   "name": "Malaysia",
+   "min": "0.33890",
+   "max": "0.33890",
+   "carriers": 12,
+   "currency": "USD"
+  },
+  {
+   "country": "MZ",
+   "name": "Mozambique",
+   "min": "0.41700",
+   "max": "0.41700",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "NA",
+   "name": "Namibia",
+   "min": "0.11670",
+   "max": "0.11670",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "NC",
+   "name": "New Caledonia",
+   "min": "0.17610",
+   "max": "0.17610",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "NE",
+   "name": "Niger",
+   "min": "0.36520",
+   "max": "0.36520",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "NF",
+   "name": "Norfolk Island",
+   "min": "0.02817",
+   "max": "0.02817",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "NG",
+   "name": "Nigeria",
+   "min": "0.38680",
+   "max": "0.38680",
+   "carriers": 8,
+   "currency": "USD"
+  },
+  {
+   "country": "NI",
+   "name": "Nicaragua",
+   "min": "0.15670",
+   "max": "0.15670",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "NL",
+   "name": "Netherlands",
+   "min": "0.11430",
+   "max": "0.11430",
+   "carriers": 15,
+   "currency": "USD"
+  },
+  {
+   "country": "NO",
+   "name": "Norway",
+   "min": "0.06970",
+   "max": "0.06970",
+   "carriers": 10,
+   "currency": "USD"
+  },
+  {
+   "country": "NP",
+   "name": "Nepal",
+   "min": "0.30220",
+   "max": "0.30220",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "NU",
+   "name": "Niue",
+   "min": "0.23350",
+   "max": "0.23350",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "NZ",
+   "name": "New Zealand",
+   "min": "0.10500",
+   "max": "0.10500",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "OM",
+   "name": "Oman",
+   "min": "0.21580",
+   "max": "0.21580",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "PA",
+   "name": "Panama",
+   "min": "0.18360",
+   "max": "0.18360",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "PE",
+   "name": "Peru",
+   "min": "0.24760",
+   "max": "0.24760",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "PF",
+   "name": "French Polynesia",
+   "min": "0.17970",
+   "max": "0.17970",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "PG",
+   "name": "Papua New Guinea",
+   "min": "0.75440",
+   "max": "0.75440",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "PH",
+   "name": "Philippines",
+   "min": "0.24100",
+   "max": "0.24100",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "PK",
+   "name": "Pakistan",
+   "min": "0.47340",
+   "max": "0.47340",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "PL",
+   "name": "Poland",
+   "min": "0.04570",
+   "max": "0.04570",
+   "carriers": 13,
+   "currency": "USD"
+  },
+  {
+   "country": "PM",
+   "name": "St Pierre and Miquelon",
+   "min": "0.15970",
+   "max": "0.15970",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "PR",
+   "name": "Puerto Rico",
+   "min": "0.05400",
+   "max": "0.05400",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "PS",
+   "name": "Palestinian Territory",
+   "min": "0.41010",
+   "max": "0.41010",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "PT",
+   "name": "Portugal",
+   "min": "0.05010",
+   "max": "0.05010",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "PW",
+   "name": "Palau",
+   "min": "0.09980",
+   "max": "0.09980",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "PY",
+   "name": "Paraguay",
+   "min": "0.12080",
+   "max": "0.12080",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "QA",
+   "name": "Qatar",
+   "min": "0.26340",
+   "max": "0.26340",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "RE",
+   "name": "Reunion/Mayotte",
+   "min": "0.19110",
+   "max": "0.19110",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "RO",
+   "name": "Romania",
+   "min": "0.07810",
+   "max": "0.07810",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "RS",
+   "name": "Serbia",
+   "min": "0.40980",
+   "max": "0.40980",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "RU",
+   "name": "Russia",
+   "min": "0.75220",
+   "max": "0.75220",
+   "carriers": 12,
+   "currency": "USD"
+  },
+  {
+   "country": "RW",
+   "name": "Rwanda",
+   "min": "0.32610",
+   "max": "0.32610",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "SA",
+   "name": "Saudi Arabia",
+   "min": "0.19490",
+   "max": "0.19490",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "SB",
+   "name": "Solomon Islands",
+   "min": "0.12650",
+   "max": "0.12650",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "SC",
+   "name": "Seychelles",
+   "min": "0.30770",
+   "max": "0.30770",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "SD",
+   "name": "Sudan",
+   "min": "0.47490",
+   "max": "0.47490",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "SE",
+   "name": "Sweden",
+   "min": "0.06460",
+   "max": "0.06460",
+   "carriers": 14,
+   "currency": "USD"
+  },
+  {
+   "country": "SG",
+   "name": "Singapore",
+   "min": "0.05910",
+   "max": "0.05910",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "SI",
+   "name": "Slovenia",
+   "min": "0.20510",
+   "max": "0.20510",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "SK",
+   "name": "Slovakia",
+   "min": "0.08830",
+   "max": "0.08830",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "SL",
+   "name": "Sierra Leone",
+   "min": "0.78490",
+   "max": "0.78490",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "SM",
+   "name": "San Marino",
+   "min": "0.12560",
+   "max": "0.12560",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "SN",
+   "name": "Senegal",
+   "min": "0.55060",
+   "max": "0.55060",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "SO",
+   "name": "Somalia",
+   "min": "0.37030",
+   "max": "0.37030",
+   "carriers": 8,
+   "currency": "USD"
+  },
+  {
+   "country": "SR",
+   "name": "Suriname",
+   "min": "0.31720",
+   "max": "0.31720",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "SS",
+   "name": "South Sudan",
+   "min": "0.23990",
+   "max": "0.23990",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "ST",
+   "name": "Sao Tome and Principe",
+   "min": "0.15810",
+   "max": "0.15810",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "SV",
+   "name": "El Salvador",
+   "min": "0.29900",
+   "max": "0.29900",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "SZ",
+   "name": "Swaziland",
+   "min": "0.26500",
+   "max": "0.26500",
+   "carriers": 2,
+   "currency": "USD"
+  },
+  {
+   "country": "TC",
+   "name": "Turks and Caicos Islands",
+   "min": "0.29230",
+   "max": "0.29230",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "TD",
+   "name": "Chad",
+   "min": "0.34580",
+   "max": "0.34580",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "TG",
+   "name": "Togo",
+   "min": "0.49460",
+   "max": "0.49460",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "TH",
+   "name": "Thailand",
+   "min": "0.03050",
+   "max": "0.03050",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "TJ",
+   "name": "Tajikistan",
+   "min": "0.45050",
+   "max": "0.45050",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "TL",
+   "name": "East Timor",
+   "min": "0.25860",
+   "max": "0.25860",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "TM",
+   "name": "Turkmenistan",
+   "min": "0.32330",
+   "max": "0.32330",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "TN",
+   "name": "Tunisia",
+   "min": "0.53790",
+   "max": "0.53790",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "TO",
+   "name": "Tonga",
+   "min": "0.21770",
+   "max": "0.21770",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "TR",
+   "name": "Turkey",
+   "min": "0.03050",
+   "max": "0.03050",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "TT",
+   "name": "Trinidad and Tobago",
+   "min": "0.29920",
+   "max": "0.29920",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "TV",
+   "name": "Tuvalu",
+   "min": "0.29590",
+   "max": "0.29590",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "TW",
+   "name": "Taiwan",
+   "min": "0.08420",
+   "max": "0.08420",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "TZ",
+   "name": "Tanzania",
+   "min": "0.43360",
+   "max": "0.43360",
+   "carriers": 10,
+   "currency": "USD"
+  },
+  {
+   "country": "UA",
+   "name": "Ukraine",
+   "min": "0.22680",
+   "max": "0.22680",
+   "carriers": 10,
+   "currency": "USD"
+  },
+  {
+   "country": "UG",
+   "name": "Uganda",
+   "min": "0.32890",
+   "max": "0.32890",
+   "carriers": 7,
+   "currency": "USD"
+  },
+  {
+   "country": "US",
+   "name": "United States",
+   "min": "0.00830",
+   "max": "0.00830",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "UY",
+   "name": "Uruguay",
+   "min": "0.08520",
+   "max": "0.08520",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "UZ",
+   "name": "Uzbekistan",
+   "min": "0.45710",
+   "max": "0.45710",
+   "carriers": 6,
+   "currency": "USD"
+  },
+  {
+   "country": "VC",
+   "name": "St Vincent Grenadines",
+   "min": "0.33380",
+   "max": "0.33380",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "VE",
+   "name": "Venezuela",
+   "min": "0.22570",
+   "max": "0.22570",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "VG",
+   "name": "Virgin Islands, British",
+   "min": "0.30800",
+   "max": "0.30800",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "VI",
+   "name": "Virgin Islands, U.S.",
+   "min": "0.19870",
+   "max": "0.19870",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "VN",
+   "name": "Vietnam",
+   "min": "0.28520",
+   "max": "0.28520",
+   "carriers": 8,
+   "currency": "USD"
+  },
+  {
+   "country": "VU",
+   "name": "Vanuatu",
+   "min": "0.21910",
+   "max": "0.21910",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "WF",
+   "name": "Wallis and Futuna",
+   "min": "0.11000",
+   "max": "0.11000",
+   "carriers": 1,
+   "currency": "USD"
+  },
+  {
+   "country": "WS",
+   "name": "Samoa",
+   "min": "0.26750",
+   "max": "0.26750",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "XK",
+   "name": "Kosovo",
+   "min": "0.25090",
+   "max": "0.25090",
+   "carriers": 3,
+   "currency": "USD"
+  },
+  {
+   "country": "YE",
+   "name": "Yemen",
+   "min": "0.29290",
+   "max": "0.29290",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "ZA",
+   "name": "South Africa",
+   "min": "0.13550",
+   "max": "0.13550",
+   "carriers": 5,
+   "currency": "USD"
+  },
+  {
+   "country": "ZM",
+   "name": "Zambia",
+   "min": "0.39420",
+   "max": "0.39420",
+   "carriers": 4,
+   "currency": "USD"
+  },
+  {
+   "country": "ZW",
+   "name": "Zimbabwe",
+   "min": "0.32120",
+   "max": "0.32120",
+   "carriers": 4,
+   "currency": "USD"
+  }
+ ]
+}

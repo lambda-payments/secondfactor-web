@@ -1,0 +1,846 @@
+{
+ "source": "https://api.secondfactor.ai/v2/Pricing",
+ "fetched_at": "2026-10-13T05:14:05Z",
+ "prices": [
+  {
+   "country": "AE",
+   "name": "United Arab Emirates",
+   "price": "0.044050",
+   "currency": "USD"
+  },
+  {
+   "country": "AF",
+   "name": "Afghanistan",
+   "price": "0.096913",
+   "currency": "USD"
+  },
+  {
+   "country": "AL",
+   "name": "Albania",
+   "price": "0.065179",
+   "currency": "USD"
+  },
+  {
+   "country": "AM",
+   "name": "Armenia",
+   "price": "0.100138",
+   "currency": "USD"
+  },
+  {
+   "country": "AO",
+   "name": "Angola",
+   "price": "0.033582",
+   "currency": "USD"
+  },
+  {
+   "country": "AR",
+   "name": "Argentina",
+   "price": "0.048870",
+   "currency": "USD"
+  },
+  {
+   "country": "AT",
+   "name": "Austria",
+   "price": "0.035437",
+   "currency": "USD"
+  },
+  {
+   "country": "AU",
+   "name": "Australia",
+   "price": "0.026563",
+   "currency": "USD"
+  },
+  {
+   "country": "AZ",
+   "name": "Azerbaijan",
+   "price": "0.059696",
+   "currency": "USD"
+  },
+  {
+   "country": "BD",
+   "name": "Bangladesh",
+   "price": "0.128050",
+   "currency": "USD"
+  },
+  {
+   "country": "BE",
+   "name": "Belgium",
+   "price": "0.044064",
+   "currency": "USD"
+  },
+  {
+   "country": "BF",
+   "name": "Burkina Faso",
+   "price": "0.042084",
+   "currency": "USD"
+  },
+  {
+   "country": "BG",
+   "name": "Bulgaria",
+   "price": "0.082376",
+   "currency": "USD"
+  },
+  {
+   "country": "BH",
+   "name": "Bahrain",
+   "price": "0.023605",
+   "currency": "USD"
+  },
+  {
+   "country": "BI",
+   "name": "Burundi",
+   "price": "0.057029",
+   "currency": "USD"
+  },
+  {
+   "country": "BJ",
+   "name": "Benin",
+   "price": "0.043755",
+   "currency": "USD"
+  },
+  {
+   "country": "BO",
+   "name": "Bolivia, Plurinational State of",
+   "price": "0.060250",
+   "currency": "USD"
+  },
+  {
+   "country": "BR",
+   "name": "Brazil",
+   "price": "0.020735",
+   "currency": "USD"
+  },
+  {
+   "country": "BW",
+   "name": "Botswana",
+   "price": "0.023361",
+   "currency": "USD"
+  },
+  {
+   "country": "BY",
+   "name": "Belarus",
+   "price": "0.095818",
+   "currency": "USD"
+  },
+  {
+   "country": "CA",
+   "name": "Canada",
+   "price": "0.028291",
+   "currency": "USD"
+  },
+  {
+   "country": "CG",
+   "name": "Congo",
+   "price": "0.015980",
+   "currency": "USD"
+  },
+  {
+   "country": "CH",
+   "name": "Switzerland",
+   "price": "0.047569",
+   "currency": "USD"
+  },
+  {
+   "country": "CI",
+   "name": "C\u00f4te d'Ivoire",
+   "price": "0.015980",
+   "currency": "USD"
+  },
+  {
+   "country": "CL",
+   "name": "Chile",
+   "price": "0.096086",
+   "currency": "USD"
+  },
+  {
+   "country": "CM",
+   "name": "Cameroon",
+   "price": "0.057631",
+   "currency": "USD"
+  },
+  {
+   "country": "CN",
+   "name": "China",
+   "price": "0.020231",
+   "currency": "USD"
+  },
+  {
+   "country": "CO",
+   "name": "Colombia",
+   "price": "0.011217",
+   "currency": "USD"
+  },
+  {
+   "country": "CR",
+   "name": "Costa Rica",
+   "price": "0.039267",
+   "currency": "USD"
+  },
+  {
+   "country": "CZ",
+   "name": "Czechia",
+   "price": "0.046665",
+   "currency": "USD"
+  },
+  {
+   "country": "DE",
+   "name": "Germany",
+   "price": "0.091792",
+   "currency": "USD"
+  },
+  {
+   "country": "DK",
+   "name": "Denmark",
+   "price": "0.040542",
+   "currency": "USD"
+  },
+  {
+   "country": "DO",
+   "name": "Dominican Republic",
+   "price": "0.026349",
+   "currency": "USD"
+  },
+  {
+   "country": "DZ",
+   "name": "Algeria",
+   "price": "0.066740",
+   "currency": "USD"
+  },
+  {
+   "country": "EC",
+   "name": "Ecuador",
+   "price": "0.052511",
+   "currency": "USD"
+  },
+  {
+   "country": "EG",
+   "name": "Egypt",
+   "price": "0.078874",
+   "currency": "USD"
+  },
+  {
+   "country": "ER",
+   "name": "Eritrea",
+   "price": "0.015980",
+   "currency": "USD"
+  },
+  {
+   "country": "ES",
+   "name": "Spain",
+   "price": "0.041129",
+   "currency": "USD"
+  },
+  {
+   "country": "ET",
+   "name": "Ethiopia",
+   "price": "0.073622",
+   "currency": "USD"
+  },
+  {
+   "country": "FI",
+   "name": "Finland",
+   "price": "0.041361",
+   "currency": "USD"
+  },
+  {
+   "country": "FR",
+   "name": "France",
+   "price": "0.056433",
+   "currency": "USD"
+  },
+  {
+   "country": "GA",
+   "name": "Gabon",
+   "price": "0.068474",
+   "currency": "USD"
+  },
+  {
+   "country": "GB",
+   "name": "United Kingdom",
+   "price": "0.046595",
+   "currency": "USD"
+  },
+  {
+   "country": "GE",
+   "name": "Georgia",
+   "price": "0.073470",
+   "currency": "USD"
+  },
+  {
+   "country": "GH",
+   "name": "Ghana",
+   "price": "0.080100",
+   "currency": "USD"
+  },
+  {
+   "country": "GM",
+   "name": "Gambia",
+   "price": "0.061643",
+   "currency": "USD"
+  },
+  {
+   "country": "GR",
+   "name": "Greece",
+   "price": "0.063378",
+   "currency": "USD"
+  },
+  {
+   "country": "GT",
+   "name": "Guatemala",
+   "price": "0.055839",
+   "currency": "USD"
+  },
+  {
+   "country": "GW",
+   "name": "Guinea-Bissau",
+   "price": "0.080026",
+   "currency": "USD"
+  },
+  {
+   "country": "HK",
+   "name": "Hong Kong",
+   "price": "0.057353",
+   "currency": "USD"
+  },
+  {
+   "country": "HN",
+   "name": "Honduras",
+   "price": "0.055447",
+   "currency": "USD"
+  },
+  {
+   "country": "HR",
+   "name": "Croatia",
+   "price": "0.062400",
+   "currency": "USD"
+  },
+  {
+   "country": "HT",
+   "name": "Haiti",
+   "price": "0.094393",
+   "currency": "USD"
+  },
+  {
+   "country": "HU",
+   "name": "Hungary",
+   "price": "0.057134",
+   "currency": "USD"
+  },
+  {
+   "country": "ID",
+   "name": "Indonesia",
+   "price": "0.114783",
+   "currency": "USD"
+  },
+  {
+   "country": "IE",
+   "name": "Ireland",
+   "price": "0.030305",
+   "currency": "USD"
+  },
+  {
+   "country": "IL",
+   "name": "Israel",
+   "price": "0.061210",
+   "currency": "USD"
+  },
+  {
+   "country": "IN",
+   "name": "India",
+   "price": "0.022541",
+   "currency": "USD"
+  },
+  {
+   "country": "IQ",
+   "name": "Iraq",
+   "price": "0.096267",
+   "currency": "USD"
+  },
+  {
+   "country": "IT",
+   "name": "Italy",
+   "price": "0.055369",
+   "currency": "USD"
+  },
+  {
+   "country": "JM",
+   "name": "Jamaica",
+   "price": "0.026894",
+   "currency": "USD"
+  },
+  {
+   "country": "JO",
+   "name": "Jordan",
+   "price": "0.096804",
+   "currency": "USD"
+  },
+  {
+   "country": "JP",
+   "name": "Japan",
+   "price": "0.049051",
+   "currency": "USD"
+  },
+  {
+   "country": "KE",
+   "name": "Kenya",
+   "price": "0.037248",
+   "currency": "USD"
+  },
+  {
+   "country": "KH",
+   "name": "Cambodia",
+   "price": "0.075983",
+   "currency": "USD"
+  },
+  {
+   "country": "KW",
+   "name": "Kuwait",
+   "price": "0.114813",
+   "currency": "USD"
+  },
+  {
+   "country": "LA",
+   "name": "Lao People's Democratic Republic",
+   "price": "0.077426",
+   "currency": "USD"
+  },
+  {
+   "country": "LB",
+   "name": "Lebanon",
+   "price": "0.061466",
+   "currency": "USD"
+  },
+  {
+   "country": "LK",
+   "name": "Sri Lanka",
+   "price": "0.168178",
+   "currency": "USD"
+  },
+  {
+   "country": "LR",
+   "name": "Liberia",
+   "price": "0.044607",
+   "currency": "USD"
+  },
+  {
+   "country": "LS",
+   "name": "Lesotho",
+   "price": "0.072117",
+   "currency": "USD"
+  },
+  {
+   "country": "LT",
+   "name": "Lithuania",
+   "price": "0.052713",
+   "currency": "USD"
+  },
+  {
+   "country": "LV",
+   "name": "Latvia",
+   "price": "0.041694",
+   "currency": "USD"
+  },
+  {
+   "country": "LY",
+   "name": "Libya",
+   "price": "0.084981",
+   "currency": "USD"
+  },
+  {
+   "country": "MA",
+   "name": "Morocco",
+   "price": "0.094730",
+   "currency": "USD"
+  },
+  {
+   "country": "MD",
+   "name": "Moldova, Republic of",
+   "price": "0.052166",
+   "currency": "USD"
+  },
+  {
+   "country": "MG",
+   "name": "Madagascar",
+   "price": "0.097378",
+   "currency": "USD"
+  },
+  {
+   "country": "MK",
+   "name": "North Macedonia",
+   "price": "0.052166",
+   "currency": "USD"
+  },
+  {
+   "country": "ML",
+   "name": "Mali",
+   "price": "0.068474",
+   "currency": "USD"
+  },
+  {
+   "country": "MN",
+   "name": "Mongolia",
+   "price": "0.070991",
+   "currency": "USD"
+  },
+  {
+   "country": "MR",
+   "name": "Mauritania",
+   "price": "0.071022",
+   "currency": "USD"
+  },
+  {
+   "country": "MW",
+   "name": "Malawi",
+   "price": "0.077711",
+   "currency": "USD"
+  },
+  {
+   "country": "MX",
+   "name": "Mexico",
+   "price": "0.022995",
+   "currency": "USD"
+  },
+  {
+   "country": "MY",
+   "name": "Malaysia",
+   "price": "0.053680",
+   "currency": "USD"
+  },
+  {
+   "country": "MZ",
+   "name": "Mozambique",
+   "price": "0.091384",
+   "currency": "USD"
+  },
+  {
+   "country": "NA",
+   "name": "Namibia",
+   "price": "0.076950",
+   "currency": "USD"
+  },
+  {
+   "country": "NE",
+   "name": "Niger",
+   "price": "0.072738",
+   "currency": "USD"
+  },
+  {
+   "country": "NG",
+   "name": "Nigeria",
+   "price": "0.046316",
+   "currency": "USD"
+  },
+  {
+   "country": "NI",
+   "name": "Nicaragua",
+   "price": "0.055250",
+   "currency": "USD"
+  },
+  {
+   "country": "NL",
+   "name": "Netherlands",
+   "price": "0.086252",
+   "currency": "USD"
+  },
+  {
+   "country": "NO",
+   "name": "Norway",
+   "price": "0.031913",
+   "currency": "USD"
+  },
+  {
+   "country": "NP",
+   "name": "Nepal",
+   "price": "0.118952",
+   "currency": "USD"
+  },
+  {
+   "country": "NZ",
+   "name": "New Zealand",
+   "price": "0.038361",
+   "currency": "USD"
+  },
+  {
+   "country": "OM",
+   "name": "Oman",
+   "price": "0.064995",
+   "currency": "USD"
+  },
+  {
+   "country": "PA",
+   "name": "Panama",
+   "price": "0.026349",
+   "currency": "USD"
+  },
+  {
+   "country": "PE",
+   "name": "Peru",
+   "price": "0.071958",
+   "currency": "USD"
+  },
+  {
+   "country": "PG",
+   "name": "Papua New Guinea",
+   "price": "0.062047",
+   "currency": "USD"
+  },
+  {
+   "country": "PH",
+   "name": "Philippines",
+   "price": "0.078970",
+   "currency": "USD"
+  },
+  {
+   "country": "PK",
+   "name": "Pakistan",
+   "price": "0.104527",
+   "currency": "USD"
+  },
+  {
+   "country": "PL",
+   "name": "Poland",
+   "price": "0.028723",
+   "currency": "USD"
+  },
+  {
+   "country": "PR",
+   "name": "Puerto Rico",
+   "price": "0.015083",
+   "currency": "USD"
+  },
+  {
+   "country": "PT",
+   "name": "Portugal",
+   "price": "0.033717",
+   "currency": "USD"
+  },
+  {
+   "country": "PY",
+   "name": "Paraguay",
+   "price": "0.045220",
+   "currency": "USD"
+  },
+  {
+   "country": "QA",
+   "name": "Qatar",
+   "price": "0.063482",
+   "currency": "USD"
+  },
+  {
+   "country": "RO",
+   "name": "Romania",
+   "price": "0.053316",
+   "currency": "USD"
+  },
+  {
+   "country": "RS",
+   "name": "Serbia",
+   "price": "0.067873",
+   "currency": "USD"
+  },
+  {
+   "country": "RU",
+   "name": "Russian Federation",
+   "price": "0.073245",
+   "currency": "USD"
+  },
+  {
+   "country": "RW",
+   "name": "Rwanda",
+   "price": "0.076950",
+   "currency": "USD"
+  },
+  {
+   "country": "SA",
+   "name": "Saudi Arabia",
+   "price": "0.057553",
+   "currency": "USD"
+  },
+  {
+   "country": "SD",
+   "name": "Sudan",
+   "price": "0.092645",
+   "currency": "USD"
+  },
+  {
+   "country": "SE",
+   "name": "Sweden",
+   "price": "0.039123",
+   "currency": "USD"
+  },
+  {
+   "country": "SG",
+   "name": "Singapore",
+   "price": "0.037775",
+   "currency": "USD"
+  },
+  {
+   "country": "SI",
+   "name": "Slovenia",
+   "price": "0.105898",
+   "currency": "USD"
+  },
+  {
+   "country": "SK",
+   "name": "Slovakia",
+   "price": "0.048524",
+   "currency": "USD"
+  },
+  {
+   "country": "SL",
+   "name": "Sierra Leone",
+   "price": "0.058087",
+   "currency": "USD"
+  },
+  {
+   "country": "SN",
+   "name": "Senegal",
+   "price": "0.073366",
+   "currency": "USD"
+  },
+  {
+   "country": "SO",
+   "name": "Somalia",
+   "price": "0.076950",
+   "currency": "USD"
+  },
+  {
+   "country": "SS",
+   "name": "South Sudan",
+   "price": "0.015980",
+   "currency": "USD"
+  },
+  {
+   "country": "SV",
+   "name": "El Salvador",
+   "price": "0.051434",
+   "currency": "USD"
+  },
+  {
+   "country": "SZ",
+   "name": "Eswatini",
+   "price": "0.015980",
+   "currency": "USD"
+  },
+  {
+   "country": "TD",
+   "name": "Chad",
+   "price": "0.073677",
+   "currency": "USD"
+  },
+  {
+   "country": "TG",
+   "name": "Togo",
+   "price": "0.080664",
+   "currency": "USD"
+  },
+  {
+   "country": "TH",
+   "name": "Thailand",
+   "price": "0.022908",
+   "currency": "USD"
+  },
+  {
+   "country": "TJ",
+   "name": "Tajikistan",
+   "price": "0.104728",
+   "currency": "USD"
+  },
+  {
+   "country": "TM",
+   "name": "Turkmenistan",
+   "price": "0.026358",
+   "currency": "USD"
+  },
+  {
+   "country": "TN",
+   "name": "Tunisia",
+   "price": "0.112772",
+   "currency": "USD"
+  },
+  {
+   "country": "TR",
+   "name": "T\u00fcrkiye",
+   "price": "0.012454",
+   "currency": "USD"
+  },
+  {
+   "country": "TW",
+   "name": "Taiwan, Province of China",
+   "price": "0.038113",
+   "currency": "USD"
+  },
+  {
+   "country": "TZ",
+   "name": "Tanzania, United Republic of",
+   "price": "0.064834",
+   "currency": "USD"
+  },
+  {
+   "country": "UA",
+   "name": "Ukraine",
+   "price": "0.081789",
+   "currency": "USD"
+  },
+  {
+   "country": "UG",
+   "name": "Uganda",
+   "price": "0.063326",
+   "currency": "USD"
+  },
+  {
+   "country": "US",
+   "name": "United States",
+   "price": "0.019217",
+   "currency": "USD"
+  },
+  {
+   "country": "UY",
+   "name": "Uruguay",
+   "price": "0.051172",
+   "currency": "USD"
+  },
+  {
+   "country": "UZ",
+   "name": "Uzbekistan",
+   "price": "0.109416",
+   "currency": "USD"
+  },
+  {
+   "country": "VE",
+   "name": "Venezuela, Bolivarian Republic of",
+   "price": "0.071364",
+   "currency": "USD"
+  },
+  {
+   "country": "VN",
+   "name": "Viet Nam",
+   "price": "0.112856",
+   "currency": "USD"
+  },
+  {
+   "country": "YE",
+   "name": "Yemen",
+   "price": "0.069127",
+   "currency": "USD"
+  },
+  {
+   "country": "ZA",
+   "name": "South Africa",
+   "price": "0.043176",
+   "currency": "USD"
+  },
+  {
+   "country": "ZM",
+   "name": "Zambia",
+   "price": "0.085114",
+   "currency": "USD"
+  },
+  {
+   "country": "ZW",
+   "name": "Zimbabwe",
+   "price": "0.047830",
+   "currency": "USD"
+  }
+ ]
+}

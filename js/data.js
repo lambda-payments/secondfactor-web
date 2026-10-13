@@ -1,27 +1,28 @@
-/* SecondFactor.ai — demo rate data. Replace RATES values with your real price list. */
+/* SecondFactor.ai — per-country dialing codes, channel labels and page copy.
+   Prices are NOT here: they come from data/pricing.json via js/pricing-client.js. */
 (function(){
-// SecondFactor.ai website content + demo rate data (mockup values).
+// Country dialing codes (used by the country page generator) and site copy.
 const RATES = {
-  "United States":{dial:"+1",sms:0.0071,whatsapp:0.0042,viber:null,rcs:0.0055},
-  "United Kingdom":{dial:"+44",sms:0.0310,whatsapp:0.0338,viber:0.0210,rcs:0.0190},
-  "Germany":{dial:"+49",sms:0.0725,whatsapp:0.0455,viber:0.0290,rcs:0.0260},
-  "France":{dial:"+33",sms:0.0480,whatsapp:0.0410,viber:0.0265,rcs:0.0235},
-  "Spain":{dial:"+34",sms:0.0395,whatsapp:0.0362,viber:0.0240,rcs:0.0205},
-  "India":{dial:"+91",sms:0.0038,whatsapp:0.0014,viber:null,rcs:0.0009},
-  "Indonesia":{dial:"+62",sms:0.0285,whatsapp:0.0163,viber:0.0120,rcs:null},
-  "Philippines":{dial:"+63",sms:0.0320,whatsapp:0.0188,viber:0.0145,rcs:null},
-  "Vietnam":{dial:"+84",sms:0.0410,whatsapp:0.0195,viber:0.0135,rcs:null},
-  "Nepal":{dial:"+977",sms:0.0345,whatsapp:0.0142,viber:0.0098,rcs:null},
-  "Bangladesh":{dial:"+880",sms:0.0290,whatsapp:0.0150,viber:0.0115,rcs:null},
-  "Pakistan":{dial:"+92",sms:0.0255,whatsapp:0.0168,viber:null,rcs:null},
-  "Brazil":{dial:"+55",sms:0.0225,whatsapp:0.0118,viber:null,rcs:0.0135},
-  "Mexico":{dial:"+52",sms:0.0345,whatsapp:0.0125,viber:null,rcs:0.0150},
-  "Nigeria":{dial:"+234",sms:0.0295,whatsapp:0.0205,viber:null,rcs:null},
-  "United Arab Emirates":{dial:"+971",sms:0.0450,whatsapp:0.0295,viber:null,rcs:0.0275},
-  "Saudi Arabia":{dial:"+966",sms:0.0425,whatsapp:0.0280,viber:null,rcs:0.0265},
-  "Turkey":{dial:"+90",sms:0.0190,whatsapp:0.0155,viber:0.0130,rcs:null},
-  "Australia":{dial:"+61",sms:0.0385,whatsapp:0.0345,viber:null,rcs:0.0290},
-  "Japan":{dial:"+81",sms:0.0620,whatsapp:0.0510,viber:0.0395,rcs:0.0360}
+  "United States":{dial:"+1"},
+  "United Kingdom":{dial:"+44"},
+  "Germany":{dial:"+49"},
+  "France":{dial:"+33"},
+  "Spain":{dial:"+34"},
+  "India":{dial:"+91"},
+  "Indonesia":{dial:"+62"},
+  "Philippines":{dial:"+63"},
+  "Vietnam":{dial:"+84"},
+  "Nepal":{dial:"+977"},
+  "Bangladesh":{dial:"+880"},
+  "Pakistan":{dial:"+92"},
+  "Brazil":{dial:"+55"},
+  "Mexico":{dial:"+52"},
+  "Nigeria":{dial:"+234"},
+  "United Arab Emirates":{dial:"+971"},
+  "Saudi Arabia":{dial:"+966"},
+  "Turkey":{dial:"+90"},
+  "Australia":{dial:"+61"},
+  "Japan":{dial:"+81"}
 };
 
 const CHANNEL_META = [

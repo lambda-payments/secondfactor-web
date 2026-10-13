@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OTP Pricing by Country | SecondFactor.ai</title>
-<meta name="description" content="Indicative price per delivered OTP by destination country, in USD. One routed rate covers delivery and verification across SMS, WhatsApp, Viber and RCS.">
+<meta name="description" content="Price per OTP sent by destination country, in USD. One routed rate covers delivery and verification across SMS, WhatsApp, Viber and RCS.">
 <link rel="canonical" href="https://secondfactor.ai/pricing/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#3078e8">
@@ -13,14 +13,14 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://secondfactor.ai/pricing/">
 <meta property="og:title" content="OTP Pricing by Country">
-<meta property="og:description" content="Indicative price per delivered OTP by destination country, in USD. One routed rate covers delivery and verification across SMS, WhatsApp, Viber and RCS.">
+<meta property="og:description" content="Price per OTP sent by destination country, in USD. One routed rate covers delivery and verification across SMS, WhatsApp, Viber and RCS.">
 <meta property="og:image" content="https://secondfactor.ai/assets/og-default.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SecondFactor.ai — OTP delivery and verification API across SMS, WhatsApp, Viber and RCS">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="OTP Pricing by Country">
-<meta name="twitter:description" content="Indicative price per delivered OTP by destination country, in USD. One routed rate covers delivery and verification across SMS, WhatsApp, Viber and RCS.">
+<meta name="twitter:description" content="Price per OTP sent by destination country, in USD. One routed rate covers delivery and verification across SMS, WhatsApp, Viber and RCS.">
 <meta name="twitter:image" content="https://secondfactor.ai/assets/og-default.png">
 <link rel="icon" type="image/png" href="/assets/logo/secondfactor-icon.png">
 <link rel="apple-touch-icon" href="/assets/logo/secondfactor-icon.png">
@@ -61,7 +61,7 @@
    "@id": "https://secondfactor.ai/pricing/#webpage",
    "url": "https://secondfactor.ai/pricing/",
    "name": "OTP Pricing by Country | SecondFactor.ai",
-   "description": "Indicative price per delivered OTP by destination country, in USD. One routed rate covers delivery and verification across SMS, WhatsApp, Viber and RCS.",
+   "description": "Price per OTP sent by destination country, in USD. One routed rate covers delivery and verification across SMS, WhatsApp, Viber and RCS.",
    "isPartOf": {
     "@id": "https://secondfactor.ai/#website"
    },
@@ -126,7 +126,7 @@
     <span class="orb wide"><b></b></span>
     <span class="motes"><i></i><i></i><i></i><i></i></span>
     <h1 style="font:300 clamp(36px,4.4vw,56px)/1.08 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 auto 18px;max-width:20ch">OTP Pricing for Your Destination Markets</h1>
-    <p style="font:300 17.5px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 auto;max-width:66ch">Select a destination country to see your indicative price per delivered OTP in USD. You pay one routed rate &mdash; delivery and verification are handled for you.</p>
+    <p style="font:300 17.5px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 auto;max-width:66ch">Select a destination country to see the price per OTP sent, in USD. You pay one routed rate &mdash; delivery and verification are handled for you.</p>
   </section>
 
 
@@ -141,43 +141,24 @@
         <p id="modeBlurb" class="pr-blurb">One rate per country, covering delivery and verification. Routing is handled for you.</p>
         <div class="pr-field" id="countryField">
           <label for="country">Destination country</label>
-          <select class="pr-select" id="country">
-              <option value="United States" selected>United States</option>
-              <option value="United Kingdom">United Kingdom</option>
-              <option value="Germany">Germany</option>
-              <option value="France">France</option>
-              <option value="Spain">Spain</option>
-              <option value="India">India</option>
-              <option value="Indonesia">Indonesia</option>
-              <option value="Philippines">Philippines</option>
-              <option value="Vietnam">Vietnam</option>
-              <option value="Nepal">Nepal</option>
-              <option value="Bangladesh">Bangladesh</option>
-              <option value="Pakistan">Pakistan</option>
-              <option value="Brazil">Brazil</option>
-              <option value="Mexico">Mexico</option>
-              <option value="Nigeria">Nigeria</option>
-              <option value="United Arab Emirates">United Arab Emirates</option>
-              <option value="Saudi Arabia">Saudi Arabia</option>
-              <option value="Turkey">Turkey</option>
-              <option value="Australia">Australia</option>
-              <option value="Japan">Japan</option>
-          </select>
+          <select class="pr-select" id="country" aria-describedby="countryHelp"><option value="US">United States</option></select>
+          <span class="sv-help" id="countryHelp">Not listed? Most destinations can still be sent to. <a href="/support/">Contact us</a> for a rate.</span>
         </div>
         <p class="pr-more"><a href="/country/">See OTP delivery details by country <span aria-hidden="true">&rarr;</span></a></p>
       </div>
 
       <div class="pr-panel">
         <div id="pieBlock">
-          <div class="pr-lbl">Price per delivered OTP &middot; <span id="cLabel">United States</span></div>
-          <div class="pr-price-row"><div id="routedPrice" class="pr-price">&mdash;</div><span class="pr-unit">USD &middot; indicative</span></div>
+          <div class="pr-lbl">Price per OTP sent &middot; <span id="cLabel">United States</span></div>
+          <div class="pr-price-row"><div id="routedPrice" class="pr-price">&mdash;</div><span class="pr-unit">USD &middot; per OTP sent</span></div>
           <ul class="pr-incl">
-            <li>Delivery and verification included in the rate</li>
-            <li>SecondFactor selects the delivery route for each request</li>
+            <li>One price per OTP sent, whichever channel delivers it</li>
+            <li>Delivery and verification included; SecondFactor selects the route</li>
             <li>No channels or per-channel rates to manage</li>
           </ul>
+          <p class="sv-help" id="priceUpdated"></p>
           <span class="tip pr-tip" tabindex="0" aria-label="Pricing note"><span class="pr-tip-i" aria-hidden="true">i</span>Why may my price differ?
-            <span class="tipbody">Rates shown here are indicative. Your final pricing may differ depending on your monthly volume, the channels you want to use and your destination markets. Talk to our team for a quote for your account.</span>
+            <span class="tipbody">This is the published rate per OTP sent, rounded up to four decimals. Volume pricing and per-channel pricing are available on request. Talk to our team for a quote for your account.</span>
           </span>
         </div>
 
@@ -216,11 +197,11 @@
         <div class="pr-col">
           <span class="pr-tag pr-tag-on">Default</span>
           <h3>Routed Pricing</h3>
-          <p>You select the destination country and pay a single rate per delivered OTP. Routing and fallback are handled for you.</p>
+          <p>You select the destination country and pay a single rate per OTP sent. Routing and fallback are handled for you.</p>
           <ul class="pr-list">
             <li>Country selection only &mdash; one published rate</li>
             <li>No setup or delivery configuration on your side</li>
-            <li>Delivery and verification included in the rate</li>
+            <li>One price per OTP sent, whichever channel delivers it</li>
             <li>Shown in your portal by default</li>
           </ul>
         </div>
@@ -299,7 +280,7 @@
   </div>
 </footer>
 </div>
-<script src="/js/data.js"></script>
+<script src="/js/pricing-client.js"></script>
 <script src="/js/app.js"></script>
 </body>
 </html>

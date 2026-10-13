@@ -1,7 +1,6 @@
 /* SecondFactor.ai — site behaviour: hero console, scroll reveal, pricing selector, form note. */
 (function () {
   'use strict';
-  var money = function (n) { return '$' + n.toFixed(4); };
 
   /* ---------- sticky header shadow ---------- */
   var hdr = document.querySelector('header');
@@ -104,77 +103,77 @@
   }
 
   /* ---------- pricing ---------- */
-  /* one published price per country: the lowest available rate, never per channel */
-  function routedPrice(row) {
-    var vals = window.SF.CHANNEL_META.map(function (m) { return row[m.key]; }).filter(function (v) { return v != null; });
-    return vals.length ? money(Math.min.apply(null, vals)) : 'On request';
+  /* Every price on the site comes from window.SFPricing (js/pricing-client.js), which reads
+     data/pricing.json; the API is only called server-side. Prices are shown rounded UP to
+     four decimals; countries without a price of their own show "Contact us". */
+  var P = window.SFPricing;
+  function priceInto(el, row) {
+    if (row) { el.textContent = P.display(row); el.removeAttribute('data-no-price'); return; }
+    el.textContent = '';
+    var a = document.createElement('a'); a.href = P.CONTACT_URL; a.textContent = 'Contact us'; a.style.font = 'inherit';
+    el.appendChild(a); el.setAttribute('data-no-price', '');
   }
-
-  /* country pages: <span data-routed-price="India"> */
-  if (window.SF) {
-    Array.prototype.forEach.call(document.querySelectorAll('[data-routed-price]'), function (el) {
-      var row = window.SF.RATES[el.getAttribute('data-routed-price')];
-      if (row) { el.textContent = routedPrice(row); }
+  /* country pages: <span data-price-country="NP"> */
+  if (P && document.querySelector('[data-price-country]')) {
+    P.getPrices().then(function () {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-price-country]'), function (el) {
+        P.getPrice(el.getAttribute('data-price-country')).then(function (row) { priceInto(el, row); });
+      });
     });
   }
 
   var priceRoot = document.getElementById('routedPrice');
-  if (priceRoot && window.SF) {
-    var RATES = window.SF.RATES;
-    var state = {
-      mode: 'pie',
-      channel: 'whatsapp',
-      country: 'United States',
-      connected: {sms: true, whatsapp: false, viber: false, rcs: false}
-    };
+  if (priceRoot && P) {
+    var state = { mode: 'pie', country: 'US' };
     var COPY = {
-      pie: {
-        title: 'Routed pricing',
-        blurb: 'One rate per country, covering delivery and verification. Routing is handled for you.'
-      },
-      fine: {
-        title: 'Per-channel pricing',
-        blurb: 'Available on request for accounts that need more control over delivery.'
-      }
+      pie: { title: 'Routed pricing', blurb: 'One rate per country per OTP sent, whichever channel delivers it. Routing is handled for you.' },
+      fine: { title: 'Per-channel pricing', blurb: 'Available on request for accounts that need more control over delivery.' }
     };
     var selCountry = document.getElementById('country');
-    var selChan = document.getElementById('chan');
     var pieBlock = document.getElementById('pieBlock');
     var fineBlock = document.getElementById('fineBlock');
-    var connEl = document.getElementById('connToggles');
     var titleEl = document.getElementById('modeTitle');
     var blurbEl = document.getElementById('modeBlurb');
     var cLabel = document.getElementById('cLabel');
+    var byCode = {};
 
     function render() {
-      var row = RATES[state.country];
+      var row = byCode[state.country] || null;
       titleEl.textContent = COPY[state.mode].title;
       blurbEl.textContent = COPY[state.mode].blurb;
-      if (cLabel) { cLabel.textContent = state.country; }
+      if (cLabel) { cLabel.textContent = row ? row.name : (selCountry.selectedOptions[0] ? selCountry.selectedOptions[0].textContent : state.country); }
       pieBlock.hidden = state.mode !== 'pie';
       fineBlock.hidden = state.mode !== 'fine';
-      var ratesBlock = document.getElementById('ratesBlock');
       var countryField = document.getElementById('countryField');
-      if (ratesBlock) { ratesBlock.hidden = state.mode !== 'pie'; }
       if (countryField) { countryField.style.display = state.mode === 'pie' ? '' : 'none'; }
-
       Array.prototype.forEach.call(document.querySelectorAll('.mode-t'), function (b) {
         var on = b.getAttribute('data-mode') === state.mode;
         b.classList.toggle('on', on);
         b.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
-
-      /* single routed price for the country */
-      var priceEl = document.getElementById('routedPrice');
-      if (priceEl) { priceEl.textContent = routedPrice(row); }
+      priceInto(priceRoot, row);
+      var stamp = document.getElementById('priceUpdated');
+      if (stamp && P.fetchedAt()) { stamp.textContent = 'Price list updated ' + new Date(P.fetchedAt()).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + '.'; }
     }
 
+    P.getPrices().then(function (list) {
+      selCountry.innerHTML = '';
+      list.slice().sort(function (a, b) { return a.name.localeCompare(b.name); }).forEach(function (row) {
+        byCode[row.country] = row;
+        var o = document.createElement('option'); o.value = row.country; o.textContent = row.name; selCountry.appendChild(o);
+      });
+      if (!list.length) {
+        var o = document.createElement('option'); o.value = ''; o.textContent = 'Price list unavailable'; selCountry.appendChild(o); selCountry.disabled = true;
+      }
+      var q = new URLSearchParams(location.search).get('country');
+      state.country = q && byCode[q.toUpperCase()] ? q.toUpperCase() : (byCode.US ? 'US' : (list[0] ? list[0].country : ''));
+      selCountry.value = state.country;
+      render();
+    });
     Array.prototype.forEach.call(document.querySelectorAll('.mode-t'), function (b) {
       b.addEventListener('click', function () { state.mode = b.getAttribute('data-mode'); render(); });
     });
     selCountry.addEventListener('change', function () { state.country = selCountry.value; render(); });
-    if (selChan) selChan.addEventListener('change', function () { state.channel = selChan.value; render(); });
-    render();
   }
   /* ---------- article table of contents: highlight the section being read ----------
      The current section is the last heading that has scrolled past the top of the viewport,

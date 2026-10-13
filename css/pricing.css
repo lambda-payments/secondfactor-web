@@ -117,3 +117,33 @@ html body main > section.pr-compare:not(#sf){padding-top:clamp(56px,6vw,88px)!im
   .pr-tab{flex:1;padding:9px 10px;font-size:13.5px}
 }
 @media (prefers-reduced-motion:reduce){.pr-tab,.pr-select,.pr-link span,.pr-more a span{transition:none}}
+
+/* ---- /compare/twilio-sms/ (direct-link landing page; .sv-table is shared with it) ---- */
+.sv-table-wrap{overflow-x:auto;border:1px solid var(--pr-line);background:#fff;-webkit-overflow-scrolling:touch}
+.sv-table{width:100%;min-width:640px;border-collapse:collapse;font:300 14.5px/1.5 Sora,system-ui,sans-serif;color:var(--pr-ink)}
+.sv-table th{text-align:left;font:500 11px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:rgba(31,36,80,.66);padding:14px 16px;border-bottom:1px solid var(--pr-line);background:var(--pr-tint);white-space:nowrap;vertical-align:bottom}
+.sv-table th small{display:block;font:300 10.5px/1.4 Sora,system-ui,sans-serif;letter-spacing:0;text-transform:none;margin-top:2px}
+.sv-table td{padding:12px 16px;border-bottom:1px solid var(--pr-line);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sv-table td:first-child{color:#1f2450;font-weight:400}
+.sv-table .num{text-align:right}
+.sv-table tr:last-child td{border-bottom:0}
+.cmp-page .tools-heading{padding-bottom:28px}
+.cmp-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:end;margin:0 0 14px}
+.cmp-controls .pr-field{max-width:none}
+.cmp-controls .pr-field label{font:500 11px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(31,36,80,.66)}
+.cmp-controls .pr-field label output{color:#1f2450;letter-spacing:0;font-weight:500}
+.cmp-range{-webkit-appearance:none;appearance:none;width:100%;height:52px;margin:0;background:transparent;cursor:pointer}
+.cmp-range::-webkit-slider-runnable-track{height:4px;border-radius:999px;background:#dfe4ec}
+.cmp-range::-moz-range-track{height:4px;border-radius:999px;background:#dfe4ec}
+.cmp-range::-moz-range-progress{height:4px;border-radius:999px;background:#3078e8}
+.cmp-range::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-9px;border-radius:50%;background:#fff;border:1px solid #c5cddb;box-shadow:0 2px 8px rgba(16,24,40,.18)}
+.cmp-range::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:1px solid #c5cddb;box-shadow:0 2px 8px rgba(16,24,40,.18)}
+.cmp-count{margin:0 0 14px}
+.cmp-code{font:400 11px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;color:rgba(31,36,80,.5);margin-left:6px}
+.cmp-muted{color:rgba(31,36,80,.45)}
+.cmp-pos{color:#17804d}.cmp-neg{color:#b4453f}
+.cmp-table small{font-size:12px;color:rgba(31,36,80,.55)}
+.cmp-note{margin:18px 0 0;padding-top:0;border-top:0}
+.cmp-page .tool-cta{margin-top:40px}
+@media (max-width:1000px){.cmp-controls{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.cmp-controls{grid-template-columns:minmax(0,1fr)}}

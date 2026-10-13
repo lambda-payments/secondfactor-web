@@ -172,7 +172,7 @@
       </div>
       <div class="crd">
         <dt style="font:400 11.5px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mut2);margin-bottom:12px">Indicative USD / OTP</dt>
-        <dd style="font:200 clamp(30px,3.4vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.03em;margin:0" data-routed-price="Indonesia">&mdash;</dd>
+        <dd style="font:200 clamp(30px,3.4vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.03em;margin:0" data-price-country="ID">&mdash;</dd>
       </div>
     </dl>
   </section>
@@ -288,14 +288,14 @@
     <div style="max-width:1120px;margin:0 auto;background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(220,232,251,.38));border:1px solid rgba(31,36,80,.14);padding:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:36px;align-items:center">
       <div>
         <h2 style="font:300 clamp(26px,3vw,36px)/1.14 Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 22px;max-width:22ch">OTP Pricing for Indonesia</h2>
-        <div style="font:400 11.5px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--mut2);margin-bottom:10px">Price per delivered OTP &mdash; Indonesia</div>
+        <div style="font:400 11.5px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--mut2);margin-bottom:10px">Price per OTP sent &mdash; Indonesia</div>
         <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
-          <div style="font:200 clamp(34px,4vw,50px) Sora,system-ui,sans-serif;letter-spacing:-.03em;font-variant-numeric:tabular-nums" data-routed-price="Indonesia">&mdash;</div>
+          <div style="font:200 clamp(34px,4vw,50px) Sora,system-ui,sans-serif;letter-spacing:-.03em;font-variant-numeric:tabular-nums" data-price-country="ID">&mdash;</div>
           <div style="font:400 11.5px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--ac);border:1px solid rgba(48,120,232,.3);padding:8px 14px">USD &middot; indicative</div>
         </div>
       </div>
       <div>
-        <p style="font:300 16px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 10px">One rate per delivered OTP, including delivery and verification.</p>
+        <p style="font:300 16px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 10px">One rate per OTP sent, whichever channel delivers it, including delivery and verification.</p>
         <p style="font:300 14px/1.7 Sora,system-ui,sans-serif;color:var(--mut2);margin:0 0 26px">Indicative pricing. Contact us for a quote based on your volume and channel setup.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap"><a href="/pricing/" class="pill pill-p">View All Rates</a><a href="/support/" class="pill pill-s">Talk to Sales</a></div>
       </div>
@@ -313,7 +313,7 @@
       <details><summary><span>What Happens if Delivery Fails?</span><i aria-hidden="true">+</i></summary><p>After eight seconds without confirmation, SecondFactor tries the next eligible channel enabled on your account. Review each attempt&rsquo;s status and cost in your OTP logs.</p></details>
       <details><summary><span>Can Businesses Outside Indonesia Use SecondFactor?</span><i aria-hidden="true">+</i></summary><p>Yes. Contact our team to confirm the right channel setup and pricing for your business.</p></details>
       <details><summary><span>How Do I Format Phone Numbers in Indonesia?</span><i aria-hidden="true">+</i></summary><p>Use E.164 format: +62 followed by the national mobile number, with no spaces or punctuation. Omit the domestic leading zero. Example format: <code>+62812345678</code>.</p></details>
-      <details><summary><span>What Does an OTP to Indonesia Cost?</span><i aria-hidden="true">+</i></summary><p>The indicative rate shown above covers delivery and verification per delivered OTP. Contact sales for pricing based on your volume and channels.</p></details>
+      <details><summary><span>What Does an OTP to Indonesia Cost?</span><i aria-hidden="true">+</i></summary><p>The rate shown above is the published price per OTP sent and covers delivery and verification. Contact sales for pricing based on your volume and channels.</p></details>
       <details><summary><span>Can I Test Before Integrating?</span><i aria-hidden="true">+</i></summary><p>Yes. Create an account and use your free credits in the PIE Playground to send a real OTP, inspect its route and verify the code.</p></details>
     </div>
   </section>
@@ -377,6 +377,7 @@
   </div>
 </footer>
 </div>
+<script src="/js/pricing-client.js"></script>
 <script src="/js/data.js"></script>
 <script src="/js/app.js"></script>
 </body>

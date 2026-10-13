@@ -193,3 +193,17 @@ html[data-theme="dark"] main.ch-page pre.ft-code:not(#sf):not(#sf){background:#0
 
 /* home hero: live route/status line under the OTP digits */
 html[data-theme="dark"] .hero :is(#heroRoute,#heroStatus):not(#sf):not(#sf){color:var(--d-mut)!important}
+
+/* ---- /compare/twilio-sms/ ---- */
+html[data-theme="dark"] main .sv-table-wrap:not(#sf):not(#sf){background:var(--d-surface)!important;border-color:var(--d-line)!important}
+html[data-theme="dark"] main .sv-table th:not(#sf):not(#sf){background:var(--d-raise)!important;border-color:var(--d-line)!important;color:var(--d-mut)!important}
+html[data-theme="dark"] main .sv-table td:not(#sf):not(#sf){border-color:var(--d-line)!important;color:var(--d-mut)!important}
+html[data-theme="dark"] main .sv-table td:first-child:not(#sf):not(#sf){color:var(--d-text)!important}
+html[data-theme="dark"] main :is(.cmp-code,.cmp-muted,.cmp-table small):not(#sf):not(#sf){color:rgba(232,235,244,.5)!important}
+html[data-theme="dark"] main .cmp-pos:not(#sf):not(#sf),html[data-theme="dark"] main .cmp-pos small:not(#sf):not(#sf){color:#4cd08a!important}
+html[data-theme="dark"] main .cmp-neg:not(#sf):not(#sf),html[data-theme="dark"] main .cmp-neg small:not(#sf):not(#sf){color:#ff9b94!important}
+html[data-theme="dark"] main .cmp-controls .pr-field label:not(#sf):not(#sf){color:var(--d-mut)!important}
+html[data-theme="dark"] main .cmp-controls .pr-field label output:not(#sf):not(#sf){color:var(--d-text)!important}
+html[data-theme="dark"] main .cmp-range::-webkit-slider-runnable-track{background:rgba(232,235,244,.18)}
+html[data-theme="dark"] main .cmp-range::-moz-range-track{background:rgba(232,235,244,.18)}
+html[data-theme="dark"] main .cmp-range::-webkit-slider-thumb{background:#e8ebf4;border-color:rgba(232,235,244,.3)}

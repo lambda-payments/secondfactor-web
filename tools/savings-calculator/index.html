@@ -121,11 +121,11 @@
 <main id="main" class="tools-page">
 <div class="tool-frame">
   <nav class="tool-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/tools/">Free tools</a><span aria-hidden="true">/</span><span aria-current="page">Savings calculator</span></nav>
-  <div class="tools-heading"><span class="tool-eyebrow">SECONDFACTOR TOOLS</span><h1>OTP Savings Calculator</h1><p class="tool-lead">Pick a destination country and your monthly volume to see what SecondFactor&rsquo;s routed rate saves against Twilio Verify. Edit either cost to match your own quotes.</p></div>
+  <div class="tools-heading"><span class="tool-eyebrow">SECONDFACTOR TOOLS</span><h1>OTP Savings Calculator</h1><p class="tool-lead">Pick a destination country and your monthly volume to see what SecondFactor&rsquo;s price per OTP sent saves against Twilio Verify. Edit either cost to match your own quotes.</p></div>
 
   <div class="sv sv-page">
     <div class="sv-inputs">
-      <div class="pr-field"><label for="svCountry">Destination country</label><select class="pr-select" id="svCountry"></select><span class="sv-help">The SecondFactor cost below follows the routed rate for <span id="svCountryName">United States</span>. Rates are indicative and quoted in USD.</span></div>
+      <div class="pr-field"><label for="svCountry">Destination country</label><select class="pr-select" id="svCountry"></select><span class="sv-help">The SecondFactor cost below follows the published price per OTP sent for <span id="svCountryName">United States</span>, in USD.</span></div>
       <div class="sv-range">
         <div class="sv-range-head"><label for="svVolume">Monthly completed verifications</label><output id="svVolumeOut" for="svVolume">100,000</output></div>
         <input type="range" id="svVolume" min="1000" max="1000000" step="1000" value="100000" aria-describedby="sv-note">
@@ -133,7 +133,7 @@
       </div>
       <div class="sv-costs">
         <div class="pr-field"><label for="svTwilio">Twilio cost per completion (USD)</label><input class="pr-select sv-num" id="svTwilio" type="number" inputmode="decimal" min="0" step="0.0001" value="0.0583"><span class="sv-help">$0.05 Verify fee + $0.0083 US SMS, as published by <a href="https://www.twilio.com/en-us/verify/pricing" target="_blank" rel="noopener">Twilio</a>. Channel fees vary by destination.</span></div>
-        <div class="pr-field"><label for="svSf">SecondFactor cost per completion (USD)</label><input class="pr-select sv-num" id="svSf" type="number" inputmode="decimal" min="0" step="0.0001" value="0.0042"><span class="sv-help">Routed rate, delivery and verification included</span></div>
+        <div class="pr-field"><label for="svSf">SecondFactor cost per completion (USD)</label><input class="pr-select sv-num" id="svSf" type="number" inputmode="decimal" min="0" step="0.0001" value="0.0042"><span class="sv-help">Price per OTP sent, delivery and verification included</span></div>
       </div>
     </div>
     <div class="pr-panel sv-result" aria-live="polite">
@@ -144,7 +144,7 @@
         <div><dt>SecondFactor, per month</dt><dd id="svSfTotal">$420</dd></div>
         <div><dt>Per year</dt><dd id="svYear">$64,920</dd></div>
       </dl>
-      <p class="sv-note" id="sv-note">Illustrative only. The Twilio default assumes one successful US SMS attempt at published rates; Twilio channel fees vary by destination. The SecondFactor rate is indicative and covers delivery and verification. For a like-for-like comparison, include failed attempts, retries, fallback and destination mix for both providers.</p>
+      <p class="sv-note" id="sv-note">Illustrative only. The Twilio default assumes one successful US SMS attempt at published rates; Twilio channel fees vary by destination. The SecondFactor price is the published rate per OTP sent, rounded up to four decimals, and covers delivery and verification. For a like-for-like comparison, include failed attempts, retries, fallback and destination mix for both providers.</p>
       <a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-p">Start with free credits</a>
     </div>
   </div>
@@ -206,7 +206,7 @@
     <nav class="ft-legal" aria-label="Legal"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms and Conditions</a></nav>
   </div>
 </footer>
-<script src="/js/data.js"></script>
+<script src="/js/pricing-client.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/savings.js"></script>
 

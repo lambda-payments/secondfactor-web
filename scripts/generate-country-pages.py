@@ -58,6 +58,7 @@ def render_country(template, country):
     for prefix in ('in ', 'to ', 'for ', 'Outside '):
         page = page.replace(prefix + 'India', prefix + prose)
     page = page.replace('your India setup', f'your {country["short_name"]} setup')
+    page = page.replace('data-price-country="IN"', f'data-price-country="{country["iso"]}"')
     page = page.replace('INDIA +91', country['short_name'].upper() + ' ' + dial)
     page = page.replace('india', slug).replace('India', name).replace('+91', dial)
     if re.search(r'\bIndia\b|\bIndian\b|\bDLT\b|\bTRAI\b|\+91', page):
@@ -85,18 +86,18 @@ def render_index(template):
     head = re.sub(r'<script type="application/ld\+json">.*?</script>', '<script type="application/ld+json">\n'+json.dumps(structured,indent=2)+'\n</script>',head,flags=re.S)
     chrome = template[template.index('<body>'):template.index('<main')]
     footer = template[template.index('<footer'):]
-    all_countries = sorted(COUNTRIES + [{'name':'India','slug':'india','dial':'+91'}],key=lambda c:c['name'])
+    all_countries = sorted(COUNTRIES + [{'name':'India','slug':'india','dial':'+91','iso':'IN'}],key=lambda c:c['name'])
     cards = []
     for c in all_countries:
         cards.append(f'''      <a class="cell" href="/country/{c['slug']}/" style="color:var(--fg)">
         <h2 class="h3">{html.escape(c['name'])}</h2>
-        <p class="s">{c['dial']} &middot; <span data-routed-price="{html.escape(c['name'])}">&mdash;</span> / delivered OTP</p>
+        <p class="s">{c['dial']} &middot; <span data-price-country="{c['iso']}">&mdash;</span> / OTP sent</p>
         <span class="lbl" style="color:var(--ac)">View Country &rarr;</span>
       </a>''')
     main = '''<main style="flex:1">
   <section class="sec country-content">
     <h1 class="h2" style="margin:18px 0 16px">OTP Delivery by Country</h1>
-    <p class="p" style="max-width:64ch">Explore delivery, verification and setup for each destination. Rates are indicative and quoted in USD.</p>
+    <p class="p" style="max-width:64ch">Explore delivery, verification and setup for each destination. Prices are per OTP sent and quoted in USD.</p>
     <div class="grid g4" style="grid-template-columns:repeat(4,minmax(0,1fr));margin-top:36px">
 ''' + '\n'.join(cards) + '''
     </div>
@@ -111,11 +112,8 @@ def main():
     parser.add_argument('--check', action='store_true', help='Check generated HTML without writing files')
     args = parser.parse_args()
     template = SOURCE.read_text()
-    rates = dict(re.findall(r'"([^"]+)":\{dial:"([^"]+)"', (ROOT/'js/data.js').read_text()))
-    assert {c['name'] for c in COUNTRIES} == set(rates) - {'India'}, 'Country list must match pricing'
     outputs = {}
     for c in COUNTRIES:
-        assert rates[c['name']] == c['dial'], f'Dialing code mismatch: {c["name"]}'
         outputs[ROOT/'country'/c['slug']/'index.html'] = render_country(template,c)
     outputs[ROOT/'country/index.html'] = render_index(template)
     stale = []

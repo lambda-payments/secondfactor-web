@@ -14,7 +14,7 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /channels/whatsapp/   channels/whatsapp/index.html  WhatsApp OTP
     /channels/viber/      channels/viber/index.html     Viber OTP
     /channels/rcs/        channels/rcs/index.html       RCS OTP
-    /pricing/             pricing/index.html            Pricing (one routed rate per country, per-channel on request)
+    /pricing/             pricing/index.html            Pricing: one price per OTP sent per country, from data/pricing.json
     /support/             support/index.html            Support / contact
     /docs/                docs/index.html               API documentation (send, check, fetch, webhooks)
     /privacy/             privacy/index.html            Privacy Policy (full text; footer links point here)
@@ -29,6 +29,9 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /tools/phone-type-check/ tools/phone-type-check/index.html Mobile, landline, and VoIP checker
     /tools/phone-number-validation/ tools/phone-number-validation/index.html Number format validation
     /tools/savings-calculator/ tools/savings-calculator/index.html Savings vs Twilio Verify by country and volume (js/savings.js)
+    /compare/twilio-sms/  compare/twilio-sms/index.html  Direct-link landing page (noindex, not in nav/footer/sitemap):
+                                                         SecondFactor vs Twilio SMS/Verify price per country (js/compare-twilio.js,
+                                                         data/twilio-sms.json from scripts/fetch-twilio-sms.py)
     /blog/                blog/index.html               Blog listing: compact intro, then one `.blog-card` link per published article
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
@@ -110,7 +113,9 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
     css/surface.css   Neutral surface layer, loaded after chrome.css on every page: white canvas,
                       hairline section starts, white cards, grey-tint bands and footer. The hero
                       bands (.hero, .hero-in) keep their gradient art. New pages must link it too.
-    js/data.js        Per-country rate data (DEMO VALUES — replace before launch)
+    js/data.js        Country dialing codes and page copy (no prices)
+    js/pricing-client.js  window.SFPricing: getPrices(), getPrice(code), display() — the only way prices are read
+    data/pricing.json Price list written by scripts/fetch-pricing.py (see "Pricing data")
     js/app.js         Scroll reveal, mobile drawer, pricing logic, support form
     assets/logo/      Brand files: secondFactor-full.png (header/footer lockup), secondfactor-icon.png
                       (favicon); the -white variants are for dark backgrounds and are not used yet
@@ -194,15 +199,13 @@ for the customer's actual route during onboarding.
 Sora (display) + JetBrains Mono (labels, code) load from Google Fonts. To self-host,
 download both families into assets/ and swap the <link> in each page's <head>.
 
-## Replacing the demo rates
+## Country pages and dialing codes
 
-Rates live in js/data.js under RATES, one entry per country:
-
-    "India": {dial:"+91", sms:0.0038, whatsapp:0.0014, viber:null, rcs:0.0009},
-
-Values are USD per delivered OTP. The pricing page publishes ONE routed price per
-country (the lowest available value) and never discloses channels or per-channel
-rates. Adding a country also needs a matching <option> in pricing/index.html's dropdown.
+`js/data.js` keeps one entry per country page with its dialing code (used by the country
+page generator) plus per-channel page copy. It holds no prices: see "Pricing data". The
+pricing page's country dropdown is built from the price list at runtime, so adding a
+country to the price list needs no page change; adding a country *page* means adding it
+to `country/countries.json` and regenerating.
 
 ## Links to wire up
 
@@ -218,6 +221,29 @@ rates. Adding a country also needs a matching <option> in pricing/index.html's d
 * Layout is fluid: containers cap at min(1640px, 94vw); grids collapse at 1100/900/720px;
   the header becomes a hamburger drawer below 860px.
 * Rate figures in copy are illustrative — update with your real price list.
+
+## Pricing data
+
+Prices are never hard-coded. `GET https://api.secondfactor.ai/v2/Pricing` (one row per
+priced country: `country`, `name`, `price` in USD per OTP sent, `currency`) is called only
+on the server side: `scripts/fetch-pricing.py` runs in GitHub Actions
+(`.github/workflows/pricing.yml`) every 10 minutes and on demand, with the key in the
+repository secret `SF_PRICING_KEY`, and commits `data/pricing.json` when the list changes.
+If the fetch fails the job stops and the last good file keeps being served.
+
+Browsers read `/data/pricing.json` through `js/pricing-client.js` (`window.SFPricing`):
+
+    SFPricing.getPrices()      -> Promise<Price[]>   sorted by country code
+    SFPricing.getPrice('NP')   -> Promise<Price|null>
+    SFPricing.display(price)   -> "$0.0065"          rounded UP to 4 decimals, or "Contact us"
+
+Use it for every price on the site. Any `<span data-price-country="NP">` is filled by
+`js/app.js`. Countries missing from the list show "Contact us" (they can still be sent to),
+and the label is always "per OTP sent": the price does not depend on the delivering channel.
+
+To refresh the list locally: `SF_PRICING_KEY=sf_... python3 scripts/fetch-pricing.py`
+(`SF_PRICING_URL=https://uat-api.secondfactor.ai/v2/Pricing` for UAT). Never put the key
+in a page or script.
 
 ## Free phone tools
 
