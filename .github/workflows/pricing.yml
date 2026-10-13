@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['scripts/fetch-pricing.py', 'scripts/fetch-twilio-sms.py', '.github/workflows/pricing.yml']
+    paths: ['scripts/fetch-pricing.py', '.github/workflows/pricing.yml']
 
 concurrency:
   group: sync-pricing
@@ -31,17 +31,14 @@ jobs:
         # A failure here stops the job before the commit step, so the previously
         # committed data/pricing.json keeps being served.
 
-      - name: Refresh Twilio's published SMS prices (for /compare/twilio-sms/)
-        run: python3 scripts/fetch-twilio-sms.py || echo "twilio list unchanged or unavailable; keeping the committed file"
-
-      - name: Commit when the lists changed
+      - name: Commit when the list changed
         run: |
-          if git diff --quiet -- data/pricing.json data/twilio-sms.json; then
+          if git diff --quiet -- data/pricing.json; then
             echo "pricing unchanged"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/pricing.json data/twilio-sms.json
+          git add data/pricing.json
           git commit -m "Update pricing data"
           git push

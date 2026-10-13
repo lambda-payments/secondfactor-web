@@ -118,7 +118,7 @@ html body main > section.pr-compare:not(#sf){padding-top:clamp(56px,6vw,88px)!im
 }
 @media (prefers-reduced-motion:reduce){.pr-tab,.pr-select,.pr-link span,.pr-more a span{transition:none}}
 
-/* ---- /compare/twilio-sms/ (direct-link landing page; .sv-table is shared with it) ---- */
+/* ---- /compare/<provider>/ direct-link landing pages (.sv-table, .cmp-*) ---- */
 .sv-table-wrap{overflow-x:auto;border:1px solid var(--pr-line);background:#fff;-webkit-overflow-scrolling:touch}
 .sv-table{width:100%;min-width:640px;border-collapse:collapse;font:300 14.5px/1.5 Sora,system-ui,sans-serif;color:var(--pr-ink)}
 .sv-table th{text-align:left;font:500 11px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:rgba(31,36,80,.66);padding:14px 16px;border-bottom:1px solid var(--pr-line);background:var(--pr-tint);white-space:nowrap;vertical-align:bottom}

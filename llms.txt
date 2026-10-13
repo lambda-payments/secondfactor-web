@@ -14,7 +14,6 @@ Key facts:
 - [API documentation](https://docs.secondfactor.ai): authentication, send, check, fetch a verification, webhooks, errors, SDKs for JavaScript, Node and Python.
 - [Full API reference for coding agents](https://api.secondfactor.ai/llms-full.txt): every endpoint, request and response body, error code, rate limit and a step-by-step integration guide. Fetch it with a plain HTTP client; summarising tools drop the limits and status codes.
 - [API summary](https://api.secondfactor.ai/llms.txt): short index of the API reference.
-- [Docs page on this site](https://secondfactor.ai/docs/): send a code, check it, fetch a verification, webhooks, polling.
 - [How to add phone verification to a Node.js app](https://secondfactor.ai/blog/nodejs-phone-verification/): Express walkthrough using the OTP API.
 
 ## Pricing

@@ -1,0 +1,1124 @@
+{
+ "provider": "Twilio",
+ "slug": "twilio",
+ "source": "https://assets.cdn.prod.twilio.com/pricing-csv/SMSPricing.csv",
+ "source_page": "https://www.twilio.com/en-us/sms/pricing",
+ "fetched_at": "2026-10-13T11:07:54Z",
+ "basis": "Published outbound SMS price per message segment in USD, lowest carrier rate per country.",
+ "verify_fee": 0.05,
+ "verify_fee_note": "Twilio Verify: $0.05 per successful verification, on top of the channel fee (twilio.com/en-us/verify/pricing).",
+ "verify_label": "Twilio Verify (SMS + $0.05 fee)",
+ "sms_label": "Twilio SMS",
+ "prices": [
+  {
+   "country": "AD",
+   "name": "Andorra",
+   "price": "0.14640"
+  },
+  {
+   "country": "AE",
+   "name": "United Arab Emirates",
+   "price": "0.11760"
+  },
+  {
+   "country": "AF",
+   "name": "Afghanistan",
+   "price": "0.44600"
+  },
+  {
+   "country": "AG",
+   "name": "Antigua and Barbuda",
+   "price": "0.23840"
+  },
+  {
+   "country": "AI",
+   "name": "Anguilla",
+   "price": "0.24150"
+  },
+  {
+   "country": "AL",
+   "name": "Albania",
+   "price": "0.11670"
+  },
+  {
+   "country": "AM",
+   "name": "Armenia",
+   "price": "0.29960"
+  },
+  {
+   "country": "AN",
+   "name": "Netherlands Antilles",
+   "price": "0.17230"
+  },
+  {
+   "country": "AO",
+   "name": "Angola",
+   "price": "0.30620"
+  },
+  {
+   "country": "AR",
+   "name": "Argentina",
+   "price": "0.10340"
+  },
+  {
+   "country": "AS",
+   "name": "American Samoa",
+   "price": "0.18810"
+  },
+  {
+   "country": "AT",
+   "name": "Austria",
+   "price": "0.09790"
+  },
+  {
+   "country": "AU",
+   "name": "Australia",
+   "price": "0.05150"
+  },
+  {
+   "country": "AW",
+   "name": "Aruba",
+   "price": "0.27890"
+  },
+  {
+   "country": "AZ",
+   "name": "Azerbaijan",
+   "price": "0.41100"
+  },
+  {
+   "country": "BA",
+   "name": "Bosnia and Herzegovina",
+   "price": "0.51100"
+  },
+  {
+   "country": "BB",
+   "name": "Barbados",
+   "price": "0.26240"
+  },
+  {
+   "country": "BD",
+   "name": "Bangladesh",
+   "price": "0.59620"
+  },
+  {
+   "country": "BE",
+   "name": "Belgium",
+   "price": "0.11130"
+  },
+  {
+   "country": "BF",
+   "name": "Burkina Faso",
+   "price": "0.22330"
+  },
+  {
+   "country": "BG",
+   "name": "Bulgaria",
+   "price": "0.14660"
+  },
+  {
+   "country": "BH",
+   "name": "Bahrain",
+   "price": "0.03860"
+  },
+  {
+   "country": "BI",
+   "name": "Burundi",
+   "price": "0.46300"
+  },
+  {
+   "country": "BJ",
+   "name": "Benin",
+   "price": "0.29850"
+  },
+  {
+   "country": "BM",
+   "name": "Bermuda",
+   "price": "0.26300"
+  },
+  {
+   "country": "BN",
+   "name": "Brunei",
+   "price": "0.06500"
+  },
+  {
+   "country": "BO",
+   "name": "Bolivia",
+   "price": "0.22150"
+  },
+  {
+   "country": "BR",
+   "name": "Brazil",
+   "price": "0.05990"
+  },
+  {
+   "country": "BS",
+   "name": "Bahamas",
+   "price": "0.09040"
+  },
+  {
+   "country": "BT",
+   "name": "Bhutan",
+   "price": "0.40070"
+  },
+  {
+   "country": "BW",
+   "name": "Botswana",
+   "price": "0.15800"
+  },
+  {
+   "country": "BY",
+   "name": "Belarus",
+   "price": "0.25210"
+  },
+  {
+   "country": "BZ",
+   "name": "Belize",
+   "price": "0.29020"
+  },
+  {
+   "country": "CA",
+   "name": "Canada",
+   "price": "0.00830"
+  },
+  {
+   "country": "CD",
+   "name": "DR Congo",
+   "price": "0.25840"
+  },
+  {
+   "country": "CF",
+   "name": "Central Africa",
+   "price": "0.45180"
+  },
+  {
+   "country": "CG",
+   "name": "Congo",
+   "price": "0.33710"
+  },
+  {
+   "country": "CH",
+   "name": "Switzerland",
+   "price": "0.07690"
+  },
+  {
+   "country": "CI",
+   "name": "Ivory Coast",
+   "price": "0.49250"
+  },
+  {
+   "country": "CK",
+   "name": "Cook Islands",
+   "price": "0.13960"
+  },
+  {
+   "country": "CL",
+   "name": "Chile",
+   "price": "0.07970"
+  },
+  {
+   "country": "CM",
+   "name": "Cameroon",
+   "price": "0.31700"
+  },
+  {
+   "country": "CN",
+   "name": "China",
+   "price": "0.10820"
+  },
+  {
+   "country": "CO",
+   "name": "Colombia",
+   "price": "0.05920"
+  },
+  {
+   "country": "CR",
+   "name": "Costa Rica",
+   "price": "0.10310"
+  },
+  {
+   "country": "CV",
+   "name": "Cape Verde",
+   "price": "0.22390"
+  },
+  {
+   "country": "CY",
+   "name": "Cyprus",
+   "price": "0.08640"
+  },
+  {
+   "country": "CZ",
+   "name": "Czech Republic",
+   "price": "0.07060"
+  },
+  {
+   "country": "DE",
+   "name": "Germany",
+   "price": "0.11200"
+  },
+  {
+   "country": "DJ",
+   "name": "Djibouti",
+   "price": "0.16240"
+  },
+  {
+   "country": "DK",
+   "name": "Denmark",
+   "price": "0.05920"
+  },
+  {
+   "country": "DM",
+   "name": "Dominica",
+   "price": "0.25330"
+  },
+  {
+   "country": "DO",
+   "name": "Dominican Republic",
+   "price": "0.13080"
+  },
+  {
+   "country": "DZ",
+   "name": "Algeria",
+   "price": "0.27300"
+  },
+  {
+   "country": "EC",
+   "name": "Ecuador",
+   "price": "0.33900"
+  },
+  {
+   "country": "EE",
+   "name": "Estonia",
+   "price": "0.09580"
+  },
+  {
+   "country": "EG",
+   "name": "Egypt",
+   "price": "0.39590"
+  },
+  {
+   "country": "ER",
+   "name": "Eritrea",
+   "price": "0.12360"
+  },
+  {
+   "country": "ES",
+   "name": "Spain",
+   "price": "0.08750"
+  },
+  {
+   "country": "ET",
+   "name": "Ethiopia",
+   "price": "0.34250"
+  },
+  {
+   "country": "FI",
+   "name": "Finland",
+   "price": "0.08610"
+  },
+  {
+   "country": "FJ",
+   "name": "Fiji",
+   "price": "0.22000"
+  },
+  {
+   "country": "FK",
+   "name": "Falkland Islands",
+   "price": "0.16720"
+  },
+  {
+   "country": "FM",
+   "name": "Micronesia",
+   "price": "0.07350"
+  },
+  {
+   "country": "FO",
+   "name": "Faroe Islands",
+   "price": "0.07170"
+  },
+  {
+   "country": "FR",
+   "name": "France",
+   "price": "0.07980"
+  },
+  {
+   "country": "GA",
+   "name": "Gabon",
+   "price": "0.31460"
+  },
+  {
+   "country": "GB",
+   "name": "United Kingdom",
+   "price": "0.05600"
+  },
+  {
+   "country": "GD",
+   "name": "Grenada",
+   "price": "0.29130"
+  },
+  {
+   "country": "GE",
+   "name": "Georgia",
+   "price": "0.16840"
+  },
+  {
+   "country": "GF",
+   "name": "French Guiana",
+   "price": "0.18420"
+  },
+  {
+   "country": "GG",
+   "name": "Guernsey",
+   "price": "0.05240"
+  },
+  {
+   "country": "GH",
+   "name": "Ghana",
+   "price": "0.37410"
+  },
+  {
+   "country": "GI",
+   "name": "Gibraltar",
+   "price": "0.12250"
+  },
+  {
+   "country": "GL",
+   "name": "Greenland",
+   "price": "0.04100"
+  },
+  {
+   "country": "GM",
+   "name": "Gambia",
+   "price": "0.26060"
+  },
+  {
+   "country": "GN",
+   "name": "Guinea",
+   "price": "0.27880"
+  },
+  {
+   "country": "GP",
+   "name": "Guadeloupe",
+   "price": "0.22740"
+  },
+  {
+   "country": "GQ",
+   "name": "Equatorial Guinea",
+   "price": "0.27050"
+  },
+  {
+   "country": "GR",
+   "name": "Greece",
+   "price": "0.06570"
+  },
+  {
+   "country": "GT",
+   "name": "Guatemala",
+   "price": "0.24980"
+  },
+  {
+   "country": "GU",
+   "name": "Guam",
+   "price": "0.08470"
+  },
+  {
+   "country": "GW",
+   "name": "Guinea-Bissau",
+   "price": "0.47220"
+  },
+  {
+   "country": "GY",
+   "name": "Guyana",
+   "price": "0.33660"
+  },
+  {
+   "country": "HK",
+   "name": "Hong Kong",
+   "price": "0.07230"
+  },
+  {
+   "country": "HN",
+   "name": "Honduras",
+   "price": "0.32960"
+  },
+  {
+   "country": "HR",
+   "name": "Croatia",
+   "price": "0.13790"
+  },
+  {
+   "country": "HT",
+   "name": "Haiti",
+   "price": "0.29210"
+  },
+  {
+   "country": "HU",
+   "name": "Hungary",
+   "price": "0.09100"
+  },
+  {
+   "country": "ID",
+   "name": "Indonesia",
+   "price": "0.44140"
+  },
+  {
+   "country": "IE",
+   "name": "Ireland",
+   "price": "0.07790"
+  },
+  {
+   "country": "IL",
+   "name": "Israel",
+   "price": "0.25750"
+  },
+  {
+   "country": "IN",
+   "name": "India",
+   "price": "0.08320"
+  },
+  {
+   "country": "IQ",
+   "name": "Iraq",
+   "price": "0.50300"
+  },
+  {
+   "country": "IS",
+   "name": "Iceland",
+   "price": "0.07190"
+  },
+  {
+   "country": "IT",
+   "name": "Italy",
+   "price": "0.09270"
+  },
+  {
+   "country": "JE",
+   "name": "Jersey",
+   "price": "0.05240"
+  },
+  {
+   "country": "JM",
+   "name": "Jamaica",
+   "price": "0.31510"
+  },
+  {
+   "country": "JO",
+   "name": "Jordan",
+   "price": "0.44290"
+  },
+  {
+   "country": "JP",
+   "name": "Japan",
+   "price": "0.08900"
+  },
+  {
+   "country": "KE",
+   "name": "Kenya",
+   "price": "0.31340"
+  },
+  {
+   "country": "KG",
+   "name": "Kyrgyzstan",
+   "price": "0.45880"
+  },
+  {
+   "country": "KH",
+   "name": "Cambodia",
+   "price": "0.44180"
+  },
+  {
+   "country": "KI",
+   "name": "Kiribati",
+   "price": "0.14550"
+  },
+  {
+   "country": "KM",
+   "name": "Comoros",
+   "price": "0.41750"
+  },
+  {
+   "country": "KN",
+   "name": "St Kitts and Nevis",
+   "price": "0.25750"
+  },
+  {
+   "country": "KR",
+   "name": "Korea Republic of",
+   "price": "0.05240"
+  },
+  {
+   "country": "KW",
+   "name": "Kuwait",
+   "price": "0.31640"
+  },
+  {
+   "country": "KY",
+   "name": "Cayman Islands",
+   "price": "0.27560"
+  },
+  {
+   "country": "KZ",
+   "name": "Kazakhstan",
+   "price": "0.33820"
+  },
+  {
+   "country": "LA",
+   "name": "Laos PDR",
+   "price": "0.31180"
+  },
+  {
+   "country": "LB",
+   "name": "Lebanon",
+   "price": "0.36190"
+  },
+  {
+   "country": "LC",
+   "name": "St Lucia",
+   "price": "0.26230"
+  },
+  {
+   "country": "LI",
+   "name": "Liechtenstein",
+   "price": "0.03620"
+  },
+  {
+   "country": "LK",
+   "name": "Sri Lanka",
+   "price": "0.42000"
+  },
+  {
+   "country": "LR",
+   "name": "Liberia",
+   "price": "0.26770"
+  },
+  {
+   "country": "LS",
+   "name": "Lesotho",
+   "price": "0.41230"
+  },
+  {
+   "country": "LT",
+   "name": "Lithuania",
+   "price": "0.05780"
+  },
+  {
+   "country": "LU",
+   "name": "Luxembourg",
+   "price": "0.08180"
+  },
+  {
+   "country": "LV",
+   "name": "Latvia",
+   "price": "0.08010"
+  },
+  {
+   "country": "LY",
+   "name": "Libya",
+   "price": "0.44350"
+  },
+  {
+   "country": "MA",
+   "name": "Morocco",
+   "price": "0.22440"
+  },
+  {
+   "country": "MC",
+   "name": "Monaco",
+   "price": "0.18560"
+  },
+  {
+   "country": "MD",
+   "name": "Moldova",
+   "price": "0.14740"
+  },
+  {
+   "country": "ME",
+   "name": "Montenegro",
+   "price": "0.19280"
+  },
+  {
+   "country": "MG",
+   "name": "Madagascar",
+   "price": "0.58990"
+  },
+  {
+   "country": "MH",
+   "name": "Marshall Islands",
+   "price": "0.15890"
+  },
+  {
+   "country": "MK",
+   "name": "Macedonia",
+   "price": "0.20120"
+  },
+  {
+   "country": "ML",
+   "name": "Mali",
+   "price": "0.34850"
+  },
+  {
+   "country": "MM",
+   "name": "Myanmar",
+   "price": "0.41430"
+  },
+  {
+   "country": "MN",
+   "name": "Mongolia",
+   "price": "0.29570"
+  },
+  {
+   "country": "MO",
+   "name": "Macao",
+   "price": "0.05900"
+  },
+  {
+   "country": "MQ",
+   "name": "Martinique",
+   "price": "0.18970"
+  },
+  {
+   "country": "MR",
+   "name": "Mauritania",
+   "price": "0.36180"
+  },
+  {
+   "country": "MS",
+   "name": "Montserrat",
+   "price": "0.25250"
+  },
+  {
+   "country": "MT",
+   "name": "Malta",
+   "price": "0.06890"
+  },
+  {
+   "country": "MU",
+   "name": "Mauritius",
+   "price": "0.26640"
+  },
+  {
+   "country": "MV",
+   "name": "Maldives",
+   "price": "0.35810"
+  },
+  {
+   "country": "MW",
+   "name": "Malawi",
+   "price": "0.33070"
+  },
+  {
+   "country": "MX",
+   "name": "Mexico",
+   "price": "0.18190"
+  },
+  {
+   "country": "MY",
+   "name": "Malaysia",
+   "price": "0.33890"
+  },
+  {
+   "country": "MZ",
+   "name": "Mozambique",
+   "price": "0.41700"
+  },
+  {
+   "country": "NA",
+   "name": "Namibia",
+   "price": "0.11670"
+  },
+  {
+   "country": "NC",
+   "name": "New Caledonia",
+   "price": "0.17610"
+  },
+  {
+   "country": "NE",
+   "name": "Niger",
+   "price": "0.36520"
+  },
+  {
+   "country": "NF",
+   "name": "Norfolk Island",
+   "price": "0.02817"
+  },
+  {
+   "country": "NG",
+   "name": "Nigeria",
+   "price": "0.38680"
+  },
+  {
+   "country": "NI",
+   "name": "Nicaragua",
+   "price": "0.15670"
+  },
+  {
+   "country": "NL",
+   "name": "Netherlands",
+   "price": "0.11430"
+  },
+  {
+   "country": "NO",
+   "name": "Norway",
+   "price": "0.06970"
+  },
+  {
+   "country": "NP",
+   "name": "Nepal",
+   "price": "0.30220"
+  },
+  {
+   "country": "NU",
+   "name": "Niue",
+   "price": "0.23350"
+  },
+  {
+   "country": "NZ",
+   "name": "New Zealand",
+   "price": "0.10500"
+  },
+  {
+   "country": "OM",
+   "name": "Oman",
+   "price": "0.21580"
+  },
+  {
+   "country": "PA",
+   "name": "Panama",
+   "price": "0.18360"
+  },
+  {
+   "country": "PE",
+   "name": "Peru",
+   "price": "0.24760"
+  },
+  {
+   "country": "PF",
+   "name": "French Polynesia",
+   "price": "0.17970"
+  },
+  {
+   "country": "PG",
+   "name": "Papua New Guinea",
+   "price": "0.75440"
+  },
+  {
+   "country": "PH",
+   "name": "Philippines",
+   "price": "0.24100"
+  },
+  {
+   "country": "PK",
+   "name": "Pakistan",
+   "price": "0.47340"
+  },
+  {
+   "country": "PL",
+   "name": "Poland",
+   "price": "0.04570"
+  },
+  {
+   "country": "PM",
+   "name": "St Pierre and Miquelon",
+   "price": "0.15970"
+  },
+  {
+   "country": "PR",
+   "name": "Puerto Rico",
+   "price": "0.05400"
+  },
+  {
+   "country": "PS",
+   "name": "Palestinian Territory",
+   "price": "0.41010"
+  },
+  {
+   "country": "PT",
+   "name": "Portugal",
+   "price": "0.05010"
+  },
+  {
+   "country": "PW",
+   "name": "Palau",
+   "price": "0.09980"
+  },
+  {
+   "country": "PY",
+   "name": "Paraguay",
+   "price": "0.12080"
+  },
+  {
+   "country": "QA",
+   "name": "Qatar",
+   "price": "0.26340"
+  },
+  {
+   "country": "RE",
+   "name": "Reunion/Mayotte",
+   "price": "0.19110"
+  },
+  {
+   "country": "RO",
+   "name": "Romania",
+   "price": "0.07810"
+  },
+  {
+   "country": "RS",
+   "name": "Serbia",
+   "price": "0.40980"
+  },
+  {
+   "country": "RU",
+   "name": "Russia",
+   "price": "0.75220"
+  },
+  {
+   "country": "RW",
+   "name": "Rwanda",
+   "price": "0.32610"
+  },
+  {
+   "country": "SA",
+   "name": "Saudi Arabia",
+   "price": "0.19490"
+  },
+  {
+   "country": "SB",
+   "name": "Solomon Islands",
+   "price": "0.12650"
+  },
+  {
+   "country": "SC",
+   "name": "Seychelles",
+   "price": "0.30770"
+  },
+  {
+   "country": "SD",
+   "name": "Sudan",
+   "price": "0.47490"
+  },
+  {
+   "country": "SE",
+   "name": "Sweden",
+   "price": "0.06460"
+  },
+  {
+   "country": "SG",
+   "name": "Singapore",
+   "price": "0.05910"
+  },
+  {
+   "country": "SI",
+   "name": "Slovenia",
+   "price": "0.20510"
+  },
+  {
+   "country": "SK",
+   "name": "Slovakia",
+   "price": "0.08830"
+  },
+  {
+   "country": "SL",
+   "name": "Sierra Leone",
+   "price": "0.78490"
+  },
+  {
+   "country": "SM",
+   "name": "San Marino",
+   "price": "0.12560"
+  },
+  {
+   "country": "SN",
+   "name": "Senegal",
+   "price": "0.55060"
+  },
+  {
+   "country": "SO",
+   "name": "Somalia",
+   "price": "0.37030"
+  },
+  {
+   "country": "SR",
+   "name": "Suriname",
+   "price": "0.31720"
+  },
+  {
+   "country": "SS",
+   "name": "South Sudan",
+   "price": "0.23990"
+  },
+  {
+   "country": "ST",
+   "name": "Sao Tome and Principe",
+   "price": "0.15810"
+  },
+  {
+   "country": "SV",
+   "name": "El Salvador",
+   "price": "0.29900"
+  },
+  {
+   "country": "SZ",
+   "name": "Swaziland",
+   "price": "0.26500"
+  },
+  {
+   "country": "TC",
+   "name": "Turks and Caicos Islands",
+   "price": "0.29230"
+  },
+  {
+   "country": "TD",
+   "name": "Chad",
+   "price": "0.34580"
+  },
+  {
+   "country": "TG",
+   "name": "Togo",
+   "price": "0.49460"
+  },
+  {
+   "country": "TH",
+   "name": "Thailand",
+   "price": "0.03050"
+  },
+  {
+   "country": "TJ",
+   "name": "Tajikistan",
+   "price": "0.45050"
+  },
+  {
+   "country": "TL",
+   "name": "East Timor",
+   "price": "0.25860"
+  },
+  {
+   "country": "TM",
+   "name": "Turkmenistan",
+   "price": "0.32330"
+  },
+  {
+   "country": "TN",
+   "name": "Tunisia",
+   "price": "0.53790"
+  },
+  {
+   "country": "TO",
+   "name": "Tonga",
+   "price": "0.21770"
+  },
+  {
+   "country": "TR",
+   "name": "Turkey",
+   "price": "0.03050"
+  },
+  {
+   "country": "TT",
+   "name": "Trinidad and Tobago",
+   "price": "0.29920"
+  },
+  {
+   "country": "TV",
+   "name": "Tuvalu",
+   "price": "0.29590"
+  },
+  {
+   "country": "TW",
+   "name": "Taiwan",
+   "price": "0.08420"
+  },
+  {
+   "country": "TZ",
+   "name": "Tanzania",
+   "price": "0.43360"
+  },
+  {
+   "country": "UA",
+   "name": "Ukraine",
+   "price": "0.22680"
+  },
+  {
+   "country": "UG",
+   "name": "Uganda",
+   "price": "0.32890"
+  },
+  {
+   "country": "US",
+   "name": "United States",
+   "price": "0.00830"
+  },
+  {
+   "country": "UY",
+   "name": "Uruguay",
+   "price": "0.08520"
+  },
+  {
+   "country": "UZ",
+   "name": "Uzbekistan",
+   "price": "0.45710"
+  },
+  {
+   "country": "VC",
+   "name": "St Vincent Grenadines",
+   "price": "0.33380"
+  },
+  {
+   "country": "VE",
+   "name": "Venezuela",
+   "price": "0.22570"
+  },
+  {
+   "country": "VG",
+   "name": "Virgin Islands, British",
+   "price": "0.30800"
+  },
+  {
+   "country": "VI",
+   "name": "Virgin Islands, U.S.",
+   "price": "0.19870"
+  },
+  {
+   "country": "VN",
+   "name": "Vietnam",
+   "price": "0.28520"
+  },
+  {
+   "country": "VU",
+   "name": "Vanuatu",
+   "price": "0.21910"
+  },
+  {
+   "country": "WF",
+   "name": "Wallis and Futuna",
+   "price": "0.11000"
+  },
+  {
+   "country": "WS",
+   "name": "Samoa",
+   "price": "0.26750"
+  },
+  {
+   "country": "XK",
+   "name": "Kosovo",
+   "price": "0.25090"
+  },
+  {
+   "country": "YE",
+   "name": "Yemen",
+   "price": "0.29290"
+  },
+  {
+   "country": "ZA",
+   "name": "South Africa",
+   "price": "0.13550"
+  },
+  {
+   "country": "ZM",
+   "name": "Zambia",
+   "price": "0.39420"
+  },
+  {
+   "country": "ZW",
+   "name": "Zimbabwe",
+   "price": "0.32120"
+  }
+ ]
+}

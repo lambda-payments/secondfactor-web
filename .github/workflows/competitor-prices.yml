@@ -1,0 +1,45 @@
+name: Sync competitor prices
+
+# Refresh the competitors' published price lists used by the /compare/<provider>/ landing pages.
+# Daily is plenty (these lists change rarely) and keeps the scraping polite. No secrets needed:
+# every source is a public price page or download. Each script keeps its committed file on
+# failure, so one blocked site never stops the others.
+on:
+  schedule:
+    - cron: '17 3 * * *'   # daily, 03:17 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/competitors/**', '.github/workflows/competitor-prices.yml']
+
+concurrency:
+  group: sync-competitor-prices
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch each competitor's price list
+        run: |
+          for f in scripts/competitors/fetch_*.py; do
+            python3 "$f" || echo "::warning::$f failed; keeping its committed data file"
+          done
+
+      - name: Commit when a list changed
+        run: |
+          if git diff --quiet -- data/competitors; then
+            echo "competitor prices unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/competitors
+          git commit -m "Update competitor price lists"
+          git pull --rebase
+          git push
