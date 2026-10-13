@@ -1,6 +1,6 @@
 {
  "source": "https://api.secondfactor.ai/v2/Pricing",
- "fetched_at": "2026-10-13T06:01:19Z",
+ "fetched_at": "2026-10-13T07:15:38Z",
  "prices": [
   {
    "country": "AE",
@@ -125,7 +125,7 @@
   {
    "country": "CA",
    "name": "Canada",
-   "price": "0.028291",
+   "price": "0.016181",
    "currency": "USD"
   },
   {
@@ -149,7 +149,7 @@
   {
    "country": "CL",
    "name": "Chile",
-   "price": "0.096086",
+   "price": "0.076153",
    "currency": "USD"
   },
   {
@@ -791,7 +791,7 @@
   {
    "country": "US",
    "name": "United States",
-   "price": "0.019217",
+   "price": "0.008154",
    "currency": "USD"
   },
   {
