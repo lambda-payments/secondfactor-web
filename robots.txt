@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://secondfactor.ai/sitemap.xml
+
+# Site guide for AI assistants
+# https://secondfactor.ai/llms.txt

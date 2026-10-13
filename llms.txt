@@ -1,0 +1,74 @@
+# SecondFactor.ai
+
+> One API to send and verify one-time passwords (OTPs) over SMS, WhatsApp, Viber and RCS. SecondFactor generates, delivers and checks the code, routes each send to the lowest-cost eligible channel for the destination and falls back to the next channel automatically. One price per country per OTP sent, whichever channel delivers it. A product of Digital 360 Pte. Ltd., Singapore.
+
+Key facts:
+- Two API calls per verification: POST /v2/Services/{ServiceSid}/Verifications to send a code, POST /v2/Services/{ServiceSid}/VerificationCheck to check it. Twilio Verify v2-shaped paths, authenticated with an X-API-Key header.
+- Channels: SMS, WhatsApp, Viber, RCS (and Silent Network Authentication where available). WhatsApp, Viber and RCS need sender approval through the respective platform.
+- Routing: the Price Intelligence Engine (PIE) picks the cheapest eligible channel per request and fails over if delivery isn't confirmed within eight seconds.
+- Pricing: USD per OTP sent, one rate per destination country, delivery and verification included; prepaid credits, no monthly fee. Per-channel pricing on request.
+- Accounts: https://app.secondfactor.ai (sign up, API keys, templates, delivery logs). Support: support@secondfactor.ai.
+
+## API and integration
+
+- [API documentation](https://docs.secondfactor.ai): authentication, send, check, fetch a verification, webhooks, errors, SDKs for JavaScript, Node and Python.
+- [Full API reference for coding agents](https://api.secondfactor.ai/llms-full.txt): every endpoint, request and response body, error code, rate limit and a step-by-step integration guide. Fetch it with a plain HTTP client; summarising tools drop the limits and status codes.
+- [API summary](https://api.secondfactor.ai/llms.txt): short index of the API reference.
+- [Docs page on this site](https://secondfactor.ai/docs/): send a code, check it, fetch a verification, webhooks, polling.
+- [How to add phone verification to a Node.js app](https://secondfactor.ai/blog/nodejs-phone-verification/): Express walkthrough using the OTP API.
+
+## Pricing
+
+- [Pricing](https://secondfactor.ai/pricing/): price per OTP sent by destination country, in USD, with a per-country selector.
+- [Price list as JSON](https://secondfactor.ai/data/pricing.json): the current published list, one object per country (ISO code, name, price as a six-place USD decimal string, currency). Refreshed automatically from the API.
+- [Savings calculator vs Twilio Verify](https://secondfactor.ai/tools/savings-calculator/): compare cost per completed verification for a country and monthly volume.
+- [OTP delivery by country](https://secondfactor.ai/country/): directory of country pages with dialing codes, setup guidance and prices.
+
+## Channels
+
+- [Channels overview](https://secondfactor.ai/channels/): how the four channels combine behind one API.
+- [SMS OTP](https://secondfactor.ai/channels/sms/): reach any mobile number; sender setup by destination.
+- [WhatsApp OTP](https://secondfactor.ai/channels/whatsapp/): authentication templates through a connected WhatsApp Business Account.
+- [Viber OTP](https://secondfactor.ai/channels/viber/): approved business sender, supported markets.
+- [RCS OTP](https://secondfactor.ai/channels/rcs/): branded verification messages on supported devices and carriers.
+
+## Features
+
+- [Features overview](https://secondfactor.ai/features/)
+- [Automatic OTP routing and fallback](https://secondfactor.ai/features/otp-routing-fallback/): cost-based channel selection, eight-second fallback window.
+- [Delivery logs and costs](https://secondfactor.ai/features/otp-delivery-logs/): per-request channel, status and cost; delivery and verification webhooks.
+- [Template management](https://secondfactor.ai/features/otp-template-management/): templates per channel, approval tracking, default template.
+- [PIE Playground](https://secondfactor.ai/features/pie-playground/): send a real OTP with free credits and inspect the chosen route before integrating.
+
+## Country pages
+
+- [Australia](https://secondfactor.ai/country/australia/), [Bangladesh](https://secondfactor.ai/country/bangladesh/), [Brazil](https://secondfactor.ai/country/brazil/), [France](https://secondfactor.ai/country/france/), [Germany](https://secondfactor.ai/country/germany/), [India](https://secondfactor.ai/country/india/), [Indonesia](https://secondfactor.ai/country/indonesia/), [Japan](https://secondfactor.ai/country/japan/), [Mexico](https://secondfactor.ai/country/mexico/), [Nepal](https://secondfactor.ai/country/nepal/), [Nigeria](https://secondfactor.ai/country/nigeria/), [Pakistan](https://secondfactor.ai/country/pakistan/), [Philippines](https://secondfactor.ai/country/philippines/), [Saudi Arabia](https://secondfactor.ai/country/saudi-arabia/), [Spain](https://secondfactor.ai/country/spain/), [Turkey](https://secondfactor.ai/country/turkey/), [United Arab Emirates](https://secondfactor.ai/country/united-arab-emirates/), [United Kingdom](https://secondfactor.ai/country/united-kingdom/), [United States](https://secondfactor.ai/country/united-states/), [Vietnam](https://secondfactor.ai/country/vietnam/): each page covers number format, channel availability, setup and the current price for that destination.
+
+## Free tools
+
+- [Free phone tools](https://secondfactor.ai/tools/): directory.
+- [Phone carrier check](https://secondfactor.ai/tools/carrier-check/): carrier, country and calling code for a number.
+- [Phone type check](https://secondfactor.ai/tools/phone-type-check/): mobile, landline, VoIP or toll-free.
+- [Phone number validation](https://secondfactor.ai/tools/phone-number-validation/): format and numbering-plan check.
+
+## Guides and comparisons
+
+- [Blog](https://secondfactor.ai/blog/)
+- [Best OTP service providers for apps and websites](https://secondfactor.ai/blog/best-otp-service-providers/)
+- [Best Twilio Verify alternatives](https://secondfactor.ai/blog/twilio-verify-alternatives/)
+- [Best Vonage Verify alternatives](https://secondfactor.ai/blog/vonage-verify-alternatives/)
+- [Best Sinch Verification alternatives](https://secondfactor.ai/blog/sinch-verification-alternatives/)
+- [Best SMS OTP service providers](https://secondfactor.ai/blog/best-sms-otp-providers/)
+- [Best WhatsApp OTP providers](https://secondfactor.ai/blog/best-whatsapp-otp-providers/)
+- [8 ways to reduce OTP verification costs](https://secondfactor.ai/blog/reduce-otp-verification-costs/)
+
+## Company and legal
+
+- [Support and contact](https://secondfactor.ai/support/): integration help, channel onboarding, pricing questions.
+- [Privacy Policy](https://secondfactor.ai/privacy/)
+- [Terms & Conditions](https://secondfactor.ai/terms/)
+
+## Optional
+
+- [Sitemap](https://secondfactor.ai/sitemap.xml)
+- [Home page](https://secondfactor.ai/)

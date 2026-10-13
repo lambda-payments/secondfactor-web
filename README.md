@@ -123,6 +123,9 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
                       /privacy/ and /terms/ — keep them in sync with the page text)
     assets/og-default.png  1200x630 share image used by the Open Graph / Twitter tags on every page
     robots.txt        Allows all crawlers, points at sitemap.xml
+    llms.txt          Plain-text site guide for AI assistants (llms.txt format): what SecondFactor is,
+                      key facts, and links to docs, pricing JSON, channels, features, tools and guides.
+                      Update it when pages are added or renamed.
     sitemap.xml       All canonical page URLs
     404.html          Custom not-found page (GitHub Pages serves it automatically; noindex)
 
