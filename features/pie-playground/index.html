@@ -192,7 +192,7 @@
         <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch;margin-bottom:22px">From the Playground to Your App</h2>
         <p>Call <code class="ft-ic">/Verifications</code> to send a code, then <code class="ft-ic">/VerificationCheck</code> with the returned SID and the code your user entered.</p>
         <p>A check can return <code class="ft-ic">200</code> for either a correct or incorrect code. Confirm that <code class="ft-ic">status</code> is <code class="ft-ic">approved</code> before granting access. Keep your API key on your server.</p>
-        <p><a href="/docs/#send" style="font:400 14.5px Sora,system-ui,sans-serif">Read the API Documentation &rarr;</a></p>
+        <p><a href="https://docs.secondfactor.ai/send-otp" style="font:400 14.5px Sora,system-ui,sans-serif">Read the API Documentation &rarr;</a></p>
       </div>
       <div>
         <pre class="ft-code"><span class="c"># 1. Send a code</span>
@@ -252,7 +252,7 @@ curl -X POST "https://api.secondfactor.ai/v2/Services/$SERVICE_SID/VerificationC
         </details>
         <details style="border-bottom:1px solid var(--brd);padding:20px 0">
           <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>Are Test Sends Rate-Limited?</span><span style="color:var(--ac);font-size:18px">+</span></summary>
-          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Yes. Per-number burst and hourly limits apply. Requests over those limits are rejected and are not charged. See the <a href="/docs/#send">send reference</a> for rate-limit responses.</p>
+          <p style="margin:12px 0 0;font:300 15px/1.7 Sora,system-ui,sans-serif;color:var(--mut);max-width:70ch">Yes. Per-number burst and hourly limits apply. Requests over those limits are rejected and are not charged. See the <a href="https://docs.secondfactor.ai/send-otp">send reference</a> for rate-limit responses.</p>
         </details>
         <details style="border-bottom:1px solid var(--brd);padding:20px 0">
           <summary style="font:400 18px Sora,system-ui,sans-serif;display:flex;justify-content:space-between;gap:18px;align-items:baseline"><span>What Happens When My Free Credits Run Out?</span><span style="color:var(--ac);font-size:18px">+</span></summary>

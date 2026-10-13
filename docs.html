@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Redirecting to https://secondfactor.ai/docs/</title>
-<meta http-equiv="refresh" content="0; url=/docs/">
-<link rel="canonical" href="https://secondfactor.ai/docs/">
+<title>Redirecting to https://docs.secondfactor.ai</title>
+<meta http-equiv="refresh" content="0; url=https://docs.secondfactor.ai/">
+<link rel="canonical" href="https://docs.secondfactor.ai/">
 <meta name="robots" content="noindex">
-<script>window.location.replace("/docs/");</script>
+<script>
+/* Map old in-page anchors to the matching pages on the docs site. */
+(function () {
+  var map = { '#send': '/send-otp', '#check': '/check-otp', '#fetch': '/get-verification', '#webhooks': '/webhooks', '#polling': '/get-verification' };
+  var dest = 'https://docs.secondfactor.ai' + (map[location.hash] || '/');
+  window.location.replace(dest);
+})();
+</script>
 </head>
 <body>
-<p>This page has moved to <a href="/docs/">https://secondfactor.ai/docs/</a>.</p>
+<p>The API documentation has moved to <a href="https://docs.secondfactor.ai/">docs.secondfactor.ai</a>.</p>
 </body>
 </html>
