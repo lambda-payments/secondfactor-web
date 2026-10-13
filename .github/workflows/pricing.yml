@@ -1,0 +1,47 @@
+name: Sync pricing
+
+# Server side of the pricing integration for this static site: pull the per-country price
+# list from the SecondFactor API with the SF_PRICING_KEY secret and commit data/pricing.json
+# when it changes. Browsers read that file; the key never leaves this job.
+on:
+  schedule:
+    - cron: '*/10 * * * *'   # every 10 minutes (GitHub may delay scheduled runs)
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/fetch-pricing.py', 'scripts/fetch-twilio-sms.py', '.github/workflows/pricing.yml']
+
+concurrency:
+  group: sync-pricing
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch the price list
+        env:
+          SF_PRICING_KEY: ${{ secrets.SF_PRICING_KEY }}
+        run: python3 scripts/fetch-pricing.py
+        # A failure here stops the job before the commit step, so the previously
+        # committed data/pricing.json keeps being served.
+
+      - name: Refresh Twilio's published SMS prices (for /compare/twilio-sms/)
+        run: python3 scripts/fetch-twilio-sms.py || echo "twilio list unchanged or unavailable; keeping the committed file"
+
+      - name: Commit when the lists changed
+        run: |
+          if git diff --quiet -- data/pricing.json data/twilio-sms.json; then
+            echo "pricing unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/pricing.json data/twilio-sms.json
+          git commit -m "Update pricing data"
+          git push

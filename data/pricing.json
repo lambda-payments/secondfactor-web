@@ -1,6 +1,6 @@
 {
  "source": "https://api.secondfactor.ai/v2/Pricing",
- "fetched_at": "2026-10-13T05:14:05Z",
+ "fetched_at": "2026-10-13T06:01:19Z",
  "prices": [
   {
    "country": "AE",
@@ -551,7 +551,7 @@
   {
    "country": "NP",
    "name": "Nepal",
-   "price": "0.118952",
+   "price": "0.093767",
    "currency": "USD"
   },
   {
