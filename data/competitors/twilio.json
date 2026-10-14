@@ -3,7 +3,7 @@
  "slug": "twilio",
  "source": "https://assets.cdn.prod.twilio.com/pricing-csv/SMSPricing.csv",
  "source_page": "https://www.twilio.com/en-us/sms/pricing",
- "fetched_at": "2026-10-13T11:07:54Z",
+ "fetched_at": "2026-10-14T08:41:14Z",
  "basis": "Published outbound SMS price per message segment in USD, lowest carrier rate per country.",
  "verify_fee": 0.05,
  "verify_fee_note": "Twilio Verify: $0.05 per successful verification, on top of the channel fee (twilio.com/en-us/verify/pricing).",
@@ -38,7 +38,7 @@
   {
    "country": "AL",
    "name": "Albania",
-   "price": "0.11670"
+   "price": "0.14190"
   },
   {
    "country": "AM",
@@ -53,7 +53,7 @@
   {
    "country": "AO",
    "name": "Angola",
-   "price": "0.30620"
+   "price": "0.31540"
   },
   {
    "country": "AR",
@@ -108,7 +108,7 @@
   {
    "country": "BF",
    "name": "Burkina Faso",
-   "price": "0.22330"
+   "price": "0.25680"
   },
   {
    "country": "BG",
@@ -183,7 +183,7 @@
   {
    "country": "CD",
    "name": "DR Congo",
-   "price": "0.25840"
+   "price": "0.29940"
   },
   {
    "country": "CF",
@@ -403,7 +403,7 @@
   {
    "country": "GQ",
    "name": "Equatorial Guinea",
-   "price": "0.27050"
+   "price": "0.33690"
   },
   {
    "country": "GR",
@@ -418,7 +418,7 @@
   {
    "country": "GU",
    "name": "Guam",
-   "price": "0.08470"
+   "price": "0.09830"
   },
   {
    "country": "GW",
@@ -628,12 +628,12 @@
   {
    "country": "MD",
    "name": "Moldova",
-   "price": "0.14740"
+   "price": "0.16950"
   },
   {
    "country": "ME",
    "name": "Montenegro",
-   "price": "0.19280"
+   "price": "0.20440"
   },
   {
    "country": "MG",
@@ -653,7 +653,7 @@
   {
    "country": "ML",
    "name": "Mali",
-   "price": "0.34850"
+   "price": "0.35900"
   },
   {
    "country": "MM",
@@ -663,7 +663,7 @@
   {
    "country": "MN",
    "name": "Mongolia",
-   "price": "0.29570"
+   "price": "0.35410"
   },
   {
    "country": "MO",
@@ -698,7 +698,7 @@
   {
    "country": "MV",
    "name": "Maldives",
-   "price": "0.35810"
+   "price": "0.40470"
   },
   {
    "country": "MW",
@@ -748,7 +748,7 @@
   {
    "country": "NI",
    "name": "Nicaragua",
-   "price": "0.15670"
+   "price": "0.18560"
   },
   {
    "country": "NL",
@@ -763,7 +763,7 @@
   {
    "country": "NP",
    "name": "Nepal",
-   "price": "0.30220"
+   "price": "0.30820"
   },
   {
    "country": "NU",
@@ -838,7 +838,7 @@
   {
    "country": "PW",
    "name": "Palau",
-   "price": "0.09980"
+   "price": "0.13420"
   },
   {
    "country": "PY",
@@ -1018,7 +1018,7 @@
   {
    "country": "TV",
    "name": "Tuvalu",
-   "price": "0.29590"
+   "price": "0.38010"
   },
   {
    "country": "TW",
