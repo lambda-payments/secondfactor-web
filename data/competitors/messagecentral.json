@@ -3,7 +3,7 @@
  "slug": "messagecentral",
  "source": "https://www.messagecentral.com/product/verify-now/pricing",
  "source_page": "https://www.messagecentral.com/product/verify-now/pricing",
- "fetched_at": "2026-10-13T11:08:43Z",
+ "fetched_at": "2026-10-15T08:15:34Z",
  "basis": "Published pay-as-you-go VerifyNow rate in USD for one SMS OTP sent to that country (no separate verification fee).",
  "verify_fee": 0,
  "verify_fee_note": "VerifyNow states \"$0 per successful verification in addition to SMS cost\"; the per-country rate is the full price per OTP sent.",
@@ -11,7 +11,7 @@
   {
    "country": "AD",
    "name": "Andorra",
-   "price": "0.2019732"
+   "price": "0.18934988"
   },
   {
    "country": "AE",
@@ -26,27 +26,27 @@
   {
    "country": "AG",
    "name": "Antigua and Barbuda",
-   "price": "0.2784444"
+   "price": "0.26104162"
   },
   {
    "country": "AI",
    "name": "Anguilla",
-   "price": "0.303498"
+   "price": "0.28452937"
   },
   {
    "country": "AL",
    "name": "Albania",
-   "price": "0.1527084"
+   "price": "0.14316413"
   },
   {
    "country": "AM",
    "name": "Armenia",
-   "price": "0.3487536"
+   "price": "0.3269565"
   },
   {
    "country": "AO",
    "name": "Angola",
-   "price": "0.3237624"
+   "price": "0.31063605"
   },
   {
    "country": "AR",
@@ -56,12 +56,12 @@
   {
    "country": "AS",
    "name": "American Samoa",
-   "price": "0.2709408"
+   "price": "0.254007"
   },
   {
    "country": "AT",
    "name": "Austria",
-   "price": "0.141024"
+   "price": "0.13221"
   },
   {
    "country": "AU",
@@ -71,57 +71,57 @@
   {
    "country": "AW",
    "name": "Aruba",
-   "price": "0.3168828"
+   "price": "0.29707763"
   },
   {
    "country": "AZ",
    "name": "Azerbaijan",
-   "price": "0.4106232"
+   "price": "0.38495925"
   },
   {
    "country": "BA",
    "name": "Bosnia And Herzegovina",
-   "price": "0.508638"
+   "price": "0.48800115"
   },
   {
    "country": "BB",
    "name": "Barbados",
-   "price": "0.361998"
+   "price": "0.34951176"
   },
   {
    "country": "BD",
    "name": "Bangladesh",
-   "price": "0.5856"
+   "price": "0.4392063"
   },
   {
    "country": "BE",
    "name": "Belgium",
-   "price": "0.151242"
+   "price": "0.14178937"
   },
   {
    "country": "BF",
    "name": "Burkina Faso",
-   "price": "0.3080532"
+   "price": "0.28879987"
   },
   {
    "country": "BG",
    "name": "Bulgaria",
-   "price": "0.209742"
+   "price": "0.19663312"
   },
   {
    "country": "BH",
    "name": "Bahrain",
-   "price": "0.0539292"
+   "price": "0.05055862"
   },
   {
    "country": "BI",
    "name": "Burundi",
-   "price": "0.638742"
+   "price": "0.59882062"
   },
   {
    "country": "BJ",
    "name": "Benin",
-   "price": "0.3973164"
+   "price": "0.37248412"
   },
   {
    "country": "BL",
@@ -131,17 +131,17 @@
   {
    "country": "BM",
    "name": "Bermuda",
-   "price": "0.3195036"
+   "price": "0.29520375"
   },
   {
    "country": "BN",
    "name": "Brunei",
-   "price": "0.0889668"
+   "price": "0.08340637"
   },
   {
    "country": "BO",
    "name": "Bolivia",
-   "price": "0.3055728"
+   "price": "0.2864745"
   },
   {
    "country": "BR",
@@ -151,27 +151,27 @@
   {
    "country": "BS",
    "name": "Bahamas",
-   "price": "0.1134432"
+   "price": "0.106353"
   },
   {
    "country": "BT",
    "name": "Bhutan",
-   "price": "0.5771688"
+   "price": "0.54109575"
   },
   {
    "country": "BW",
    "name": "Botswana",
-   "price": "0.1725048"
+   "price": "0.16172325"
   },
   {
    "country": "BY",
    "name": "Belarus",
-   "price": "0.3631212"
+   "price": "0.34042613"
   },
   {
    "country": "BZ",
    "name": "Belize",
-   "price": "0.406068"
+   "price": "0.38068875"
   },
   {
    "country": "CA",
@@ -186,17 +186,17 @@
   {
    "country": "CF",
    "name": "Central African Republic",
-   "price": "0.6266676"
+   "price": "0.58750088"
   },
   {
    "country": "CG",
    "name": "Congo",
-   "price": "0.316056"
+   "price": "0.2963025"
   },
   {
    "country": "CH",
    "name": "Switzerland",
-   "price": "0.1044264"
+   "price": "0.26683312"
   },
   {
    "country": "CI",
@@ -206,17 +206,17 @@
   {
    "country": "CK",
    "name": "Cook Islands",
-   "price": "0.201084"
+   "price": "0.18851625"
   },
   {
    "country": "CL",
    "name": "Chile",
-   "price": "0.1023672"
+   "price": "0.09596925"
   },
   {
    "country": "CM",
    "name": "Cameroon",
-   "price": "0.3488784"
+   "price": "0.33472284"
   },
   {
    "country": "CN",
@@ -231,32 +231,32 @@
   {
    "country": "CR",
    "name": "Costa Rica",
-   "price": "0.103"
+   "price": "0.09895392"
   },
   {
    "country": "CU",
    "name": "Cuba",
-   "price": "0.1209936"
+   "price": "0.1134315"
   },
   {
    "country": "CV",
    "name": "Cape Verde",
-   "price": "0.3167892"
+   "price": "0.29698988"
   },
   {
    "country": "CW",
    "name": "Curacao",
-   "price": "0.226044"
+   "price": "0.23965987"
   },
   {
    "country": "CY",
    "name": "Cyprus",
-   "price": "0.1244568"
+   "price": "0.11667825"
   },
   {
    "country": "CZ",
    "name": "Czech Republic",
-   "price": "0.091884"
+   "price": "0.08614125"
   },
   {
    "country": "DE",
@@ -266,47 +266,47 @@
   {
    "country": "DJ",
    "name": "Djibouti",
-   "price": "0.233922"
+   "price": "0.21930188"
   },
   {
    "country": "DK",
    "name": "Denmark",
-   "price": "0.0792792"
+   "price": "0.07432425"
   },
   {
    "country": "DM",
    "name": "Dominica",
-   "price": "0.3156504"
+   "price": "0.29592225"
   },
   {
    "country": "DO",
    "name": "Dominican Republic",
-   "price": "0.1359228"
+   "price": "0.13040282"
   },
   {
    "country": "DZ",
    "name": "Algeria",
-   "price": "0.2821728"
+   "price": "0.264537"
   },
   {
    "country": "EC",
    "name": "Ecuador",
-   "price": "0.4710576"
+   "price": "0.45041607"
   },
   {
    "country": "EE",
    "name": "Estonia",
-   "price": "0.137982"
+   "price": "0.12935812"
   },
   {
    "country": "EG",
    "name": "Egypt",
-   "price": "0.5461716"
+   "price": "0.51203587"
   },
   {
    "country": "ER",
    "name": "Eritrea",
-   "price": "0.185952"
+   "price": "0.17433"
   },
   {
    "country": "ES",
@@ -316,42 +316,42 @@
   {
    "country": "ET",
    "name": "Ethiopia",
-   "price": "0.4933344"
+   "price": "0.462501"
   },
   {
    "country": "FI",
    "name": "Finland",
-   "price": "0.12402"
+   "price": "0.11626875"
   },
   {
    "country": "FJ",
    "name": "Fiji",
-   "price": "0.303498"
+   "price": "0.28452937"
   },
   {
    "country": "FK",
    "name": "Falkland Islands",
-   "price": "0.08073"
+   "price": "0.07568437"
   },
   {
    "country": "FM",
    "name": "Micronesia",
-   "price": "0.1096368"
+   "price": "0.1027845"
   },
   {
    "country": "FO",
    "name": "Faroe Islands",
-   "price": "0.1002612"
+   "price": "0.09399487"
   },
   {
    "country": "FR",
    "name": "France",
-   "price": "0.1149408"
+   "price": "0.10938166"
   },
   {
    "country": "GA",
    "name": "Gabon",
-   "price": "0.4340076"
+   "price": "0.40688212"
   },
   {
    "country": "GB",
@@ -361,27 +361,32 @@
   {
    "country": "GD",
    "name": "Grenada",
-   "price": "0.3369756"
+   "price": "0.31591463"
   },
   {
    "country": "GE",
    "name": "Georgia",
-   "price": "0.2357316"
+   "price": "0.22099837"
+  },
+  {
+   "country": "GG",
+   "name": "Guernsey",
+   "price": "0.0754884"
   },
   {
    "country": "GH",
    "name": "Ghana",
-   "price": "0.3187548"
+   "price": "0.29883263"
   },
   {
    "country": "GI",
    "name": "Gibraltar",
-   "price": "0.1579032"
+   "price": "0.14803425"
   },
   {
    "country": "GL",
    "name": "Greenland",
-   "price": "0.0590616"
+   "price": "0.05537025"
   },
   {
    "country": "GM",
@@ -391,62 +396,62 @@
   {
    "country": "GN",
    "name": "Guinea",
-   "price": "0.1689792"
+   "price": "0.158418"
   },
   {
    "country": "GQ",
    "name": "Equatorial Guinea",
-   "price": "0.2988648"
+   "price": "0.28018575"
   },
   {
    "country": "GR",
    "name": "Greece",
-   "price": "0.08931"
+   "price": "0.08372813"
   },
   {
    "country": "GT",
    "name": "Guatemala",
-   "price": "0.349206"
+   "price": "0.32738062"
   },
   {
    "country": "GU",
    "name": "Guam",
-   "price": "0.0989664"
+   "price": "0.092781"
   },
   {
    "country": "GW",
    "name": "Guinea-Bissau",
-   "price": "0.648336"
+   "price": "0.607815"
   },
   {
    "country": "GY",
    "name": "Guyana",
-   "price": "0.414726"
+   "price": "0.38880562"
   },
   {
    "country": "HK",
    "name": "Hong Kong",
-   "price": "0.1020396"
+   "price": "0.09566212"
   },
   {
    "country": "HN",
    "name": "Honduras",
-   "price": "0.3412188"
+   "price": "0.3273715"
   },
   {
    "country": "HR",
    "name": "Croatia",
-   "price": "0.190242"
+   "price": "0.17835187"
   },
   {
    "country": "HT",
    "name": "Haiti",
-   "price": "0.407628"
+   "price": "0.38441812"
   },
   {
    "country": "HU",
    "name": "Hungary",
-   "price": "0.1310712"
+   "price": "0.12287925"
   },
   {
    "country": "ID",
@@ -456,12 +461,17 @@
   {
    "country": "IE",
    "name": "Ireland",
-   "price": "0.1058616"
+   "price": "0.10073162"
   },
   {
    "country": "IL",
    "name": "Israel",
-   "price": "0.354276"
+   "price": "0.33213375"
+  },
+  {
+   "country": "IM",
+   "name": "Isle of Man",
+   "price": "0.09565452"
   },
   {
    "country": "IN",
@@ -471,37 +481,37 @@
   {
    "country": "IQ",
    "name": "Iraq",
-   "price": "0.3957408"
+   "price": "0.371007"
   },
   {
    "country": "IR",
    "name": "Iran",
-   "price": "0.3481764"
+   "price": "0.32641537"
   },
   {
    "country": "IS",
    "name": "Iceland",
-   "price": "0.1022112"
+   "price": "0.095823"
   },
   {
    "country": "IT",
    "name": "Italy",
-   "price": "0.1335204"
+   "price": "0.12705287"
   },
   {
    "country": "JE",
    "name": "Jersey",
-   "price": "0.1029756"
+   "price": "0.09653963"
   },
   {
    "country": "JM",
    "name": "Jamaica",
-   "price": "0.3888924"
+   "price": "0.36458663"
   },
   {
    "country": "JO",
    "name": "Jordan",
-   "price": "0.5358288"
+   "price": "0.5023395"
   },
   {
    "country": "JP",
@@ -511,157 +521,157 @@
   {
    "country": "KE",
    "name": "Kenya",
-   "price": "0.1176084"
+   "price": "0.11025787"
   },
   {
    "country": "KG",
    "name": "Kyrgyzstan",
-   "price": "0.531414"
+   "price": "0.50986026"
   },
   {
    "country": "KH",
    "name": "Cambodia",
-   "price": "0.6066372"
+   "price": "0.56872238"
   },
   {
    "country": "KI",
    "name": "Kiribati",
-   "price": "0.2095704"
+   "price": "0.19647225"
   },
   {
    "country": "KM",
    "name": "Comoros",
-   "price": "0.5790876"
+   "price": "0.54289462"
   },
   {
    "country": "KN",
    "name": "Saint Kitts and Nevis",
-   "price": "0.30927"
+   "price": "0.28994063"
   },
   {
    "country": "KP",
    "name": "North Korea",
-   "price": "0.025506"
+   "price": "0.02391187"
   },
   {
    "country": "KR",
    "name": "South Korea",
-   "price": "0.0711516"
+   "price": "0.06573622"
   },
   {
    "country": "KW",
    "name": "Kuwait",
-   "price": "0.436488"
+   "price": "0.4092075"
   },
   {
    "country": "KY",
    "name": "Cayman Islands",
-   "price": "0.3388944"
+   "price": "0.3177135"
   },
   {
    "country": "KZ",
    "name": "Kazakhstan",
-   "price": "0.4665648"
+   "price": "0.4374045"
   },
   {
    "country": "LA",
    "name": "Laos",
-   "price": "0.31"
+   "price": "0.29650421"
   },
   {
    "country": "LB",
    "name": "Lebanon",
-   "price": "0.3293784"
+   "price": "0.30879225"
   },
   {
    "country": "LC",
    "name": "Saint Lucia",
-   "price": "0.328224"
+   "price": "0.30771"
   },
   {
    "country": "LI",
    "name": "Liechtenstein",
-   "price": "0.0495612"
+   "price": "0.04646363"
   },
   {
    "country": "LK",
    "name": "Sri Lanka",
-   "price": "0.4299048"
+   "price": "0.41198286"
   },
   {
    "country": "LR",
    "name": "Liberia",
-   "price": "0.3319212"
+   "price": "0.31117612"
   },
   {
    "country": "LS",
    "name": "Lesotho",
-   "price": "0.4886076"
+   "price": "0.45806962"
   },
   {
    "country": "LT",
    "name": "Lithuania",
-   "price": "0.0860652"
+   "price": "0.08068612"
   },
   {
    "country": "LU",
    "name": "Luxembourg",
-   "price": "0.1128504"
+   "price": "0.10579725"
   },
   {
    "country": "LV",
    "name": "Latvia",
-   "price": "0.1105104"
+   "price": "0.1036035"
   },
   {
    "country": "LY",
    "name": "Libya",
-   "price": "0.5699772"
+   "price": "0.53435362"
   },
   {
    "country": "MA",
    "name": "Morocco",
-   "price": "0.3160248"
+   "price": "0.29627325"
   },
   {
    "country": "MC",
    "name": "Monaco",
-   "price": "0.2673528"
+   "price": "0.25064325"
   },
   {
    "country": "MD",
    "name": "Moldova",
-   "price": "0.1479816"
+   "price": "0.14913113"
   },
   {
    "country": "ME",
    "name": "Montenegro",
-   "price": "0.2374164"
+   "price": "0.22257787"
   },
   {
    "country": "MF",
    "name": "Saint Martin",
-   "price": "0.0087"
+   "price": "0.1"
   },
   {
    "country": "MG",
    "name": "Madagascar",
-   "price": "0.491478"
+   "price": "0.46076062"
   },
   {
    "country": "MH",
    "name": "Marshall Islands",
-   "price": "0.2357316"
+   "price": "0.22099837"
   },
   {
    "country": "MK",
    "name": "Macedonia",
-   "price": "0.1909596"
+   "price": "0.17902462"
   },
   {
    "country": "ML",
    "name": "Mali",
-   "price": "0.456066"
+   "price": "0.42756187"
   },
   {
    "country": "MM",
@@ -671,42 +681,42 @@
   {
    "country": "MN",
    "name": "Mongolia",
-   "price": "0.4018716"
+   "price": "0.39924787"
   },
   {
    "country": "MO",
    "name": "Macau",
-   "price": "0.0849732"
+   "price": "0.07966237"
   },
   {
    "country": "MP",
    "name": "Northern Mariana Islands",
-   "price": "0.111696"
+   "price": "0.104715"
   },
   {
    "country": "MR",
    "name": "Mauritania",
-   "price": "0.37206"
+   "price": "0.3569718"
   },
   {
    "country": "MT",
    "name": "Malta",
-   "price": "0.099138"
+   "price": "0.09294187"
   },
   {
    "country": "MU",
    "name": "Mauritius",
-   "price": "0.2615652"
+   "price": "0.24521738"
   },
   {
    "country": "MV",
    "name": "Maldives",
-   "price": "0.456066"
+   "price": "0.438984"
   },
   {
    "country": "MW",
    "name": "Malawi",
-   "price": "0.4622904"
+   "price": "0.43339725"
   },
   {
    "country": "MX",
@@ -721,7 +731,7 @@
   {
    "country": "MZ",
    "name": "Mozambique",
-   "price": "0.5752812"
+   "price": "0.53932612"
   },
   {
    "country": "NA",
@@ -731,12 +741,12 @@
   {
    "country": "NC",
    "name": "New Caledonia",
-   "price": "0.253656"
+   "price": "0.2378025"
   },
   {
    "country": "NE",
    "name": "Niger",
-   "price": "0.5038176"
+   "price": "0.472329"
   },
   {
    "country": "NF",
@@ -746,32 +756,32 @@
   {
    "country": "NG",
    "name": "Nigeria",
-   "price": "0.00683"
+   "price": "0.00778"
   },
   {
    "country": "NI",
    "name": "Nicaragua",
-   "price": "0.1757496"
+   "price": "0.17046268"
   },
   {
    "country": "NL",
    "name": "Netherlands",
-   "price": "0.1669824"
+   "price": "0.15889817"
   },
   {
    "country": "NO",
    "name": "Norway",
-   "price": "0.0692796"
+   "price": "0.06494962"
   },
   {
    "country": "NP",
    "name": "Nepal",
-   "price": "0.41691"
+   "price": "0.39085312"
   },
   {
    "country": "NU",
    "name": "Niue",
-   "price": "0.3744"
+   "price": "0.351"
   },
   {
    "country": "NZ",
@@ -781,102 +791,102 @@
   {
    "country": "OM",
    "name": "Oman",
-   "price": "0.257322"
+   "price": "0.24123938"
   },
   {
    "country": "PA",
    "name": "Panama",
-   "price": "0.2494752"
+   "price": "0.233883"
   },
   {
    "country": "PE",
    "name": "Peru",
-   "price": "0.3115788"
+   "price": "0.29210512"
   },
   {
    "country": "PF",
    "name": "French Polynesia",
-   "price": "0.2588352"
+   "price": "0.242658"
   },
   {
    "country": "PG",
    "name": "Papua New Guinea",
-   "price": "1.0866492"
+   "price": "1.01873362"
   },
   {
    "country": "PH",
    "name": "Philippines",
-   "price": "0.2804568"
+   "price": "0.26816564"
   },
   {
    "country": "PK",
    "name": "Pakistan",
-   "price": "0.5709"
+   "price": "0.4430604"
   },
   {
    "country": "PL",
    "name": "Poland",
-   "price": "0.062088"
+   "price": "0.05908009"
   },
   {
    "country": "PM",
    "name": "Saint Pierre and Miquelon",
-   "price": "0.217074"
+   "price": "0.20350687"
   },
   {
    "country": "PR",
    "name": "Puerto Rico",
-   "price": "0.07449"
+   "price": "0.06983438"
   },
   {
    "country": "PS",
    "name": "Palestinian Territory",
-   "price": "0.544284"
+   "price": "0.51026625"
   },
   {
    "country": "PT",
    "name": "Portugal",
-   "price": "0.0721656"
+   "price": "0.06765525"
   },
   {
    "country": "PW",
    "name": "Palau",
-   "price": "0.143754"
+   "price": "0.15936862"
   },
   {
    "country": "PY",
    "name": "Paraguay",
-   "price": "0.1666548"
+   "price": "0.15623887"
   },
   {
    "country": "QA",
    "name": "Qatar",
-   "price": "0.3633708"
+   "price": "0.34066012"
   },
   {
    "country": "RE",
    "name": "Reunion",
-   "price": "0.275262"
+   "price": "0.25805812"
   },
   {
    "country": "RO",
    "name": "Romania",
-   "price": "0.106158"
+   "price": "0.09952312"
   },
   {
    "country": "RS",
    "name": "Serbia",
-   "price": "0.5213832"
+   "price": "0.48879675"
   },
   {
    "country": "RU",
    "name": "Russia",
-   "price": "0.4578"
+   "price": "0.40944103"
   },
   {
    "country": "RW",
    "name": "Rwanda",
-   "price": "0.3643848"
+   "price": "0.34161075"
   },
   {
    "country": "SA",
@@ -886,22 +896,22 @@
   {
    "country": "SB",
    "name": "Solomon Islands",
-   "price": "0.1647204"
+   "price": "0.15442537"
   },
   {
    "country": "SC",
    "name": "Seychelles",
-   "price": "0.3924804"
+   "price": "0.36795037"
   },
   {
    "country": "SD",
    "name": "Sudan",
-   "price": "0.6469008"
+   "price": "0.6064695"
   },
   {
    "country": "SE",
    "name": "Sweden",
-   "price": "0.087828"
+   "price": "0.08233875"
   },
   {
    "country": "SG",
@@ -911,17 +921,17 @@
   {
    "country": "SI",
    "name": "Slovenia",
-   "price": "0.268398"
+   "price": "0.25162313"
   },
   {
    "country": "SK",
    "name": "Slovakia",
-   "price": "0.1271868"
+   "price": "0.11923763"
   },
   {
    "country": "SL",
    "name": "Sierra Leone",
-   "price": "0.5377476"
+   "price": "0.50413838"
   },
   {
    "country": "SM",
@@ -931,92 +941,92 @@
   {
    "country": "SN",
    "name": "Senegal",
-   "price": "0.2971956"
+   "price": "0.27862087"
   },
   {
    "country": "SO",
    "name": "Somalia",
-   "price": "0.4223856"
+   "price": "0.3959865"
   },
   {
    "country": "SR",
    "name": "Suriname",
-   "price": "0.3306264"
+   "price": "0.30996225"
   },
   {
    "country": "SS",
    "name": "South Sudan",
-   "price": "0.3378492"
+   "price": "0.31673363"
   },
   {
    "country": "ST",
    "name": "Sao Tome and Principe",
-   "price": "0.1882608"
+   "price": "0.1764945"
   },
   {
    "country": "SV",
    "name": "El Salvador",
-   "price": "0.3279276"
+   "price": "0.31463195"
   },
   {
    "country": "SX",
    "name": "Sint Maarten",
-   "price": "0.1600092"
+   "price": "0.15000862"
   },
   {
    "country": "SY",
    "name": "Syria",
-   "price": "0.5922228"
+   "price": "0.55520887"
   },
   {
    "country": "SZ",
    "name": "Swaziland",
-   "price": "0.3100032"
+   "price": "0.290628"
   },
   {
    "country": "TC",
    "name": "Turks and Caicos Islands",
-   "price": "0.3175692"
+   "price": "0.29772112"
   },
   {
    "country": "TD",
    "name": "Chad",
-   "price": "0.4172844"
+   "price": "0.39120413"
   },
   {
    "country": "TG",
    "name": "Togo",
-   "price": "0.6233448"
+   "price": "0.58438575"
   },
   {
    "country": "TH",
    "name": "Thailand",
-   "price": "0.0439296"
+   "price": "0.041184"
   },
   {
    "country": "TJ",
    "name": "Tajikistan",
-   "price": "0.6682884"
+   "price": "0.62652037"
   },
   {
    "country": "TL",
    "name": "Timor-Leste",
-   "price": "0.2956044"
+   "price": "0.27712912"
   },
   {
    "country": "TM",
    "name": "Turkmenistan",
-   "price": "0.4560192"
+   "price": "0.427518"
   },
   {
    "country": "TN",
    "name": "Tunisia",
-   "price": "0.5752344"
+   "price": "0.55190772"
   },
   {
    "country": "TO",
    "name": "Tonga",
-   "price": "0.2590224"
+   "price": "0.2428335"
   },
   {
    "country": "TR",
@@ -1026,32 +1036,32 @@
   {
    "country": "TT",
    "name": "Trinidad and Tobago",
-   "price": "0.4127604"
+   "price": "0.38696287"
   },
   {
    "country": "TV",
    "name": "Tuvalu",
-   "price": "0.2427984"
+   "price": "0.2276235"
   },
   {
    "country": "TW",
    "name": "Taiwan",
-   "price": "0.1099488"
+   "price": "0.103077"
   },
   {
    "country": "TZ",
    "name": "Tanzania",
-   "price": "0.468"
+   "price": "0.43875"
   },
   {
    "country": "UA",
    "name": "Ukraine",
-   "price": "0.3019536"
+   "price": "0.2830815"
   },
   {
    "country": "UG",
    "name": "Uganda",
-   "price": "0.4537416"
+   "price": "0.42538275"
   },
   {
    "country": "US",
@@ -1061,12 +1071,12 @@
   {
    "country": "UY",
    "name": "Uruguay",
-   "price": "0.1278732"
+   "price": "0.11814391"
   },
   {
    "country": "UZ",
    "name": "Uzbekistan",
-   "price": "0.6389916"
+   "price": "0.59905462"
   },
   {
    "country": "VA",
@@ -1076,12 +1086,12 @@
   {
    "country": "VC",
    "name": "Saint Vincent and the Grenadines",
-   "price": "0.353808"
+   "price": "0.331695"
   },
   {
    "country": "VE",
    "name": "Venezuela",
-   "price": "0.2741232"
+   "price": "0.27152412"
   },
   {
    "country": "VG",
@@ -1091,47 +1101,47 @@
   {
    "country": "VI",
    "name": "US Virgin Islands",
-   "price": "0.1358292"
+   "price": "0.12733987"
   },
   {
    "country": "VN",
    "name": "Vietnam",
-   "price": "0.2682576"
+   "price": "0.25738058"
   },
   {
    "country": "VU",
    "name": "Vanuatu",
-   "price": "0.2866968"
+   "price": "0.26877825"
   },
   {
    "country": "WF",
    "name": "Wallis and Futuna",
-   "price": "0.17277"
+   "price": "0.16197187"
   },
   {
    "country": "YE",
    "name": "Yemen",
-   "price": "0.270426"
+   "price": "0.25352437"
   },
   {
    "country": "YT",
    "name": "Mayotte",
-   "price": "0.2712528"
+   "price": "0.2542995"
   },
   {
    "country": "ZA",
    "name": "South Africa",
-   "price": "0.0794976"
+   "price": "0.074529"
   },
   {
    "country": "ZM",
    "name": "Zambia",
-   "price": "0.7502"
+   "price": "0.72015372"
   },
   {
    "country": "ZW",
    "name": "Zimbabwe",
-   "price": "0.6049"
+   "price": "0.58070844"
   }
  ]
 }
