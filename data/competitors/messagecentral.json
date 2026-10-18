@@ -3,7 +3,7 @@
  "slug": "messagecentral",
  "source": "https://www.messagecentral.com/product/verify-now/pricing",
  "source_page": "https://www.messagecentral.com/product/verify-now/pricing",
- "fetched_at": "2026-10-15T08:15:34Z",
+ "fetched_at": "2026-10-18T07:59:40Z",
  "basis": "Published pay-as-you-go VerifyNow rate in USD for one SMS OTP sent to that country (no separate verification fee).",
  "verify_fee": 0,
  "verify_fee_note": "VerifyNow states \"$0 per successful verification in addition to SMS cost\"; the per-country rate is the full price per OTP sent.",
@@ -726,7 +726,7 @@
   {
    "country": "MY",
    "name": "Malaysia",
-   "price": "0.2482"
+   "price": "0.033"
   },
   {
    "country": "MZ",
