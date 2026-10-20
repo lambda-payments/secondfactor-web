@@ -3,7 +3,7 @@
  "slug": "bird",
  "source": "https://bird.com/pricing/sms/<iso2>.md",
  "source_page": "https://bird.com/pricing/sms",
- "fetched_at": "2026-10-13T11:09:47Z",
+ "fetched_at": "2026-10-20T08:29:35Z",
  "basis": "Published Bird outbound SMS rate per message segment in USD, lowest across sender types (alphanumeric, long code, toll-free, short code) per country, excluding carrier pass-through and registration fees.",
  "verify_fee": 0,
  "verify_fee_note": "Bird Verify has no separate fee: each code sent is billed at the SMS/WhatsApp/email channel rate and code checks are free (bird.com/pricing/verify).",
@@ -239,6 +239,11 @@
    "price": "0.18420"
   },
   {
+   "country": "CW",
+   "name": "Cura\u00e7ao",
+   "price": "0.24000"
+  },
+  {
    "country": "CY",
    "name": "Cyprus",
    "price": "0.04250"
@@ -359,6 +364,11 @@
    "price": "0.17000"
   },
   {
+   "country": "GG",
+   "name": "Guernsey",
+   "price": "0.05000"
+  },
+  {
    "country": "GH",
    "name": "Ghana",
    "price": "0.21000"
@@ -399,9 +409,19 @@
    "price": "0.18000"
   },
   {
+   "country": "GU",
+   "name": "Guam",
+   "price": "0.00350"
+  },
+  {
    "country": "GW",
    "name": "Guinea-Bissau",
    "price": "0.23000"
+  },
+  {
+   "country": "GY",
+   "name": "Guyana",
+   "price": "0.22000"
   },
   {
    "country": "HK",
@@ -444,6 +464,11 @@
    "price": "0.23000"
   },
   {
+   "country": "IM",
+   "name": "Isle of Man",
+   "price": "0.04250"
+  },
+  {
    "country": "IN",
    "name": "India",
    "price": "0.06500"
@@ -467,6 +492,11 @@
    "country": "IT",
    "name": "Italy",
    "price": "0.06500"
+  },
+  {
+   "country": "JE",
+   "name": "Jersey",
+   "price": "0.05000"
   },
   {
    "country": "JM",
@@ -644,6 +674,11 @@
    "price": "0.02750"
   },
   {
+   "country": "MQ",
+   "name": "Martinique",
+   "price": "0.17000"
+  },
+  {
    "country": "MR",
    "name": "Mauritania",
    "price": "0.22000"
@@ -792,6 +827,11 @@
    "country": "PR",
    "name": "Puerto Rico",
    "price": "0.01500"
+  },
+  {
+   "country": "PS",
+   "name": "Palestinian Territories",
+   "price": "0.29000"
   },
   {
    "country": "PT",
