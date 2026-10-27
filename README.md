@@ -79,7 +79,9 @@ never publishes it, but it still previews locally at `/blog/_template/`.
 
 ## SEO head
 
-Each page's `<head>` carries, in order: title, meta description, canonical, robots,
+Each page's `<head>` opens with the Google Analytics 4 tag (`G-YG63Q66ERF`, gtag.js); copy it
+when you add a page. The country and compare generators pick it up from their source pages, and
+redirect stubs do not carry it. After the tag, the `<head>` carries, in order: title, meta description, canonical, robots,
 theme-color, Open Graph tags, Twitter card tags, apple-touch-icon, then a JSON-LD block.
 The JSON-LD is a `@graph`: the home page declares `Organization` + `WebSite` + `WebPage`;
 every other page declares `BreadcrumbList` + `WebPage`. When you add a page, copy the head
