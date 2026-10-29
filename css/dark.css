@@ -207,3 +207,9 @@ html[data-theme="dark"] main .cmp-controls .pr-field label output:not(#sf):not(#
 html[data-theme="dark"] main .cmp-range::-webkit-slider-runnable-track{background:rgba(232,235,244,.18)}
 html[data-theme="dark"] main .cmp-range::-moz-range-track{background:rgba(232,235,244,.18)}
 html[data-theme="dark"] main .cmp-range::-webkit-slider-thumb{background:#e8ebf4;border-color:rgba(232,235,244,.3)}
+
+/* ---- support form states ---- */
+html[data-theme="dark"] .sf-ferr{color:#ff9b94}
+html[data-theme="dark"] .input[aria-invalid="true"]:not(#sf){border-color:#ff9b94!important}
+html[data-theme="dark"] .sf-fnote-ok{background:rgba(37,211,102,.12);border-color:rgba(37,211,102,.35);color:#b9f3cf}
+html[data-theme="dark"] .sf-fnote-err{background:rgba(255,120,110,.12);border-color:rgba(255,120,110,.35);color:#ffd2ce}

@@ -92,13 +92,97 @@
     });
   }
 
-  /* ---------- support form ---------- */
+  /* ---------- support form ----------
+     POST https://api.secondfactor.ai/api/support/tickets (the form's data-endpoint), JSON, no auth,
+     no cookies. Body: name, email, company ("" when empty), topic (integration | channel_setup |
+     pricing | billing | other), message, website (honeypot, always sent, empty for humans).
+     201 {"id":"SUP…"} = created; 400 = field errors keyed by field (+ non_field_errors);
+     429 = throttled (5/hour per IP, 3/hour per email). Anything else falls back to email. */
   var form = document.getElementById('supportForm');
-  if (form) {
+  if (form && window.fetch) {
+    var FIELDS = { name: 'sn', email: 'se', company: 'sc', topic: 'st', message: 'sm' };
+    var LIMITS = { name: 120, email: 254, company: 120, message: 5000 };
+    var note = document.getElementById('formNote'), btn = document.getElementById('supportSubmit');
+    var btnLabel = btn ? btn.textContent : 'Send message';
+    var val = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+
+    function fieldError(key, msg) {
+      var input = document.getElementById(FIELDS[key]), err = document.getElementById(FIELDS[key] + '-err');
+      if (!input || !err) return false;
+      err.textContent = msg; err.hidden = !msg;
+      if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+      return !!msg;
+    }
+    function clearErrors() { Object.keys(FIELDS).forEach(function (k) { fieldError(k, ''); }); }
+    function showNote(kind, html) { note.className = 'sf-fnote sf-fnote-' + kind; note.innerHTML = html; note.hidden = false; }
+    function mailtoFallback(lead) {
+      var body = encodeURIComponent('Name: ' + val('sn') + '\nCompany: ' + val('sc') + '\n\n' + val('sm'));
+      showNote('err', lead + ' Please email us at <a href="mailto:support@secondfactor.ai?subject=' +
+        encodeURIComponent('Website enquiry') + '&body=' + body + '">support@secondfactor.ai</a> instead. Your message is still in the form.');
+    }
+    function validate(data) {
+      var bad = false;
+      if (!data.name) bad = fieldError('name', 'Enter your name.') || bad;
+      if (!data.email) bad = fieldError('email', 'Enter your work email.') || bad;
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) bad = fieldError('email', 'Enter a valid email address.') || bad;
+      if (!data.message) bad = fieldError('message', 'Tell us how we can help.') || bad;
+      Object.keys(LIMITS).forEach(function (k) { if (data[k].length > LIMITS[k]) bad = fieldError(k, 'Keep this under ' + LIMITS[k] + ' characters.') || bad; });
+      return !bad;
+    }
+    function setBusy(busy) {
+      if (!btn) return;
+      btn.disabled = busy; btn.textContent = busy ? 'Sending\u2026' : btnLabel;
+      form.setAttribute('aria-busy', busy ? 'true' : 'false');
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var note = document.getElementById('formNote');
-      if (note) note.hidden = false;
+      if (btn && btn.disabled) return;
+      clearErrors(); note.hidden = true;
+      var data = { name: val('sn'), email: val('se'), company: val('sc'), topic: val('st') || 'other', message: val('sm'), website: val('sw') };
+      if (!validate(data)) {
+        var first = form.querySelector('[aria-invalid="true"]'); if (first) first.focus();
+        return;
+      }
+      setBusy(true);
+      fetch(form.getAttribute('data-endpoint'), {
+        method: 'POST', credentials: 'omit',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (body) { return { status: res.status, body: body }; });
+      }).then(function (r) {
+        setBusy(false);
+        if (r.status === 201) {
+          var ref = r.body && r.body.id ? String(r.body.id) : '';
+          form.reset();
+          showNote('ok', '<strong>Thanks, your message is on its way.</strong> We\u2019ll reply from support@secondfactor.ai.' +
+            (ref ? ' Your reference is <strong class="sf-fref"></strong>.' : ''));
+          if (ref) note.querySelector('.sf-fref').textContent = ref;
+          note.focus && note.setAttribute('tabindex', '-1'); note.focus && note.focus();
+          return;
+        }
+        if (r.status === 400 && r.body && typeof r.body === 'object') {
+          var placed = false, general = [];
+          Object.keys(r.body).forEach(function (k) {
+            var msgs = [].concat(r.body[k]).join(' ');
+            if (FIELDS[k]) placed = fieldError(k, msgs) || placed; else general.push(msgs);
+          });
+          if (general.length || !placed) showNote('err', '');
+          if (general.length || !placed) note.textContent = general.join(' ') || 'Please check the form and try again.';
+          var first = form.querySelector('[aria-invalid="true"]'); if (first) first.focus();
+          return;
+        }
+        if (r.status === 429) {
+          var m = /(\d+)\s*seconds/.exec((r.body && r.body.detail) || ''), mins = m ? Math.max(1, Math.ceil(+m[1] / 60)) : null;
+          mailtoFallback('We\u2019ve received several messages from you recently' + (mins ? ', so the form is paused for about ' + mins + ' minute' + (mins === 1 ? '' : 's') + '.' : '.'));
+          return;
+        }
+        mailtoFallback('We couldn\u2019t send your message just now.');
+      }).catch(function () {
+        setBusy(false);
+        mailtoFallback('We couldn\u2019t reach our servers.');
+      });
     });
   }
 
