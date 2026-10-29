@@ -107,3 +107,4 @@ footer.band .ftb span{color:rgba(31,36,80,.78)!important}
 
 /* ---- brand blue: small text uses the darker shade for AA contrast; buttons keep the logo blue ---- */
 header.band .nav-a:hover,header.band .nav-a.on,footer.band .nav-a:hover{color:#2461c9!important}
+footer.band .ft-contact+.ft-contact{display:table;margin-top:4px}

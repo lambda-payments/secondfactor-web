@@ -7,7 +7,7 @@ Key facts:
 - Channels: SMS, WhatsApp, Viber, RCS (and Silent Network Authentication where available). WhatsApp, Viber and RCS need sender approval through the respective platform.
 - Routing: the Price Intelligence Engine (PIE) picks the cheapest eligible channel per request and fails over if delivery isn't confirmed within eight seconds.
 - Pricing: USD per OTP sent, one rate per destination country, delivery and verification included; prepaid credits, no monthly fee. Per-channel pricing on request.
-- Accounts: https://app.secondfactor.ai (sign up, API keys, templates, delivery logs). Support: support@secondfactor.ai.
+- Accounts: https://app.secondfactor.ai (sign up, API keys, templates, delivery logs). Support: support@secondfactor.ai, WhatsApp or phone +1 579 998 5605.
 
 ## API and integration
 
