@@ -139,8 +139,8 @@ html[data-theme="dark"] main .field label:not(#sf):not(#sf){color:var(--d-mut)!i
 html[data-theme="dark"] main .pr-tip .tipbody:not(#sf):not(#sf){background:var(--d-raise)!important;color:var(--d-mut)!important}
 
 /* ---- home-page specifics ---- */
-html[data-theme="dark"] .logos-row img:not(#sf):not(#sf){filter:brightness(0) invert(1)!important;opacity:.55}
-html[data-theme="dark"] .logos-row li:hover img:not(#sf):not(#sf){opacity:.9}
+html[data-theme="dark"] .logo-card:not(#sf):not(#sf){background:var(--d-surface);border-color:var(--d-line);box-shadow:none}
+html[data-theme="dark"] .logo-card img:not(#sf):not(#sf){filter:brightness(0) invert(1);opacity:.82}
 html[data-theme="dark"] .logos-eb:not(#sf):not(#sf){color:var(--d-mut)!important}
 html[data-theme="dark"] .hero [style*="rgba(244,243,253"]:not(#sf):not(#sf){color:var(--d-mut)!important}
 html[data-theme="dark"] main :is(.tl-k,.trole,.tname,.mono,.tquote blockquote):not(#sf):not(#sf){color:var(--d-mut)!important}
