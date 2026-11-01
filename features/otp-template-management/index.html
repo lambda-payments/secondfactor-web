@@ -35,6 +35,7 @@
 <link rel="stylesheet" href="/css/chrome.css">
 <link rel="stylesheet" href="/css/surface.css">
 <link rel="stylesheet" href="/css/dark.css">
+<link rel="stylesheet" href="/css/channel-illustrations.css">
 <script src="/js/theme.js"></script>
 <script type="application/ld+json">
 {
@@ -160,15 +161,15 @@
     </div>
   </section>
 
-  <section style="padding:76px 40px 70px">
+  <section class="channel-benefits" id="feature-benefits" style="padding:76px 40px 70px">
     <div style="max-width:1120px;margin:0 auto">
       <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">Manage Templates Across Your Channels</h2>
       <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">Keep channel-specific messages and approval statuses in one dashboard, with the same API for sending codes.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
-        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7h12"></path><path d="M8 12h12"></path><path d="M8 17h12"></path><path d="M4 7h.01"></path><path d="M4 12h.01"></path><path d="M4 17h.01"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Channel-Specific Messages</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Prepare messages for SMS, WhatsApp, Viber and RCS according to each channel&rsquo;s format.</p></div>
-        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M8.5 12.2l2.4 2.4 4.6-5"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Approval Tracking</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Check which templates are approved and which are still under review.</p></div>
-        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l2.3 4.8 5.2.7-3.800 3.600.9 5.200L12 15.800l-4.600 2.500.9-5.200L4.500 9.500l5.200-.7L12 4z"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Default Template</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Set a default so your application can send codes without specifying a template each time.</p></div>
-        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20V3.5z"></path><path d="M14 3.5v4h4"></path><path d="M10 12h5"></path><path d="M10 15.5h5"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Template Selection</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Choose a template for signup, login or another verification flow by passing its ID in the send request.</p></div>
+      <div class="channel-feature-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/authentication-templates.webp" alt="" width="768" height="512" loading="lazy" decoding="async"></div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Channel-Specific Messages</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Prepare messages for SMS, WhatsApp, Viber and RCS according to each channel&rsquo;s format.</p></div>
+        <div class="crd"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/approval-tracking.webp" alt="" width="768" height="512" loading="lazy" decoding="async"></div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Approval Tracking</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Check which templates are approved and which are still under review.</p></div>
+        <div class="crd"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/default-template.webp" alt="" width="768" height="512" loading="lazy" decoding="async"></div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Default Template</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Set a default so your application can send codes without specifying a template each time.</p></div>
+        <div class="crd"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/template-selection.webp" alt="" width="768" height="512" loading="lazy" decoding="async"></div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Template Selection</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Choose a template for signup, login or another verification flow by passing its ID in the send request.</p></div>
       </div>
     </div>
   </section>

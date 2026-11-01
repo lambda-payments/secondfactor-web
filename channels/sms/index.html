@@ -34,6 +34,7 @@
 <link rel="stylesheet" href="/css/chrome.css">
 <link rel="stylesheet" href="/css/surface.css">
 <link rel="stylesheet" href="/css/dark.css">
+<link rel="stylesheet" href="/css/channel-illustrations.css">
 <script src="/js/theme.js"></script>
 <script type="application/ld+json">
 {
@@ -169,15 +170,15 @@
     </div>
   </section>
 
-  <section style="padding:70px 40px">
+  <section class="channel-benefits" id="channel-benefits" style="padding:70px 40px">
     <div style="max-width:1120px;margin:0 auto">
       <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">Reach Users Without Requiring a Messaging App</h2>
       <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:var(--mut);margin:0 0 40px;max-width:66ch">Send verification codes to mobile numbers through SMS, including users who cannot receive them through WhatsApp, Viber, or RCS.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
-        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.3-2.9 7.6-7 9-4.1-1.4-7-4.7-7-9V6l7-3z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Managed OTP Verification</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Let SecondFactor generate and verify codes without building OTP storage and validation into your backend.</p></div>
-        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.3-2.9 7.6-7 9-4.1-1.4-7-4.7-7-9V6l7-3z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Cost-Based Routing</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Evaluate SMS alongside your other enabled channels to select the lowest-cost eligible route for each request.</p></div>
-        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.3-2.9 7.6-7 9-4.1-1.4-7-4.7-7-9V6l7-3z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Automatic Fallback</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Use SMS as a fallback when another channel doesn't confirm delivery and SMS is the next eligible route.</p></div>
-        <div class="crd"><span class="ico" style="display:block;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.3-2.9 7.6-7 9-4.1-1.4-7-4.7-7-9V6l7-3z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></svg></span><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Delivery Logs and Costs</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Check the destination, delivery status, and cost of each request to monitor usage and investigate delivery issues.</p></div>
+      <div class="channel-feature-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <div class="crd"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/managed-verification.webp" alt="" width="768" height="512" loading="lazy" decoding="async"></div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Managed OTP Verification</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Let SecondFactor generate and verify codes without building OTP storage and validation into your backend.</p></div>
+        <div class="crd"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/cost-selection.webp" alt="" width="768" height="512" loading="lazy" decoding="async"></div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Cost-Based Routing</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Evaluate SMS alongside your other enabled channels to select the lowest-cost eligible route for each request.</p></div>
+        <div class="crd"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/automatic-fallback.webp" alt="" width="768" height="512" loading="lazy" decoding="async"></div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Automatic Fallback</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Use SMS as a fallback when another channel doesn't confirm delivery and SMS is the next eligible route.</p></div>
+        <div class="crd"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/delivery-logs.webp" alt="" width="768" height="512" loading="lazy" decoding="async"></div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Delivery Logs and Costs</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:var(--mut);margin:0">Check the destination, delivery status, and cost of each request to monitor usage and investigate delivery issues.</p></div>
       </div>
     </div>
   </section>

@@ -1,0 +1,39 @@
+/* Shared illustrations for four-benefit sections on channel and feature pages. */
+.channel-benefits{scroll-margin-top:72px}
+html body main.ch-page .channel-benefits .channel-feature-grid:not(#sf){
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  column-gap:24px!important;
+}
+.channel-feature-art{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  aspect-ratio:3/2;
+  margin:0 0 24px;
+  overflow:hidden;
+  border:1px solid #e0eafb;
+  border-radius:8px;
+  background:
+    radial-gradient(circle,rgba(48,120,232,.13) .7px,transparent .9px) 10px 10px/18px 18px,
+    radial-gradient(ellipse at 50% 35%,#fff 0%,#eef5ff 65%,#e5efff 100%);
+}
+.channel-feature-art img{display:block;width:100%;height:auto;max-width:360px;transform:scale(1.12)}
+/* Keep the overview's two-column layout and room for its feature links. */
+html body main.ch-page .channel-benefits--overview .channel-feature-grid:not(#sf){grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.channel-benefits--overview .channel-feature-art{aspect-ratio:auto;height:200px}
+.channel-benefits--overview .channel-feature-art img{width:auto;height:100%;max-width:100%;object-fit:contain}
+.channel-benefits--overview .crd > a:last-child{margin-top:auto;padding-top:18px;align-self:flex-start}
+html[data-theme="dark"] .channel-feature-art{
+  border-color:rgba(111,163,244,.18);
+  background:
+    radial-gradient(circle,rgba(139,182,255,.16) .7px,transparent .9px) 10px 10px/18px 18px,
+    radial-gradient(ellipse at 50% 35%,#22395f 0%,#192b49 65%,#14213a 100%);
+}
+@media (max-width:1100px){
+  html body main.ch-page .channel-benefits .channel-feature-grid:not(#sf){grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .channel-feature-art{aspect-ratio:auto;height:200px}
+  .channel-feature-art img{width:auto;height:100%;max-width:100%;object-fit:contain}
+}
+@media (max-width:560px){
+  html body main.ch-page .channel-benefits .channel-feature-grid:not(#sf){grid-template-columns:minmax(0,1fr)!important}
+}
