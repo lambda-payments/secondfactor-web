@@ -44,6 +44,8 @@
 <link rel="stylesheet" href="/css/chrome.css">
 <link rel="stylesheet" href="/css/surface.css">
 <link rel="stylesheet" href="/css/dark.css">
+<link rel="stylesheet" href="/css/home-illustrations.css">
+<link rel="stylesheet" href="/css/channel-illustrations.css">
 <script src="/js/theme.js"></script>
 <script type="application/ld+json">
 {
@@ -155,14 +157,32 @@
   <!-- LOGOS -->
   <section class="logos" aria-label="Brands using SecondFactor">
     <p class="logos-eb">Trusted by global companies</p>
-    <ul class="logos-row">
-      <li class="rv" style="transition-delay:0ms"><img src="/assets/logos/coca-cola.svg" alt="Coca-Cola" style="--h:30px" loading="lazy"></li>
-      <li class="rv" style="transition-delay:100ms"><img src="/assets/logos/unilever.svg" alt="Unilever" style="--h:30px" loading="lazy"></li>
-      <li class="rv" style="transition-delay:200ms"><img src="/assets/logos/royal-enfield.svg" alt="Royal Enfield" style="--h:17px" loading="lazy"></li>
-      <li class="rv" style="transition-delay:300ms"><img src="/assets/logos/unicef.svg" alt="UNICEF" style="--h:25px" loading="lazy"></li>
-      <li class="rv" style="transition-delay:400ms"><img src="/assets/logos/nike.svg" alt="Nike" style="--h:26px" loading="lazy"></li>
-      <li class="rv" style="transition-delay:500ms"><img src="/assets/logos/pizza-hut.svg" alt="Pizza Hut" style="--h:42px" loading="lazy"></li>
-    </ul>
+    <div class="logos-marquee">
+      <div class="logos-track">
+        <ul class="logos-list">
+          <li class="logo-card"><img src="/assets/logos/stripe.svg" alt="Stripe" width="120" height="31" style="--h:31px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/qatar-airways.svg" alt="Qatar Airways" width="120" height="33" style="--h:33px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/standard-chartered.svg" alt="Standard Chartered" width="120" height="35" style="--h:35px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/metlife.svg" alt="MetLife" width="120" height="24" style="--h:24px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/hyatt.svg" alt="Hyatt" width="120" height="28" style="--h:28px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/sixt.svg" alt="Sixt" width="120" height="28" style="--h:28px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/daraz.svg" alt="Daraz" width="120" height="29" style="--h:29px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/intrepid.svg" alt="Intrepid Travel" width="120" height="25" style="--h:25px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/ime-remit.svg" alt="IME Remit" width="120" height="31" style="--h:31px" loading="lazy" decoding="async"></li>
+        </ul>
+        <ul class="logos-list" aria-hidden="true">
+          <li class="logo-card"><img src="/assets/logos/stripe.svg" alt="" width="120" height="31" style="--h:31px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/qatar-airways.svg" alt="" width="120" height="33" style="--h:33px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/standard-chartered.svg" alt="" width="120" height="35" style="--h:35px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/metlife.svg" alt="" width="120" height="24" style="--h:24px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/hyatt.svg" alt="" width="120" height="28" style="--h:28px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/sixt.svg" alt="" width="120" height="28" style="--h:28px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/daraz.svg" alt="" width="120" height="29" style="--h:29px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/intrepid.svg" alt="" width="120" height="25" style="--h:25px" loading="lazy" decoding="async"></li>
+          <li class="logo-card"><img src="/assets/logos/ime-remit.svg" alt="" width="120" height="31" style="--h:31px" loading="lazy" decoding="async"></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section class="country-content" aria-label="Australia OTP delivery at a glance" style="padding:36px 40px">
@@ -186,7 +206,7 @@
     </dl>
   </section>
 
-  <section class="country-content sec">
+  <section class="country-content sec country-channels" id="country-channels">
     <div style="max-width:62ch;margin:0 auto;text-align:center"><span class="secpill">Channels</span>
       <h2 class="h2" style="margin:18px 0 16px">Connect your OTP channels through one API</h2>
       <p class="p">Connect your channels once. Send and verify codes to +61 numbers through the same integration.</p>
@@ -227,23 +247,23 @@
       </svg>
     </div>
     <div class="grid g4" style="grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(24px,2.6vw,36px)">
-      <a href="/channels/sms/" class="cell" style="color:var(--fg)"><h3 class="h3">SMS OTP</h3><p class="s" style="margin-bottom:22px">Reach mobile users in Australia without requiring a messaging app.</p><span class="lbl" style="color:var(--ac)">Explore &rarr;</span></a>
-      <a href="/channels/whatsapp/" class="cell" style="color:var(--fg)"><h3 class="h3">WhatsApp OTP</h3><p class="s" style="margin-bottom:22px">Send codes through your WhatsApp Business Account and approved authentication template.</p><span class="lbl" style="color:var(--ac)">Explore &rarr;</span></a>
-      <a href="/channels/viber/" class="cell" style="color:var(--fg)"><h3 class="h3">Viber OTP</h3><p class="s" style="margin-bottom:22px">Send verification codes to Viber users through an approved business sender.</p><span class="lbl" style="color:var(--ac)">Explore &rarr;</span></a>
-      <a href="/channels/rcs/" class="cell" style="color:var(--fg)"><h3 class="h3">RCS OTP</h3><p class="s" style="margin-bottom:22px">Deliver branded verification messages to RCS-enabled devices on supported networks.</p><span class="lbl" style="color:var(--ac)">Explore &rarr;</span></a>
+      <a href="/channels/sms/" class="cell" style="color:var(--fg)"><div class="channel-art channel-art--sms" aria-hidden="true"><img src="/assets/illustrations/channels/sms.svg" width="128" height="128" alt="" loading="lazy" decoding="async"></div><h3 class="h3">SMS OTP</h3><p class="s" style="margin-bottom:22px">Reach mobile users in Australia without requiring a messaging app.</p><span class="lbl" style="color:var(--ac)">Explore &rarr;</span></a>
+      <a href="/channels/whatsapp/" class="cell" style="color:var(--fg)"><div class="channel-art channel-art--whatsapp" aria-hidden="true"><img src="/assets/illustrations/channels/whatsapp.svg" width="128" height="128" alt="" loading="lazy" decoding="async"></div><h3 class="h3">WhatsApp OTP</h3><p class="s" style="margin-bottom:22px">Send codes through your WhatsApp Business Account and approved authentication template.</p><span class="lbl" style="color:var(--ac)">Explore &rarr;</span></a>
+      <a href="/channels/viber/" class="cell" style="color:var(--fg)"><div class="channel-art channel-art--viber" aria-hidden="true"><img src="/assets/illustrations/channels/viber.svg" width="128" height="128" alt="" loading="lazy" decoding="async"></div><h3 class="h3">Viber OTP</h3><p class="s" style="margin-bottom:22px">Send verification codes to Viber users through an approved business sender.</p><span class="lbl" style="color:var(--ac)">Explore &rarr;</span></a>
+      <a href="/channels/rcs/" class="cell" style="color:var(--fg)"><div class="channel-art channel-art--rcs" aria-hidden="true"><img src="/assets/illustrations/channels/rcs.svg" width="128" height="128" alt="" loading="lazy" decoding="async"></div><h3 class="h3">RCS OTP</h3><p class="s" style="margin-bottom:22px">Deliver branded verification messages to RCS-enabled devices on supported networks.</p><span class="lbl" style="color:var(--ac)">Explore &rarr;</span></a>
     </div>
     <p class="s" style="margin-top:22px;max-width:70ch">Channel availability in Australia depends on your account, sender approvals and recipient support.</p>
   </section>
 
-  <section class="country-content band" style="padding:76px 40px">
+  <section class="country-content band country-routing" id="country-routing" style="padding:76px 40px">
     <div style="max-width:1120px;margin:0 auto;text-align:left">
       <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">Lower Costs. Automatic Fallback.</h2>
       <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.85);margin:0 0 44px;max-width:66ch">SecondFactor selects the lowest-cost eligible channel for each OTP and handles retries across your connected channels.</p>
       <div class="country-steps">
-        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Check Availability</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Find which connected channels can reach your user.</p></div>
-        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Route by Cost</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Send through the lowest-cost eligible channel for Australia.</p></div>
-        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Retry Automatically</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Try the next eligible channel after eight seconds without delivery confirmation.</p></div>
-        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Track Every Attempt</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">See the channel, delivery status and cost of each attempt in your OTP logs.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/recipient-eligibility.webp" width="768" height="512" alt="" loading="lazy" decoding="async"></div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Check Availability</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Find which connected channels can reach your user.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/cost-selection.webp" width="768" height="512" alt="" loading="lazy" decoding="async"></div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Route by Cost</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Send through the lowest-cost eligible channel for Australia.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/automatic-fallback.webp" width="768" height="512" alt="" loading="lazy" decoding="async"></div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Retry Automatically</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Try the next eligible channel after eight seconds without delivery confirmation.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/delivery-logs.webp" width="768" height="512" alt="" loading="lazy" decoding="async"></div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Track Every Attempt</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">See the channel, delivery status and cost of each attempt in your OTP logs.</p></div>
       </div>
       <div style="display:flex;gap:12px;justify-content:flex-start;flex-wrap:wrap;margin-top:36px"><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-d">Get Started</a><a href="/channels/" class="pill pill-o">Explore Channels</a></div>
     </div>
@@ -269,15 +289,15 @@
     </div>
   </section>
 
-  <section class="country-content band" style="padding:76px 40px">
+  <section class="country-content band country-setup" id="country-setup" style="padding:76px 40px">
     <div style="max-width:1120px;margin:0 auto;text-align:left">
       <h2 style="font:300 clamp(28px,3.2vw,40px) Sora,system-ui,sans-serif;letter-spacing:-.025em;margin:0 0 14px;max-width:24ch">Connect. Send. Verify.</h2>
       <p style="font:300 17px/1.7 Sora,system-ui,sans-serif;color:rgba(244,243,253,.85);margin:0 0 44px;max-width:66ch">SecondFactor handles code generation, delivery and validation. Your app makes two API calls.</p>
       <div class="country-steps">
-        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><div style="font:400 12px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.2em;color:var(--ac);margin-bottom:14px">01</div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Connect Your Channels</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Set up your senders and approved templates for SMS, WhatsApp, Viber or RCS.</p></div>
-        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><div style="font:400 12px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.2em;color:var(--ac);margin-bottom:14px">02</div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Test Your Setup</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Send a test OTP in the PIE Playground to check delivery and verification.</p></div>
-        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><div style="font:400 12px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.2em;color:var(--ac);margin-bottom:14px">03</div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Send a Code</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Post the user&rsquo;s number in +61 format to <code>/Verifications</code>. SecondFactor generates and delivers the OTP.</p></div>
-        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><div style="font:400 12px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.2em;color:var(--ac);margin-bottom:14px">04</div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Verify Your User</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Post the verification SID and entered code to <code>/VerificationCheck</code> to get the verification result.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/approval-tracking.webp" width="768" height="512" alt="" loading="lazy" decoding="async"></div><div style="font:400 12px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.2em;color:var(--ac);margin-bottom:14px">01</div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Connect Your Channels</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Set up your senders and approved templates for SMS, WhatsApp, Viber or RCS.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/delivered-phone.webp" width="768" height="512" alt="" loading="lazy" decoding="async"></div><div style="font:400 12px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.2em;color:var(--ac);margin-bottom:14px">02</div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Test Your Setup</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Send a test OTP in the PIE Playground to check delivery and verification.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/one-send-request.webp" width="768" height="512" alt="" loading="lazy" decoding="async"></div><div style="font:400 12px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.2em;color:var(--ac);margin-bottom:14px">03</div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Send a Code</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Post the user&rsquo;s number in +61 format to <code>/Verifications</code>. SecondFactor generates and delivers the OTP.</p></div>
+        <div style="background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(215,229,250,.45));border:1px solid rgba(31,36,80,.14);padding:28px"><div class="channel-feature-art" aria-hidden="true"><img src="/assets/illustrations/otp/managed-verification.webp" width="768" height="512" alt="" loading="lazy" decoding="async"></div><div style="font:400 12px 'JetBrains Mono',ui-monospace,Menlo,monospace;letter-spacing:.2em;color:var(--ac);margin-bottom:14px">04</div><h3 style="font:300 20px Sora,system-ui,sans-serif;margin:0 0 8px">Verify Your User</h3><p style="font:300 14.5px/1.65 Sora,system-ui,sans-serif;color:rgba(244,243,253,.7);margin:0">Post the verification SID and entered code to <code>/VerificationCheck</code> to get the verification result.</p></div>
       </div>
       <div style="display:flex;gap:12px;justify-content:flex-start;flex-wrap:wrap;margin-top:36px"><a href="https://app.secondfactor.ai/signup" target="_blank" rel="noopener" class="pill pill-d">Get Started</a><a href="https://docs.secondfactor.ai" target="_blank" rel="noopener" class="pill pill-o">View Documentation</a></div>
     </div>

@@ -1,0 +1,61 @@
+/* Homepage price-intelligence illustrations. Keep the image space stable while
+   lazy assets load; the adjacent headings and copy describe each illustration. */
+.otp-engine{scroll-margin-top:72px}
+.otp-engine .otp-illustration{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  aspect-ratio:3/2;
+  margin:-6px -10px 24px;
+  overflow:hidden;
+  border:1px solid #e0eafb;
+  border-radius:8px;
+  background:
+    radial-gradient(circle,rgba(48,120,232,.13) .7px,transparent .9px) 10px 10px/18px 18px,
+    radial-gradient(ellipse at 50% 35%,#fff 0%,#eef5ff 65%,#e5efff 100%);
+}
+.otp-engine .otp-illustration img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:360px;
+  transform:scale(1.12);
+}
+html[data-theme="dark"] .otp-engine .otp-illustration{
+  border-color:rgba(111,163,244,.18);
+  background:
+    radial-gradient(circle,rgba(139,182,255,.16) .7px,transparent .9px) 10px 10px/18px 18px,
+    radial-gradient(ellipse at 50% 35%,#22395f 0%,#192b49 65%,#14213a 100%);
+}
+@media (max-width:560px){
+  .otp-engine .otp-illustration{aspect-ratio:auto;height:200px;margin-bottom:22px}
+  .otp-engine .otp-illustration img{width:auto;height:100%;max-width:100%;object-fit:contain}
+}
+
+/* Channel marks share the illustration panels' spacing, with brand-specific
+   background tints. The official SVG colors and proportions stay untouched. */
+.home-channels{scroll-margin-top:72px}
+.channel-art{
+  --channel-rgb:48,120,232;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  aspect-ratio:3/2;
+  margin:-6px -10px 24px;
+  border:1px solid rgba(var(--channel-rgb),.13);
+  border-radius:8px;
+  background:
+    radial-gradient(circle,rgba(var(--channel-rgb),.14) .7px,transparent .9px) 10px 10px/18px 18px,
+    linear-gradient(145deg,rgba(var(--channel-rgb),.025),rgba(var(--channel-rgb),.11));
+}
+.channel-art--whatsapp{--channel-rgb:37,211,102}
+.channel-art--viber{--channel-rgb:115,96,242}
+.channel-art--rcs{--channel-rgb:26,115,232}
+.channel-art img{display:block;width:112px;height:112px;object-fit:contain}
+html[data-theme="dark"] .channel-art{
+  border-color:rgba(var(--channel-rgb),.24);
+  background:
+    radial-gradient(circle,rgba(var(--channel-rgb),.24) .7px,transparent .9px) 10px 10px/18px 18px,
+    linear-gradient(145deg,rgba(var(--channel-rgb),.08),rgba(var(--channel-rgb),.18));
+}
+@media (max-width:560px){.channel-art{aspect-ratio:auto;height:200px;margin-bottom:22px}}

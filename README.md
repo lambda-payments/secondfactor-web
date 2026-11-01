@@ -105,16 +105,19 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
                       hairline feature rows with inline icons, drops the pricing/FAQ containers
     css/features.css  /features/<slug>/ additions on top of channels.css (pages use main.ch-page): two-column
                       explainer (.ft-split), route trace / key-value panel (.ft-trace, .ft-kv), code sample (.ft-code), numbered steps
-    css/dark.css      Dark theme, scoped to html[data-theme="dark"]. Loaded last on every page
+    css/dark.css      Dark theme, scoped to html[data-theme="dark"], loaded after surface.css
+    css/home-illustrations.css Homepage benefit artwork and shared channel-logo panels
+    css/channel-illustrations.css Benefit artwork on channel, feature and country pages;
+                      load illustration styles after dark.css (they include their own dark-theme rules)
     js/theme.js       Sets data-theme from the saved choice (localStorage "sf-theme") or the OS
                       preference, injects the sun/moon toggle into the header, swaps the logo.
-                      Loaded in <head> on every page, right after dark.css
+                      Loaded in <head> on every page
     css/country.css   Country LP content alignment, four-card sections and homepage-style FAQ rows
     css/article.css   Blog layout: article pages (.post-* classes) and the /blog/ listing (.blog-*).
                       Loaded by /blog/ and /blog/<slug>/ pages
     css/chrome.css    Header + footer: the ONLY place their width, spacing and colours live.
-                      Loaded last on every page (the home page has its own inline CSS, so this
-                      is what keeps its header/footer identical to the inner pages).
+                      Loaded before surface.css and dark.css; keeps the home page's
+                      header/footer consistent with the inner pages despite its inline CSS.
     css/surface.css   Neutral surface layer, loaded after chrome.css on every page: white canvas,
                       hairline section starts, white cards, grey-tint bands and footer. The hero
                       bands (.hero, .hero-in) keep their gradient art. New pages must link it too.
@@ -126,6 +129,8 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
                       (favicon); the -white variants are for dark backgrounds and are not used yet
     assets/legal/     PDF copies of the Privacy Policy and Terms (offered as "Download PDF" on
                       /privacy/ and /terms/ — keep them in sync with the page text)
+    assets/illustrations/otp/ Transparent WebP illustrations reused across benefit and setup cards
+    assets/illustrations/channels/ Official WhatsApp/Viber marks and original SMS/RCS symbols
     assets/og-default.png  1200x630 share image used by the Open Graph / Twitter tags on every page
     robots.txt        Allows all crawlers, points at sitemap.xml
     llms.txt          Plain-text site guide for AI assistants (llms.txt format): what SecondFactor is,
@@ -149,6 +154,15 @@ or from `country/india/index.html`, then change only the content:
 
 Put a `.sec` section directly after another `.sec` with `padding-top:0` only when both sit on the
 same band, as on the home page; after a `.band` section keep the default padding.
+
+Illustrated cards use `.otp-illustration` within `.otp-engine` on the homepage,
+`.channel-feature-art` for channel/feature benefits and country steps, and `.channel-art`
+for channel logos. Reuse the existing WebP/SVG assets with explicit image dimensions,
+`loading="lazy"`, `decoding="async"`, and empty alt text inside an `aria-hidden="true"`
+wrapper when the adjacent heading describes the artwork. The OTP artwork was generated
+with the built-in image-generation tool; channel mark sources and usage notes are in
+[the channel artwork README](assets/illustrations/channels/README.md). Edit the India
+template and regenerate for illustration changes shared by country pages.
 
 ## Country landing pages
 
