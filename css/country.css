@@ -13,3 +13,9 @@
 .country-faq details[open] summary i{transform:rotate(45deg)}
 .country-faq details p{font:300 15px/1.75 var(--disp);color:var(--mut);margin:14px 0 0;max-width:74ch}
 @media (prefers-reduced-motion:reduce){.country-faq summary i{transition:none}}
+
+/* Reuse the channel marks and step artwork across destination pages. */
+.country-channels,.country-routing,.country-setup{scroll-margin-top:72px}
+.country-routing .channel-feature-art,.country-setup .channel-feature-art{margin:-12px -12px 24px}
+@media (max-width:1100px){.country-routing .country-steps,.country-setup .country-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.country-routing .country-steps,.country-setup .country-steps{grid-template-columns:minmax(0,1fr)}}
