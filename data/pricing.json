@@ -1,6 +1,6 @@
 {
  "source": "https://api.secondfactor.ai/v2/Pricing",
- "fetched_at": "2026-11-04T02:29:04Z",
+ "fetched_at": "2026-11-05T09:54:36Z",
  "prices": [
   {
    "country": "AE",
@@ -647,7 +647,7 @@
   {
    "country": "QA",
    "name": "Qatar",
-   "price": "0.063482",
+   "price": "0.070640",
    "currency": "USD"
   },
   {
