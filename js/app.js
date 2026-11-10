@@ -95,12 +95,14 @@
   /* ---------- support form ----------
      POST https://api.secondfactor.ai/api/support/tickets (the form's data-endpoint), JSON, no auth,
      no cookies. Body: name, email, company ("" when empty), topic (integration | channel_setup |
-     pricing | billing | other), message, website (honeypot, always sent, empty for humans).
+     pricing | billing | other), message, website (honeypot, always sent, empty for humans),
+     captcha_token (Cloudflare Turnstile, action "support", single use: reset after every response).
      201 {"id":"SUP…"} = created; 400 = field errors keyed by field (+ non_field_errors);
-     429 = throttled (5/hour per IP, 3/hour per email). Anything else falls back to email. */
+     429 = throttled (5/hour per IP, 3/hour per email); 503 = security check unavailable.
+     Anything else falls back to email. The widget only renders on hostnames allowed for the site key. */
   var form = document.getElementById('supportForm');
   if (form && window.fetch) {
-    var FIELDS = { name: 'sn', email: 'se', company: 'sc', topic: 'st', message: 'sm' };
+    var FIELDS = { name: 'sn', email: 'se', company: 'sc', topic: 'st', message: 'sm', captcha_token: 'sfcap' };
     var LIMITS = { name: 120, email: 254, company: 120, message: 5000 };
     var note = document.getElementById('formNote'), btn = document.getElementById('supportSubmit');
     var btnLabel = btn ? btn.textContent : 'Send message';
@@ -135,6 +137,31 @@
       form.setAttribute('aria-busy', busy ? 'true' : 'false');
     }
 
+    /* Turnstile: the API script (support/index.html) calls sfTurnstileReady once loaded. */
+    var cap = { el: document.getElementById('sfcap'), id: null, token: '' };
+    function capTheme() { return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
+    function renderCaptcha() {
+      if (!cap.el || !window.turnstile) return;
+      if (cap.id !== null) window.turnstile.remove(cap.id);
+      cap.token = '';
+      cap.id = window.turnstile.render(cap.el, {
+        sitekey: cap.el.getAttribute('data-sitekey'), action: 'support', theme: capTheme(),
+        size: cap.el.offsetWidth < 300 ? 'compact' : 'flexible',
+        callback: function (t) { cap.token = t; fieldError('captcha_token', ''); },
+        'expired-callback': function () { cap.token = ''; },
+        'error-callback': function () { cap.token = ''; }
+      });
+    }
+    function resetCaptcha() {
+      cap.token = '';
+      if (window.turnstile && cap.id !== null) window.turnstile.reset(cap.id);
+    }
+    window.sfTurnstileReady = renderCaptcha;
+    if (window.turnstile) renderCaptcha();
+    /* keep the widget's theme in step with the site's theme toggle */
+    new MutationObserver(function () { if (cap.id !== null) renderCaptcha(); })
+      .observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (btn && btn.disabled) return;
@@ -144,6 +171,12 @@
         var first = form.querySelector('[aria-invalid="true"]'); if (first) first.focus();
         return;
       }
+      if (!window.turnstile) {
+        mailtoFallback('The security check didn’t load, which can happen with some ad or script blockers.');
+        return;
+      }
+      if (!cap.token) { fieldError('captcha_token', 'Complete the security check.'); return; }
+      data.captcha_token = cap.token;
       setBusy(true);
       fetch(form.getAttribute('data-endpoint'), {
         method: 'POST', credentials: 'omit',
@@ -153,6 +186,7 @@
         return res.json().catch(function () { return {}; }).then(function (body) { return { status: res.status, body: body }; });
       }).then(function (r) {
         setBusy(false);
+        resetCaptcha();
         if (r.status === 201) {
           var ref = r.body && r.body.id ? String(r.body.id) : '';
           form.reset();
@@ -178,9 +212,11 @@
           mailtoFallback('We\u2019ve received several messages from you recently' + (mins ? ', so the form is paused for about ' + mins + ' minute' + (mins === 1 ? '' : 's') + '.' : '.'));
           return;
         }
+        if (r.status === 503) { mailtoFallback('Our security check is temporarily unavailable.'); return; }
         mailtoFallback('We couldn\u2019t send your message just now.');
       }).catch(function () {
         setBusy(false);
+        resetCaptcha();
         mailtoFallback('We couldn\u2019t reach our servers.');
       });
     });

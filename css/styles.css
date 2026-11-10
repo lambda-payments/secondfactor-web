@@ -145,3 +145,4 @@ html{scroll-padding-top:96px}
 .crd a.sf-phone-num{display:inline-flex;align-items:center;gap:8px;font:400 16.5px Sora,system-ui,sans-serif;white-space:nowrap}
 .sf-phone-num svg{flex:none;color:#25D366}
 .crd a.sf-callbtn{display:inline-flex;flex:none;width:auto;gap:7px;padding:9px 18px;font-size:13.5px;box-shadow:none}
+.sf-captcha{min-height:65px}
