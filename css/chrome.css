@@ -108,3 +108,21 @@ footer.band .ftb span{color:rgba(31,36,80,.78)!important}
 /* ---- brand blue: small text uses the darker shade for AA contrast; buttons keep the logo blue ---- */
 header.band .nav-a:hover,header.band .nav-a.on,footer.band .nav-a:hover{color:#2461c9!important}
 footer.band .ft-contact+.ft-contact{display:table;margin-top:4px}
+
+/* ---- analytics consent banner (built by js/analytics.js) ----
+   Lives with the header and footer because, like them, it appears on every page. It is a thin
+   bar pinned to the bottom of the viewport rather than a modal, so it never blocks the page or
+   its calls to action. Colours come only from the theme tokens, which css/dark.css redefines,
+   so the bar follows the light and dark themes without rules of its own. */
+.sf-consent{position:fixed;left:0;right:0;bottom:0;z-index:70;box-sizing:border-box;display:flex;align-items:center;
+  justify-content:center;flex-wrap:wrap;gap:12px 24px;padding:14px clamp(16px,4vw,80px);
+  background:var(--pap);border-top:1px solid var(--brd);color:var(--mut);font:400 14px/1.5 Sora,system-ui,sans-serif}
+.sf-consent p{margin:0;max-width:760px}
+.sf-consent a{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+.sf-consent-a{display:flex;gap:10px;flex:none}
+.sf-consent-b{padding:10px 18px;border:1px solid var(--brd);border-radius:0;background:transparent;color:var(--fg);cursor:pointer;
+  font:400 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;transition:border-color .2s}
+.sf-consent-b:hover{border-color:var(--fg)}
+.sf-consent-ok{background:var(--fg);border-color:var(--fg);color:var(--pap)}
+.sf-consent a:focus-visible,.sf-consent-b:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+@media (max-width:600px){.sf-consent{padding:12px 16px;font-size:13px}.sf-consent-a{width:100%}.sf-consent-b{flex:1}}

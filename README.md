@@ -109,6 +109,8 @@ GitHub Pages cannot issue server-side 301s; if the site moves to a host that can
     css/home-illustrations.css Homepage benefit artwork and shared channel-logo panels
     css/channel-illustrations.css Benefit artwork on channel, feature and country pages;
                       load illustration styles after dark.css (they include their own dark-theme rules)
+    js/analytics.js   PostHog product analytics and its consent banner (see "Analytics"). Loaded with
+                      `defer` in <head> on every page, directly after js/theme.js
     js/theme.js       Sets data-theme from the saved choice (localStorage "sf-theme") or the OS
                       preference, injects the sun/moon toggle into the header, swaps the logo.
                       Loaded in <head> on every page
@@ -266,6 +268,50 @@ and the label is always "per OTP sent": the price does not depend on the deliver
 To refresh the list locally: `SF_PRICING_KEY=sf_... python3 scripts/fetch-pricing.py`
 (`SF_PRICING_URL=https://uat-api.secondfactor.ai/v2/Pricing` for UAT). Never put the key
 in a page or script.
+
+## Analytics
+
+Two tools run on the site, configured independently.
+
+**Google Analytics 4** (`G-YG63Q66ERF`) is the gtag.js snippet at the top of every page's `<head>`
+(see "SEO head"). It loads on every visit and is not governed by the consent banner.
+
+**PostHog** is configured entirely in `js/analytics.js`, which every page loads with
+`<script src="/js/analytics.js" defer>` directly after `js/theme.js`. Copy that line when you add a
+page; the country and compare generators pick it up from their source pages. Events go straight to
+PostHog's US ingestion host (`https://us.i.posthog.com`, no proxy) in the same project as the
+dashboard. Every event carries `app: website`, to separate it from the dashboard's events, and
+`environment` (`production`, or `uat` for a `uat-` host). PostHog only starts on `secondfactor.ai`,
+`www.secondfactor.ai` and `uat-` hosts, so a local server sends nothing. To test analytics locally,
+add your host to the `environment` check at the top of the file, and remove it before committing.
+
+Custom events, in addition to PostHog's pageviews and masked autocapture:
+
+* `cta_clicked` with `cta`: `header-get-started`, `footer-get-started` or `get-started` for any link
+  to `https://app.secondfactor.ai/signup`, and `contact-sales` for any link to `/support/` inside
+  `<main>`. The page is already on the event as `$pathname`.
+* `contact_submitted` with `form: support`, sent from `js/app.js` when the support API accepts a
+  ticket. No field values are ever sent.
+
+Deliberately switched off, because the site does not use them and several send the full page
+address through paths that the `before_send` filter never sees: session recording, feature flags
+(which also stops the `/flags` request), heatmaps, dead-click capture, exception and performance
+capture, surveys, product tours, conversations and web experiments. Autocapture masks all element
+text and attributes, so nothing a visitor types or reads (a phone number in the tools, a support
+message) is recorded. `before_send` removes the query string and fragment from every absolute
+address in an event, including `$current_url`, `$referrer` and `$initial_current_url`.
+
+Consent: until the visitor answers the banner, PostHog runs with in-memory persistence. It writes no
+cookie and no storage entry, and each page load is a new anonymous visitor. **Accept** stores
+`accepted` under the `localStorage` key `sf-analytics-consent` and switches PostHog to
+`localStorage+cookie`, so returning visitors are recognised. **Decline** stores `declined` and keeps
+the memory-only tracking, matching the dashboard. Either answer hides the banner for good; a browser
+that blocks storage is asked again on every visit. Anonymous visitors never create person profiles
+(`person_profiles: 'identified_only'`). The banner's styles are the `.sf-consent` rules in
+`css/chrome.css` and use only the theme tokens, so they follow the light and dark themes.
+
+The site sets no Content-Security-Policy (GitHub Pages cannot send one). If one is added, allow
+`https://us.i.posthog.com` in `connect-src` and `https://us-assets.i.posthog.com` in `script-src`.
 
 ## Free phone tools
 

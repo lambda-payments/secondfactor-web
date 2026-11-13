@@ -188,6 +188,8 @@
         setBusy(false);
         resetCaptcha();
         if (r.status === 201) {
+          // Only the fact of the submission is sent to analytics, never what was typed.
+          if (window.posthog) window.posthog.capture('contact_submitted', { form: 'support' });
           var ref = r.body && r.body.id ? String(r.body.id) : '';
           form.reset();
           showNote('ok', '<strong>Thanks, your message is on its way.</strong> We\u2019ll reply from support@secondfactor.ai.' +
