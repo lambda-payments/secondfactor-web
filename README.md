@@ -35,6 +35,15 @@ Clean URLs, one directory per page (each holds an `index.html`):
                                                          table filled by js/compare.js from data/competitors/<slug>.json
                                                          (scripts/competitors/fetch_<slug>.py, refreshed daily by
                                                          .github/workflows/competitor-prices.yml)
+    /compare/twilio-verify/ compare/twilio-verify/index.html Hand-authored product comparison: billing, channels,
+                                                         routing and migration. Uses css/compare-verify.css
+                                                         and js/compare-verify.js with pricing-client.js for the
+                                                         embedded calculator and expandable country-price table.
+                                                         Reuses homepage testimonials and local illustrations.
+                                                         Twilio logo: assets/logos/twilio.svg, from Twilio’s
+                                                         official https://www.twilio.com/content/dam/twilio-com/
+                                                         core-assets/customer-logos/t-z/twilio.svg.
+                                                         Direct-link page, noindex; not managed by the generator.
     /blog/                blog/index.html               Blog listing: compact intro, then one `.blog-card` link per published article
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
