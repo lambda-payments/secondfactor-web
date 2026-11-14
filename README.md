@@ -16,11 +16,12 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /channels/rcs/        channels/rcs/index.html       RCS OTP
     /pricing/             pricing/index.html            Pricing: one price per OTP sent per country, from data/pricing.json
     /support/             support/index.html            Support / contact
+    /about/               about/index.html              About: company, values, team (photos in assets/team/), careers, contact. Styles: css/about.css
     /docs/                docs/index.html               Redirect stub to https://docs.secondfactor.ai (old #anchors map to its pages)
     /privacy/             privacy/index.html            Privacy Policy (full text; footer links point here)
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
-    /country/             country/index.html            Country directory (linked from /pricing/)
-    /country/<slug>/      country/<slug>/index.html     20 country LPs, including India
+    /country/             country/index.html            Country directory (linked from /pricing/; noindex)
+    /country/<slug>/      country/<slug>/index.html     20 country LPs, including India (noindex)
     /features/            features/index.html           Features overview (the "Features" nav dropdown links here and to each page)
     /features/<slug>/     features/<slug>/index.html    Feature pages: otp-routing-fallback, otp-delivery-logs,
                                                         otp-template-management, pie-playground
@@ -43,7 +44,9 @@ Clean URLs, one directory per page (each holds an `index.html`):
                                                          Twilio logo: assets/logos/twilio.svg, from Twilio’s
                                                          official https://www.twilio.com/content/dam/twilio-com/
                                                          core-assets/customer-logos/t-z/twilio.svg.
-                                                         Direct-link page, noindex; not managed by the generator.
+                                                         Indexable and in sitemap.xml; not managed by the generator.
+    /author/naman-nepal/  author/naman-nepal/index.html Author profile: photo, role, bio, website/LinkedIn/X links and a
+                                                         .blog-card for each of his articles (keep in sync with /blog/)
     /blog/                blog/index.html               Blog listing: compact intro, then one `.blog-card` link per published article
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
@@ -73,6 +76,10 @@ never publishes it, but it still previews locally at `/blog/_template/`.
 2. In the new `index.html`, edit every line marked `<!-- EDIT -->`: title, description,
    canonical and `og:url` (slug), Open Graph / Twitter text and image, both dates, the JSON-LD
    block, breadcrumb, category, h1, standfirst, byline and author box.
+   Articles are authored by **Naman Nepal** (photo `assets/authors/naman-nepal.webp`): the byline,
+   the author box and the JSON-LD `author` (`Person`, `url` = his author page, website, LinkedIn
+   and X in `sameAs`) are already filled in the template, and both name links go to
+   `/author/naman-nepal/`. Keep these and the author page in sync if the role or bio changes.
 3. Change the robots meta to `index, follow, max-image-preview:large, max-snippet:-1`.
 4. Write the body with the ready-made blocks: `.post-tldr` (key takeaways), `.post-table`
    (comparison table, add `class="is-us"` to our row), `.post-item` (one per provider, with
@@ -83,14 +90,16 @@ never publishes it, but it still previews locally at `/blog/_template/`.
    "Body styles reference" block. Give every `<h2>` an `id` and list it in `.post-toc`.
 5. Do not wrap body content in `<section>` or use `.crd`: `motion.css` restyles both.
 6. List the article: copy an `<a class="blog-card">` block on `/blog/` (category, title, one-line
-   summary, "Read article") for the new post, and fill "Keep reading" with published posts only.
+   summary; the whole card is the link) for the new post, and fill "Keep reading" with published posts only.
+   Add the same card to `/author/naman-nepal/` and update the count in "Articles by Naman (N)".
 7. Add the URL to `sitemap.xml` (and bump the `/blog/` entry's `lastmod`).
 
 ## SEO head
 
-Each page's `<head>` opens with the Google Analytics 4 tag (`G-YG63Q66ERF`, gtag.js); copy it
-when you add a page. The country and compare generators pick it up from their source pages, and
-redirect stubs do not carry it. After the tag, the `<head>` carries, in order: title, meta description, canonical, robots,
+Each page's `<head>` opens with the Google Tag Manager container (`GTM-5KHCJLB6`), and the
+GTM `<noscript>` iframe sits directly after `<body>`; copy both when you add a page. GA4 and other
+tags are configured inside GTM, not on the pages. The country and compare generators pick them up
+from their source pages, and redirect stubs do not carry them. After the tag, the `<head>` carries, in order: title, meta description, canonical, robots,
 theme-color, Open Graph tags, Twitter card tags, apple-touch-icon, then a JSON-LD block.
 The JSON-LD is a `@graph`: the home page declares `Organization` + `WebSite` + `WebPage`;
 every other page declares `BreadcrumbList` + `WebPage`. When you add a page, copy the head
@@ -178,9 +187,13 @@ template and regenerate for illustration changes shared by country pages.
 ## Country landing pages
 
 All 20 destinations from the pricing list have a static landing page, collected in the
-`/country/` directory (linked from the pricing page). Every country page and the directory
-are indexable and listed in `sitemap.xml`; breadcrumbs run Home › Countries › Country.
-When you add a country, add its `/country/<slug>/` URL to `sitemap.xml` too.
+`/country/` directory (linked from the pricing page). Breadcrumbs run Home › Countries › Country.
+
+Since November 2026 the country pages and the directory are `noindex, follow` and are not in
+`sitemap.xml`: they share most of their copy, and Search Console showed them (and other pages)
+as crawled but not indexed. Keep them out of the index until each country has distinct
+content. The robots tag comes from `country/india/index.html`, so change it there and
+regenerate.
 
 `country/india/index.html` is the reference layout. The other 19 pages and the
 country directory are generated from it, using `country/countries.json` for country
@@ -282,8 +295,12 @@ in a page or script.
 
 Two tools run on the site, configured independently.
 
-**Google Analytics 4** (`G-YG63Q66ERF`) is the gtag.js snippet at the top of every page's `<head>`
-(see "SEO head"). It loads on every visit and is not governed by the consent banner.
+**Google Tag Manager** (`GTM-5KHCJLB6`) is the container snippet at the top of every page's
+`<head>`, plus its `<noscript>` iframe after `<body>` (see "SEO head"). Google Analytics 4
+(`G-YG63Q66ERF`) and any other Google tags are added inside GTM, not on the pages. The container
+loads on every visit and is not governed by the consent banner.
+The same container runs on app.secondfactor.ai, which pushes the `sign_up` conversion event;
+the app-side instructions are in `_dev/app-gtm-handoff.md` (not published: Jekyll skips `_` folders).
 
 **PostHog** is configured entirely in `js/analytics.js`, which every page loads with
 `<script src="/js/analytics.js" defer>` directly after `js/theme.js`. Copy that line when you add a

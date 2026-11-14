@@ -1,0 +1,64 @@
+/* About draft: page-scoped styles; shared chrome and theme remain in their existing layers. */
+.ab-portrait-photo img{filter:grayscale(1);transition:filter .25s ease}
+.ab-team-card:hover .ab-portrait-photo img,.ab-team-card:focus-within .ab-portrait-photo img{filter:grayscale(0)}
+@media(prefers-reduced-motion:reduce){.ab-portrait-photo img{transition:none}}
+/* colours come from the site tokens (styles.css / surface.css, remapped by dark.css) */
+.about-page{--ab-surface:var(--sf-wash);--ab-card:#fff;--ab-line:var(--sf-line);--ab-ink:var(--fg);--ab-muted:var(--mut);--ab-blue:#2461c9}
+html[data-theme="dark"] .about-page{--ab-surface:var(--d-surface);--ab-card:var(--d-bg);--ab-blue:var(--d-blue)}
+.ab-main *{box-sizing:border-box}.ab-main{color:var(--ab-ink)}
+.ab-main .rv{opacity:1;transform:none;transition:none}
+.ab-company-facts{margin:30px 0 0;font-size:14px;max-width:380px}
+.ab-company-facts>div{display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--ab-line)}
+.ab-company-facts dt{color:var(--ab-muted)}.ab-company-facts dd{margin:0;color:var(--ab-ink);line-height:1.6}
+.ab-principles.ab-values{grid-template-columns:repeat(2,1fr)}
+.ab-principles.ab-values article{padding:30px 32px 30px 0;border-left:0;border-bottom:1px solid var(--ab-line)}
+.ab-principles.ab-values article:nth-child(even){padding-left:32px;border-left:1px solid var(--ab-line)}
+.ab-principles.ab-values p{max-width:48ch}
+.ab-careers{display:grid;grid-template-columns:1fr 1fr;gap:80px;border-top:1px solid var(--ab-line)}
+.ab-careers>div>p{margin-top:24px;max-width:48ch}
+.ab-careers-card{border:1px solid var(--ab-line);background:var(--ab-surface);padding:32px}
+.ab-careers-card .pill{margin-top:24px;gap:20px}
+.ab-careers-email{display:block;font-size:14px;margin-top:18px;overflow-wrap:anywhere}
+.ab-careers-card p.ab-careers-note{font-size:13px;line-height:1.6;margin-top:20px}
+.about-page .ab-main .ab-mission{background:#192d53!important}
+.about-page .ab-main .ab-contact{background:var(--ab-surface)!important;border:1px solid var(--ab-line)!important}
+/* Shared motion.css has broad !important section gutters. This page owns its spacing. */
+.about-page .ab-main section{padding-left:0!important;padding-right:0!important}
+.about-page .ab-main .ab-intro{padding-top:84px!important;padding-bottom:60px!important}
+.about-page .ab-main .ab-section{padding-top:88px!important;padding-bottom:88px!important}
+.about-page .ab-main #team{padding-top:30px!important}
+.about-page .ab-main .ab-life{padding-top:0!important;padding-bottom:0!important}
+.about-page .ab-main .ab-mission{padding:64px!important}
+.about-page .ab-main .ab-contact{padding:56px!important}
+/* same width and gutters as the header (.hd), so content lines up with the logo */
+.ab-wrap{max-width:1640px;margin:auto;padding:0 clamp(20px,4vw,80px)}
+.ab-main h1,.ab-main h2,.ab-main h3,.ab-main p{margin:0}.ab-main p{font-size:17px;line-height:1.7;color:var(--ab-muted);font-weight:300}
+.ab-main h2{font-size:clamp(28px,2.8vw,40px);line-height:1.15;font-weight:300;letter-spacing:-.025em;text-wrap:balance}
+.ab-main h3{font-size:19px;line-height:1.4;font-weight:400;letter-spacing:-.01em}
+.ab-label{display:block;font:400 11.5px/1.5 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--ab-blue);margin-bottom:22px}
+.ab-intro{padding:84px 0 60px;display:grid;grid-template-columns:1.12fr 1fr;gap:50px;align-items:center}
+.about-page .ab-main h1{font-weight:300!important} /* motion.css sets h1 to 200; inner-page heroes use 300 */
+.ab-intro h1{font-size:clamp(36px,3.2vw,46px);font-weight:300;line-height:1.1;letter-spacing:-.025em;margin-bottom:22px}
+.ab-intro h1 em{font-style:normal;color:var(--ab-blue)}.ab-intro p{max-width:48ch}.ab-intro .ab-lead{font-size:19px;line-height:1.5;color:var(--ab-ink);margin-bottom:16px;max-width:40ch}
+.ab-text-link{display:inline-flex;align-items:center;gap:18px;font-size:14.5px;font-weight:400;color:var(--ab-blue);padding:12px 0}.ab-text-link:hover{gap:24px}.ab-intro .ab-text-link{margin-top:22px}
+.ab-hero-image{display:block;width:100%;height:auto;border-radius:8px}
+.ab-context-strip{display:flex;gap:18px;align-items:center;padding:25px 0;border-top:1px solid var(--ab-line);border-bottom:1px solid var(--ab-line);font-size:14px}.ab-context-strip>span:first-child{font-weight:500}.ab-context-strip>span:nth-child(2){color:var(--ab-muted)}.ab-context-strip ul{display:flex;gap:28px;margin:0 0 0 auto;padding:0;list-style:none;font:400 11.5px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em}.ab-context-strip li:before{content:'•';color:var(--ab-blue);margin-right:9px}
+.ab-section{padding:88px 0;scroll-margin-top:90px}.ab-story{display:grid;grid-template-columns:1fr 1fr;gap:90px}.ab-story h2{max-width:18ch}.ab-story-copy>p+p{margin-top:20px}
+.ab-placeholder{border:1px dashed #c5cedf;background:var(--ab-surface)}.ab-placeholder-tag{font:400 9px/1.5 'JetBrains Mono',monospace;letter-spacing:.07em;color:var(--ab-muted)}.ab-story-note{padding:22px;margin-top:28px;border-radius:5px}.ab-story-note p{font-size:12px;margin-top:10px}
+.ab-mission{position:relative;padding:64px;background:#192d53;overflow:hidden;color:#fff}.ab-mission .ab-label{color:#9cbff9}.ab-main .ab-mission h2{font-size:clamp(30px,3.2vw,46px);color:#fff!important;max-width:24ch;position:relative;z-index:1}.ab-mission h2 span{color:#a7c6fc}.ab-main .ab-mission p{color:#c7d4e9!important;max-width:53ch;margin-top:25px;position:relative;z-index:1}
+.ab-mission-mark{position:absolute;right:75px;top:50%;width:160px;height:220px;transform:translateY(-50%) rotate(16deg);opacity:.17}.ab-mission-mark i{position:absolute;inset:0;border:1px solid #b5d0ff;border-radius:90px 90px 0 0}.ab-mission-mark i:nth-child(2){inset:20px}.ab-mission-mark i:nth-child(3){inset:40px}
+.ab-section-heading{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:36px}.ab-section-heading p{max-width:38ch;font-size:16px}.ab-section-heading .ab-label{margin-bottom:18px}
+.ab-principles{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ab-line)}.ab-principles article{padding:30px 32px 0 0}.ab-principles article+article{border-left:1px solid var(--ab-line);padding-left:32px}.ab-principle-no{display:block;font:400 11.5px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;color:var(--ab-blue);margin-bottom:24px}.ab-principles h3{margin-bottom:12px}.ab-principles p{font-size:15px;max-width:40ch}
+#team{padding-top:30px}.ab-team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px}.ab-portrait{aspect-ratio:1/1;position:relative;overflow:hidden;isolation:isolate}.ab-portrait-photo{background:var(--ab-surface)}.ab-portrait-photo img{display:block;width:100%;height:100%;object-fit:cover}.ab-portrait-blue{background:#e4ebf6;color:#acbedc}.ab-portrait-lilac{background:#ebe7f1;color:#c1b3d1}.ab-portrait-mint{background:#e2ede9;color:#adc7bb}.ab-portrait-sand{background:#f1ebe0;color:#d1c3a9}.ab-portrait-neutral{background:#efefef;color:#d4d4d4}.ab-photo-label,.ab-photo-caption{position:absolute;left:18px;z-index:1;color:#48546b;font:400 9px 'JetBrains Mono',monospace}.ab-photo-label{top:18px}.ab-photo-caption{bottom:18px;background:#ffffffc9;padding:7px 9px;border-radius:3px}.ab-silhouette{position:absolute;width:76px;height:85px;border-radius:45% 45% 42% 42%;background:currentColor;left:50%;top:27%;transform:translateX(-50%)}.ab-silhouette:after{content:'';position:absolute;width:200px;height:150px;left:50%;top:96px;transform:translateX(-50%);background:currentColor;border-radius:50% 50% 0 0}.ab-team-card h3{font-size:19px;margin:18px 0 6px}.ab-team-card h3 a{color:inherit}.ab-team-card h3 a:hover{color:var(--ab-blue)}.ab-role{font-size:14.5px;color:var(--ab-muted)}.ab-team-card p{font-size:14.5px;line-height:1.65;margin-top:12px}
+.ab-life{display:grid;grid-template-columns:1.25fr 1fr;gap:70px;align-items:center}.ab-team-photo{padding:30px;min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:6px}.ab-photo-frame{margin:25px 0 15px;color:#9daec8}.ab-team-photo p{font-size:18px;color:var(--ab-ink);margin-bottom:8px}.ab-team-photo>span:last-child{font-size:11px;color:var(--ab-muted);max-width:36ch;line-height:1.7}.ab-culture-note{padding:22px;margin-top:24px;border-radius:4px}.ab-culture-note p{font-size:13px;margin-top:10px}
+.ab-timeline{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);padding:0;margin:0}.ab-timeline li{border-top:1px solid var(--ab-line);padding:30px 36px 0 0;position:relative}.ab-timeline li:before{content:'';position:absolute;width:7px;height:7px;border-radius:50%;background:var(--ab-blue);top:-4px;left:0}.ab-year{font:400 11px 'JetBrains Mono',monospace;color:var(--ab-blue)}.ab-timeline h3{margin:18px 0 12px;font-size:17px}.ab-timeline p{font-size:13px;max-width:32ch}
+.ab-contact{background:var(--ab-surface);border:1px solid var(--ab-line);padding:56px;display:flex;align-items:center;justify-content:space-between;gap:40px;margin-bottom:80px}.ab-contact p{margin-top:20px;max-width:46ch;font-size:16px}.ab-contact-actions{display:flex;align-items:flex-start;flex-direction:column;gap:13px}.ab-contact .pill{gap:30px}.ab-contact .ab-label{margin-bottom:20px}.ab-main a:focus-visible{outline:2px solid var(--ab-blue);outline-offset:5px}.ab-skip{position:fixed;left:20px;top:-100px;background:var(--ab-card);padding:15px;z-index:100}.ab-skip:focus{top:10px}
+@media(min-width:861px) and (max-width:1150px){.ab-intro{gap:30px}.ab-intro h1{font-size:40px}}
+@media(max-width:860px){.ab-intro{grid-template-columns:1fr;padding-top:48px;gap:35px}.ab-intro h1{font-size:clamp(34px,5vw,44px)}.ab-intro p{max-width:52ch}.ab-context-strip{flex-wrap:wrap}.ab-context-strip ul{margin:5px 0 0;width:100%;gap:22px}.ab-section{padding:60px 0}.ab-story{gap:35px}.ab-section-heading{align-items:start}.ab-team-grid{grid-template-columns:repeat(2,1fr);gap:30px 20px}.ab-life{gap:35px}.ab-mission{padding:40px}.ab-contact{padding:36px;gap:25px}.ab-principles article{padding-right:20px}.ab-principles article+article{padding-left:20px}}
+@media(max-width:860px){.ab-wrap{padding:0 20px}}
+@media(max-width:560px){.ab-intro{padding:40px 0}.ab-intro h1{font-size:34px}.ab-label{font-size:11px;margin-bottom:18px}.ab-intro .ab-lead{font-size:18px}.ab-context-strip{gap:8px 14px;font-size:13px}.ab-context-strip ul{font-size:11px;gap:17px}.ab-context-strip li:before{margin-right:5px}.ab-story,.ab-life{grid-template-columns:1fr;gap:28px}.ab-story h2{max-width:none}.ab-section-heading{display:block}.ab-section-heading>p{margin-top:20px}.ab-mission{padding:35px 25px}.ab-mission-mark{right:-60px}.ab-mission h2{font-size:28px}.ab-principles{grid-template-columns:1fr}.ab-principles article,.ab-principles article+article{padding:24px 0;border-left:0}.ab-principles article+article{border-top:1px solid var(--ab-line)}.ab-principle-no{margin-bottom:14px}.ab-principles p{max-width:none}.ab-team-grid{gap:28px 16px}.ab-silhouette{width:55px;height:65px}.ab-silhouette:after{width:140px;height:110px;top:72px}.ab-photo-label{font-size:7px;left:11px}.ab-photo-caption{font-size:8px;left:10px;bottom:12px;padding:6px}.ab-team-card h3{font-size:16px;overflow-wrap:anywhere}.ab-team-card p{font-size:14px}.ab-team-photo{min-height:270px;padding:25px}.ab-timeline{grid-template-columns:1fr}.ab-timeline li{border-top:0;border-left:1px solid var(--ab-line);padding:0 0 30px 24px}.ab-timeline li:before{top:4px;left:-4px}.ab-timeline li:last-child{padding-bottom:0}.ab-contact{padding:30px 24px;flex-direction:column;align-items:start;margin-bottom:48px}.ab-contact-actions{width:100%}.ab-contact .pill{width:100%}}
+@media(prefers-reduced-motion:reduce){.ab-main *{transition:none!important;animation:none!important}}
+@media(max-width:860px){.ab-careers{gap:30px}}
+@media(max-width:560px){.ab-principles.ab-values,.ab-careers{grid-template-columns:1fr}.ab-principles.ab-values article:nth-child(even){padding-left:0;border-left:0}.ab-careers-card{padding:24px}.ab-company-facts{max-width:none}.ab-principles.ab-values article{padding:24px 0}}
+@media(max-width:860px){.about-page .ab-main .ab-intro{padding-top:48px!important}.about-page .ab-main .ab-section{padding-top:60px!important;padding-bottom:60px!important}.about-page .ab-main .ab-mission{padding:40px!important}.about-page .ab-main .ab-contact{padding:36px!important}}
+@media(max-width:560px){.about-page .ab-main .ab-intro{padding-top:40px!important;padding-bottom:40px!important}.about-page .ab-main .ab-mission{padding:35px 25px!important}.about-page .ab-main .ab-contact{padding:30px 24px!important}}

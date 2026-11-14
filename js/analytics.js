@@ -10,8 +10,9 @@
    no cookie and no storage entry, and every page load counts as a new anonymous visitor. Accepting
    moves that state into a cookie and local storage so returning visitors are recognised; declining
    keeps the memory-only tracking, matching the dashboard. The answer is remembered under
-   "sf-analytics-consent" so the banner is not shown again. Google Analytics is configured
-   separately in each page's <head> and is not governed by this banner.
+   "sf-analytics-consent" so the banner is not shown again. Google Analytics, Google Ads and the
+   signup_click event run through Google Tag Manager (GTM-5KHCJLB6, in each page's <head>) and are
+   not governed by this banner.
 
    Privacy: every PostHog feature the site does not use is switched off, because several of them
    (the /flags request, heatmaps) send the full page address through paths that `before_send`
