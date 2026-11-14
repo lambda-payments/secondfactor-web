@@ -89,7 +89,7 @@ never publishes it, but it still previews locally at `/blog/_template/`.
    "Body styles reference" block. Give every `<h2>` an `id` and list it in `.post-toc`.
 5. Do not wrap body content in `<section>` or use `.crd`: `motion.css` restyles both.
 6. List the article: copy an `<a class="blog-card">` block on `/blog/` (category, title, one-line
-   summary, "Read article") for the new post, and fill "Keep reading" with published posts only.
+   summary; the whole card is the link) for the new post, and fill "Keep reading" with published posts only.
    Add the same card to `/author/naman-nepal/` and update the count in "Articles by Naman (N)".
 7. Add the URL to `sitemap.xml` (and bump the `/blog/` entry's `lastmod`).
 
