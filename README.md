@@ -19,8 +19,8 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /docs/                docs/index.html               Redirect stub to https://docs.secondfactor.ai (old #anchors map to its pages)
     /privacy/             privacy/index.html            Privacy Policy (full text; footer links point here)
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
-    /country/             country/index.html            Country directory (linked from /pricing/)
-    /country/<slug>/      country/<slug>/index.html     20 country LPs, including India
+    /country/             country/index.html            Country directory (linked from /pricing/; noindex)
+    /country/<slug>/      country/<slug>/index.html     20 country LPs, including India (noindex)
     /features/            features/index.html           Features overview (the "Features" nav dropdown links here and to each page)
     /features/<slug>/     features/<slug>/index.html    Feature pages: otp-routing-fallback, otp-delivery-logs,
                                                         otp-template-management, pie-playground
@@ -43,7 +43,7 @@ Clean URLs, one directory per page (each holds an `index.html`):
                                                          Twilio logo: assets/logos/twilio.svg, from Twilio’s
                                                          official https://www.twilio.com/content/dam/twilio-com/
                                                          core-assets/customer-logos/t-z/twilio.svg.
-                                                         Direct-link page, noindex; not managed by the generator.
+                                                         Indexable and in sitemap.xml; not managed by the generator.
     /blog/                blog/index.html               Blog listing: compact intro, then one `.blog-card` link per published article
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
@@ -73,6 +73,10 @@ never publishes it, but it still previews locally at `/blog/_template/`.
 2. In the new `index.html`, edit every line marked `<!-- EDIT -->`: title, description,
    canonical and `og:url` (slug), Open Graph / Twitter text and image, both dates, the JSON-LD
    block, breadcrumb, category, h1, standfirst, byline and author box.
+   Articles are authored by **Naman Nepal** (photo `assets/authors/naman-nepal.webp`): the byline,
+   the author box (name links to namannepal.com) and the JSON-LD `author` (`Person`, with his
+   LinkedIn and X profiles in `sameAs`) are already filled in the template. Keep all three in
+   sync if the author or bio changes.
 3. Change the robots meta to `index, follow, max-image-preview:large, max-snippet:-1`.
 4. Write the body with the ready-made blocks: `.post-tldr` (key takeaways), `.post-table`
    (comparison table, add `class="is-us"` to our row), `.post-item` (one per provider, with
@@ -178,9 +182,13 @@ template and regenerate for illustration changes shared by country pages.
 ## Country landing pages
 
 All 20 destinations from the pricing list have a static landing page, collected in the
-`/country/` directory (linked from the pricing page). Every country page and the directory
-are indexable and listed in `sitemap.xml`; breadcrumbs run Home › Countries › Country.
-When you add a country, add its `/country/<slug>/` URL to `sitemap.xml` too.
+`/country/` directory (linked from the pricing page). Breadcrumbs run Home › Countries › Country.
+
+Since November 2026 the country pages and the directory are `noindex, follow` and are not in
+`sitemap.xml`: they share most of their copy, and Search Console showed them (and other pages)
+as crawled but not indexed. Keep them out of the index until each country has distinct
+content. The robots tag comes from `country/india/index.html`, so change it there and
+regenerate.
 
 `country/india/index.html` is the reference layout. The other 19 pages and the
 country directory are generated from it, using `country/countries.json` for country
