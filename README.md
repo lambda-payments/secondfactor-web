@@ -16,6 +16,7 @@ Clean URLs, one directory per page (each holds an `index.html`):
     /channels/rcs/        channels/rcs/index.html       RCS OTP
     /pricing/             pricing/index.html            Pricing: one price per OTP sent per country, from data/pricing.json
     /support/             support/index.html            Support / contact
+    /about/               about/index.html              About: company, values, team (photos in assets/team/), careers, contact. Styles: css/about.css
     /docs/                docs/index.html               Redirect stub to https://docs.secondfactor.ai (old #anchors map to its pages)
     /privacy/             privacy/index.html            Privacy Policy (full text; footer links point here)
     /terms/               terms/index.html              Terms & Conditions (full text; footer links point here)
