@@ -95,9 +95,10 @@ never publishes it, but it still previews locally at `/blog/_template/`.
 
 ## SEO head
 
-Each page's `<head>` opens with the Google Analytics 4 tag (`G-YG63Q66ERF`, gtag.js); copy it
-when you add a page. The country and compare generators pick it up from their source pages, and
-redirect stubs do not carry it. After the tag, the `<head>` carries, in order: title, meta description, canonical, robots,
+Each page's `<head>` opens with the Google Tag Manager container (`GTM-5KHCJLB6`), and the
+GTM `<noscript>` iframe sits directly after `<body>`; copy both when you add a page. GA4 and other
+tags are configured inside GTM, not on the pages. The country and compare generators pick them up
+from their source pages, and redirect stubs do not carry them. After the tag, the `<head>` carries, in order: title, meta description, canonical, robots,
 theme-color, Open Graph tags, Twitter card tags, apple-touch-icon, then a JSON-LD block.
 The JSON-LD is a `@graph`: the home page declares `Organization` + `WebSite` + `WebPage`;
 every other page declares `BreadcrumbList` + `WebPage`. When you add a page, copy the head
@@ -293,8 +294,10 @@ in a page or script.
 
 Two tools run on the site, configured independently.
 
-**Google Analytics 4** (`G-YG63Q66ERF`) is the gtag.js snippet at the top of every page's `<head>`
-(see "SEO head"). It loads on every visit and is not governed by the consent banner.
+**Google Tag Manager** (`GTM-5KHCJLB6`) is the container snippet at the top of every page's
+`<head>`, plus its `<noscript>` iframe after `<body>` (see "SEO head"). Google Analytics 4
+(`G-YG63Q66ERF`) and any other Google tags are added inside GTM, not on the pages. The container
+loads on every visit and is not governed by the consent banner.
 
 **PostHog** is configured entirely in `js/analytics.js`, which every page loads with
 `<script src="/js/analytics.js" defer>` directly after `js/theme.js`. Copy that line when you add a
