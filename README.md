@@ -298,6 +298,8 @@ Two tools run on the site, configured independently.
 `<head>`, plus its `<noscript>` iframe after `<body>` (see "SEO head"). Google Analytics 4
 (`G-YG63Q66ERF`) and any other Google tags are added inside GTM, not on the pages. The container
 loads on every visit and is not governed by the consent banner.
+The same container runs on app.secondfactor.ai, which pushes the `sign_up` conversion event;
+the app-side instructions are in `_dev/app-gtm-handoff.md` (not published: Jekyll skips `_` folders).
 
 **PostHog** is configured entirely in `js/analytics.js`, which every page loads with
 `<script src="/js/analytics.js" defer>` directly after `js/theme.js`. Copy that line when you add a
