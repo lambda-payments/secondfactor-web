@@ -203,9 +203,9 @@ html body main > section.blog-cta:not(#sf)::before{display:none!important}
 .author-intro .author-hero h1{margin:4px 0 6px}
 .author-intro p.author-role{font:400 14px/1.4 Sora,system-ui,sans-serif;color:var(--mut2);margin:0 0 14px}
 .author-intro p.author-bio{max-width:62ch}
-.author-links{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:20px 0 0;padding:0}
-.author-link{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--post-line);border-radius:999px;background:var(--post-tint);font:400 13.5px Sora,system-ui,sans-serif;color:var(--fg);transition:border-color .2s ease,color .2s ease}
-.author-link:hover{border-color:#3078e8;color:#2461c9}
+.author-links{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:16px 0 0 -8px;padding:0}
+.author-link{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;color:var(--mut2);transition:color .2s ease}
+.author-link:hover{color:var(--ac)}
 .post-meta a{color:inherit}
 .post-meta a:hover b{color:var(--ac)}
 @media (max-width:600px){.author-hero{flex-direction:column}.author-photo{width:96px;height:96px}}
