@@ -44,6 +44,8 @@ Clean URLs, one directory per page (each holds an `index.html`):
                                                          official https://www.twilio.com/content/dam/twilio-com/
                                                          core-assets/customer-logos/t-z/twilio.svg.
                                                          Indexable and in sitemap.xml; not managed by the generator.
+    /author/naman-nepal/  author/naman-nepal/index.html Author profile: photo, role, bio, website/LinkedIn/X links and a
+                                                         .blog-card for each of his articles (keep in sync with /blog/)
     /blog/                blog/index.html               Blog listing: compact intro, then one `.blog-card` link per published article
     (not published)       blog/_template/index.html     Article template. Copy it to blog/<slug>/ to write a post (see below)
 
@@ -74,9 +76,9 @@ never publishes it, but it still previews locally at `/blog/_template/`.
    canonical and `og:url` (slug), Open Graph / Twitter text and image, both dates, the JSON-LD
    block, breadcrumb, category, h1, standfirst, byline and author box.
    Articles are authored by **Naman Nepal** (photo `assets/authors/naman-nepal.webp`): the byline,
-   the author box (name links to namannepal.com) and the JSON-LD `author` (`Person`, with his
-   LinkedIn and X profiles in `sameAs`) are already filled in the template. Keep all three in
-   sync if the author or bio changes.
+   the author box and the JSON-LD `author` (`Person`, `url` = his author page, website, LinkedIn
+   and X in `sameAs`) are already filled in the template, and both name links go to
+   `/author/naman-nepal/`. Keep these and the author page in sync if the role or bio changes.
 3. Change the robots meta to `index, follow, max-image-preview:large, max-snippet:-1`.
 4. Write the body with the ready-made blocks: `.post-tldr` (key takeaways), `.post-table`
    (comparison table, add `class="is-us"` to our row), `.post-item` (one per provider, with
@@ -88,6 +90,7 @@ never publishes it, but it still previews locally at `/blog/_template/`.
 5. Do not wrap body content in `<section>` or use `.crd`: `motion.css` restyles both.
 6. List the article: copy an `<a class="blog-card">` block on `/blog/` (category, title, one-line
    summary, "Read article") for the new post, and fill "Keep reading" with published posts only.
+   Add the same card to `/author/naman-nepal/` and update the count in "Articles by Naman (N)".
 7. Add the URL to `sitemap.xml` (and bump the `/blog/` entry's `lastmod`).
 
 ## SEO head

@@ -195,3 +195,17 @@ html body main > section.blog-cta:not(#sf)::before{display:none!important}
 @media (max-width:720px){html body main > section.blog-intro:not(#sf){padding-top:36px!important;padding-bottom:24px!important}}
 
 @media (prefers-reduced-motion:reduce){.post-card,.blog-card,.blog-card-more span{transition:none}}
+
+/* author profile page (/author/<slug>/): reuses .blog-intro, .blog-list and .blog-card */
+.author-intro .post-crumbs{margin-bottom:24px}
+.author-hero{display:flex;gap:clamp(20px,3vw,36px);align-items:flex-start}
+.author-photo{width:128px;height:128px;border-radius:50%;object-fit:cover;flex:none;border:1px solid var(--post-line);background:var(--post-tint)}
+.author-intro .author-hero h1{margin:4px 0 6px}
+.author-intro p.author-role{font:400 14px/1.4 Sora,system-ui,sans-serif;color:var(--mut2);margin:0 0 14px}
+.author-intro p.author-bio{max-width:62ch}
+.author-links{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:20px 0 0;padding:0}
+.author-link{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--post-line);border-radius:999px;background:var(--post-tint);font:400 13.5px Sora,system-ui,sans-serif;color:var(--fg);transition:border-color .2s ease,color .2s ease}
+.author-link:hover{border-color:#3078e8;color:#2461c9}
+.post-meta a{color:inherit}
+.post-meta a:hover b{color:var(--ac)}
+@media (max-width:600px){.author-hero{flex-direction:column}.author-photo{width:96px;height:96px}}
