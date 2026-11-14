@@ -39,8 +39,9 @@ main:has(> .post-wrap > .post-head){overflow-x:clip} /* 100vw hero must not add 
 .post-cover img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;border:1px solid var(--post-line)}
 
 /* ---- two-column layout: sticky sidebar + body ---- */
-/* article body on the left, table of contents + CTA sidebar on the right (order only; markup keeps the aside first) */
-.post-grid{display:grid;grid-template-columns:minmax(0,760px) 280px;gap:clamp(40px,4.5vw,72px);align-items:start;padding:clamp(30px,3.6vw,50px) 0 clamp(60px,7vw,100px)}
+/* article body on the left, table of contents + CTA sidebar on the right (order only; markup keeps the aside first),
+   the pair centred in the page */
+.post-grid{display:grid;grid-template-columns:minmax(0,820px) clamp(240px,24vw,320px);justify-content:center;gap:clamp(40px,4.5vw,80px);align-items:start;padding:clamp(30px,3.6vw,50px) 0 clamp(60px,7vw,100px)}
 .post-grid > .post-side{order:2}
 .post-grid > .post-body{order:1}
 /* dark.css turns the TOC into a card (surface + border); give it inner spacing there */
@@ -56,7 +57,7 @@ html[data-theme="dark"] .post-side .post-toc-box{padding:20px 20px 18px}
 .post-sidecta a{font:400 14px Sora,system-ui,sans-serif}
 
 /* ---- body typography ---- */
-.post-body{max-width:760px;font:300 17.5px/1.8 Sora,system-ui,sans-serif;color:var(--post-ink)}
+.post-body{max-width:820px;font:300 17.5px/1.8 Sora,system-ui,sans-serif;color:var(--post-ink)}
 .post-body > :first-child{margin-top:0}
 .post-body h2{font:300 clamp(25px,2.4vw,31px)/1.2 Sora,system-ui,sans-serif;letter-spacing:-.02em;color:var(--fg);margin:58px 0 16px;scroll-margin-top:96px}
 .post-body h3{font:400 20px/1.35 Sora,system-ui,sans-serif;letter-spacing:-.01em;color:var(--fg);margin:36px 0 10px;scroll-margin-top:96px}
